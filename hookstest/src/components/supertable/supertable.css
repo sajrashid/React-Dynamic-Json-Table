@@ -1,0 +1,76 @@
+.supertable>thead>tr>th{
+    cursor: pointer;
+}
+
+
+.supertable>thead>tr .searchInputCss{
+    padding: 0.5rem 0 0.5rem 0.5rem;
+
+}
+.supertable>thead>tr .searchInputCss span {
+    width: 100%;
+}
+.supertable>thead>tr .searchInputCss input {
+    min-height: 2.6rem;
+    padding: 0.3em;
+    font-size: large;
+    border-radius: 0.3em;
+    border: #999 solid 1px;
+    border-radius: 0.3em;
+    color: rgb(170, 114, 114);
+}
+.supertable>thead>tr .searchInputCss input:focus {
+    outline: none !important;
+    box-shadow: 0 0 0.3em #719ECE;
+}
+.supertable>tfoot>tr>td>a {
+    cursor: pointer;
+    padding: 0.4em;
+    margin-right: 0.1em;
+}
+
+.supertable .selectedRow {
+    background-color: aliceblue!important;
+}
+.supertable .selectedPage{
+    text-decoration : underline;
+}
+
+.supertable .pagerDiv {
+display: inline-block;
+padding: 0.5em;
+background-color: #f7f7f7;
+min-width: 230px;
+ }
+ .supertable .pagerDiv button  {
+    float: left;
+    font-size: 1.3em;
+    border: 0.05em solid grey;
+    background: none;
+    box-shadow: none;
+    border-radius: 0px;
+    background-color: #f9f9f9;
+    color:#999;
+    padding: 0.1em 0.3em;
+ }
+ 
+
+ .supertable .pagerDiv  input {
+    float: left;
+    width:3em;
+    line-height: 1.5em;
+    padding-left: 0.3em;
+    color:#999;
+ }
+
+ .supertable .pagerDiv .pageCounter {
+position: relative;
+top:0.25em;
+margin-left:0.5em;
+line-height: 1.5em;
+background-color: #fff;
+padding: 0.3em;
+float: left;
+font-style: italic;
+font-size: 0.7em;
+}

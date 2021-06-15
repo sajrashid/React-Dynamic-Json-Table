@@ -1,8 +1,29 @@
+@font-face {
+  font-family: 'Oxygen-Regular';
+  src: url('./fonts/Oxygen-Regular.ttf') format('truetype');
+}
+@font-face {
+  font-family: 'StintUltraCondensed-Regular';
+  src: url('./fonts/StintUltraCondensed-Regular.ttf') format('truetype'), url('./fonts/StintUltraCondensed-Regular.ttf');
+}
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+
+html {
+  scroll-behavior: smooth;
+  background-color: rgb(131, 131, 131)
+
+}
+
+html,body,#root,.App{
+  width:100%;height: 100%;
+}
 body {
+  position: absolute;
   margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-    sans-serif;
+  font-family: 'Oxygen-Regular', 'Segoe UI';
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
@@ -10,4 +31,34 @@ body {
 code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
+}
+theme-dark {
+  --dark-text: #292929;
+  --light-text: #F9F8F8;  
+  --dark-background: #2F4550;
+  --light-background: #586F7C;
+  --accent: #B8DBD9;
+  --button-border: #B8DBD9;
+}
+
+.theme-light {
+  --dark-text: #5E4B56;
+  --light-text: #5E4B56;
+  --dark-background: #DBE7E4;
+  --light-background: #EDDCD2;
+  --accent: #DBE7E4;
+  --button-border: #5E4B56;
+}
+html, #root {
+  background-color: var(--dark-background);
+  color: var(--dark-text);
+}
+
+nav {
+  background-color: var(--dark-background);
+  color: var(--light-text);
+}
+
+#root {
+  background-color: var(--light-background);
 }
