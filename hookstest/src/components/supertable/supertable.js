@@ -1,10 +1,14 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, createContext  } from "react";
 import _ from 'lodash'
 import './supertable.css'
 import Rows from './children/rows'
 import Thead from './children/thead'
 import Pager from './children/pager'
 import Filters from './children/filters'
+
+// setup context exports
+export const DataContext = React.createContext([]);
+
 const SuperTable = props => {
     const options = props.options || {}
     let [pageable, updatePageable] =  useState(options.pageable || false)
@@ -145,20 +149,22 @@ const SuperTable = props => {
 
     return (
         <table className={cssClasses}  >
+            <DataContext.Provider value={{json:json, options:options}}>
             <thead>{options.filters&&<tr><Filters searchFilter={searchFilter} options={options}/></tr>}
                 {json.length > 0 && <tr><Thead json={json} options={options} headerClick={headerClick}/></tr>}
             </thead>
             <tbody>
                 {
-                    json.length > 0 && <Rows json={json} options={options} selectedRowId={selectedRowId} rowClick={rowClick} />
+                    json.length > 0 && <Rows  selectedRowId={selectedRowId} rowClick={rowClick} />
                 }
                 {
                     json.length < 1 && <tr><td>Empty</td></tr>
                 }
             </tbody>
             <tfoot>
-                <tr>{pageable && <td style={{ minWidth: '200px' }}><div className='pagerDiv' > <Pager pagerIcons={pagerIcons} totalpages={totalpages} pagerInput={pagerInput} pageNo={pageNo} pagingClick={pagingClick} pagingInputChange={pagingInputChange}/></div></td>}</tr>
+                <tr>{pageable && <td style={{ minWidth:'200px'}}><div className='pagerDiv' > <Pager pagerIcons={pagerIcons} totalpages={totalpages} pagerInput={pagerInput} pageNo={pageNo} pagingClick={pagingClick} pagingInputChange={pagingInputChange}/></div></td>}</tr>
             </tfoot>
+            </DataContext.Provider>
         </table>
     )
 }

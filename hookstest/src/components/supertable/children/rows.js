@@ -1,13 +1,13 @@
-
-import React from "react";
+import { DataContext } from '../supertable';
+import React, {useContext} from "react";
 import Cells from './cells'
-const row = props => {
-    const options = props.options
+const Row = props => {
+    const data = useContext(DataContext)
+    const json = data.json || []
+    const options = data.options || {}
     const styles = options.rowStyles || ''
     const cssClasses = ` ${styles}`
-    const idColIdx = options.idCol ? Object.keys(props.json[0]).indexOf(options.idCol) : 0
-    const json = props.json
-
+    const idColIdx = options.idCol ? Object.keys(data.json[0]).indexOf(options.idCol) : 0
     const createRows = () => {
         return json.map((row, index) => {
             const rowId = row[Object.keys(row)[idColIdx]] // eslint-disable-next-line
@@ -17,6 +17,6 @@ const row = props => {
 
     return (createRows())
 }
-export default row
+export default Row
 
 
