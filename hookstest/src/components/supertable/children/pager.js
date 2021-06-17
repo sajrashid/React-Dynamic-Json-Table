@@ -1,9 +1,10 @@
+import { useCustomContext  } from '../customContext';
 import React from "react";
 import helper from "../helpers/helper"
 
-const pager = props => {
+const Pager = props => {
     const handleFocus = (e) => e.target.select();
-
+    const { pageNo, pagerDispatch } = useCustomContext ()
     const createPager = () => {
         let arr = Object.keys(props.pagerIcons)
       
@@ -11,15 +12,13 @@ const pager = props => {
             const html = props.pagerIcons[key]
            
             if (index === 2) {
-               
                return <React.Fragment key={index}>
                     <div><input onFocus={handleFocus} onChange={props.pagingInputChange} value={props.pagerInput} type="number" /></div>
-                    <button id={key} onClick={props.pagingClick} dangerouslySetInnerHTML={helper.createMarkup(html)}></button>
+                    <button id={key} onClick={()=>pagerDispatch({type:'next'})} dangerouslySetInnerHTML={helper.createMarkup(html)}></button>
                 </React.Fragment>
             }
            
             if (index === 3) {
-               
                return <React.Fragment key={index}>
                     <button id={key} onClick={props.pagingClick} dangerouslySetInnerHTML={helper.createMarkup(html)}></button>
                     <div className='pageCounter'>{props.pageNo}&nbsp;of&nbsp;{props.totalpages}&nbsp;pages</div>
@@ -36,4 +35,4 @@ const pager = props => {
 
 }
 
-export default pager
+export default Pager

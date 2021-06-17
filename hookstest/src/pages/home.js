@@ -4,6 +4,7 @@ import Simple from "./examples/simple";
 import './home.css'
 import Banner  from "../components/banner";
 import cars from '../data.json';
+import Table from "../components/supertable/Table";
 
 const Home = props => {
 
@@ -63,9 +64,7 @@ const Home = props => {
   }
   return (
     <div className="w-full h-full">
-      <Banner/>
-      <Simple />
-
+      <Table/>
       {/* <SuperTable json={json} rowClick={rowClick} options={options} />
       <SuperTable json={cars} options={carOptions} /> */}
     </div>
