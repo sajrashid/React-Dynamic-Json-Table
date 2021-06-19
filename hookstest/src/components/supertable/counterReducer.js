@@ -6,9 +6,9 @@ DECREMENT:'decrement'
 
     switch (action.type) {
         case ACTIONS.INCREMENT:
-         return {countc: state.countc +1}  
+         return {count: state.count +1}  
          case ACTIONS.DECREMENT:
-         return {countc: state.countc -1}  
+         return {count: state.count -1}  
           
         default:
          return state

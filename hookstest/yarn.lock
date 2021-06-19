@@ -3979,6 +3979,11 @@
   dependencies:
     "domelementtype" "1"
 
+"dompurify@^2.2.9":
+  "integrity" "sha512-+9MqacuigMIZ+1+EwoEltogyWGFTJZWU3258Rupxs+2CGs4H914G9er6pZbsme/bvb5L67o2rade9n21e4RW/w=="
+  "resolved" "https://registry.npmjs.org/dompurify/-/dompurify-2.2.9.tgz"
+  "version" "2.2.9"
+
 "domutils@^1.5.1", "domutils@^1.7.0":
   "resolved" "https://registry.npmjs.org/domutils/-/domutils-1.7.0.tgz"
   "version" "1.7.0"

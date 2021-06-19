@@ -1,0 +1,34 @@
+import { ACTIONS } from './actions'
+
+export const TableReducer = (state, action) => {
+    console.log(state)
+    const json = state.json
+    const options=state.options
+   
+    switch (action.type) {
+        case ACTIONS.ROWCLICK:
+            const columns=Object.keys(json[0])
+            const idColIdx = options.idCol ? columns.indexOf(options.idCol) : 0
+            let currentTargetId = action.payload.id
+            let objRow = {}
+            json.map((row) => {
+                let idx = row[columns(row)[idColIdx]]
+                if (currentTargetId === idx.toString()) {
+                    return objRow = row
+                }
+                return false
+            })
+            state.selectedRow=currentTargetId
+            return { selectedRow: {objRow}}
+           
+        case ACTIONS.SORT:
+            console.log(action.payload.id)
+            let colName=action.payload.id
+            json.sort((a, b) => (a[colName]) - (b[colName]));
+            return { json:state.json }
+
+        default:
+            return state
+    
+}
+}

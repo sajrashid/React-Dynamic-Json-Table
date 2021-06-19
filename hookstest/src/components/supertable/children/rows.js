@@ -1,19 +1,23 @@
-import { useCustomContext } from '../customContext';
-import React from "react";
+import { useCustomContext } from '../customContext'
+import React, { useState,useReducer} from "react"
 import Cells from './cells'
-const Row = props => {
-    const {json, pageNo, pagerDispatch } = useCustomContext ()
+import { ACTIONS } from '../actions'
+import { TableReducer } from '../tableReducer'
+//create your forceUpdate hook
+
+ function Row(props) {
+
+    const data= useCustomContext()
+    const [state, sortDispatch] = useReducer(TableReducer, { json: data.json  })
     const options = {}
     const styles = options.rowStyles || ''
     const cssClasses = ` ${styles}`
-    const idColIdx = options.idCol ? Object.keys(json[0]).indexOf(options.idCol) : 0
+    const idColIdx = options.idCol ? Object.keys(data.json[0]).indexOf(options.idCol) : 0
     const createRows = () => {
-        return json.map((row, index) => {
+        return state.json.map((row, index) => {
             const rowId = row[Object.keys(row)[idColIdx]] // eslint-disable-next-line
-            return <tr className={cssClasses} onClick={props.rowClick} id={rowId} key={index} className={props.selectedRowId == rowId ? "selectedRow" : ""}>
-                
-                <Cells row={row} options={options} />
-                
+            return <tr className={cssClasses}  id={rowId} key={index} >
+                <Cells row={row} />
                 </tr>
         })
     }

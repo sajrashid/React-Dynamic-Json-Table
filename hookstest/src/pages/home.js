@@ -7,7 +7,12 @@ import cars from '../data.json';
 import Table from "../components/supertable/Table";
 
 const Home = props => {
+ const data=[
+   {id:444,name:'vvv',type:false},
+   {id:1,name:'ddd',type:true},
+   {id:434,name:'abc',type:true},
 
+ ]
 
   // Table options not required for defaults
   const options = {
@@ -64,7 +69,8 @@ const Home = props => {
   }
   return (
     <div className="w-full h-full">
-      <Table/>
+       <SuperTable json={json} rowClick={rowClick} options={options} />
+      <Table json={data} />
       {/* <SuperTable json={json} rowClick={rowClick} options={options} />
       <SuperTable json={cars} options={carOptions} /> */}
     </div>

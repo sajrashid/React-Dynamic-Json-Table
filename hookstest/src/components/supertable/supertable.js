@@ -3,9 +3,10 @@ import _, { initial } from 'lodash'
 import './supertable.css'
 import CustomContext from './customContext'
 import {counterReducer} from './counterReducer'
-
-
+export let DataContext = createContext();
 export default  function SuperTable(props) {
+   
+    DataContext=props.json || []
     const [state, counterDispatch]=useReducer(counterReducer,{count:0})
 
     const ACTIONS={
@@ -23,7 +24,7 @@ export default  function SuperTable(props) {
     return (
        <div>
            <button onClick={decrement}>-</button>
-        <span>{state.countb}</span>
+        <span>{state.count}</span>
         <button onClick={increment}>+</button>
 
        </div>

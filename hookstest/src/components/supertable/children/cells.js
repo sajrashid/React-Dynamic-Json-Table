@@ -2,10 +2,10 @@ import _ from 'lodash';
 import React from "react";
 import { useCustomContext } from '../customContext';
 import helper from "../helpers/helper";
+                
 
 const Cells = props => {
-    const { json ,pageNo, pagerDispatch } = useCustomContext ()
-    const data=json
+    const data= useCustomContext()
     const options = data.options || {}
     const styles = options.cellStyles || ''
     const cssClasses = ` ${styles}`
