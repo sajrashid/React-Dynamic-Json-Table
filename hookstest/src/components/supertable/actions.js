@@ -1,12 +1,11 @@
 export const ACTIONS={
-    ROWCLICK:'rowClick',
+    SELECTROW:'SelectRow',
     SORT:'sort',
     FIRST:'first',
     LAST:'last',
     NEXT:'next',
     PREVIOUS:'Previous',
     GOTOPAGE:'goToPage'
-
 }
 
 

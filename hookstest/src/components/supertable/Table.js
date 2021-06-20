@@ -13,7 +13,10 @@ export default function Table(props) {
 
     const data = { json: json, options: options }
 
-    const [state, sortDispatch] = useReducer(TableReducer, { json: data.json })
+    const [state, dispatch] = useReducer(TableReducer, { json: data.json })
+
+   // const [state, selectRowDispatch] = useReducer(TableReducer, { json: data.json })
+
 
     const [name, setName] = useLocalStorage('name', () => '')
     //  const [state, counterDispatch]=useReducer(counterReducer,{count:0})
@@ -21,7 +24,7 @@ export default function Table(props) {
     const styles = options.css || ''
     const cssClasses = ` ${styles}`
     function handleSortClick(e) {
-        sortDispatch({ type: ACTIONS.SORT, payload: { id: e.currentTarget.id } })
+        dispatch({ type: ACTIONS.SORT, payload: { id: e.currentTarget.id } })
     }
 
     return (
@@ -29,11 +32,11 @@ export default function Table(props) {
             <DataProvider.Provider value={data}>
                 <table className={cssClasses}>
                     <thead>
-                        <tr><Thead sortDispatch={sortDispatch} /></tr>
+                        <tr><Thead dispatch={dispatch} /></tr>
                     </thead>
                     <tbody>
 
-                        <Rows />
+                        <Rows state={state} dispatch={dispatch} />
 
                     </tbody>
                 </table>

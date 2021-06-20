@@ -1,12 +1,13 @@
 import { ACTIONS } from './actions'
+import { useCustomContext } from "../supertable/customContext";
 
 export const TableReducer = (state, action) => {
     console.log(state)
     const json = state.json
-    const options=state.options
-   
+    const data = useCustomContext()
+    const options = data.options || {}
     switch (action.type) {
-        case ACTIONS.ROWCLICK:
+        case ACTIONS.SELECTROW:
             const columns=Object.keys(json[0])
             const idColIdx = options.idCol ? columns.indexOf(options.idCol) : 0
             let currentTargetId = action.payload.id

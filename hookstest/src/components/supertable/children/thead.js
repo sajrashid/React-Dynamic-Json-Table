@@ -5,7 +5,7 @@ import _ from 'lodash';
 import helper from '../helpers/helper';
 import { useCustomContext } from "../customContext";
 
-export default function Thead ({sortDispatch}) {
+export default function Thead ({dispatch}) {
     const data= useCustomContext()
     const options = data.options
     const hiddenColumns = options.hiddenCols || []
@@ -24,8 +24,8 @@ export default function Thead ({sortDispatch}) {
             
             const isLabel =  _.find(labelColsArr, key)
             return isHidden ? null :
-                isLabel ? <th className={cssClasses} id={key} key={key} onClick={(e) => sortDispatch({type:ACTIONS.SORT, payload:{id:e.currentTarget.id}})} dangerouslySetInnerHTML={helper.createMarkupLiteral(key, isLabel[key], key)}></th>
-                    : <th  className={cssClasses}  id={key} key={key} onClick={(e) => sortDispatch({type:ACTIONS.SORT, payload:{id:e.currentTarget.id}})} >{key}</th>
+                isLabel ? <th className={cssClasses} id={key} key={key} onClick={(e) => dispatch({type:ACTIONS.SORT, payload:{id:e.currentTarget.id}})} dangerouslySetInnerHTML={helper.createMarkupLiteral(key, isLabel[key], key)}></th>
+                    : <th  className={cssClasses}  id={key} key={key} onClick={(e) => dispatch({type:ACTIONS.SORT, payload:{id:e.currentTarget.id}})} >{key}</th>
         })
     }
 

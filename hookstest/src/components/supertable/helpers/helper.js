@@ -13,7 +13,7 @@ const helper = {
         const result = templateLiteral(str, {
             [key]: replaceValue
         });
-        var clean = DOMPurify.sanitize(html);
+        var clean = DOMPurify.sanitize(result);
         return { __html: clean }
     },
 
