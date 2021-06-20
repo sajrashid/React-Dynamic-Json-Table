@@ -13,15 +13,25 @@ function Row({ state, dispatch }) {
     const styles = options.rowStyles || ''
     const cssClasses = ` ${styles}`
     const idColIdx = options.idCol ? Object.keys(data.json[0]).indexOf(options.idCol) : 0
+
+  
+
     function handleRowClick(e) {
-      var r=  dispatch({ type: ACTIONS.SELECTROW, payload: { id: e.currentTarget.id } })
-        console.log(r)
+        let selectedRow ={}
+        state.json.forEach(row => {
+             const rowId = row[Object.keys(row)[idColIdx]]
+            if (rowId === parseInt(e.currentTarget.id))
+            selectedRow=row
+        });
+
+        dispatch({ type: ACTIONS.SELECTROW, payload: { row: selectedRow } })
+
     }
 
     const createRows = () => {
         return state.json.map((row, index) => {
             const rowId = row[Object.keys(row)[idColIdx]] // eslint-disable-next-line
-            return <tr  key={index} className={state.selectedRowId == rowId ? "selectedRow" : ""} id={rowId} onClick={handleRowClick} >
+            return <tr key={index} className={state.selectedRow == row ? "selectedRow" : ""} id={rowId} onClick={handleRowClick} >
                 <Cells row={row} />
             </tr>
         })
