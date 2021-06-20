@@ -7,7 +7,7 @@ import { TableReducer } from './tableReducer'
 import Thead from './children/thead'
 import useLocalStorage from '../hooks/useLocalStorage'
 
-export default function Table(props) {
+export default React.memo(function Table(props) {
     const options = props.options || {}
     const json = props.json || []
     const sortDirection ='asc'
@@ -42,11 +42,9 @@ export default function Table(props) {
             </DataProvider.Provider>
             <input type="text" value={name} onChange={e => setName(e.target.value)} />
             <span>{state.json.toString()}</span>
-           
-           
             <div>{JSON.stringify(state.selectedRow)}</div>
             <button onClick={handleSortClick}>sort</button>
 
         </>
     )
-}
+})
