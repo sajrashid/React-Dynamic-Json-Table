@@ -8,10 +8,10 @@ import Table from "../components/supertable/Table";
 
 const Home = props => {
  const data=[
-   {id:444,name:'vvv',type:false},
-   {id:1,name:'ddd',type:true},
-   {id:434,name:'abc',type:true},
-
+   {d:444,name:'vvv',type:false},
+   {d:1,name:'ddd',type:true},
+   {d:434,name:'abc',type:true},
+   {d:434,name:'abc',type:true},
  ]
 
   // Table options not required for defaults

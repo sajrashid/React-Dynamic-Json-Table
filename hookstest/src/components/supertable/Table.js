@@ -10,18 +10,18 @@ import useLocalStorage from '../hooks/useLocalStorage'
 export default function Table(props) {
     const options = props.options || {}
     const json = props.json || []
-    const initialState = { json: json, options: options, selectedRow:{} }
+    const sortDirection ='asc'
+    const initialState = { json: json, options: options, selectedRow:{},sortDirection:sortDirection }
 
     const [state, dispatch] = useReducer(TableReducer, initialState)
 
    // const [state, selectRowDispatch] = useReducer(TableReducer, { json: data.json })
-    let j=JSON.stringify(state.selectedRow)
 
     const [name, setName] = useLocalStorage('name', () => '')
     //  const [state, counterDispatch]=useReducer(counterReducer,{count:0})
 
     const styles = options.css || ''
-    const cssClasses = ` ${styles}`
+    const cssClasses = `mytable ${styles}`
     function handleSortClick(e) {
         dispatch({ type: ACTIONS.SORT, payload: { id: e.currentTarget.id } })
     }
@@ -44,7 +44,7 @@ export default function Table(props) {
             <span>{state.json.toString()}</span>
            
            
-            <div>{j}</div>
+            <div>{JSON.stringify(state.selectedRow)}</div>
             <button onClick={handleSortClick}>sort</button>
 
         </>
