@@ -1,8 +1,10 @@
-import { useCustomContext } from '../customContext'
-import React, { useState,useReducer} from "react"
-import Cells from './cells'
+import React, { useReducer, useState } from "react"
+
 import { ACTIONS } from '../actions'
+import Cells from './cells'
 import { TableReducer } from '../tableReducer'
+import { useCustomContext } from '../customContext'
+
 //create your forceUpdate hook
 
  function Row(props) {

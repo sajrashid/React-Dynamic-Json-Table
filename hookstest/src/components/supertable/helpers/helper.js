@@ -1,3 +1,4 @@
+import DOMPurify from 'dompurify';
 import _ from 'lodash'
 
 function templateLiteral(template, context = {}) {
@@ -12,11 +13,13 @@ const helper = {
         const result = templateLiteral(str, {
             [key]: replaceValue
         });
-        return { __html: result }
+        var clean = DOMPurify.sanitize(html);
+        return { __html: clean }
     },
 
     createMarkup(html) {
-        return { __html: html }
+        var clean = DOMPurify.sanitize(html);
+        return { __html: clean }
     },
 
 }

@@ -1,8 +1,10 @@
-import React,{useState, useReducer} from "react";
+import React,{useReducer, useState} from "react";
+
+import { ACTIONS } from '../actions'
 import _ from 'lodash';
 import helper from '../helpers/helper';
-import { ACTIONS } from '../actions'
 import { useCustomContext } from "../customContext";
+
 export default function Thead ({sortDispatch}) {
     const data= useCustomContext()
     const options = data.options
@@ -13,8 +15,14 @@ export default function Thead ({sortDispatch}) {
     const cssClasses = ` ${styles}`
     const createHeader = () => {
         return columns.map((key) => {
+
+            // Test if the options Hidden colums array matches the current column
+
             const isHidden = hiddenColumns.includes(key)
-            const isLabel = _.find(labelColsArr, key)
+
+            // Test if we can find the current column in options Label array
+            
+            const isLabel =  _.find(labelColsArr, key)
             return isHidden ? null :
                 isLabel ? <th className={cssClasses} id={key} key={key} onClick={(e) => sortDispatch({type:ACTIONS.SORT, payload:{id:e.currentTarget.id}})} dangerouslySetInnerHTML={helper.createMarkupLiteral(key, isLabel[key], key)}></th>
                     : <th  className={cssClasses}  id={key} key={key} onClick={(e) => sortDispatch({type:ACTIONS.SORT, payload:{id:e.currentTarget.id}})} >{key}</th>
