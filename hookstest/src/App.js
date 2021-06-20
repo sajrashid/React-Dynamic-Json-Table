@@ -6,6 +6,7 @@ import Examples from './pages/examples'
 import TopMenu from './components/menu/topMenu'
 import theme from "./theme"
 import { Select } from "./components/select"
+import Simple from "./pages/simple";
 
 export const ThemeContext = createContext(theme)
 console.log(theme)
@@ -36,6 +37,8 @@ function App() {
         <Switch>
           <Route exact path='/' component={Home} />
           <Route path='/examples' component={Examples} />
+          <Route path='/simple' component={Simple} />
+       
         </Switch>
         </BrowserRouter>
       

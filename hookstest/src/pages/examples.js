@@ -1,6 +1,7 @@
 import React from "react";
-import SuperTable from '../components/supertable/supertable'
+import Table from '../components/supertable/Table'
 import cars from '../data.json';
+
 const Examples = props => {
   const data1 = [
     { 'ID': 1, 'Name': 'React', 'Desc': 'Shadow Dom', 'Testing': false, },
@@ -84,23 +85,23 @@ const Examples = props => {
   return (
     <div>
       <div>
-        <SuperTable json={data1} />
+        <Table json={data1} />
       </div>
       <div>
-       <SuperTable json={data1} options={options1} />
+       <Table json={data1} options={options1} />
       </div>
       <div>
         {/* this table will cause duplicate row selections as it
         has duplicate data in the first colum, specify and id 
         if the data in the first col contains duplicates */}
-        <SuperTable json={data2} options={options2} />
+        <Table json={data2} options={options2} />
       </div>
       <div>
-        <SuperTable json={data1} options={options3} />
-        <SuperTable json={data3} options={options2}  />
+        <Table json={data1} options={options3} />
+        <Table json={data3} options={options2}  />
         {mapOptions()}
       </div>
-      <SuperTable json={cars} options={options} />
+      <Table json={cars} options={options} />
     </div>
   )
 }

@@ -1,8 +1,8 @@
 import SyntaxHighlighter from 'react-syntax-highlighter'
 import { docco } from 'react-syntax-highlighter/dist/esm/styles/hljs'
-import SuperTable from "../../components/supertable/supertable"
+import Table from '../components/supertable/Table'
 import './simple.css'
-import cars from '../../data.json'
+import cars from '../data.json'
 const Simple = props => {
     const data = [{ 'num': 0, 'Name': 'abc', 'IsReady': true }, { 'num': 1, 'Name': 'XYZ', 'IsReady': false }, { 'num': 3, 'Name': 'Cat', 'IsReady': true }]
   
@@ -48,7 +48,7 @@ const Simple = props => {
                     </div>
                 </div>
                 <div className="w-full p-4 mb-4 bg-white" >
-                    <SuperTable json={data} />
+                    <Table json={data} />
                 </div>
                 </div>
              
@@ -63,7 +63,7 @@ const Simple = props => {
 
                         </div>
                         <div className="w-full p-4 mb-4 bg-white" >
-                            <SuperTable json={cars} options={options} />
+                            <Table json={cars} options={options} />
                         </div>
                     </div>
                 </div>
@@ -77,7 +77,7 @@ const Simple = props => {
 
                     </div>
                     <div className="w-full p-4 mb-4 bg-white" >
-                        <SuperTable json={data} options={options} />
+                        <Table json={data} options={options} />
                     </div>
                 </div>
             </div>
