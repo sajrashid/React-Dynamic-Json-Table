@@ -8,10 +8,18 @@ import Table from "../components/supertable/Table";
 
 const Home = props => {
  const data=[
-   {d:444,name:'vvv',type:false},
-   {d:1,name:'ddd',type:true},
-   {d:434,name:'abc',type:true},
-   {d:434,name:'abc',type:true},
+  { 'ID': 1, 'Name': 'React', 'Desc': 'Shadow Dom', 'Testing': false, },
+    { 'ID': 2, 'Name': 'Ember', 'Desc': 'Shadow Dom ???', 'Testing': true, },
+    { 'ID': 3, 'Name': 'Knockout', 'Desc': '2 way databinding', 'Testing': false, },
+    { 'ID': 4, 'Name': 'AngularJS', 'Desc': 'mvc ???', 'Testing': false, },
+    { 'ID': 5, 'Name': 'Angular', 'Desc': '????', 'Testing': false, },
+    { 'ID': 6, 'Name': 'Mithril', 'Desc': 'Shadow Dom', 'Testing': false, },
+    { 'ID': 7, 'Name': 'BackBone', 'Desc': 'Lorun ipsum', 'Testing': true, },
+    { 'ID': 8, 'Name': 'Angular', 'Desc': '????', 'Testing': false, },
+    { 'ID': 9, 'Name': 'Mithril', 'Desc': 'Shadow Dom', 'Testing': false, },
+    { 'ID': 10, 'Name': 'BackBone', 'Desc': 'Lorun ipsum', 'Testing': true, },
+    { 'ID': 11, 'Name': 'Mithril', 'Desc': 'Shadow Dom', 'Testing': false, },
+    { 'ID': 12, 'Name': 'BackBone', 'Desc': 'Lorun ipsum', 'Testing': true, }
  ]
 
   // Table options not required for defaults
