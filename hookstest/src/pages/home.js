@@ -2,11 +2,8 @@ import './home.css'
 
 import React, { useEffect, useState } from "react";
 
-import Banner  from "../components/banner";
-import Simple from "./examples/simple";
-import SuperTable from '../components/supertable/supertable'
 import Table from "../components/supertable/Table";
-import cars from '../data.json';
+import useLocalStorage from '../components/hooks/useLocalStorage'
 
 const Home = props => {
  const data=[
@@ -41,20 +38,9 @@ const Home = props => {
 
     // NB SelectedRow backgroundColor can be set from SuperTable styles default ALice-Blue
   }
+  const [name, setName] = useLocalStorage('name', () => '')
 
-  const carOptions = {
-    // Not Required- If the first col is an identity column
-    editable: true, //
-    pageable: true, // Only Required- If you want paging
-    pageSize: 21,// Optional Defaults to 10
-    hiddenCols: ['id'], //Hide any column
-    dateCols: [{ PurchaseDate: 'en-GB' }], //specify locale info
-    dateOptions: { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' }, //optional
-    //or specify locale  'en-GB'
-    customCols: [{ 'BitCoin Address': '<i aria-hidden="true" class=" circle  info  icon"></i> content=${BitCoin Address}/>' }],
-    styles: "table",
-    // NB SelectedRow backgroundColor can be set from SuperTable styles default ALice-Blue
-  }
+  
   let [json, updateJson] = useState([])
 
   const rowClick = ( row) => {
@@ -77,11 +63,13 @@ const Home = props => {
   }
   return (
     <div className="w-full h-full">
-       <SuperTable json={json} rowClick={rowClick} options={options} />
-      <Table json={data} rowClick={rowClick} />
-      {/* <SuperTable json={json} rowClick={rowClick} options={options} />
-      <SuperTable json={cars} options={carOptions} /> */}
+      <Table  json={data} rowClick={rowClick} />
+
+      <div>
+       <input type="text" value={name} onChange={e => setName(e.target.value)} />
     </div>
+    </div>
+  
   )
 }
 
