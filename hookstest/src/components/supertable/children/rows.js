@@ -7,7 +7,7 @@ import { useCustomContext } from '../customContext'
 
 //create your forceUpdate hook
 
-function Row({ state, dispatch }) {
+function Row({ state, dispatch,rowClick }) {
     const data = useCustomContext()
     const options = data.options || {}
     const styles = options.rowStyles || ''
@@ -25,7 +25,7 @@ function Row({ state, dispatch }) {
         });
 
         dispatch({ type: ACTIONS.SELECTROW, payload: { row: selectedRow } })
-
+        rowClick(selectedRow)
     }
 
     const createRows = () => {

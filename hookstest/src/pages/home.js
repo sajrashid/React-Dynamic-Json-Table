@@ -1,10 +1,12 @@
-import React, { useState, useEffect } from "react";
-import SuperTable from '../components/supertable/supertable'
-import Simple from "./examples/simple";
 import './home.css'
+
+import React, { useEffect, useState } from "react";
+
 import Banner  from "../components/banner";
-import cars from '../data.json';
+import Simple from "./examples/simple";
+import SuperTable from '../components/supertable/supertable'
 import Table from "../components/supertable/Table";
+import cars from '../data.json';
 
 const Home = props => {
  const data=[
@@ -55,19 +57,17 @@ const Home = props => {
   }
   let [json, updateJson] = useState([])
 
-  const rowClick = (id, row) => {
+  const rowClick = ( row) => {
+    console.log(row)
     // id as string row as selectedRow object
   }
 
   useEffect(() => {
     async function fetchAPI() {
-      
         const url = 'https://jsonplaceholder.typicode.com/posts'
         const response = await fetch(url)
         const json = await response.json()
         updateJson(json)
-     
-    
     }
     fetchAPI()
   }, [])
@@ -78,7 +78,7 @@ const Home = props => {
   return (
     <div className="w-full h-full">
        <SuperTable json={json} rowClick={rowClick} options={options} />
-      <Table json={data} />
+      <Table json={data} rowClick={rowClick} />
       {/* <SuperTable json={json} rowClick={rowClick} options={options} />
       <SuperTable json={cars} options={carOptions} /> */}
     </div>

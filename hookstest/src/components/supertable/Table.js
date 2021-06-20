@@ -25,7 +25,13 @@ export default React.memo(function Table(props) {
     function handleSortClick(e) {
         dispatch({ type: ACTIONS.SORT, payload: { id: e.currentTarget.id } })
     }
-
+    const rowClick = (e) => {
+        if (options.selectable !== false) {
+            if (props.rowClick) {
+                props.rowClick(state.selectedRow)
+            }
+        }
+    }
     return (
         <>
             <DataProvider.Provider value={initialState}>
@@ -35,7 +41,7 @@ export default React.memo(function Table(props) {
                     </thead>
                     <tbody>
 
-                        <Rows state={state} dispatch={dispatch} />
+                        <Rows rowClick={rowClick} state={state} dispatch={dispatch} />
 
                     </tbody>
                 </table>

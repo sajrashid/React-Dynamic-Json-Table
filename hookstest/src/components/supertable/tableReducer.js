@@ -12,14 +12,12 @@ export const TableReducer = (state, action) => {
         case ACTIONS.SELECTROW:
             let selectedRow = action.payload.row
             state.selectedRow = selectedRow
-            console.log(state)
             return { ...state }
         case ACTIONS.SORT:
             let colName = action.payload.id
             let sortDirection = state.sortDirection
             json.sort(compareValues(colName, sortDirection));
             state.sortDirection === 'asc' ? state.sortDirection = 'desc': state.sortDirection = 'asc'
-            console.log(state)
             return { ...state }
 
         default:
