@@ -56,7 +56,7 @@ export default React.memo(function Table(props) {
                     <Rows className={cssClasses} rowClick={rowClick} state={state} dispatch={dispatch} />
                 </tbody>
                 <tfoot>
-                    <tr>{options.pageable && <td style={{ minWidth: '200px' }}><div className='pagerDiv' > <Pager state={state} dispatch={dispatch}    /></div></td>}</tr>
+                    <tr>{options.pageable && <td style={{ minWidth: '200px' }}><div className='pagerDiv' > <Pager state={state} dispatch={dispatch} /></div></td>}</tr>
                 </tfoot>
             </table>
         </DataProvider.Provider>

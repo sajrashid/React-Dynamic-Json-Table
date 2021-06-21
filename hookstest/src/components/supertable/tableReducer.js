@@ -22,6 +22,10 @@ export const TableReducer = (state, action) => {
             }
             return { ...state }
         case ACTIONS.GOTOPAGE:
+            const gotoPage =action.payload.gotoPage
+            state.pageNo=gotoPage
+            state.pagerInput=gotoPage
+            state.json=(paginate(state.jsonCopy, state.pageSize, gotoPage-1))
             return { ...state }
         case ACTIONS.FIRST:
             state.pageNo=1

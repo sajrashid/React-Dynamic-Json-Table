@@ -14,7 +14,8 @@ function Pager ({ state, dispatch }) {
         e.preventDefault()
         const el = e.currentTarget
         let inputValue = parseInt(el.value)
-        if ((inputValue < state.totalpages + 1) && (inputValue > 0)) {
+        if ((inputValue < state.totalPages + 1) && (inputValue > 0)) {
+            dispatch({type:ACTIONS.GOTOPAGE, payload:{gotoPage:inputValue}})
         }
 
         e.target.select();
