@@ -1,17 +1,21 @@
-import SyntaxHighlighter from 'react-syntax-highlighter'
-import { docco } from 'react-syntax-highlighter/dist/esm/styles/hljs'
-import Table from '../components/supertable/Table'
 import './simple.css'
+
+import Banner from '../components/banner'
+import React from "react";
+import SyntaxHighlighter from 'react-syntax-highlighter'
+import Table from '../components/supertable/Table'
 import cars from '../data.json'
+import { docco } from 'react-syntax-highlighter/dist/esm/styles/hljs'
+
 const Simple = props => {
     const data = [{ 'num': 0, 'Name': 'abc', 'IsReady': true }, { 'num': 1, 'Name': 'XYZ', 'IsReady': false }, { 'num': 3, 'Name': 'Cat', 'IsReady': true }]
   
     const options = {
-        styles: 'table-fixed w-full',
+        tableCss: 'table-fixed cursor-pointer w-full',
         searchInputCss:'searchInputCss',
-        cellStyles: 'border px-8 py-4 ',
+        cellStyles: 'break-words  border px-8 py-4 ',
         pageable:true,
-        theadStyles: 'bg-blue-100 border  px-8 py-4',
+        theadStyles: 'bg-blue-500 border  px-8 py-4',
         filters:true
     }
 
@@ -19,7 +23,8 @@ const Simple = props => {
     const codeSimpleOptions = "const options = {\n styles: 'table-fixed w-full',\n cellStyles: 'border px-8 py-4 ', \n theadStyles: 'bg-blue-100 border  px-8 py-4' \n } \n \n <SuperTable json={data} options={options} /> "
 
     return (
-        <div className="w-full h-full mb-4 font-mono text-left ">
+        <div className="w-full h-full mb-4 text-left ">
+            <Banner/>
             <div className="fixed w-1/6 p-4 right-2">
                 <ul className="" >
                     <li className='p-2 bg-gray-800'><a className="text-white underline " href="#simple">Simple</a></li>
@@ -29,27 +34,19 @@ const Simple = props => {
 
                 </ul>
             </div>
-            <div id="simple" className="w-full h-full ">
+            <div id="simple" className="w-full h-full p-2">
                <div className="w-full p-4 mb-2 bg-green-50">
                 <h2 className="w-full p-4 mb-2 text-xl bg-green-200 "> Simple example</h2>
                 <SyntaxHighlighter language="javascript" style={docco}>
                     {codeSimple}
                 </SyntaxHighlighter>
                 <div className="w-full mt-2 mb-2 bg-green-100 ">
-                    <h3 className="p-2 bg-yellow-50 "> Result</h3>
-                    <div className="p-2 bg-gray-800 text-gray-50">
-                        <ul className="list-disc docmenu text-light-50" >
-                            <li><span className="text-sm">Dynamic Json table</span></li>
-                            <li><span className="text-sm">Does not require an Id Column</span></li>
-                            <li><span className="text-sm">Creates a standard HTML table</span></li>
-                            <li><span className="text-sm">Sortable by default (optional)</span></li>
-                            <li><span className="text-sm">Booleans display as checkboxes (optional) </span></li>
-                        </ul>
-                    </div>
-                </div>
-                <div className="w-full p-4 mb-4 bg-white" >
+                    <h3 className="p-4 bg-yellow-50 "> Result</h3>
+                    <div className="w-full p-4 mb-2 bg-white" >
                     <Table json={data} />
+                   </div>
                 </div>
+                
                 </div>
              
                 <div className="w-full p-4">
