@@ -7,16 +7,33 @@ import { TableReducer } from './tableReducer'
 import Thead from './children/thead'
 
 export default React.memo(function Table(props) {
+   // setup initial state
     const options = props.options || {}
-    const json = props.json || []
+    const  json =  props.json || []
     const sortDirection ='asc'
-    const initialState = { json: json, options: options, selectedRow:{},sortDirection:sortDirection }
-
+    const initialState = { json: json, jsonCopy:json, options: options, selectedRow:{},sortDirection:sortDirection }
     const [state, dispatch] = useReducer(TableReducer, initialState)
+    
+    // set up pager
+    const pageSize = options.pageSize || 10
+    const pagerIcons = options.pagerIcons || { first: '&lsaquo;', previous: '&laquo;', next: '&raquo', last: '&rsaquo;' }
 
+    //run once
+    useEffect(()=>{
+        if(options.pageable && json.length > 0 ){
 
-    const styles = options.css || ''
-    const cssClasses = `mytable ${styles}`
+        //    updateJson(paginate(json || [], pageSize, 0))
+         //   updateTotalPages(Math.ceil(json.length / pageSize))
+
+        }else if (json.length > 0){
+
+          //  updateJson(json);
+          //  updateTotalPages(Math.ceil(json.length / pageSize))
+        }
+    },[options.pageable,json.length])
+
+    const styles = options.tableCss || ''
+    const cssClasses = ` ${styles}`
    
     const rowClick = (e) => {
         if (options.selectable !== false) {
@@ -26,7 +43,7 @@ export default React.memo(function Table(props) {
         }
     }
     return (
-        <>
+       
             <DataProvider.Provider value={initialState}>
                 <table className={cssClasses}>
                     <thead>
@@ -37,6 +54,6 @@ export default React.memo(function Table(props) {
                     </tbody>
                 </table>
             </DataProvider.Provider>
-        </>
+        
     )
 })

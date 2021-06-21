@@ -1,8 +1,6 @@
-import React, { useReducer, useState } from "react"
-
 import { ACTIONS } from '../actions'
 import Cells from './cells'
-import { TableReducer } from '../tableReducer'
+import React from "react"
 import { useCustomContext } from '../customContext'
 
 //create your forceUpdate hook
@@ -14,8 +12,6 @@ function Row({ state, dispatch,rowClick }) {
     const cssClasses = ` ${styles}`
     const idColIdx = options.idCol ? Object.keys(data.json[0]).indexOf(options.idCol) : 0
 
-  
-
     function handleRowClick(e) {
         let selectedRow ={}
         state.json.forEach(row => {
@@ -24,7 +20,7 @@ function Row({ state, dispatch,rowClick }) {
             selectedRow=row
         });
 
-        dispatch({ type: ACTIONS.SELECTROW, payload: { row: selectedRow } })
+        dispatch({ type: ACTIONS.SELECTEDROW, payload: { row: selectedRow }})
         rowClick(selectedRow)
     }
 

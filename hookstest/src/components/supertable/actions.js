@@ -1,5 +1,6 @@
 export const ACTIONS={
-    SELECTROW:'SelectRow',
+    INITIAL:'initial',
+    SELECTEDROW:'selectedRow',
     SORT:'sort',
     FIRST:'first',
     LAST:'last',

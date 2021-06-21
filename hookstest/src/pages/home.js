@@ -24,6 +24,7 @@ const Home = props => {
   // Table options not required for defaults
   const options = {
     idCol: 'id', // Not Required- If the first col is an identity column
+    tableCss:'table-fixed w-fulll',
     editable: true, //
     hiddenCols: ['id'], //Hide any column
     filters: true,
@@ -63,7 +64,7 @@ const Home = props => {
   }
   return (
     <div className="w-full h-full">
-      <Table  json={data} rowClick={rowClick} />
+      <Table options={options}  json={data} rowClick={rowClick} />
 
       <div>
        <input type="text" value={name} onChange={e => setName(e.target.value)} />
