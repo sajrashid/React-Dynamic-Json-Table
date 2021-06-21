@@ -1,5 +1,5 @@
 export const ACTIONS={
-    INITIAL:'initial',
+    INITIALSTATE:'initialState',
     SELECTEDROW:'selectedRow',
     SORT:'sort',
     FIRST:'first',

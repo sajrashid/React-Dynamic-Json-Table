@@ -23,9 +23,13 @@ export default function Thead ({dispatch}) {
             // Test if we can find the current column in options Label array
             
             const isLabel =  _.find(labelColsArr, key)
+
+            //if isHidden Return a null Column and exit 
             return isHidden ? null :
+            //Return a Label Column and exit 
                 isLabel ? <th className={cssClasses} id={key} key={key} onClick={(e) => dispatch({type:ACTIONS.SORT, payload:{id:e.currentTarget.id}})} dangerouslySetInnerHTML={helper.createMarkupLiteral(key, isLabel[key], key)}></th>
-                    : <th  className={cssClasses}  id={key} key={key} onClick={(e) => dispatch({type:ACTIONS.SORT, payload:{id:e.currentTarget.id}})} >{key}</th>
+                  
+                : <th  className={cssClasses}  id={key} key={key} onClick={(e) => dispatch({type:ACTIONS.SORT, payload:{id:e.currentTarget.id}})} >{key}</th>
         })
     }
 
