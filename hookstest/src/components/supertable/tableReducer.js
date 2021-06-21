@@ -25,19 +25,22 @@ export const TableReducer = (state, action) => {
             return { ...state }
         case ACTIONS.FIRST:
             state.pageNo=1
+            state.pagerInput=1
             state.json=(paginate(state.jsonCopy, state.pageSize, 0))
             return { ...state }
         case ACTIONS.LAST:
-            state.totalpages
-            state.json=(paginate(state.jsonCopy, state.pageSize, state.totalpages))
+            state.json=(paginate(state.jsonCopy, state.pageSize, state.totalPages-1))
+            state.pageNo=state.totalPages
+            state.pagerInput=state.totalPages
             return { ...state }
         case ACTIONS.NEXT:
-            state.pageNo=state.pageNo >= state.totalpages ? state.pageNo : state.pageNo + 1
+            state.pageNo=state.pageNo >= state.totalPages ? state.pageNo : state.pageNo + 1
+            state.pagerInput=state.pageNo
             state.json=(paginate(state.jsonCopy, state.pageSize, state.pageNo-1))
-
             return { ...state }
-        case ACTIONS.LAST:
-            state.pageNo=state.totalpages
+        case ACTIONS.PREVIOUS:
+            state.pageNo= state.pageNo <2 ? state.pageNo : state.pageNo - 1
+            state.pagerInput=state.pageNo
             state.json=(paginate(state.jsonCopy, state.pageSize, state.pageNo-1))
             return { ...state }
 
@@ -47,7 +50,12 @@ export const TableReducer = (state, action) => {
         case ACTIONS.SORT:
             let colName = action.payload.id
             let sortDirection = state.sortDirection
-            state.json.sort(compareValues(colName, sortDirection));
+            if(state.pageable){
+            state.jsonCopy.sort(compareValues(colName, sortDirection));
+            state.json=state.jsonCopy
+            }else{
+                state.json.sort(compareValues(colName, sortDirection));
+            }
             state.sortDirection === 'asc' ? state.sortDirection = 'desc' : state.sortDirection = 'asc'
             return { ...state }
 

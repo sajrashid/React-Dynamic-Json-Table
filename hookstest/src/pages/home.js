@@ -29,7 +29,7 @@ const Home = props => {
     hiddenCols: ['id'], //Hide any column
     filters: true,
     searchInputCss: 'searchInputCss',
-    pageable: true, // Only Required- If you want paging
+    pageable: false, // Only Required- If you want paging
     pageSize: 10,// Optional Defaults to 10
     footer: true, //add table footer
     /*eslint no-template-curly-in-string: "off"*/

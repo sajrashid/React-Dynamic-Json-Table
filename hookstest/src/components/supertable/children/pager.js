@@ -36,7 +36,7 @@ function Pager ({ state, dispatch }) {
             if (index === 3) {
                return <React.Fragment key={index}>
                     <button id={key} onClick={handlePagingClick} dangerouslySetInnerHTML={helper.createMarkup(html)}></button>
-                    <div className='pageCounter'>{state.pageNo}&nbsp;of&nbsp;{state.totalpages}&nbsp;pages</div>
+                    <div className='pageCounter'>{state.pageNo}&nbsp;of&nbsp;{state.totalPages}&nbsp;pages</div>
                 </React.Fragment>
             }
 

@@ -16,13 +16,11 @@ export default React.memo(function Table(props) {
     const pageNo=1
     const pagerIcons = options.pagerIcons || { first: '&lsaquo;', previous: '&laquo;', next: '&raquo', last: '&rsaquo;' }
     const pageSize = options.pageSize || 10
-    const totalpages=(Math.ceil(json.length / pageSize))
+    const totalPages=(Math.ceil(json.length / pageSize))
     const initialState = { json: json, jsonCopy: json, options: options, selectedRow: {},
-     sortDirection: sortDirection, pagerInput:pagerInput, pageSize:pageSize,totalpages:totalpages,
+     sortDirection:sortDirection, pagerInput:pagerInput, pageSize:pageSize,totalPages:totalPages,
      pageNo:pageNo, pagerIcons:pagerIcons}
     const [state, dispatch] = useReducer(TableReducer, initialState)
-
-
     //run once
     useEffect(() => {
         if (options.pageable && json.length > 0) {
@@ -58,7 +56,7 @@ export default React.memo(function Table(props) {
                     <Rows className={cssClasses} rowClick={rowClick} state={state} dispatch={dispatch} />
                 </tbody>
                 <tfoot>
-                    <tr>{options.pageable && <td style={{ minWidth: '200px' }}><div className='pagerDiv' > <Pager state={state} dispatch={dispatch} pagerIcons={pagerIcons} totalpages={totalpages} pagerInput={pagerInput} pageNo={pageNo}   /></div></td>}</tr>
+                    <tr>{options.pageable && <td style={{ minWidth: '200px' }}><div className='pagerDiv' > <Pager state={state} dispatch={dispatch}    /></div></td>}</tr>
                 </tfoot>
             </table>
         </DataProvider.Provider>
