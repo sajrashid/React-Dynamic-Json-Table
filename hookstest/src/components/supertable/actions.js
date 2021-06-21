@@ -6,7 +6,8 @@ export const ACTIONS={
     LAST:'last',
     NEXT:'next',
     PREVIOUS:'Previous',
-    GOTOPAGE:'goToPage'
+    GOTOPAGE:'goToPage',
+    SEARCH:'search'
 }
 
 

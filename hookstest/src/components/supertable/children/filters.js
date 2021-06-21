@@ -1,25 +1,20 @@
-import React, { useState } from "react"
+import { ACTIONS } from "../actions"
+import React from "react"
 
-const Filters = props => {
-    const options = props.options
-    const searchInputCss=options.searchInputCss || ''
-    let [searchFilter, updateSearchFilter] = useState('')
-    const createfilters = () => {
+function Filters({ state, dispatch }) {
+    const options = state.options
+    const searchInputCss = options.searchInputCss || 'yoyo'
+  
         const searchFilterChange = (e) => {
-            updateSearchFilter(e.currentTarget.value)
-            props.searchFilter(e.currentTarget.value)
+            dispatch({ type: ACTIONS.SEARCH, payload: { search: e.currentTarget.value } })
         }
-
-        return <td className={searchInputCss}>
+        return( <td className={searchInputCss}>
             <span>
-                <input placeholder="Search..." onChange={searchFilterChange} type='text' value={searchFilter}></input>
+                <input placeholder="Search..." onChange={searchFilterChange} type='text' value={state.searchFilter}></input>
             </span>
         </td>
-    }
+ )
 
-    return (
-        createfilters()
-    )
 
 }
 export default Filters

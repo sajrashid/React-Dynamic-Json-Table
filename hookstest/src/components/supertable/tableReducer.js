@@ -15,11 +15,7 @@ export const TableReducer = (state, action) => {
 
         case ACTIONS.INITIALSTATE:
             state.pageable = action.payload.pageable
-            if (state.pageable) {
-                state.json = paginate(state.json || [], state.pageSize, 0)
-            } else {
-                state.totalPages = (Math.ceil(state.json.length / state.pageSize))
-            }
+            action.payload.pageable ?  state.json = paginate(state.json || [], state.pageSize, 0):state.totalPages = (Math.ceil(state.json.length / state.pageSize))
             return { ...state }
         case ACTIONS.GOTOPAGE:
             const gotoPage =action.payload.gotoPage
