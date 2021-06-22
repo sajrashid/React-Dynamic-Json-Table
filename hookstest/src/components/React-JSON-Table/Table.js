@@ -5,7 +5,7 @@ import Filters from './children/filters'
 import Pager from './children/pager'
 import PropTypes from "prop-types"
 import Rows from './children/rows'
-import { TableReducer } from './tableReducer'
+import { TableReducer } from '../React-JSON-Table/reducers/tableReducer'
 import Thead from './children/thead'
 
 /**

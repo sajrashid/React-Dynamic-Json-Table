@@ -1,18 +1,11 @@
-import { ACTIONS } from './actions'
-import { compareValues } from './utils/utils'
-import { useEffect } from 'react'
+import { ACTIONS } from '../actions'
+import { compareValues } from '../utils/utils'
 
 export const TableReducer = (state, action) => {
-    //const options = state.data || {}
 
     //set up pagination
-
     const paginate = (array, page_size, page_number) => {
         return array.slice(page_number * page_size, (page_number + 1) * page_size);
-    }
-    const executeLongRunningTask = async () => {
-        const response = await fetch(this.taskUrl);
-        return await response.json();
     }
 
     switch (action.type) {
