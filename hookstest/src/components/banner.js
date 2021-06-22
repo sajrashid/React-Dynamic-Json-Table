@@ -4,7 +4,7 @@ import './banner.css'
 const banner = props => {
     return (
 
-        <div className="flex justify-center pb-8 bg-gray-900 banner" >
+        <div className="flex justify-center pb-8 banner" >
             <div className="w-10/12 p-2 text-center largetext display-4 text-7xl">
                 <h1 className="text-yellow-600 font-Title">SuperTable</h1>
                 <h3 className="p-4 font-mono text-lg text-yellow-200"> Dynamic Json Table </h3>

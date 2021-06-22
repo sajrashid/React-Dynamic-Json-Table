@@ -1,7 +1,6 @@
 import { ACTIONS } from '../actions';
 import React from "react";
 import helper from "../helpers/helper"
-import { useCustomContext } from '../customContext';
 
 function Pager ({ state, dispatch }) {
     const handleFocus = (e) => e.target.select();

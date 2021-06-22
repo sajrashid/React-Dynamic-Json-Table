@@ -1,17 +1,13 @@
-import React, { useReducer, useState } from "react";
-
 import { ACTIONS } from '../actions'
-import _ from 'lodash';
+import React from "react";
 import helper from '../helpers/helper';
-import { useCustomContext } from "../customContext";
 
-export default function Thead({ dispatch }) {
-    const data = useCustomContext()
-    const options = data.options
+export default function Thead({ state, dispatch }) {
+    const options = state.options
     const hiddenColumns = options.hiddenCols || []
-    const columns = Object.keys(data.json[0])
-    const labelColsArr = data.options.labelCols || []
-    const iconColsArr = data.options.iconCols || []
+    const columns = Object.keys(state.jsonCopy[0]) || {}
+    const labelColsArr = options.labelCols || []
+    const iconColsArr = options.iconCols || []
     const styles = options.theadStyles || ''
     const cssClasses = ` ${styles}`
     const createHeader = () => {
@@ -23,8 +19,8 @@ export default function Thead({ dispatch }) {
 
             // Test if we can find the current column in options Label array
 
-            const isLabel = _.find(labelColsArr, key)
-            const isIcon = _.find(iconColsArr, key)
+            const isLabel =  labelColsArr.find(e => e ===  key)
+            const isIcon = iconColsArr.find(e => e === key)
 
             //if isHidden Return a null Column and exit 
             return isHidden ? null :

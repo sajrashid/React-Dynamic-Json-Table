@@ -1,11 +1,9 @@
 @font-face {
   font-family: 'Oxygen-Regular';
   src: url('./fonts/Oxygen-Regular.ttf') format('truetype');
+  font-display: swap;
 }
-@font-face {
-  font-family: 'StintUltraCondensed-Regular';
-  src: url('./fonts/StintUltraCondensed-Regular.ttf') format('truetype'), url('./fonts/StintUltraCondensed-Regular.ttf');
-}
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
@@ -23,6 +21,8 @@ html,body,#root,.App{
 body {
   position: absolute;
   margin: 0;
+  background: rgb(169,108,210);
+  background: linear-gradient(90deg, rgba(169,108,210,1) 15%, rgba(124,182,76,1) 61%, rgba(69,211,252,1) 95%);
   font-family: 'Oxygen-Regular', 'Segoe UI';
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;

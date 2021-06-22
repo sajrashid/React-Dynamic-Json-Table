@@ -1,14 +1,36 @@
 import React, { useEffect, useReducer } from 'react'
 
 import { ACTIONS } from './actions'
-import DataProvider from './customContext'
 import Filters from './children/filters'
 import Pager from './children/pager'
+import PropTypes from "prop-types"
 import Rows from './children/rows'
 import { TableReducer } from './tableReducer'
 import Thead from './children/thead'
 
-export default React.memo(function Table(props) {
+/**
+ * Component for displaying json data in a HTML Table.
+ *
+ * @component
+ * @example
+ * const json= {
+    id:1,
+    name: "Yoda Master",
+    age: 355
+  }
+ * const options = {
+    tableCss: 'table-fixed cursor-pointer w-full',
+    cellStyles: 'break-words  border p-4 ',
+    pageable: true,
+    selectable: true,
+    customCols: [{ 'Avatar': '<div style="min-height:6em"><img  decoding="async" src=${Avatar}></img></div' }] //adding min height reduces loading flash as image cells are not resized vertically
+}
+ * return (
+ *   <Table json={json} options={options} />
+ * )
+ */
+
+const Table = (props) => {
     // setup initial state
     const options = props.options || {}
     const json = props.json || []
@@ -40,7 +62,7 @@ export default React.memo(function Table(props) {
 
     const styles = options.tableCss || ''
     const cssClasses = ` ${styles}`
-    const pagerCss=options.pagerCss|| ''
+    const pagerCss = options.pagerCss || ''
     const rowClick = (e) => {
         if (options.selectable !== false) {
             if (props.rowClick) {
@@ -50,31 +72,51 @@ export default React.memo(function Table(props) {
     }
     return (
 
-        <DataProvider.Provider value={initialState}>
-            <table className={cssClasses}>
-                <thead>
-                    {
-                        options.filters &&
-                        <tr><Filters state={state} dispatch={dispatch} /></tr>
-                    }
-                    <tr ><Thead className={cssClasses} dispatch={dispatch}></Thead></tr>
-                </thead>
-                <tbody>
-                    <Rows className={cssClasses} rowClick={rowClick} state={state} dispatch={dispatch} />
-                </tbody>
-                <tfoot>
-                    <tr>{
-                        options.pageable &&
-                        <td >
-                            <div className={pagerCss} >
-                                <Pager state={state} dispatch={dispatch} />
-                            </div>
-                        </td>}
-                    </tr>
-                </tfoot>
-            </table>
 
-        </DataProvider.Provider>
+        <table className={cssClasses}>
+            <thead>
+                {
+                    options.filters &&
+                    <tr><Filters state={state} dispatch={dispatch} /></tr>
+                }
+                <tr ><Thead className={cssClasses} state={state} dispatch={dispatch}></Thead></tr>
+            </thead>
+            <tbody>
+                <Rows className={cssClasses} rowClick={rowClick} state={state} dispatch={dispatch} />
+            </tbody>
+            <tfoot>
+                <tr>{
+                    options.pageable &&
+                    <td >
+                        <div className={pagerCss} >
+                            <Pager state={state} dispatch={dispatch} />
+                        </div>
+                    </td>}
+                </tr>
+            </tfoot>
+        </table>
+
+
 
     )
-})
+}
+Table.propTypes = {
+    /**
+     * JSON object array json
+     */
+    json: PropTypes.array.isRequired,
+    /**
+     * Table options
+     */
+    options: PropTypes.object,
+}
+
+Table.defaultProps = {
+
+    json: {
+        id: 1,
+        name: "Yoda Master",
+        age: 355
+    }
+}
+export default Table

@@ -1,6 +1,6 @@
 import './home.css'
 
-import React, { useEffect, useState } from "react";
+import React, { useState } from "react";
 
 import Table from "../components/supertable/Table";
 import useLocalStorage from '../components/hooks/useLocalStorage'
@@ -42,22 +42,22 @@ const Home = props => {
   const [name, setName] = useLocalStorage('name', () => '')
 
   
-  let [json, updateJson] = useState([])
+  let [json] = useState([])
 
   const rowClick = ( row) => {
     console.log(row)
     // id as string row as selectedRow object
   }
 
-  useEffect(() => {
-    async function fetchAPI() {
-        const url = 'https://jsonplaceholder.typicode.com/posts'
-        const response = await fetch(url)
-        const json = await response.json()
-        updateJson(json)
-    }
-    fetchAPI()
-  }, [])
+  // useEffect(() => {
+  //   async function fetchAPI() {
+  //       const url = 'https://jsonplaceholder.typicode.com/posts'
+  //       const response = await fetch(url)
+  //       const json = await response.json()
+  //       updateJson(json)
+  //   }
+  //   fetchAPI()
+  // }, [])
 
   if (!json) {
     return <div className="lds-facebook"><div></div><div></div><div></div></div>
