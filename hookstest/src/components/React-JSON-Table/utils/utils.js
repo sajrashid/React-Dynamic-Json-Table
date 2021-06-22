@@ -1,3 +1,30 @@
+import DOMPurify from 'dompurify';
+import _ from 'lodash'
+
+function templateLiteral(template, context = {}) {
+  return template.replace(/\$\{\s*(.+?)\s*\}/g, (match, p1) => {
+      const value = _.get(context, p1, '')
+      return value === null ? '' : value
+  });
+}
+
+
+export function createMarkupLiteral(key, str, replaceValue) {
+  const result = templateLiteral(str, {
+      [key]: replaceValue
+  });
+  var clean = DOMPurify.sanitize(result);
+  return { __html: clean }
+}
+
+
+export function createMarkup(html) {
+  var clean = DOMPurify.sanitize(html);
+  return { __html: clean }
+}
+
+
+
 export function  compareValues(key, order = "asc") {
     return function innerSort(a, b) {
       if (!a.hasOwnProperty(key) || !b.hasOwnProperty(key)) {

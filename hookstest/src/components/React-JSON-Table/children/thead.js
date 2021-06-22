@@ -1,6 +1,7 @@
+import {createMarkup, createMarkupLiteral} from '../utils/utils'
+
 import { ACTIONS } from '../actions'
 import React from "react";
-import helper from '../helpers/helper';
 
 function Thead  ({ state, dispatch })  {
     const options = state.options
@@ -25,8 +26,8 @@ function Thead  ({ state, dispatch })  {
             //if isHidden Return a null Column and exit 
             return isHidden ? null :
                 //Return a Label Column and exit 
-                isLabel ? <th className={cssClasses} id={key} key={key} onClick={(e) => dispatch({ type: ACTIONS.SORT, payload: { id: e.currentTarget.id } })} dangerouslySetInnerHTML={helper.createMarkup(key, isLabel[key], key)}></th> :
-                    isIcon ? <th className={cssClasses} id={key} key={key} onClick={(e) => dispatch({ type: ACTIONS.SORT, payload: { id: e.currentTarget.id } })} dangerouslySetInnerHTML={helper.createMarkupLiteral(key, isIcon[key], key )}></th> :
+                isLabel ? <th className={cssClasses} id={key} key={key} onClick={(e) => dispatch({ type: ACTIONS.SORT, payload: { id: e.currentTarget.id } })} dangerouslySetInnerHTML={createMarkup(key, isLabel[key], key)}></th> :
+                    isIcon ? <th className={cssClasses} id={key} key={key} onClick={(e) => dispatch({ type: ACTIONS.SORT, payload: { id: e.currentTarget.id } })} dangerouslySetInnerHTML={createMarkupLiteral(key, isIcon[key], key )}></th> :
                         <th className={cssClasses} id={key} key={key} onClick={(e) => dispatch({ type: ACTIONS.SORT, payload: { id: e.currentTarget.id } })} >{key}</th>
         })
     }
