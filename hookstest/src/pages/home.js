@@ -2,7 +2,7 @@ import './home.css'
 
 import React, { useState } from "react";
 
-import Table from "../components/supertable/Table";
+import Table from "../components/React-JSON-Table/Table";
 import useLocalStorage from '../components/hooks/useLocalStorage'
 
 const Home = props => {

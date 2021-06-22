@@ -1,5 +1,5 @@
 import React from "react";
-import Table from '../components/supertable/Table'
+import Table from '../components/React-JSON-Table/Table'
 import cars from '../data.json';
 
 const Examples = props => {

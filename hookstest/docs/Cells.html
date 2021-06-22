@@ -5,7 +5,7 @@
   
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title> Table</title>
+  <title> Cells</title>
 
   <script src="https://cdn.jsdelivr.net/gh/google/code-prettify@master/loader/run_prettify.js"></script>
   <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
@@ -78,7 +78,7 @@
             <div class="content">
                 <header class="page-title">
                     <p>Components</p>
-                    <h1>Table</h1>
+                    <h1>Cells</h1>
                 </header>
                 
 
@@ -90,7 +90,7 @@
 <header>
     
         <h2>
-            &ltTable <i>json</i> <i>options</i> /&gt
+            &ltCells  /&gt
         </h2>
         
     
@@ -110,12 +110,12 @@
 
 
     
-    <h4 class="name" id="Table">
-        <a class="href-link" href="#Table">#</a>
+    <h4 class="name" id="Cells">
+        <a class="href-link" href="#Cells">#</a>
         
         <span class="code-name">
             
-                &ltTable <i>json</i> <i>options</i> /&gt
+                &ltCells  /&gt
             
         </span>
     </h4>
@@ -124,7 +124,7 @@
     
     
     <div class="description">
-        <p>Component for displaying json data in a HTML Table.</p>
+        <p>Component for displaying cells in the Table.</p>
     </div>
     
 
@@ -134,57 +134,6 @@
 
 
 
-    
-        <h5>PropTypes:</h5>
-        
-<div class="table-container">
-  <table class="params table">
-    <thead>
-    <tr>
-        <th>Name</th>
-        <th>Type</th>
-        <th>Required</th>
-        <th>Description</th>
-        <th class="last">Default</th>
-    </tr>
-    </thead>
-
-    <tbody>
-    
-          <tr class="deep-level-0">
-            <td class="name"><code>json</code></td>
-            <td>
-              array
-            </td>
-            <td>No</td>
-            <td>JSON object array json</td>
-            <td>[{
-    id: 1,
-    name: "Yoda Master",
-    age: 25
-}]</td>
-          </tr>
-          
-    
-          <tr class="deep-level-0">
-            <td class="name"><code>options</code></td>
-            <td>
-              object
-            </td>
-            <td>No</td>
-            <td>Table options</td>
-            <td>{
-    tableCss: 'table-fixed cursor-pointer w-full',
-    cellStyles: 'break-words  border p-4 ',
-    pageable: true,
-    selectable: true,
-}</td>
-          </tr>
-          
-    
-    </tbody>
-  </table>
-</div>
     
 
 
@@ -226,9 +175,9 @@
 
     
         <p class="tag-source">
-            <a href="Table.js.html" class="button">View Source</a>
+            <a href="children_cells.js.html" class="button">View Source</a>
             <span>
-                <a href="Table.js.html">Table.js</a>, <a href="Table.js.html#line34">line 34</a>
+                <a href="children_cells.js.html">children/cells.js</a>, <a href="children_cells.js.html#line20">line 20</a>
             </span>
         </p>
     
@@ -252,22 +201,6 @@
 
 
 
-
-
-    <h5>Example</h5>
-    
-    
-        
-
-<div id='component0'></div>
-
-<script>
-  ReactDOM.render(ReactWrapper({
-    example: "const json= [{\r\n    id:1,\r\n    name: \"Yoda Master\",\r\n    age: 30\r\n  }]\rconst options = {\r\n    tableCss: 'table-fixed cursor-pointer w-full',\r\n    cellStyles: 'break-words  border p-4 ',\r\n    pageable: true,\r\n    selectable: true,\r\n    customCols: [{ 'Avatar': '<div style=\"min-height:6em\"><img  decoding=\"async\" src=${Avatar}></img></div' }] //adding min height reduces loading flash as image cells are not resized vertically\r\n}\rreturn (\r  <Table json={json} options={options} />\r)",
-    uniqId: "component0",
-  }), document.getElementById('component0'));
-</script>
-    
 
 
 

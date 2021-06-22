@@ -13,11 +13,12 @@ import Thead from './children/thead'
  *
  * @component
  * @example
- * const json= {
+ * 
+ * const json= [{
     id:1,
     name: "Yoda Master",
-    age: 355
-  }
+    age: 30
+  }]
  * const options = {
     tableCss: 'table-fixed cursor-pointer w-full',
     cellStyles: 'break-words  border p-4 ',
@@ -113,10 +114,16 @@ Table.propTypes = {
 
 Table.defaultProps = {
 
-    json: {
+    json: [{
         id: 1,
         name: "Yoda Master",
-        age: 355
+        age: 25
+    }],
+     options: {
+        tableCss: 'table-fixed cursor-pointer w-full',
+        cellStyles: 'break-words  border p-4 ',
+        pageable: true,
+        selectable: true,
     }
 }
 export default Table

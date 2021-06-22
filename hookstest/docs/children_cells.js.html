@@ -7,7 +7,7 @@
   
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title> Table.js</title>
+  <title> children/cells.js</title>
 
   <script src="https://cdn.jsdelivr.net/gh/google/code-prettify@master/loader/run_prettify.js"></script>
   <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
@@ -80,7 +80,7 @@
             <div class="content">
                 <header class="page-title">
                     <p>Source</p>
-                    <h1>Table.js</h1>
+                    <h1>children/cells.js</h1>
                 </header>
                 
 
@@ -89,135 +89,73 @@
     
     <section>
         <article>
-            <pre class="prettyprint source linenums"><code>import React, { useEffect, useReducer } from 'react'
-
-import { ACTIONS } from './actions'
-import Filters from './children/filters'
-import Pager from './children/pager'
-import PropTypes from "prop-types"
-import Rows from './children/rows'
-import { TableReducer } from './tableReducer'
-import Thead from './children/thead'
+            <pre class="prettyprint source linenums"><code>import PropTypes from "prop-types"
+import React from "react";
+import _ from 'lodash';
+import helper from "../helpers/helper";
 
 /**
- * Component for displaying json data in a HTML Table.
+ * Component for displaying cells in the Table.
  *
  * @component
- * @example
  * 
- * const json= [{
-    id:1,
-    name: "Yoda Master",
-    age: 30
-  }]
- * const options = {
-    tableCss: 'table-fixed cursor-pointer w-full',
-    cellStyles: 'break-words  border p-4 ',
-    pageable: true,
-    selectable: true,
-    customCols: [{ 'Avatar': '&lt;div style="min-height:6em">&lt;img  decoding="async" src=${Avatar}>&lt;/img>&lt;/div' }] //adding min height reduces loading flash as image cells are not resized vertically
+ * const state= {...
+  }
+ * const row = {...
+    
 }
  * return (
- *   &lt;Table json={json} options={options} />
+ *   &lt;Cells />
  * )
  */
-
-const Table = (props) => {
-    // setup initial state
-    const options = props.options || {}
-    const json = props.json || []
-    const sortDirection = 'asc'
-    const pagerInput = 1
-    const pageNo = 1
-    const pagerIcons = options.pagerIcons || { first: '&amp;lsaquo;', previous: '&amp;laquo;', next: '&amp;raquo', last: '&amp;rsaquo;' }
-    const pageSize = options.pageSize || 10
-    const totalPages = (Math.ceil(json.length / pageSize))
-    const initialState = {
-        json: json, jsonCopy: json, options: options, selectedRow: {},
-        sortDirection: sortDirection, pagerInput: pagerInput, pageSize: pageSize, totalPages: totalPages,
-        pageNo: pageNo, pagerIcons: pagerIcons, searchFilter: ''
-    }
-    const [state, dispatch] = useReducer(TableReducer, initialState)
-    //run once
-    useEffect(() => {
-        if (options.pageable &amp;&amp; json.length > 0) {
-            dispatch({ type: ACTIONS.INITIALSTATE, payload: { pageable: true } })
-            //    updateJson(paginate(json || [], pageSize, 0))
-            //   updateTotalPages(Math.ceil(json.length / pageSize))
-
-        } else if (json.length > 0) {
-
-            //  updateJson(json);
-            //  updateTotalPages(Math.ceil(json.length / pageSize))
-        }
-    }, [options.pageable, json.length])
-
-    const styles = options.tableCss || ''
+function Cells({ state, row}){
+    const options = state.options || {}
+    const styles = options.cellStyles || ''
     const cssClasses = ` ${styles}`
-    const pagerCss = options.pagerCss || ''
-    const rowClick = (e) => {
-        if (options.selectable !== false) {
-            if (props.rowClick) {
-                props.rowClick(state.selectedRow)
-            }
-        }
+    const customColArr = options.customCols
+    const cellColorArr = options.cellColor
+    const hiddenColArr = options.hiddenCols
+    const dateColArr = options.dateCols
+    const dateOptions = options.dateOptions || {}
+    const columns = Object.keys(row)
+
+    const createCells = (row) => {
+        return columns.map((key) => {
+            const isHidden = _.includes(hiddenColArr, key)
+            const isCustom = _.find(customColArr, key)
+            const isCellColorArr = _.includes(cellColorArr, key)
+            const isCheckBox = typeof row[key] === "boolean"
+            const isDate = _.find(dateColArr, key)
+            const locale = isDate ? dateColArr[key] : ''
+            return isHidden ? null :
+                isCustom ? &lt;td className={cssClasses} key={key} dangerouslySetInnerHTML={helper.createMarkupLiteral(key, isCustom[key], row[key])}>&lt;/td> :
+                    isCellColorArr ? &lt;td className={cssClasses} style={{ backgroundColor: row[key] }} key={key}>&lt;/td> :
+                        isCheckBox &amp;&amp; options.checkBox !== false ? &lt;td className={cssClasses} key={key}> &lt;input readOnly type='checkbox' checked={row[key]}>&lt;/input>&lt;/td> :
+                            isDate ? &lt;td className={cssClasses} key={key}>{new Date(row[key]).toLocaleDateString(locale, dateOptions)}&lt;/td> :
+                                &lt;td className={cssClasses} key={key}>{row[key].toString()}&lt;/td>
+
+        })
     }
-    return (
-
-
-        &lt;table className={cssClasses}>
-            &lt;thead>
-                {
-                    options.filters &amp;&amp;
-                    &lt;tr>&lt;Filters state={state} dispatch={dispatch} />&lt;/tr>
-                }
-                &lt;tr >&lt;Thead className={cssClasses} state={state} dispatch={dispatch}>&lt;/Thead>&lt;/tr>
-            &lt;/thead>
-            &lt;tbody>
-                &lt;Rows className={cssClasses} rowClick={rowClick} state={state} dispatch={dispatch} />
-            &lt;/tbody>
-            &lt;tfoot>
-                &lt;tr>{
-                    options.pageable &amp;&amp;
-                    &lt;td >
-                        &lt;div className={pagerCss} >
-                            &lt;Pager state={state} dispatch={dispatch} />
-                        &lt;/div>
-                    &lt;/td>}
-                &lt;/tr>
-            &lt;/tfoot>
-        &lt;/table>
-
-
-
-    )
+    return (createCells(row))
 }
-Table.propTypes = {
+Cells.propTypes = {
     /**
      * JSON object array json
      */
-    json: PropTypes.array.isRequired,
+     state: PropTypes.array.isRequired,
     /**
      * Table options
      */
-    options: PropTypes.object,
+    row: PropTypes.object.isRequired,
 }
 
-Table.defaultProps = {
+Cells.defaultProps = {
 
-    json: [{
-        id: 1,
-        name: "Yoda Master",
-        age: 25
-    }],
-     options: {
-        tableCss: 'table-fixed cursor-pointer w-full',
-        cellStyles: 'break-words  border p-4 ',
-        pageable: true,
-        selectable: true,
+    row: {
+        
     }
 }
-export default Table</code></pre>
+export default Cells</code></pre>
         </article>
     </section>
 

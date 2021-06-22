@@ -3,11 +3,9 @@ import './simple.css'
 import Banner from '../components/banner'
 import React from "react"
 import SyntaxHighlighter from 'react-syntax-highlighter'
+import Table from '../components/React-JSON-Table/Table'
 import cars from '../data.json'
 import { docco } from 'react-syntax-highlighter/dist/esm/styles/hljs'
-
-import Table from '../components/supertable/Table'
-
 
 export default function Simple () {
     const data = [{ 'num': 0, 'Name': 'abc', 'IsReady': true }, { 'num': 1, 'Name': 'XYZ', 'IsReady': false }, { 'num': 3, 'Name': 'Cat', 'IsReady': true }]

@@ -1,7 +1,7 @@
 import React from "react";
 import helper from "../helpers/helper"
 
-const tfoot = props => {
+function tfoot ({props}) {
     const options = props.options
     const styles = options.tfootStyles || ''
     const cssClasses = ` ${styles}`

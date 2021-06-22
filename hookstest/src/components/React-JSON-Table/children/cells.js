@@ -1,8 +1,23 @@
+import PropTypes from "prop-types"
 import React from "react";
 import _ from 'lodash';
 import helper from "../helpers/helper";
 
-export default React.memo(function Cells({ state, row}) {
+/**
+ * Component for displaying cells in the Table.
+ *
+ * @component
+ * 
+ * const state= {...
+  }
+ * const row = {...
+    
+}
+ * return (
+ *   <Cells />
+ * )
+ */
+function Cells({ state, row}){
     const options = state.options || {}
     const styles = options.cellStyles || ''
     const cssClasses = ` ${styles}`
@@ -31,4 +46,22 @@ export default React.memo(function Cells({ state, row}) {
         })
     }
     return (createCells(row))
-})
+}
+Cells.propTypes = {
+    /**
+     * JSON object array json
+     */
+     state: PropTypes.array.isRequired,
+    /**
+     * Table options
+     */
+    row: PropTypes.object.isRequired,
+}
+
+Cells.defaultProps = {
+
+    row: {
+        
+    }
+}
+export default Cells

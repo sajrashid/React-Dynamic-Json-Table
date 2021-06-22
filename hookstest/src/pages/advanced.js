@@ -1,6 +1,6 @@
 import React from "react"
 import SyntaxHighlighter from 'react-syntax-highlighter'
-import Table from '../components/supertable/Table'
+import Table from '../components/React-JSON-Table/Table'
 import { docco } from 'react-syntax-highlighter/dist/esm/styles/hljs'
 import employees from '../Employees.json'
 

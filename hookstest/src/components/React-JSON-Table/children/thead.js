@@ -2,7 +2,7 @@ import { ACTIONS } from '../actions'
 import React from "react";
 import helper from '../helpers/helper';
 
-export default function Thead({ state, dispatch }) {
+function Thead  ({ state, dispatch })  {
     const options = state.options
     const hiddenColumns = options.hiddenCols || []
     const columns = Object.keys(state.jsonCopy[0]) || {}
@@ -36,3 +36,4 @@ export default function Thead({ state, dispatch }) {
     )
 
 }
+export default Thead

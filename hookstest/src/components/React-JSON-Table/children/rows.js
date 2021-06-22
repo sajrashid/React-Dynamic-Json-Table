@@ -2,7 +2,7 @@ import { ACTIONS } from '../actions'
 import Cells from './cells'
 import React from "react"
 
-export  default React.memo(function Row({ state, dispatch,rowClick }) {
+function Rows  ({ state, dispatch,rowClick }) {
     const options = state.options || {}
     const styles = options.rowStyles || ''
     const cssClasses = ` ${styles}`
@@ -30,7 +30,7 @@ export  default React.memo(function Row({ state, dispatch,rowClick }) {
     }
 
     return (createRows())
-})
-
+}
+export default Rows
 
 

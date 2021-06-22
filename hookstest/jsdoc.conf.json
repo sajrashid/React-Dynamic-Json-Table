@@ -11,7 +11,10 @@
     "plugins": ["plugins/markdown", "./node_modules/better-docs/component"],
     "templates": {
       "better-docs": {
-        "name": "React Dynamic Json Table"
+        "name": "React Dynamic Json Table",
+        "component": {
+          "wrapper": "./src/wrapper.js"
+        }
       }
     },
     "opts": {
