@@ -3,9 +3,9 @@ import _ from 'lodash';
 import helper from "../helpers/helper";
 import { useCustomContext } from '../customContext';
 
-const Cells = props => {
+function Cells({ state, row}) {
     const data = useCustomContext()
-    const options = data.options || {}
+    const options = state.options || {}
     const styles = options.cellStyles || ''
     const cssClasses = ` ${styles}`
     const customColArr = options.customCols
@@ -13,7 +13,7 @@ const Cells = props => {
     const hiddenColArr = options.hiddenCols
     const dateColArr = options.dateCols
     const dateOptions = options.dateOptions || {}
-    const columns = Object.keys(props.row)
+    const columns = Object.keys(row)
 
     const createCells = (row) => {
         return columns.map((key) => {
@@ -32,6 +32,6 @@ const Cells = props => {
 
         })
     }
-    return (createCells(props.row))
+    return (createCells(row))
 }
 export default Cells;

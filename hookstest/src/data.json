@@ -206,7 +206,7 @@
       "Cost": "$9563.33",
       "BitCoin Address": "1EQRznftVLk8oDSXw2UdkWaCxe9LDmc4Mr",
       "CreditCards": "jcb",
-      "PurchaseDate": "2019-01-26T14:00:49Z"
+      "PurchaseDate": "2012-03-26T14:00:49Z"
     },
     {
       "id": 20,
@@ -217,6 +217,28 @@
       "Cost": "$3878.22",
       "BitCoin Address": "15gVC1BA1MBV1tJhckUGjzMEjRg1b3ptEm",
       "CreditCards": "jcb",
-      "PurchaseDate": "2019-01-26T14:00:49Z"
+      "PurchaseDate": "2019-02-26T14:00:49Z"
+    },
+    {
+      "id": 21,
+      "sold":true,
+      "Manufacturer": "Hummer",
+      "Model": "H1",
+      "Year": 29999,
+      "Cost": "-$3878.22",
+      "BitCoin Address": "15gVC1BA1MBV1tJhckUGjzMEjRg1b3ptEm",
+      "CreditCards": "jcb",
+      "PurchaseDate": "2018-01-26T14:00:49Z"
+    },
+    {
+      "id": 22,
+      "sold":false,
+      "Manufacturer": "Ford",
+      "Model": "H1",
+      "Year": 59999,
+      "Cost": "$4478.22",
+      "BitCoin Address": "15gVC1BA1MBV1tJhckUGjzMEjRg1b3ptEm",
+      "CreditCards": "jcb",
+      "PurchaseDate": "2018-01-26T14:00:49Z"
     }
   ]
