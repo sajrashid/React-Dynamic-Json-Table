@@ -1,5 +1,6 @@
 import { ACTIONS } from './actions'
 import { compareValues } from './utils/utils'
+import { useEffect } from 'react'
 
 export const TableReducer = (state, action) => {
     //const options = state.data || {}
@@ -9,10 +10,13 @@ export const TableReducer = (state, action) => {
     const paginate = (array, page_size, page_number) => {
         return array.slice(page_number * page_size, (page_number + 1) * page_size);
     }
-
-
+    const executeLongRunningTask = async () => {
+        const response = await fetch(this.taskUrl);
+        return await response.json();
+    }
+   
     switch (action.type) {
-
+  
         case ACTIONS.INITIALSTATE:
             state.pageable = action.payload.pageable
             action.payload.pageable ?  state.json = paginate(state.json || [], state.pageSize, 0):state.totalPages = (Math.ceil(state.json.length / state.pageSize))
@@ -24,11 +28,14 @@ export const TableReducer = (state, action) => {
             state.searchString =searchString
             if (searchString.length >0) {
                 for(var i=0; i< state.jsonCopy.length; i++) {
+                    var matched =false
                     for(var item in  state.jsonCopy[i]) {
                         var str = state.jsonCopy[i][item].toString().toLowerCase()
                         if(str.includes(searchString.toLowerCase())) {
+                         if(!matched){
                             result.push(state.jsonCopy[i])
-                              console.log(result,)
+                            matched=true
+                          }
                         }
                     }
                   }
@@ -36,7 +43,16 @@ export const TableReducer = (state, action) => {
                 result=state.jsonCopy
             }
             state.searchFilter=searchString
-            state.json=(paginate(result, state.pageSize,state.pageNo - 1))
+            if(state.pageable){
+                state.pageNo=1
+                state.pagerInput=1
+                state.json=(paginate(result, state.pageSize,0))
+                state.totalPages = Math.ceil(result.length / state.pageSize)
+
+            }else{
+            state.json=result
+            state.totalPages = 1
+            }
             return { ...state }
         case ACTIONS.GOTOPAGE:
             const gotoPage =action.payload.gotoPage

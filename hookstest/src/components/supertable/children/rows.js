@@ -1,16 +1,12 @@
 import { ACTIONS } from '../actions'
 import Cells from './cells'
 import React from "react"
-import { useCustomContext } from '../customContext'
 
-//create your forceUpdate hook
-
-function Row({ state, dispatch,rowClick }) {
-    const data = useCustomContext()
+export  default React.memo(function Row({ state, dispatch,rowClick }) {
     const options = state.options || {}
     const styles = options.rowStyles || ''
     const cssClasses = ` ${styles}`
-    const idColIdx = options.idCol ? Object.keys(data.json[0]).indexOf(options.idCol) : 0
+    const idColIdx = options.idCol ? Object.keys(state.json[0]).indexOf(options.idCol) : 0
 
     function handleRowClick(e) {
         let selectedRow ={}
@@ -34,7 +30,7 @@ function Row({ state, dispatch,rowClick }) {
     }
 
     return (createRows())
-}
-export default Row
+})
+
 
 

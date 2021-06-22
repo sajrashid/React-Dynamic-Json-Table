@@ -1,10 +1,8 @@
 import React from "react";
 import _ from 'lodash';
 import helper from "../helpers/helper";
-import { useCustomContext } from '../customContext';
 
-function Cells({ state, row}) {
-    const data = useCustomContext()
+export default React.memo(function Cells({ state, row}) {
     const options = state.options || {}
     const styles = options.cellStyles || ''
     const cssClasses = ` ${styles}`
@@ -33,5 +31,4 @@ function Cells({ state, row}) {
         })
     }
     return (createCells(row))
-}
-export default Cells;
+})
