@@ -1,5 +1,23 @@
 .docmenu{
     padding-left: 0.8em!important;
 }
-
-
+.pager * {
+    float: left;
+}
+.pager{
+    min-width:24rem;
+    padding: 0.4em;
+}
+.pager input {
+    position: relative;
+    width:2rem;
+    top:0.8rem;
+}
+.pager button {
+    font-size: 1.4rem;
+    padding: 0.3em;
+}
+.pager .pageCounter{
+    position: relative;
+    top:0.8rem;
+}

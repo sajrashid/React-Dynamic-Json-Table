@@ -14,6 +14,7 @@ const Simple = props => {
         tableCss: 'table-fixed cursor-pointer w-full',
         searchInputCss:'searchInputCss',
         cellStyles: 'break-words  border p-4 ',
+        pagerCss:'pager',
         pageable:true,
         theadStyles: 'bg-blue-500 text-gray-200 px-8 py-4',
         filters:true,

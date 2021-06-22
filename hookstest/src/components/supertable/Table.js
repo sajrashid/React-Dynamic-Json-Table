@@ -2,11 +2,12 @@ import React, { useEffect, useReducer } from 'react'
 
 import { ACTIONS } from './actions'
 import DataProvider from './customContext'
+import Filters from './children/filters'
+import Pager from './children/pager'
 import Rows from './children/rows'
 import { TableReducer } from './tableReducer'
 import Thead from './children/thead'
-import Pager from './children/pager'
-import Filters from './children/filters'
+
 export default React.memo(function Table(props) {
     // setup initial state
     const options = props.options || {}
@@ -39,7 +40,7 @@ export default React.memo(function Table(props) {
 
     const styles = options.tableCss || ''
     const cssClasses = ` ${styles}`
-
+    const pagerCss=options.pagerCss|| ''
     const rowClick = (e) => {
         if (options.selectable !== false) {
             if (props.rowClick) {
@@ -65,7 +66,7 @@ export default React.memo(function Table(props) {
                     <tr>{
                         options.pageable &&
                         <td >
-                            <div className='pagerDiv' >
+                            <div className={pagerCss} >
                                 <Pager state={state} dispatch={dispatch} />
                             </div>
                         </td>}

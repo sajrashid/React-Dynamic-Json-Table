@@ -18,6 +18,26 @@ export const TableReducer = (state, action) => {
             action.payload.pageable ?  state.json = paginate(state.json || [], state.pageSize, 0):state.totalPages = (Math.ceil(state.json.length / state.pageSize))
             return { ...state }
 
+         case  ACTIONS.SEARCH:
+            var result =[]
+            var searchString= action.payload.search
+            state.searchString =searchString
+            if (searchString.length >0) {
+                for(var i=0; i< state.jsonCopy.length; i++) {
+                    for(var item in  state.jsonCopy[i]) {
+                        var str = state.jsonCopy[i][item].toString().toLowerCase()
+                        if(str.includes(searchString.toLowerCase())) {
+                            result.push(state.jsonCopy[i])
+                              console.log(result,)
+                        }
+                    }
+                  }
+            }else{
+                result=state.jsonCopy
+            }
+            state.searchFilter=searchString
+            state.json=(paginate(result, state.pageSize,state.pageNo - 1))
+            return { ...state }
         case ACTIONS.GOTOPAGE:
             const gotoPage =action.payload.gotoPage
             state.pageNo=gotoPage
@@ -58,8 +78,7 @@ export const TableReducer = (state, action) => {
             let sortDirection = state.sortDirection
             if(state.pageable){
             state.jsonCopy.sort(compareValues(colName, sortDirection));
-            state.json=state.jsonCopy
-            state.json = paginate(state.json || [], state.pageSize, state.pageNo-1)
+            state.json = paginate(state.jsonCopy || [], state.pageSize, state.pageNo-1)
             }else{
                 state.json.sort(compareValues(colName, sortDirection));
             }
