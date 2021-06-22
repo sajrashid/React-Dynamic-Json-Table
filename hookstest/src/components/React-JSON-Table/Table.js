@@ -117,7 +117,7 @@ Table.defaultProps = {
     json: [{
         id: 1,
         name: "Yoda Master",
-        age: 25
+        age: 950
     }],
      options: {
         tableCss: 'table-fixed cursor-pointer w-full',
