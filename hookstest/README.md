@@ -2,7 +2,7 @@
 
 <img alt="demo png" src="https://github.com/sajrashid/hooks/blob/main/hookstest/demo.png" width="600" height="320" />
 
-Any JSON array dynamically renders a standard css agnostic table.
+Renders JSON array dynamically emits a standard CSS agnostic HTML table.
 
 **Usage**
  ```js
@@ -16,7 +16,7 @@ Any JSON array dynamically renders a standard css agnostic table.
 <Table json={json} />
 ```
 
-* Pass any CSS classes as props (Tailwind examples)
+* Pass any CSS classes as props (Tailwind example below)
 * Does not require an Id Column
 * Infers by type bools, dates...init.d/klipper_mcu`
 * Sortable by default (optional)
