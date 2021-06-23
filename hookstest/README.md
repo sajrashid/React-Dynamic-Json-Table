@@ -1,7 +1,7 @@
 # React Dynamic JSON Table
 
 
-<img alt="demo png" src="https://github.com/sajrashid/hooks/blob/main/hookstest/demo.png" width="800" height="600" />
+<img alt="demo png" src="https://github.com/sajrashid/hooks/blob/main/hookstest/demo.png" width="600" height="320" />
 
 
 ## Available Scripts
