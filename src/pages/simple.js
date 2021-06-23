@@ -3,11 +3,11 @@ import './simple.css'
 import Banner from './components/banner'
 import React from "react"
 import SyntaxHighlighter from 'react-syntax-highlighter'
-import {Table} from 'react-dynamic-json-table'
+import { Table } from 'react-dynamic-json-table'
 import cars from '../data.json'
 import { docco } from 'react-syntax-highlighter/dist/esm/styles/hljs'
 
-export default function Simple () {
+export default function Simple() {
     const data = [{ 'num': 0, 'Name': 'abc', 'IsReady': true }, { 'num': 1, 'Name': 'XYZ', 'IsReady': false }, { 'num': 3, 'Name': 'Cat', 'IsReady': true }]
     const options = {
         tableCss: 'table-fixed cursor-pointer w-full',
@@ -18,7 +18,7 @@ export default function Simple () {
         theadStyles: 'bg-blue-500 text-gray-200 px-8 py-4',
         filters: true,
         selectable: true,
-        selectedRowCss:"selectedRow",
+        selectedRowCss: "selectedRow",
         iconCols: [{ 'email': '<i class="envelope icon"></i>Email' },
         { 'Avatar': '<i class="id badge icon"></i>Avatar' }],
         // eslint-disable-next-line no-template-curly-in-string
@@ -41,9 +41,9 @@ export default function Simple () {
 
                 </ul>
             </div>
-           
+
             <div id="simple" className="w-full h-full p-2">
-              
+
 
                 <div className="w-full p-4">
                     <h2 className="w-full p-4 mb-2 text-xl bg-green-200">Add CSS</h2>
