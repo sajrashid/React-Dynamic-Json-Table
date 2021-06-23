@@ -7,8 +7,8 @@ Renders JSON array dynamically, emits a standard CSS agnostic HTML table.
 **Usage**
  ```js
     json=[
-    {name:'abc',age: 25, desc:'some desc'},
-    {name:'xyz',age: 99, desc:'another desc'},
+        {name:'abc',age: 25, desc:'some desc'},
+        {name:'xyz',age: 99, desc:'another desc'},
     ] 
 ```
 
@@ -22,7 +22,7 @@ Renders JSON array dynamically, emits a standard CSS agnostic HTML table.
 * Sortable by default (optional)
 * Selectable by default (optional)
 * Optional search filters
-* Custom mark-up columns
+* Custom mark-up columns, uses Dompurity to sanitise the dom
 * Can easily handles tens of thousands of rows
 * The video above contains 1000 rows with images
 * Testable with more tests to do
@@ -84,5 +84,6 @@ const options = {
 
 **Limitations**
 * Client side paging only (for now)
+* Does not render SVG's
 * In the video its the actual loading of the images thats slows down the rendering
 * Reflection can be expensive if your data set is huge, profile your application
