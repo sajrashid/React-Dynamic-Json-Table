@@ -1,8 +1,6 @@
 import './home.css'
-
 import React, { useState } from "react";
-
-import Table from "../components/React-JSON-Table/Table";
+import {Table} from 'react-dynamic-json-table'
 import useLocalStorage from '../components/hooks/useLocalStorage'
 
 const Home = props => {
