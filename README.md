@@ -53,7 +53,8 @@ const options = {
 ```js
  const options = {
         hiddenCols: ['id','col2'],
-        customCols: [{'col1:'<div>...</div>'},{'User':'<img src=${colname} ></img>'}],
+        customCols: [{'col1:'<div>...</div>'},{'user':'<img src=${colname} ></img>'}],
+        LabelCols:[{'name':'firstname'}]
         dateCols: ['id','col2'], //Todo example 
         iconCols:[{'email':<i>...</i>}],
         filters: true, //search filter
