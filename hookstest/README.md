@@ -22,7 +22,8 @@ Any JSON array dynamically renders a standard css agnostic table.
 * And more...
 
 **Options**
-*`    const options = {
+ ```js    
+        const options = {
         tableCss: 'table-fixed cursor-pointer w-full',
         searchInputCss: 'searchInputCss',
         cellStyles: 'break-words  border p-4 ',
@@ -35,8 +36,11 @@ Any JSON array dynamically renders a standard css agnostic table.
         { 'Avatar': '<i class="id badge icon"></i>Avatar' }],
         // eslint-disable-next-line no-template-curly-in-string
         customCols: [{ 'Avatar': '<div style="min-height:6em"><img  decoding="async" src=${Avatar}></img></div' }] //adding min height reduces loading flash as image cells are not resized vertically
-}`
+}
+```
 
 **Usage**
 
-* `<Table json={json} options={options} />`
+```html
+<Table json={json} options={options} />
+```
