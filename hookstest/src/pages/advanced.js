@@ -15,7 +15,7 @@ export default function  Advanced() {
         pageable: true,
         theadStyles: 'bg-blue-500 text-gray-200 px-8 py-4',
         filters: true,
-        selectable: true,
+        selectedRowCss:"selectedRow",
         iconCols: [{ 'email': '<i class="envelope icon"></i>Email' },
         { 'Avatar': '<i class="id badge icon"></i>Avatar' }],
         // eslint-disable-next-line no-template-curly-in-string

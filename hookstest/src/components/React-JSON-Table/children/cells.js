@@ -51,11 +51,11 @@ Cells.propTypes = {
     /**
      * JSON object array json
      */
-     state: PropTypes.array.isRequired,
+     state: PropTypes.object.isRequired,
     /**
      * Table options
      */
-    row: PropTypes.object.isRequired,
+    row: PropTypes.object,
 }
 
 Cells.defaultProps = {

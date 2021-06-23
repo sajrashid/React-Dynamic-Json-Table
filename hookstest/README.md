@@ -71,12 +71,12 @@ rowStyles: ...css,
 cellStyles: 'break-words  border p-4 ',
 pagerCss: 'pager',
 theadStyles: ...css,
-Pageable:true,
-selectedRowCss:"selectedRow",
-sortabele:false, // defaults true
-selectable:false, // defaults true
-checkBox:false, // renders text value for bools, default is checkbox
-pagerIcons:{ first: '&lsaquo;', previous: '&laquo;', next: '&raquo', last: '&rsaquo;' }, // or <i> </i>
+pageable: true,
+selectedRowCss: "selectedRow",
+sortabele: false, // defaults true
+selectable: false, // defaults true
+checkBox: false, // renders text value for bools, default is checkbox
+pagerIcons: { first: '&lsaquo;', previous: '&laquo;', next: '&raquo', last: '&rsaquo;' }, // or <i> </i>
 pageSize: 50, // items per page
 ... more to add
  }

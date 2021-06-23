@@ -24,7 +24,7 @@ function Rows  ({ state, dispatch,rowClick }) {
     const createRows = () => {
         return state.json.map((row, index) => {
             const rowId = row[Object.keys(row)[idColIdx]] // eslint-disable-next-line
-            return <tr className={cssClasses} key={index} className={state.selectedRow === row ? {selectedRowCss} : ""} id={rowId} onClick={handleRowClick} >
+            return <tr className={cssClasses} key={index} className={state.selectedRow === row ? `${selectedRowCss}` : ""} id={rowId} onClick={handleRowClick} >
                 <Cells state={state} row={row} />
             </tr>
         })
