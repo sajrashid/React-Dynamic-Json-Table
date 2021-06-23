@@ -60,4 +60,4 @@ Renders JSON array dynamically, emits a standard CSS agnostic HTML table.
 **Limitations**
 * Client side paging only (for now)
 * In the video its the actual loading of the images thats slows down the rendering
-* Reflections can be expensive if your data set is huge, profile your application
+* Reflection can be expensive if your data set is huge, profile your application
