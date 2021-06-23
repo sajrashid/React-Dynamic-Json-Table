@@ -1,6 +1,6 @@
-# React Dynamic JSON Table
+# # React Dynamic JSON Table
 
-<img alt="demo png" src="https://github.com/sajrashid/hooks/blob/main/hookstest/demo.png" width="600" height="320" />
+<img alt="demo png" src="https://github.com/sajrashid/hooks/blob/main/demo.png" width="600" height="320" />
 
 Renders JSON array dynamically, emits a standard CSS agnostic HTML table.
 
