@@ -5,12 +5,16 @@
 Any JSON array dynamically renders a standard css agnostic table.
 
 **Usage**
-* `json=[
+ ```js
+    json=[
     {name:'abc',age: 25, desc:'some desc'},
     {name:'xyz',age: 99, desc:'another desc'},
     ] />`
+```
 
-* `<Table json={json} />`
+```html
+<Table json={json} />
+```
 
 * Pass any CSS classes as props (Tailwind examples)
 * Does not require an Id Column
@@ -35,7 +39,8 @@ Any JSON array dynamically renders a standard css agnostic table.
         iconCols: [{ 'email': '<i class="envelope icon"></i>Email' },
         { 'Avatar': '<i class="id badge icon"></i>Avatar' }],
         // eslint-disable-next-line no-template-curly-in-string
-        customCols: [{ 'Avatar': '<div style="min-height:6em"><img  decoding="async" src=${Avatar}></img></div' }] //adding min height reduces loading flash as image cells are not resized vertically
+        customCols: [{ 'Avatar': '<div style="min-height:6em"><img  decoding="async" src=${Avatar}></img></div' }]
+         //adding min height reduces loading flash as image cells are not resized vertically
 }
 ```
 
