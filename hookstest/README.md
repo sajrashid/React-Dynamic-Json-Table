@@ -34,7 +34,7 @@ Renders JSON array dynamically, emits a standard CSS agnostic HTML table.
 
 **Options**
  ```js    
-        const options = {
+const options = {
         tableCss: 'table-fixed cursor-pointer w-full',
         searchInputCss: 'searchInputCss',
         cellStyles: 'break-words  border p-4 ',
@@ -60,25 +60,25 @@ Renders JSON array dynamically, emits a standard CSS agnostic HTML table.
 *More options*
 ```js
  const options = {
-hiddenCols: ['id','col2'],
-customCols: [{'col1'<div></div>'},{'<img src=${colname} ></img>'}],
-dateCols: ['id','col2'], //Todo example 
-iconCols:[{'email':<i>...</i>}],
-filters: true, //search filter
-tableCss: 'table-fixed cursor-pointer w-full',
-searchInputCss: 'searchInputCss',
-rowStyles: ...css,
-cellStyles: 'break-words  border p-4 ',
-pagerCss: 'pager',
-theadStyles: ...css,
-pageable: true,
-selectedRowCss: "selectedRow",
-sortabele: false, // defaults true
-selectable: false, // defaults true
-checkBox: false, // renders text value for bools, default is checkbox
-pagerIcons: { first: '&lsaquo;', previous: '&laquo;', next: '&raquo', last: '&rsaquo;' }, // or <i> </i>
-pageSize: 50, // items per page
-... more to add
+        hiddenCols: ['id','col2'],
+        customCols: [{'col1'<div></div>'},{'<img src=${colname} ></img>'}],
+        dateCols: ['id','col2'], //Todo example 
+        iconCols:[{'email':<i>...</i>}],
+        filters: true, //search filter
+        tableCss: 'table-fixed cursor-pointer w-full',
+        searchInputCss: 'searchInputCss',
+        rowStyles: ...css,
+        cellStyles: 'break-words  border p-4 ',
+        pagerCss: 'pager',
+        theadStyles: ...css,
+        pageable: true,
+        selectedRowCss: "selectedRow",
+        sortabele: false, // defaults true
+        selectable: false, // defaults true
+        checkBox: false, // renders text value for bools, default is checkbox
+        pagerIcons: { first: '&lsaquo;', previous: '&laquo;', next: '&raquo', last: '&rsaquo;' }, // or <i> </i>
+        pageSize: 50, // items per page
+        ... more to add
  }
 ```
 
