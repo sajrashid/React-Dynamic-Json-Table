@@ -53,7 +53,7 @@ const options = {
 ```js
  const options = {
         hiddenCols: ['id','col2'],
-        customCols: [{'col1'<div></div>'},{'<img src=${colname} ></img>'}],
+        customCols: [{'col1:'<div>...</div>'},{'User':'<img src=${colname} ></img>'}],
         dateCols: ['id','col2'], //Todo example 
         iconCols:[{'email':<i>...</i>}],
         filters: true, //search filter
@@ -64,7 +64,7 @@ const options = {
         pagerCss: 'pager',
         theadStyles: ...css,
         pageable: true,
-        selectedRowCss: "selectedRow",
+        selectedRowCss: 'selectedRow',
         sortabele: false, // defaults true
         selectable: false, // defaults true
         checkBox: false, // renders text value for bools, default is checkbox
