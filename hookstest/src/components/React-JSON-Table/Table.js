@@ -1,6 +1,6 @@
 import React, { useEffect, useReducer } from 'react'
 
-import { ACTIONS } from './actions'
+import { ACTIONS } from './reducers/actions'
 import Filters from './children/filters'
 import Pager from './children/pager'
 import PropTypes from "prop-types"

@@ -1,4 +1,4 @@
-import { ACTIONS } from "../actions"
+import { ACTIONS } from "../reducers/actions"
 import React from "react"
 
 function Filters({ state, dispatch }) {

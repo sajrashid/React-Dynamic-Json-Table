@@ -72,7 +72,7 @@
             
             <nav>
                 
-                    <h2><a href="index.html">Documentation</a></h2><div class="category"><h3>Components</h3><ul><li><a href="Cells.html">Cells</a></li><li><a href="Table.html">Table</a></li></ul></div>
+                    <h2><a href="index.html">Documentation</a></h2><div class="category"><h3>Components</h3><ul><li><a href="Cells.html">Cells</a></li><li><a href="options.html">options</a></li><li><a href="Table.html">Table</a></li></ul></div>
                 
             </nav>
         </div>
@@ -90,9 +90,9 @@
     <section>
         <article>
             <pre class="prettyprint source linenums"><code>import PropTypes from "prop-types"
-import React from "react";
-import _ from 'lodash';
-import helper from "../helpers/helper";
+import React from "react"
+import _ from 'lodash'
+import {createMarkupLiteral} from '../utils/utils'
 
 /**
  * Component for displaying cells in the Table.
@@ -128,7 +128,7 @@ function Cells({ state, row}){
             const isDate = _.find(dateColArr, key)
             const locale = isDate ? dateColArr[key] : ''
             return isHidden ? null :
-                isCustom ? &lt;td className={cssClasses} key={key} dangerouslySetInnerHTML={helper.createMarkupLiteral(key, isCustom[key], row[key])}>&lt;/td> :
+                isCustom ? &lt;td className={cssClasses} key={key} dangerouslySetInnerHTML={createMarkupLiteral(key, isCustom[key], row[key])}>&lt;/td> :
                     isCellColorArr ? &lt;td className={cssClasses} style={{ backgroundColor: row[key] }} key={key}>&lt;/td> :
                         isCheckBox &amp;&amp; options.checkBox !== false ? &lt;td className={cssClasses} key={key}> &lt;input readOnly type='checkbox' checked={row[key]}>&lt;/input>&lt;/td> :
                             isDate ? &lt;td className={cssClasses} key={key}>{new Date(row[key]).toLocaleDateString(locale, dateOptions)}&lt;/td> :

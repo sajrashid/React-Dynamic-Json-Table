@@ -1,6 +1,6 @@
 import {createMarkup, createMarkupLiteral} from '../utils/utils'
 
-import { ACTIONS } from '../actions'
+import { ACTIONS } from '../reducers/actions'
 import React from "react";
 
 function Thead  ({ state, dispatch })  {

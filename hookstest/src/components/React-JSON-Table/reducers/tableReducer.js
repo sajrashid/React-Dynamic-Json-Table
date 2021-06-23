@@ -1,4 +1,4 @@
-import { ACTIONS } from '../actions'
+import { ACTIONS } from './actions'
 import { compareValues } from '../utils/utils'
 
 export const TableReducer = (state, action) => {
@@ -14,7 +14,13 @@ export const TableReducer = (state, action) => {
             state.pageable = action.payload.pageable
             action.payload.pageable ? state.json = paginate(state.json || [], state.pageSize, 0) : state.totalPages = (Math.ceil(state.json.length / state.pageSize))
             return { ...state }
-
+        case ACTIONS.ITEMSPERPAGE:
+            state.pageSize = action.payload.itemsPerPage
+            state.totalPages = Math.ceil(state.jsonCopy.length / state.pageSize)
+            state.pageNo = 1
+            state.pagerInput = 1
+            action.payload.itemsPerPage ? state.json = paginate(state.jsonCopy || [], state.pageSize, 0) : state.totalPages = (Math.ceil(state.json.length / state.pageSize))
+            return { ...state }
         case ACTIONS.SEARCH:
             var result = []
             var searchString = action.payload.search

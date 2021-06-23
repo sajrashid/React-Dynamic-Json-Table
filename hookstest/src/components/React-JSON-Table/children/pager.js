@@ -1,6 +1,7 @@
-import { ACTIONS } from '../actions';
+import { ACTIONS } from '../reducers/actions';
 import React from "react";
 import {createMarkup} from '../utils/utils'
+import { sample } from 'lodash';
 
 function Pager ({ state, dispatch }) {
     const handleFocus = (e) => e.target.select();
@@ -12,14 +13,22 @@ function Pager ({ state, dispatch }) {
     const pagingInputChange = (e) => {
         e.preventDefault()
         const el = e.currentTarget
-        let inputValue = parseInt(el.value)
-        if ((inputValue < state.totalPages + 1) && (inputValue > 0)) {
-            dispatch({type:ACTIONS.GOTOPAGE, payload:{gotoPage:inputValue}})
+        let pagerInputValue = parseInt(el.value)
+        if ((pagerInputValue < state.totalPages + 1) && (pagerInputValue > 0)) {
+            dispatch({type:ACTIONS.GOTOPAGE, payload:{gotoPage:pagerInputValue}})
         }
 
         e.target.select();
     }
+    const itemsPerPageInputChange = (e) => {
+        const el = e.currentTarget
+        let itemsPerPage = parseInt(el.value)
+        if ((itemsPerPage >  0) && (itemsPerPage < state.jsonCopy.length + 1)) {
+            dispatch({type:ACTIONS.ITEMSPERPAGE, payload:{itemsPerPage:itemsPerPage}})
+        }
 
+        e.target.select();
+    }
     const createPager = () => {
         let arr = Object.keys(state.pagerIcons)
       
@@ -37,6 +46,7 @@ function Pager ({ state, dispatch }) {
                return <React.Fragment key={index}>
                     <button id={key} onClick={handlePagingClick} dangerouslySetInnerHTML={createMarkup(html)}></button>
                     <div >{state.pageNo}&nbsp;of&nbsp;{state.totalPages}&nbsp;pages</div>
+                    <div> <input  onChange={itemsPerPageInputChange} type="number" max="10000" value={state.pageSize} ></input> </div>
                 </React.Fragment>
             }
 

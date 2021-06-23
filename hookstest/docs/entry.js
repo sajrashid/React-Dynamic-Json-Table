@@ -27,8 +27,11 @@
 
       window._CustomWrapper = _CustomWrapper;
 
-      import Component0 from '../src/components/supertable/children/cells.js';
+      import Component0 from '../src/components/React-JSON-Table/children/cells.js';
 reactComponents['Cells'] = Component0;
 
-import Component1 from '../src/components/supertable/Table.js';
-reactComponents['Table'] = Component1;
+import Component1 from '../src/components/React-JSON-Table/options.js';
+reactComponents['options'] = Component1;
+
+import Component2 from '../src/components/React-JSON-Table/Table.js';
+reactComponents['Table'] = Component2;

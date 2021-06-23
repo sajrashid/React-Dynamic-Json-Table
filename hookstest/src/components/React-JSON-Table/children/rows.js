@@ -1,4 +1,4 @@
-import { ACTIONS } from '../actions'
+import { ACTIONS } from '../reducers/actions'
 import Cells from './cells'
 import React from "react"
 
