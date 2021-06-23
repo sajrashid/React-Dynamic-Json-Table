@@ -61,9 +61,9 @@ Renders JSON array dynamically, emits a standard CSS agnostic HTML table.
 ```js
  const options = {
 hiddenCols: ['id','col2'],
-customCols: [{'col1'<div></div>'},{'<img src=${colname} ></img>'}]
+customCols: [{'col1'<div></div>'},{'<img src=${colname} ></img>'}],
 dateCols: ['id','col2'], //Todo example 
-iconCols:[{'email':<i>...</i>}]
+iconCols:[{'email':<i>...</i>}],
 filters: true, //search filter
 tableCss: 'table-fixed cursor-pointer w-full',
 searchInputCss: 'searchInputCss',
