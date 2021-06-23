@@ -1,9 +1,8 @@
 # React Dynamic JSON Table
 
 
-<img src="https://media.giphy.com/media/vFKqnCdLPNOKc/giphy.gif" width="40" height="40" />
+<img alt="demo png" src="https://github.com/sajrashid/hooks/blob/main/hookstest/demo.png" width="800" height="600" />
 
-![alt text](https://github.com/sajrashid/RpiPythonScripts/blob/master/images/irf520.jfif "IRF520")
 
 ## Available Scripts
 
