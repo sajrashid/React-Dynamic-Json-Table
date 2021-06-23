@@ -3,7 +3,7 @@ import './App.css';
 import {BrowserRouter,  Switch, Route } from 'react-router-dom'
 import Home from './pages/home'
 import Examples from './pages/examples'
-import TopMenu from './components/menu/topMenu'
+import TopMenu from './pages/menu/topMenu'
 import Simple from "./pages/simple";
 import Advanced from "./pages/advanced";
 function App() {
