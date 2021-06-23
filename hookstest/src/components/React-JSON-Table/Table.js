@@ -35,6 +35,7 @@ const Table = (props) => {
     // setup initial state
     const options = props.options || {}
     const json = props.json || []
+    const selectedRowCss =options.selectedRowCss || ''
     const sortDirection = 'asc'
     const pagerInput = 1
     const pageNo = 1
@@ -42,7 +43,7 @@ const Table = (props) => {
     const pageSize = options.pageSize || 10
     const totalPages = (Math.ceil(json.length / pageSize))
     const initialState = {
-        json: json, jsonCopy: json, options: options, selectedRow: {},
+        json: json, jsonCopy: json, options: options, selectedRow: {},selectedRowCss:selectedRowCss,
         sortDirection: sortDirection, pagerInput: pagerInput, pageSize: pageSize, totalPages: totalPages,
         pageNo: pageNo, pagerIcons: pagerIcons, searchFilter: ''
     }

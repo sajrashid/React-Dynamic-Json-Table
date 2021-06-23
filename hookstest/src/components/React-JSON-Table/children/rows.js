@@ -5,6 +5,7 @@ import React from "react"
 function Rows  ({ state, dispatch,rowClick }) {
     const options = state.options || {}
     const styles = options.rowStyles || ''
+    const selectedRowCss = options.selectedRowCss || ''
     const cssClasses = ` ${styles}`
     const idColIdx = options.idCol ? Object.keys(state.json[0]).indexOf(options.idCol) : 0
 
@@ -23,7 +24,7 @@ function Rows  ({ state, dispatch,rowClick }) {
     const createRows = () => {
         return state.json.map((row, index) => {
             const rowId = row[Object.keys(row)[idColIdx]] // eslint-disable-next-line
-            return <tr className={cssClasses} key={index} className={state.selectedRow === row ? "selectedRow" : ""} id={rowId} onClick={handleRowClick} >
+            return <tr className={cssClasses} key={index} className={state.selectedRow === row ? {selectedRowCss} : ""} id={rowId} onClick={handleRowClick} >
                 <Cells state={state} row={row} />
             </tr>
         })
