@@ -9,7 +9,7 @@ Renders JSON array dynamically, emits a standard CSS agnostic HTML table.
     json=[
     {name:'abc',age: 25, desc:'some desc'},
     {name:'xyz',age: 99, desc:'another desc'},
-    ] />
+    ] 
 ```
 
 ```html
