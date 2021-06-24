@@ -8,7 +8,6 @@ function templateLiteral(template, context = {}) {
   });
 }
 
-
 export function createMarkupLiteral(key, str, replaceValue) {
   const result = templateLiteral(str, {
       [key]: replaceValue
