@@ -80,6 +80,5 @@ const options = {
 
 **Limitations**
 * Client side paging only (for now)
-* Does not render SVG's
 * In the video its the actual loading of the images thats slows down the rendering
 * Reflection can be expensive if your data set is huge, profile your application
