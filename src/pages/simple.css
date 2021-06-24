@@ -66,8 +66,17 @@ min-height:3rem;
 .pager :nth-child(7) input {
   max-width:4rem;
 }
-
+.searchInputCss span {
+    float: right;
+    margin-bottom: 0.3rem;
+}
+.searchInputCss  input {
+    border-radius: 0.3rem;
+    outline: none !important;
+    border: solid 1px rgb(36, 36, 39);
+    padding: 0.3rem;
+}
 .searchInputCss  input:focus {
     outline: none !important;
-    border: solid 1px rgb(41, 105, 223);
+    border: solid 1px rgb(18, 87, 216)
 }
