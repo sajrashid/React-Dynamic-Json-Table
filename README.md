@@ -22,7 +22,7 @@ NB: Alpha
 * Infers by type bools, dates...etc
 * Sortable by default (optional)
 * Selectable by default (optional)
-* Optional search filters
+* Multi keyword fuzzy search (optional) [https://github.com/kentcdodds/match-sorter]
 * Custom mark-up columns, uses Dompurity to sanitise the dom
 * Can easily handles tens of thousands of rows
 * The video above contains 1000 rows with images
@@ -31,6 +31,7 @@ NB: Alpha
 * Demo Site
 * CodeSandBox examples
 * And more...
+
 
 
 **Options**

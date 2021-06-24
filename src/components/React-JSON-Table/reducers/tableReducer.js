@@ -8,7 +8,7 @@ export const TableReducer = (state, action) => {
     const paginate = (array, page_size, page_number) => {
         return array.slice(page_number * page_size, (page_number + 1) * page_size);
     }
-
+    // https://github.com/kentcdodds/match-sorter
     function fuzzySearchMutipleWords(
         rows, // array of data [{a: "a", b: "b"}, {a: "c", b: "d"}]
         keys, // keys to search ["a", "b"]
