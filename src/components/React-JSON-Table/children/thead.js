@@ -2,10 +2,11 @@ import {createMarkup, createMarkupLiteral} from '../utils/utils'
 
 import { ACTIONS } from '../reducers/actions'
 import React from "react";
+import _ from 'lodash';
 
 function Thead  ({ state, dispatch })  {
     const options = state.options
-    const hiddenColumns = options.hiddenCols || []
+    const hiddenColArr = options.hiddenCols || []
     const columns = Object.keys(state.jsonCopy[0]) || {}
     const labelColsArr = options.labelCols || []
     const iconColsArr = options.iconCols || []
@@ -16,12 +17,10 @@ function Thead  ({ state, dispatch })  {
 
             // Test if the options Hidden colums array includes the current column
 
-            const isHidden = hiddenColumns.includes(key)
-
             // Test if we can find the current column in options Label array
-
-            const isLabel =  labelColsArr.find(e => e ===  key)
-            const isIcon = iconColsArr.find(e => e === key)
+            const isHidden = _.includes(hiddenColArr, key)
+            const isLabel = _.find(labelColsArr, key)
+            const isIcon = _.find(iconColsArr, key)
 
             //if isHidden Return a null Column and exit 
             return isHidden ? null :
