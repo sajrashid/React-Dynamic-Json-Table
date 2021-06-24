@@ -1,5 +1,6 @@
 import { ACTIONS } from './actions'
 import { compareValues } from '../utils/utils'
+import { startCase } from 'lodash';
 
 export const TableReducer = (state, action) => {
 
@@ -14,6 +15,9 @@ export const TableReducer = (state, action) => {
             state.pageable = action.payload.pageable
             action.payload.pageable ? state.json = paginate(state.json || [], state.pageSize, 0) : state.totalPages = (Math.ceil(state.json.length / state.pageSize))
             return { ...state }
+            case  ACTIONS.SEARCHINPUTCHANGE:
+            state.searchString= action.payload.search    
+            return { ...state }
         case ACTIONS.ITEMSPERPAGE:
             state.pageSize = action.payload.itemsPerPage
             state.totalPages = Math.ceil(state.jsonCopy.length / state.pageSize)
@@ -24,7 +28,7 @@ export const TableReducer = (state, action) => {
         case ACTIONS.SEARCH:
             var result = []
             var searchString = action.payload.search
-            state.searchString = searchString
+            //state.searchString = searchString
             if (searchString.length > 0) {
                 for (var i = 0; i < state.jsonCopy.length; i++) {
                     // matched test flag ensure we match once

@@ -45,7 +45,7 @@ const Table = (props) => {
     const initialState = {
         json: json, jsonCopy: json, options: options, selectedRow: {},selectedRowCss:selectedRowCss,
         sortDirection: sortDirection, pagerInput: pagerInput, pageSize: pageSize, totalPages: totalPages,
-        pageNo: pageNo, pagerIcons: pagerIcons, searchFilter: ''
+        pageNo: pageNo, pagerIcons: pagerIcons, searchString: ''
     }
     const [state, dispatch] = useReducer(TableReducer, initialState)
     //run once

@@ -8,6 +8,7 @@ export const ACTIONS={
     PREVIOUS:'Previous',
     GOTOPAGE:'goToPage',
     ITEMSPERPAGE:'itemsPerPage',
+    SEARCHINPUTCHANGE:'SerachInputChange',
     SEARCH:'search'
 }
 
