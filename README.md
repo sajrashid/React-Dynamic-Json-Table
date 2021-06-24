@@ -1,7 +1,7 @@
 # React Dynamic JSON Table
 ### Pre-Release
 <img alt="demo png" src="https://github.com/sajrashid/hooks/blob/main/demo.png" width="600" height="320" />
-<sub>Robots lovingly delivered by [Robohash](https://robohash.org/)</sub>
+<sub>Robots lovingly delivered by [Robohash.org]</sub>
 
 
 Renders JSON array dynamically, emits a standard CSS agnostic HTML table.
