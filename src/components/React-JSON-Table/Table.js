@@ -127,4 +127,4 @@ Table.defaultProps = {
         selectable: true,
     }
 }
-export default Table
+export default React.memo(Table)

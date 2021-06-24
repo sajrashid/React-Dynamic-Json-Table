@@ -1,6 +1,6 @@
 import { ACTIONS } from './actions'
 import { compareValues } from '../utils/utils'
-import { startCase } from 'lodash';
+import { matchSorter } from 'match-sorter'
 
 export const TableReducer = (state, action) => {
 
@@ -9,14 +9,35 @@ export const TableReducer = (state, action) => {
         return array.slice(page_number * page_size, (page_number + 1) * page_size);
     }
 
+    function fuzzySearchMutipleWords(
+        rows, // array of data [{a: "a", b: "b"}, {a: "c", b: "d"}]
+        keys, // keys to search ["a", "b"]
+        filterValue// potentially multi-word search string "two words"
+      ) {
+        if (!filterValue || !filterValue.length) {
+          return rows
+        }
+      
+        const terms = filterValue.split(' ')
+        if (!terms) {
+          return rows
+        }
+      
+        // reduceRight will mean sorting is done by score for the _first_ entered word.
+        return terms.reduceRight(
+          (results, term) => matchSorter(results, term, {keys}),
+          rows,
+        )
+      }
+
     switch (action.type) {
 
         case ACTIONS.INITIALSTATE:
             state.pageable = action.payload.pageable
             action.payload.pageable ? state.json = paginate(state.json || [], state.pageSize, 0) : state.totalPages = (Math.ceil(state.json.length / state.pageSize))
             return { ...state }
-            case  ACTIONS.SEARCHINPUTCHANGE:
-            state.searchString= action.payload.search    
+        case ACTIONS.SEARCHINPUTCHANGE:
+            state.searchString = action.payload.search
             return { ...state }
         case ACTIONS.ITEMSPERPAGE:
             state.pageSize = action.payload.itemsPerPage
@@ -26,29 +47,17 @@ export const TableReducer = (state, action) => {
             action.payload.itemsPerPage ? state.json = paginate(state.jsonCopy || [], state.pageSize, 0) : state.totalPages = (Math.ceil(state.json.length / state.pageSize))
             return { ...state }
         case ACTIONS.SEARCH:
-            var result = []
+            var result = null
             var searchString = action.payload.search
             //state.searchString = searchString
+            // fuzzy search
+            const objList = state.jsonCopy
+
+
             if (searchString.length > 0) {
-                for (var i = 0; i < state.jsonCopy.length; i++) {
-                    // matched test flag ensure we match once
-                    // prevents duplicate results 
-                    var matched = false
-                    for (var item in state.jsonCopy[i]) {
-                        var str = state.jsonCopy[i][item].toString().toLowerCase()
-                        if (str.includes(searchString.toLowerCase())) {
-                            if (!matched) {
-                                // if the current item is not in results
-                                // push item
-                                // this prevents duplicate results from being
-                                // pushed into the array
-                                result.push(state.jsonCopy[i])
-                                matched = true
-                            }
-                        }
-                    }
-                }
-            } else {
+                result = fuzzySearchMutipleWords(state.jsonCopy,Object.keys(state.jsonCopy[0]),searchString)
+            }
+            else {
                 result = state.jsonCopy
             }
             state.searchFilter = searchString

@@ -1,5 +1,5 @@
 import React from "react";
-import {Table} from 'react-dynamic-json-table'
+import {Table} from 'react-dynamic-json-tableyarn'
 import cars from '../data.json';
 
 const Examples = props => {
