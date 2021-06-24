@@ -94,7 +94,7 @@ const Table = (props) => {
             <tfoot>
                 <tr>{
                     options.pageable &&
-                    <td >
+                    <td colSpan={colspan} >
                         <div className={pagerCss} >
                             <Pager state={state} dispatch={dispatch} />
                         </div>

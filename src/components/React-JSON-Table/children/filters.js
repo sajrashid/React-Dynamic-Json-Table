@@ -3,7 +3,6 @@ import React from "react"
 import { useDebounce } from "use-debounce";
 
 function Filters({ state, dispatch }) {
-    const options = state.options
     // const [debouncedText] = useDebounce(state.searchString, 5);
     const searchFilterChange = (e) => {
         dispatch({ type: ACTIONS.SEARCHINPUTCHANGE, payload: { search: e.currentTarget.value } })

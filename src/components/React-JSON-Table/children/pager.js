@@ -48,9 +48,7 @@ function Pager({ state, dispatch }) {
                         {state.pageNo}&nbsp;of&nbsp;{state.totalPages}&nbsp;pages
                     </div>
                     <div>
-                        <span>Items Per Page</span>
                         <input onChange={itemsPerPageInputChange} type="number" max="10000" value={state.pageSize} ></input>
-                        <button>Update</button>
                     </div>
                 </React.Fragment>
             }
