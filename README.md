@@ -23,7 +23,7 @@ NB: Alpha
 * Sortable by default (optional)
 * Selectable by default (optional)
 * Multi keyword fuzzy search (optional) [link](https://github.com/kentcdodds/match-sorter)
-* Custom mark-up columns, uses Dompurity to sanitise the dom
+* Custom mark-up columns, uses [Dompurity]https://github.com/cure53/DOMPurify to sanitise the dom
 * Can easily handles tens of thousands of rows
 * The video above contains 1000 rows with images
 * Testable with more tests to do
