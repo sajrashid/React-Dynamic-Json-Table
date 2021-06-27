@@ -10194,6 +10194,13 @@
     "strip-ansi" "6.0.0"
     "text-table" "0.2.0"
 
+"react-dj-table@^0.0.8":
+  "integrity" "sha512-3DNiCYP17X4N6LjoHqgsHnnCNYJ29nCGDoApctGEUMXPu/glwyfu+uRe3Wn9fP1Bybr2qDo5yfJllRBRW3SbEg=="
+  "resolved" "https://registry.npmjs.org/react-dj-table/-/react-dj-table-0.0.8.tgz"
+  "version" "0.0.8"
+  dependencies:
+    "@babel/polyfill" "^7.12.1"
+
 "react-docgen@^5.3.0":
   "resolved" "https://registry.npmjs.org/react-docgen/-/react-docgen-5.4.0.tgz"
   "version" "5.4.0"

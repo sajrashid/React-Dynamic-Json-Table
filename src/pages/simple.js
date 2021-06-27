@@ -3,7 +3,7 @@ import './simple.css'
 import Banner from './components/banner'
 import React from "react"
 import SyntaxHighlighter from 'react-syntax-highlighter'
-import { Table } from 'react-dynamic-json-tableyarn'
+import Table from 'react-dj-table'
 import cars from '../data.json'
 import { docco } from 'react-syntax-highlighter/dist/esm/styles/hljs'
 
