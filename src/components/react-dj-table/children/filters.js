@@ -1,6 +1,5 @@
 import { ACTIONS } from "../reducers/actions"
 import React from "react"
-import { useDebounce } from "use-debounce";
 
 function Filters({ state, dispatch }) {
     // const [debouncedText] = useDebounce(state.searchString, 5);

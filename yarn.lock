@@ -10194,10 +10194,10 @@
     "strip-ansi" "6.0.0"
     "text-table" "0.2.0"
 
-"react-dj-table@^0.0.8":
-  "integrity" "sha512-3DNiCYP17X4N6LjoHqgsHnnCNYJ29nCGDoApctGEUMXPu/glwyfu+uRe3Wn9fP1Bybr2qDo5yfJllRBRW3SbEg=="
-  "resolved" "https://registry.npmjs.org/react-dj-table/-/react-dj-table-0.0.8.tgz"
-  "version" "0.0.8"
+"react-dj-table@^0.0.9":
+  "integrity" "sha512-4oiL5xrAbSgYFjxNRbVIwHkvt9Vnc3QlYT7YXI9BfimwrjfBhj+foxKULsmf19aM1cgxDAxe85T5i0Hc32GznA=="
+  "resolved" "https://registry.npmjs.org/react-dj-table/-/react-dj-table-0.0.9.tgz"
+  "version" "0.0.9"
   dependencies:
     "@babel/polyfill" "^7.12.1"
 
