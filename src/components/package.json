@@ -1,6 +1,6 @@
 {
-  "name": "react-dynamic-json-tableyarn",
-  "version": "0.5.0",
+  "name": "react-dj-table",
+  "version": "0.1.1",
   "description": "Test Release Dynamic Json HTML Table",
   "main": "index.js",
   "scripts": {
@@ -21,6 +21,10 @@
     "@babel/preset-env": "^7.14.7"
   },
   "dependencies": {
-    "@babel/polyfill": "^7.12.1"
+    "@babel/polyfill": "^7.12.1",
+    "dompurify": "^2.2.9",
+    "history": "^5.0.0",
+    "lodash": "^4.17.21",
+    "match-sorter": "^6.3.0"
   }
 }

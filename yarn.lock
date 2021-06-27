@@ -10194,12 +10194,16 @@
     "strip-ansi" "6.0.0"
     "text-table" "0.2.0"
 
-"react-dj-table@^0.0.9":
-  "integrity" "sha512-4oiL5xrAbSgYFjxNRbVIwHkvt9Vnc3QlYT7YXI9BfimwrjfBhj+foxKULsmf19aM1cgxDAxe85T5i0Hc32GznA=="
-  "resolved" "https://registry.npmjs.org/react-dj-table/-/react-dj-table-0.0.9.tgz"
-  "version" "0.0.9"
+"react-dj-table@^0.1.1":
+  "integrity" "sha512-rOqL5wsRkqXJ+6BlYDE2QgqBmGH2h71G57tw/fbfu6D2O4av0u0bpYbWvb7PbxD1BSFlC3x9GAejfqKcE+pMXg=="
+  "resolved" "https://registry.npmjs.org/react-dj-table/-/react-dj-table-0.1.1.tgz"
+  "version" "0.1.1"
   dependencies:
     "@babel/polyfill" "^7.12.1"
+    "dompurify" "^2.2.9"
+    "history" "^5.0.0"
+    "lodash" "^4.17.21"
+    "match-sorter" "^6.3.0"
 
 "react-docgen@^5.3.0":
   "resolved" "https://registry.npmjs.org/react-docgen/-/react-docgen-5.4.0.tgz"
