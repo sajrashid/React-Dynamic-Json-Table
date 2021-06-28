@@ -1,6 +1,6 @@
 {
   "name": "react-dj-table",
-  "version": "0.1.1",
+  "version": "0.0.1",
   "description": "Test Release Dynamic Json HTML Table",
   "main": "index.js",
   "scripts": {
@@ -9,6 +9,8 @@
   "author": "Sajid Rashid",
   "keywords": ["react", "components", "dynamic" ,"json", "table"],
   "license": "GPL-2.0",
+  "repository": { "type": "git",
+    "url": "https://github.com/sajrashid/React-Dynamic-Json-Table"},
   "private": false,
   "peerDependencies": {
     "prop-types": "^15.7.2",
@@ -23,8 +25,9 @@
   "dependencies": {
     "@babel/polyfill": "^7.12.1",
     "dompurify": "^2.2.9",
-    "history": "^5.0.0",
     "lodash": "^4.17.21",
-    "match-sorter": "^6.3.0"
+    "match-sorter": "^6.3.0",
+    "core-js": "3.15.1",
+    "prop-types": "15.7.2"
   }
 }
