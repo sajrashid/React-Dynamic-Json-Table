@@ -1,8 +1,8 @@
 import {createMarkup, createMarkupLiteral} from '../utils/utils'
 
 import { ACTIONS } from '../reducers/actions'
-import React from "react";
-import _ from 'lodash';
+import React from "react"
+import _ from 'lodash'
 
 function Thead  ({ state, dispatch })  {
     const options = state.options

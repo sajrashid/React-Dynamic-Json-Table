@@ -1,9 +1,10 @@
 # React Dynamic JSON Table
-### Pre-Release
+### NPM Testing Pre-Release
 <img alt="demo png" src="https://github.com/sajrashid/hooks/blob/main/demo.png" width="600" height="320" />
-
-Renders JSON array dynamically, emits a standard CSS agnostic HTML table.
-NB: Alpha 
+<sub>Robots lovingly delivered by Robohash.org</sub>
+<br/>
+[![Netlify Status](https://api.netlify.com/api/v1/badges/ad1de4da-ad86-4c8f-a533-732539d451a7/deploy-status)](https://app.netlify.com/sites/jolly-hodgkin-af839c/deploys)
+#### Renders JSON array dynamically, emits a standard CSS agnostic HTML table.
 
 **Usage**
  ```js
@@ -22,8 +23,8 @@ NB: Alpha
 * Infers by type bools, dates...etc
 * Sortable by default (optional)
 * Selectable by default (optional)
-* Optional search filters
-* Custom mark-up columns, uses Dompurity to sanitise the dom
+* Multi keyword fuzzy search (optional) [link](https://github.com/kentcdodds/match-sorter)
+* Custom mark-up columns, uses [Dompurity]https://github.com/cure53/DOMPurify to sanitise the dom
 * Can easily handles tens of thousands of rows
 * The video above contains 1000 rows with images
 * Testable with more tests to do
@@ -31,6 +32,7 @@ NB: Alpha
 * Demo Site
 * CodeSandBox examples
 * And more...
+
 
 
 **Options**
@@ -77,6 +79,5 @@ const options = {
 
 **Limitations**
 * Client side paging only (for now)
-* Does not render SVG's
 * In the video its the actual loading of the images thats slows down the rendering
 * Reflection can be expensive if your data set is huge, profile your application

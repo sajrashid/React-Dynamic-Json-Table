@@ -5,7 +5,7 @@ import Filters from './children/filters'
 import Pager from './children/pager'
 import PropTypes from "prop-types"
 import Rows from './children/rows'
-import { TableReducer } from '../React-JSON-Table/reducers/tableReducer'
+import { TableReducer } from '../react-dj-table/reducers/tableReducer'
 import Thead from './children/thead'
 
 /**
@@ -35,15 +35,17 @@ const Table = (props) => {
     // setup initial state
     const options = props.options || {}
     const json = props.json || []
-    const selectedRowCss =options.selectedRowCss || ''
+    const colspan=Object.keys(json[0]).length 
+    const selectedRowCss = options.selectedRowCss || ''
     const sortDirection = 'asc'
+    const searchInputCss = options.searchInputCss || ''
     const pagerInput = 1
     const pageNo = 1
     const pagerIcons = options.pagerIcons || { first: '&lsaquo;', previous: '&laquo;', next: '&raquo', last: '&rsaquo;' }
     const pageSize = options.pageSize || 10
     const totalPages = (Math.ceil(json.length / pageSize))
     const initialState = {
-        json: json, jsonCopy: json, options: options, selectedRow: {},selectedRowCss:selectedRowCss,
+        json: json, jsonCopy: json, options: options, selectedRow: {}, selectedRowCss: selectedRowCss,
         sortDirection: sortDirection, pagerInput: pagerInput, pageSize: pageSize, totalPages: totalPages,
         pageNo: pageNo, pagerIcons: pagerIcons, searchString: ''
     }
@@ -79,7 +81,10 @@ const Table = (props) => {
             <thead>
                 {
                     options.filters &&
-                    <tr><Filters state={state} dispatch={dispatch} /></tr>
+                    <tr><td colSpan={colspan} className={searchInputCss}>
+                        <Filters state={state} dispatch={dispatch} />
+                    </td>
+                    </tr>
                 }
                 <tr ><Thead className={cssClasses} state={state} dispatch={dispatch}></Thead></tr>
             </thead>
@@ -89,7 +94,7 @@ const Table = (props) => {
             <tfoot>
                 <tr>{
                     options.pageable &&
-                    <td >
+                    <td colSpan={colspan} >
                         <div className={pagerCss} >
                             <Pager state={state} dispatch={dispatch} />
                         </div>
@@ -120,11 +125,11 @@ Table.defaultProps = {
         name: "Yoda Master",
         age: 950
     }],
-     options: {
+    options: {
         tableCss: 'table-fixed cursor-pointer w-full',
         cellStyles: 'break-words  border p-4 ',
         pageable: true,
         selectable: true,
     }
 }
-export default Table
+export default React.memo(Table)

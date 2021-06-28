@@ -1,3 +1,3 @@
-import Table from './React-JSON-Table/Table'
+import Table from './react-dj-table/index'
 
 export { Table };

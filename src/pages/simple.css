@@ -1,43 +1,45 @@
 .docmenu{
     padding-left: 0.8em!important;
 }
-.pager * {
-    float: left;
+.pager {
+   float: right;
+   margin: 0 auto;
+   font-family: bold, monospace;
+}
+.pager > * {
     color: #eee;
+    float: left;
+    margin: 0 auto;
+  
 }
 .pager{
-    position: absolute;
-    column-span: all;
+    line-height: 1.8rem;
     margin-top: 0.5rem;
-    display: flex;
-    width:100%;
     padding: 0.4rem;
-    height: 3.3rem;
     background-color: rgba(59, 130, 246);
+min-height:3rem;
 }
 
 
 .pager input {
-    line-height: 1.8rem;
-    display: inline;
-    min-width: 2rem !important;;
-    padding:0.2rem 0 0 0.3rem;
     border: 1px solid #666;
     margin: 0 0.4rem 0 0.4rem;
     color: #666;
+    border-radius: 0.3rem;
 }
 .pager input[type='number']{
     position: relative;
-    top:0.2em;
-    width: 3.2rem;
+    top:0.1rem;
+    max-width: 2.6rem;
+    padding-left: 0.4rem;
 } 
 .pager button {
     top:-0.1em;
     font-size: 2rem;
-    padding:0rem 0.4rem 0.2rem 0.4rem;
-    line-height: 1.8rem;
-    margin: 0 0.3rem 0 0.3rem;
-   box-shadow:0.02em 0 0.02em 0 rgba(26, 9, 9, 0.719) ;
+    padding:0rem 0.8rem 0.2rem 0.8rem;
+    margin: 0 0.3rem 0 0.6rem;
+    border-radius: 0.3rem;
+    box-shadow:0.02em 0 0.02em 0 rgba(26, 9, 9, 0.719) ;
 }
 .pager button:hover{
     background-color: rgb(42, 61, 122);
@@ -47,44 +49,34 @@
 
 }
 .pager :nth-child(6){
-    font-size: 1.1rem;
-    padding: 0.3rem;
-    background-color:paleturquoise;
-    padding-left: 1rem;
-    width:25%;
-    text-shadow: 0px 1px 3px  #666;
-    color: #333;
+    position: relative;
+    top:0.1rem;
+    font-size: 1.4rem;
+    padding:  0 1rem 0 1rem;
+    color: #ddd;
 }
 
 .pager :nth-child(7){
-    position: relative;
-    left:1.5rem;
-    padding-left: 1rem;
-    width:44%;
     color: #333;
-    background-color:steelblue;
 }
 .pager :nth-child(7) span {
-    position: relative;
-    float: right;
-    top:0.4rem;
+    top:0.2rem;
     color: #333;
-    left:-16rem;
 }
 .pager :nth-child(7) input {
-    position: relative;
-    float: right;
-    left:-5rem;
-    padding-left: 0.2rem;
-    padding-right: 0.3rem;
+  max-width:4rem;
 }
-.pager :nth-child(7) button{
+.searchInputCss span {
     float: right;
-    position: relative;
-    top:0.2rem;
-    left:4rem;
-    background-color:#333; 
-    font-size: 1rem;
-    box-shadow:0.2em 0 0.1em 0 rgba(0, 0, 0, 0.719) ;
-    height: 2.1rem;
+    margin-bottom: 0.3rem;
+}
+.searchInputCss  input {
+    border-radius: 0.3rem;
+    outline: none !important;
+    border: solid 1px rgb(36, 36, 39);
+    padding: 0.3rem;
+}
+.searchInputCss  input:focus {
+    outline: none !important;
+    border: solid 1px rgb(18, 87, 216)
 }
