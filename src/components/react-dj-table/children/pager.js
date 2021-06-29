@@ -1,6 +1,7 @@
 import { ACTIONS } from '../reducers/actions';
 import React from "react";
 import { createMarkup } from '../utils/utils'
+import { isConcatSpreadable } from 'core-js/fn/symbol';
 
 function Pager({ state, dispatch }) {
     const handleFocus = (e) => e.target.select();
@@ -31,20 +32,37 @@ function Pager({ state, dispatch }) {
     const createPager = () => {
         let arr = Object.keys(state.pagerIcons)
 
+
         return arr.map((key, index) => {
             const html = state.pagerIcons[key]
+            console.log(key, index)
+            var disabled = false
 
-            if (index === 2) {
+            if (key === 'first') {
+                state.pageNo < 2 ? disabled = true : disabled = false
+                return <button disabled={disabled} key={index} id={key} onClick={handlePagingClick} dangerouslySetInnerHTML={createMarkup(html)}></button>
+
+            }
+
+            if (key === 'previous') {
+                state.pageNo < 2 ? disabled = true : disabled = false
+                return <button disabled={disabled} key={index} id={key} onClick={handlePagingClick} dangerouslySetInnerHTML={createMarkup(html)}></button>
+
+            }
+
+            if (key === 'next') {
+                state.pageNo === state.totalPages ? disabled = true : disabled = false
                 return <React.Fragment key={index}>
                     <div><input onFocus={handleFocus} onChange={pagingInputChange} value={state.pagerInput} type="number" /></div>
-                    <button id={key} onClick={handlePagingClick} dangerouslySetInnerHTML={createMarkup(html)}></button>
+                    <button disabled={disabled} id={key} onClick={handlePagingClick} dangerouslySetInnerHTML={createMarkup(html)}></button>
                 </React.Fragment>
             }
 
-            if (index === 3) {
+            if (key === 'last') {
+                state.pageNo === state.totalPages ? disabled = true : disabled = false
                 return <React.Fragment key={index}>
-                    <button id={key} onClick={handlePagingClick} dangerouslySetInnerHTML={createMarkup(html)}></button>
-                    <div >
+                    <button disabled={disabled} id={key} onClick={handlePagingClick} dangerouslySetInnerHTML={createMarkup(html)}></button>
+                    <div className="numberOfPages">
                         {state.pageNo}&nbsp;of&nbsp;{state.totalPages}&nbsp;pages
                     </div>
                     <div>
