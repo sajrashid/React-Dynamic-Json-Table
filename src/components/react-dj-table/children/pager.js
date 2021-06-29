@@ -26,8 +26,6 @@ function Pager({ state, dispatch }) {
         if ((itemsPerPage > 0) && (itemsPerPage < state.jsonCopy.length + 1)) {
             dispatch({ type: ACTIONS.ITEMSPERPAGE, payload: { itemsPerPage: itemsPerPage } })
         }
-
-        e.target.select();
     }
     const createPager = () => {
         let arr = Object.keys(state.pagerIcons)
@@ -66,7 +64,13 @@ function Pager({ state, dispatch }) {
                         {state.pageNo}&nbsp;of&nbsp;{state.totalPages}&nbsp;pages
                     </div>
                     <div>
-                        <input onChange={itemsPerPageInputChange} type="number" max="10000" value={state.pageSize} ></input>
+                        <select onChange={itemsPerPageInputChange} type="number" max="10000" value={state.pageSize} >
+                            <option value="10">Show {state.pageSize}</option>
+                            <option value="20">Show 20</option>
+                            <option value="30">Show 30</option>
+                            <option value="50">Show 50</option>
+                            <option value="100">Show 100</option>
+                        </select >
                     </div>
                 </React.Fragment>
             }

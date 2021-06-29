@@ -6,7 +6,6 @@
 .pager {
    float: left;
    margin: 0 auto;
-   font-family: bold, monospace;
 }
 .pager > * {
     color: #eee;
@@ -62,7 +61,7 @@ min-height:3rem;
 .pager :nth-child(6){
     position: relative;
     top:0.1rem;
-    font-size: 1.4rem;
+    font-size: 1rem;
     padding:  0 1rem 0 1rem;
     color: #ddd;
 }
@@ -73,9 +72,16 @@ min-height:3rem;
 .pager :nth-child(7) span {
     top:0.2rem;
     color: #333;
+
 }
-.pager :nth-child(7) input {
-  max-width:4rem;
+/* show select element 10 / 20 / 100 etc */
+.pager :nth-child(7) select {
+  height: 1.6rem;
+  position: relative;
+  top:0.15rem;
+margin-right: 0.7rem;
+border-radius: 0.3rem;
+padding-left: 0.3rem;
 }
 
 /*  move the search input left or right by chaging float left/right */
