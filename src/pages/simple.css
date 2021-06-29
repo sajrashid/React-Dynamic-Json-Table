@@ -73,6 +73,7 @@ min-height:3rem;
     color: #eee;
     content: attr(data-content);
 }
+
 .pager button:hover{
     background-color: rgb(42, 61, 122);
 }

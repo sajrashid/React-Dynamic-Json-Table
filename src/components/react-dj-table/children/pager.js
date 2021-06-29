@@ -53,7 +53,7 @@ function Pager({ state, dispatch }) {
             if (key === 'next') {
                 state.pageNo === state.totalPages ? disabled = true : disabled = false
                 return <React.Fragment key={index}>
-                    <div><input onFocus={handleFocus} onChange={pagingInputChange} value={state.pagerInput} type="number" /></div>
+                    <div><input data-content='page no' onFocus={handleFocus} onChange={pagingInputChange} value={state.pagerInput} type="number" /></div>
                     <button data-content={key}  disabled={disabled} id={key} onClick={handlePagingClick} dangerouslySetInnerHTML={createMarkup(html)}></button>
                 </React.Fragment>
             }
@@ -66,7 +66,7 @@ function Pager({ state, dispatch }) {
                         {state.pageNo}&nbsp;of&nbsp;{state.totalPages}&nbsp;pages
                     </div>
                     <div>
-                        <select onChange={itemsPerPageInputChange} type="number" max="10000" value={state.pageSize} >
+                        <select data-content='items per page'  onChange={itemsPerPageInputChange} type="number" max="10000" value={state.pageSize} >
                             <option value="10">Show 10</option>
                             <option value="20">Show 20</option>
                             <option value="30">Show 30</option>
