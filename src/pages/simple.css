@@ -3,8 +3,8 @@
 }
 
 /* 
-styling the tables checkbox inputs, not sure if this is doable in tailwind
-without passing more classes.... hmmm ir do we prefer simplicity ? */
+styling the tables checkbox inputs
+without passing more classes into the individual cells.... hmmm  do we prefer simplicity ? */
 
 table>tbody>tr>td>input[type='checkbox']{
     transform: scale(1.6);

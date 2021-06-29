@@ -1,4 +1,5 @@
 # React Dynamic JSON Table
 
-## Alpha test Release
-### NB: DO NOT USE, This is very early test release.
+### Usable Test release
+
+see github for doc's and examples
