@@ -1,7 +1,6 @@
 import { ACTIONS } from '../reducers/actions';
 import React from "react";
 import { createMarkup } from '../utils/utils'
-import { isConcatSpreadable } from 'core-js/fn/symbol';
 
 function Pager({ state, dispatch }) {
     const handleFocus = (e) => e.target.select();

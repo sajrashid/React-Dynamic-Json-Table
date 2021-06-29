@@ -19,7 +19,7 @@ import {createMarkupLiteral} from '../utils/utils'
  */
 function Cells({ state, row}){
     const options = state.options || {}
-    const styles = options.cellStyles || ''
+    const styles = options.cellCss || ''
     const cssClasses = ` ${styles}`
     const customColArr = options.customCols
     const cellColorArr = options.cellColor

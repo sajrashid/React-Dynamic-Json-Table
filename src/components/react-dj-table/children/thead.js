@@ -10,7 +10,7 @@ function Thead  ({ state, dispatch })  {
     const columns = Object.keys(state.jsonCopy[0]) || {}
     const labelColsArr = options.labelCols || []
     const iconColsArr = options.iconCols || []
-    const styles = options.theadStyles || ''
+    const styles = options.theadCss || ''
     const cssClasses = ` ${styles}`
     const createHeader = () => {
         return columns.map((key) => {

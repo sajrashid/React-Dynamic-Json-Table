@@ -4,7 +4,7 @@ import React from "react"
 
 function Rows  ({ state, dispatch,rowClick }) {
     const options = state.options || {}
-    const styles = options.rowStyles || ''
+    const styles = options.rowCss || ''
     const selectedRowCss = options.selectedRowCss || ''
     const cssClasses = ` ${styles}`
     const idColIdx = options.idCol ? Object.keys(state.json[0]).indexOf(options.idCol) : 0
