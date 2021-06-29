@@ -1,7 +1,4 @@
 {
-  "name": "react-dj-table",
-  "version": "0.0.1",
-  "description": "Test Release Dynamic Json HTML Table",
   "main": "index.js",
   "scripts": {
     "build": "rm -rf dist && NODE_ENV=production babel ./react-dj-table/ --out-dir dist --copy-files"

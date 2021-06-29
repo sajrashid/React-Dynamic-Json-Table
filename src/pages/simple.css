@@ -29,7 +29,7 @@ for the sake of simplicity the pager is buit using standard css  */
     margin-top: 0.5rem;
     padding: 0.4rem;
     background-color: rgba(59, 130, 246);
-min-height:3rem;
+   min-height:3rem;
 }
 
 .pager .numberOfPages{
@@ -125,7 +125,7 @@ padding-left: 0.3rem;
 }
 
 .pager button:disabled,
-button[disabled]{
+ button[disabled]{
   background-color: #cccccc;
   color: #666666;
   box-shadow:0.02em 0 0.02em 0 rgba(26, 9, 9, 0.719) ;
