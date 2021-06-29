@@ -7,7 +7,7 @@
     "build": "rm -rf dist && NODE_ENV=production babel ./react-dj-table/ --out-dir dist --copy-files"
   },
   "author": "Sajid Rashid",
-  "keywords": ["react", "components", "dynamic" ,"json", "table"],
+  "keywords": ["react", "components","responsive", "dynamic" ,"json", "table"],
   "license": "GPL-2.0",
   "repository": { "type": "git",
     "url": "https://github.com/sajrashid/React-Dynamic-Json-Table"},
