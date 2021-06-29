@@ -1,5 +1,5 @@
 import React from "react";
-import Table from '../components/react-dj-table/index'
+import Table from 'react-dj-table'
 import cars from '../data.json';
 
 const Examples = props => {

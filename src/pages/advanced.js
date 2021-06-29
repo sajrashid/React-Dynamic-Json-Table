@@ -1,6 +1,6 @@
 import React from "react"
 import SyntaxHighlighter from 'react-syntax-highlighter'
-import Table from '../components/react-dj-table/index'
+import Table from 'react-dj-table'
 import { docco } from 'react-syntax-highlighter/dist/esm/styles/hljs'
 import employees from '../Employees.json'
 
@@ -31,9 +31,7 @@ export default function  Advanced() {
     <h3 className="p-4 bg-yellow-50 "> Result</h3>
     <div className="w-full p-4 mb-2 bg-white" >
         <div>
-        
              <Table json={employees} options={options} />
-          
         </div>
     </div>
 

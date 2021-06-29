@@ -2,7 +2,7 @@ import './home.css'
 
 import React, { useState } from "react";
 
-import Table from '../components/react-dj-table/index'
+import Table from 'react-dj-table'
 import useLocalStorage from '../components/hooks/useLocalStorage'
 
 const Home = props => {
