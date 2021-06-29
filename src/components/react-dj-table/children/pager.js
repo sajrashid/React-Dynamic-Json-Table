@@ -38,13 +38,15 @@ function Pager({ state, dispatch }) {
 
             if (key === 'first') {
                 state.pageNo < 2 ? disabled = true : disabled = false
-                return <button disabled={disabled} key={index} id={key} onClick={handlePagingClick} dangerouslySetInnerHTML={createMarkup(html)}></button>
-
-            }
+                return<React.Fragment  key={index}>
+                    <button data-content={key}  disabled={disabled} key={index} id={key} onClick={handlePagingClick} dangerouslySetInnerHTML={createMarkup(html)}></button>
+                     
+                     </React.Fragment>
+                    }
 
             if (key === 'previous') {
                 state.pageNo < 2 ? disabled = true : disabled = false
-                return <button disabled={disabled} key={index} id={key} onClick={handlePagingClick} dangerouslySetInnerHTML={createMarkup(html)}></button>
+                return <button data-content={key}  disabled={disabled} key={index} id={key} onClick={handlePagingClick} dangerouslySetInnerHTML={createMarkup(html)}></button>
 
             }
 
@@ -52,20 +54,20 @@ function Pager({ state, dispatch }) {
                 state.pageNo === state.totalPages ? disabled = true : disabled = false
                 return <React.Fragment key={index}>
                     <div><input onFocus={handleFocus} onChange={pagingInputChange} value={state.pagerInput} type="number" /></div>
-                    <button disabled={disabled} id={key} onClick={handlePagingClick} dangerouslySetInnerHTML={createMarkup(html)}></button>
+                    <button data-content={key}  disabled={disabled} id={key} onClick={handlePagingClick} dangerouslySetInnerHTML={createMarkup(html)}></button>
                 </React.Fragment>
             }
 
             if (key === 'last') {
                 state.pageNo === state.totalPages ? disabled = true : disabled = false
                 return <React.Fragment key={index}>
-                    <button disabled={disabled} id={key} onClick={handlePagingClick} dangerouslySetInnerHTML={createMarkup(html)}></button>
+                    <button data-content={key}  disabled={disabled} id={key} onClick={handlePagingClick} dangerouslySetInnerHTML={createMarkup(html)}></button>
                     <div className="numberOfPages">
                         {state.pageNo}&nbsp;of&nbsp;{state.totalPages}&nbsp;pages
                     </div>
                     <div>
                         <select onChange={itemsPerPageInputChange} type="number" max="10000" value={state.pageSize} >
-                            <option value="10">Show {state.pageSize}</option>
+                            <option value="10">Show 10</option>
                             <option value="20">Show 20</option>
                             <option value="30">Show 30</option>
                             <option value="50">Show 50</option>

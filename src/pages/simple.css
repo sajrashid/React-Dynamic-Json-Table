@@ -54,12 +54,24 @@ min-height:3rem;
     padding-left: 0.4rem;
 } 
 .pager button {
-    top:-0.1em;
+    position: relative;
     font-size: 2rem;
     padding:0rem 0.8rem 0.2rem 0.8rem;
     margin: 0 0.3rem 0 0.6rem;
     border-radius: 0.3rem;
     box-shadow:0.02em 0 0.02em 0 rgba(26, 9, 9, 0.719) ;
+}
+.pager button:hover::after {
+    position: absolute;
+    opacity: 0.8;
+    border-radius: 0.3rem;
+    font-size: 0.8rem;
+    padding-left: 1rem;
+    padding-right: 1rem;
+    background-color: rgb(44, 44, 44);
+    bottom: -2rem;
+    color: #eee;
+    content: attr(data-content);
 }
 .pager button:hover{
     background-color: rgb(42, 61, 122);
