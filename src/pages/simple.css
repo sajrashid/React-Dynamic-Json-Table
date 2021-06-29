@@ -2,6 +2,17 @@
     padding-left: 0.8em!important;
 }
 
+/* 
+styling the tables checkbox inputs, not sure if this is doable in tailwind
+without passing more classes.... hmmm ir do we prefer simplicity ? */
+
+table>tbody>tr>td>input[type='checkbox']{
+    transform: scale(1.6);
+}
+
+/* styling the pager would again require passing lots of classes and 
+custom options, that can make config difficult
+for the sake of simplicity the pager is buit using standard css  */
 /* move the pager left or right by chaging float left/right */
 .pager {
    float: left;
