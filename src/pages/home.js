@@ -1,5 +1,7 @@
 import './home.css'
+
 import React, { useState } from "react";
+
 import Table from 'react-dj-table'
 import useLocalStorage from '../components/hooks/useLocalStorage'
 

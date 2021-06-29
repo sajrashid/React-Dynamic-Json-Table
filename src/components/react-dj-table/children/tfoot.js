@@ -3,7 +3,7 @@ import helper from "../helpers/helper"
 
 function tfoot ({props}) {
     const options = props.options
-    const styles = options.tfootStyles || ''
+    const styles = options.tfootCss || ''
     const cssClasses = ` ${styles}`
     const pagerIcons= props.pagerIcons
     const createFooter = () => {

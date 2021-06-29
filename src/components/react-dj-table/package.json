@@ -1,33 +1,32 @@
 {
   "name": "react-dj-table",
-  "version": "0.0.1",
-  "description": "Test Release Dynamic Json HTML Table",
+  "version": "0.9.3",
+  "description": "React Dynamic Resposive Json HTML Table",
   "main": "index.js",
   "scripts": {
     "build": "rm -rf dist && NODE_ENV=production babel ./react-dj-table/ --out-dir dist --copy-files"
   },
   "author": "Sajid Rashid",
-  "keywords": ["react", "components", "dynamic" ,"json", "table"],
+  "keywords": ["react", "components","responsive", "dynamic" ,"json", "table"],
   "license": "GPL-2.0",
   "repository": { "type": "git",
     "url": "https://github.com/sajrashid/React-Dynamic-Json-Table"},
   "private": false,
   "files": ["/children","/reducers","utils"],
   "peerDependencies": {
-    "prop-types": "^15.7.2",
-    "react": "^17.0.2",
-    "react-dom": "^17.0.2"
+    "react": "^16.8.0 || ^17.0.2"
   },
   "devDependencies": {
     "@babel/cli": "^7.14.5",
     "@babel/core": "^7.14.6",
+    "@babel/polyfill": "^7.12.1",
     "@babel/preset-env": "^7.14.7"
   },
   "dependencies": {
-    "@babel/polyfill": "^7.12.1",
+    "prop-types": "^15.7.2",
     "dompurify": "^2.2.9",
-    "history": "^5.0.0",
     "lodash": "^4.17.21",
+    "core-js" : "^3.15.1",
     "match-sorter": "^6.3.0"
   }
 }
