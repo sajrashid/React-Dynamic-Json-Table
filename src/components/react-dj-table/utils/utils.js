@@ -1,4 +1,4 @@
-import DOMPurify from 'dompurify';
+import DOMPurify from 'isomorphic-dompurify'
 import _ from 'lodash'
 
 function templateLiteral(template, context = {}) {

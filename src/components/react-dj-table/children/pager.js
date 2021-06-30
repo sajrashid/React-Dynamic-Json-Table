@@ -32,7 +32,6 @@ function Pager({ state, dispatch }) {
 
         return arr.map((key, index) => {
             const html = state.pagerIcons[key]
-            console.log(key, index)
             var disabled = false
 
             if (key === 'first') {
