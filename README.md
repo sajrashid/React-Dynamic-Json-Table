@@ -1,6 +1,8 @@
 # React Dynamic JSON Table
 
-##yarn add react-dj-table
+ ```js
+yarn add react-dj-table
+```
 
 <img alt="demo png" src="https://github.com/sajrashid/hooks/blob/main/demo.png" width="600" height="320" />
 <sub>Robots lovingly delivered by Robohash.org</sub>
