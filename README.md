@@ -5,11 +5,11 @@ yarn add react-dj-table
 ```
 
  ```js
-const data=[]>
+const data= ... //some json array
 ```
 
  ```html
-<Table json={data}>
+<Table json={data}/>
 ```
 
 
