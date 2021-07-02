@@ -21,11 +21,10 @@ function Thead  ({ state, dispatch })  {
             const isHidden = _.includes(hiddenColArr, key)
             const isLabel = _.find(labelColsArr, key)
             const isIcon = _.find(iconColsArr, key)
-
             //if isHidden Return a null Column and exit 
             return isHidden ? null :
                 //Return a Label Column and exit 
-                isLabel ? <th className={cssClasses} id={key} key={key} onClick={(e) => dispatch({ type: ACTIONS.SORT, payload: { id: e.currentTarget.id } })} dangerouslySetInnerHTML={createMarkup(key, isLabel[key], key)}></th> :
+                isLabel ? <th className={cssClasses} id={key} key={key} onClick={(e) => dispatch({ type: ACTIONS.SORT, payload: { id: e.currentTarget.id } })} dangerouslySetInnerHTML={createMarkup(isLabel[key])}></th> :
                     isIcon ? <th className={cssClasses} id={key} key={key} onClick={(e) => dispatch({ type: ACTIONS.SORT, payload: { id: e.currentTarget.id } })} dangerouslySetInnerHTML={createMarkupLiteral(key, isIcon[key], key )}></th> :
                         <th className={cssClasses} id={key} key={key} onClick={(e) => dispatch({ type: ACTIONS.SORT, payload: { id: e.currentTarget.id } })} >{key}</th>
         })

@@ -1,5 +1,20 @@
 # React Dynamic JSON Table
 
-### Usable Test release
+### Responsive css agnostic table
 
-see github for doc's and examples
+ ```js
+yarn add react-dj-table
+```
+
+ ```js
+const data = ... //some json array
+```
+
+ ```html
+<Table json={data}/>
+```
+
+Tailwind - Sematic UI - BootStrap examples
+
+[LiveDemo, Docs, Sandboxes](https://bit.ly/3dviDbL)
+
