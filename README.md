@@ -5,7 +5,7 @@ yarn add react-dj-table
 ```
 
  ```js
-const data= ... //some json array
+const data = ... //some json array
 ```
 
  ```html
@@ -15,6 +15,8 @@ const data= ... //some json array
 
 <img alt="demo png" src="https://github.com/sajrashid/hooks/blob/main/demo.png" width="600" height="320" />
 <sub>Robots lovingly delivered by Robohash.org</sub>
+
+Tailwind, Sematic UI, Bootstrap examples
 
 [LiveDemo, Docs, Sandboxes](https://bit.ly/3dviDbL)
 
