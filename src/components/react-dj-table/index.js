@@ -34,8 +34,8 @@ import Thead from './children/thead'
 const Table = (props) => {
     // setup initial state
     const options = props.options || {}
-    const json = props.json || []
-    const colspan=Object.keys(json[0]).length 
+    let json = props.json || []
+    const colspan = Object.keys(json[0]).length
     const selectedRowCss = options.selectedRowCss || ''
     const sortDirection = 'asc'
     const searchInputCss = options.searchInputCss || ''
@@ -46,20 +46,25 @@ const Table = (props) => {
     const totalPages = (Math.ceil(json.length / pageSize))
     const pageable = options.pageable || false
     const searchable = options.searchable || false
+
+
+    // todo move into hook
+    const paginate = (array, page_size, page_number) => {
+        return array.slice(page_number * page_size, (page_number + 1) * page_size);
+    }
+
+    if (pageable) {
+        json = paginate(json || [], pageSize, 0)
+    }
+
+
     const initialState = {
-        json: json, jsonCopy: json, options: options, pageable: pageable, selectedRow: {}, selectedRowCss: selectedRowCss,
+        json: json, jsonCopy: props.json, options: options, pageable: pageable, selectedRow: {}, selectedRowCss: selectedRowCss,
         sortDirection: sortDirection, pagerInput: pagerInput, pageSize: pageSize, totalPages: totalPages,
         pageNo: pageNo, pagerIcons: pagerIcons, searchString: ''
     }
-    
-    const [state, dispatch] = useReducer(TableReducer, initialState)
-    //run once
-    useEffect(() => {
-        if (pageable && json.length > 0) {
 
-            dispatch({ type: ACTIONS.INITIALSTATE, payload: { pageable: pageable } })
-        }
-    }, [pageable, json.length])
+    const [state, dispatch] = useReducer(TableReducer, initialState)
 
     const styles = options.tableCss || ''
     const cssClasses = ` ${styles}`
@@ -77,7 +82,7 @@ const Table = (props) => {
         <table className={cssClasses}>
             <thead>
                 {
-                   searchable &&
+                    searchable &&
                     <tr><td colSpan={colspan} className={searchInputCss}>
                         <Filters state={state} dispatch={dispatch} />
                     </td>
@@ -86,13 +91,13 @@ const Table = (props) => {
                 <tr ><Thead className={cssClasses} state={state} dispatch={dispatch}></Thead></tr>
             </thead>
             <tbody>
-           
+
 
                 <Rows className={cssClasses} rowClick={rowClick} state={state} dispatch={dispatch} />
             </tbody>
             <tfoot>
                 <tr>{
-                   pageable &&
+                    pageable &&
                     <td colSpan={colspan} >
                         <div className={pagerCss} >
                             <Pager state={state} dispatch={dispatch} />
