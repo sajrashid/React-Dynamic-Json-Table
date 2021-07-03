@@ -1,6 +1,6 @@
 {
   "name": "react-dj-table",
-  "version": "0.9.17",
+  "version": "0.9.18",
   "description": "React Dynamic Resposive Json HTML Table",
   "main": "index.js",
   "scripts": {
@@ -15,7 +15,7 @@
     "json",
     "table"
   ],
-  "license": "GPL-2.0",
+  "license": "MIT",
   "repository": {
     "type": "git",
     "url": "https://github.com/sajrashid/React-Dynamic-Json-Table"
