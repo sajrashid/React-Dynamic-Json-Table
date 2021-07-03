@@ -86,6 +86,8 @@ const Table = (props) => {
                 <tr ><Thead className={cssClasses} state={state} dispatch={dispatch}></Thead></tr>
             </thead>
             <tbody>
+           
+
                 <Rows className={cssClasses} rowClick={rowClick} state={state} dispatch={dispatch} />
             </tbody>
             <tfoot>

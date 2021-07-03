@@ -1,10 +1,10 @@
 import React from "react"
 import SyntaxHighlighter from 'react-syntax-highlighter'
-import Table from 'react-dj-table'
+import Table from '../components/react-dj-table/index'
 import { docco } from 'react-syntax-highlighter/dist/esm/styles/hljs'
 import employees from '../Employees.json'
 
-// import Table from '../components/react-dj-table/index'
+// import Table from 'react-dj-table'
 
 
 
@@ -24,8 +24,8 @@ export default function  Advanced() {
         selectedRowCss:"selectedRow",
         labelCols:[{gender:'Gender'}],
         // eslint-disable-next-line no-template-curly-in-string
-        dateCols:['RetiredDate'],
-        dateOptions: { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' },
+        dateCols:[{RetiredDate:'ar-EG'}],
+        dateOptions: { weekday: 'short', year: 'numeric', month: 'short', day: 'numeric' },
         iconCols: [{ email: '<i class="envelope icon"></i>Email' },
         { Avatar: '<i class="id badge icon"></i>Avatar' }],
         // eslint-disable-next-line no-template-curly-in-string

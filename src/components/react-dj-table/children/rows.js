@@ -2,7 +2,7 @@ import { ACTIONS } from '../reducers/actions'
 import Cells from './cells'
 import React from "react"
 
-function Rows  ({ state, dispatch,rowClick }) {
+const Rows =  ({ state, dispatch,rowClick }) => {
     const options = state.options || {}
     const styles = options.rowCss || ''
     const selectedRowCss = options.selectedRowCss || ''

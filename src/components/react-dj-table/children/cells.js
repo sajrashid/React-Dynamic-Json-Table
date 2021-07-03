@@ -17,20 +17,17 @@ import {createMarkupLiteral} from '../utils/utils'
  *   <Cells />
  * )
  */
-function Cells({ state, row}){
+const Cells=({ state, row})=>{
     const options = state.options 
     const styles = options.cellCss || ''
     const cssClasses = ` ${styles}`
     const customColArr = options.customCols || []
     const hiddenColArr = options.hiddenCols  || []
-    const dateColArr = options.dateCols  || []
+    const dateColArr = options.dateCols  || {}
     const dateOptions = options.dateOptions || {}
     const columns = Object.keys(row)
-
-    
     const createCells = (row) => {
         return columns.map((key) => {
-
             // we need to test to determine the types
             // pref in some sort of performant order
             // testing for hidden colums first as we can just step out
@@ -49,7 +46,7 @@ function Cells({ state, row}){
            
             // Check if  date 
             // then go with the user options
-            const isDateCol = _.includes(dateColArr, key)
+            const isDateCol = _.find(dateColArr, key)
             // get the locale is specified from options.dateOptions
             const locale= isDateCol ? dateColArr[key] :''
 
