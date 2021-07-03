@@ -4,7 +4,7 @@ import { ACTIONS } from '../reducers/actions'
 import React from "react"
 import _ from 'lodash'
 
-function Thead  ({ state, dispatch })  {
+const Thead = ({ state, dispatch }) => {
     const options = state.options
     const hiddenColArr = options.hiddenCols || []
     const columns = Object.keys(state.jsonCopy[0]) || {}
