@@ -1,6 +1,6 @@
 import React from "react"
 import SyntaxHighlighter from 'react-syntax-highlighter'
-import Table from 'react-dj-table'
+import Table from '../components/react-dj-table/index'
 import { docco } from 'react-syntax-highlighter/dist/esm/styles/hljs'
 import employees from '../Employees.json'
 
@@ -10,16 +10,20 @@ export default function  Advanced() {
     const options = {
         tableCss: 'table-fixed cursor-pointer w-full',
         searchInputCss: 'searchInputCss',
-        cellStyles: 'break-words  border p-4 ',
+        cellCss: 'break-words  border p-4 ',
         pagerCss: 'pager',
         pageable: true,
-        theadStyles: 'bg-blue-500 text-gray-200 px-8 py-4',
-        filters: true,
+        theadCss: 'bg-blue-500 text-gray-200 px-8 py-4',
+        searchable: true,
         selectedRowCss:"selectedRow",
-        iconCols: [{ 'email': '<i class="envelope icon"></i>Email' },
-        { 'Avatar': '<i class="id badge icon"></i>Avatar' }],
+        labelCols:[{gender:'Gender'}],
         // eslint-disable-next-line no-template-curly-in-string
-        customCols: [{ 'Avatar': '<div style="min-height:6em"><img  decoding="async" src=${Avatar}></img></div' }] //adding min height reduces loading flash as image cells are not resized vertically
+        dateCols:['RetiredDate'],
+        dateOptions: { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' },
+        iconCols: [{ email: '<i class="envelope icon"></i>Email' },
+        { Avatar: '<i class="id badge icon"></i>Avatar' }],
+        // eslint-disable-next-line no-template-curly-in-string
+        customCols: [{ Avatar: '<div style="min-height:6em"><img  decoding="async" src=${Avatar}></img></div' }] //adding min height reduces loading flash as image cells are not resized vertically
     }
     return (
 <div className="w-full p-4 mb-2 bg-green-50">

@@ -45,7 +45,7 @@ const Table = (props) => {
     const pageSize = options.pageSize || 10
     const totalPages = (Math.ceil(json.length / pageSize))
     const pageable = options.pageable || false
-    const filters = options.filters || false
+    const searchable = options.searchable || false
     const initialState = {
         json: json, jsonCopy: json, options: options, pageable: pageable, selectedRow: {}, selectedRowCss: selectedRowCss,
         sortDirection: sortDirection, pagerInput: pagerInput, pageSize: pageSize, totalPages: totalPages,
@@ -77,7 +77,7 @@ const Table = (props) => {
         <table className={cssClasses}>
             <thead>
                 {
-                   filters &&
+                   searchable &&
                     <tr><td colSpan={colspan} className={searchInputCss}>
                         <Filters state={state} dispatch={dispatch} />
                     </td>

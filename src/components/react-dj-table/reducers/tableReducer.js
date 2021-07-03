@@ -105,16 +105,23 @@ export const TableReducer = (state, action) => {
             return { ...state }
 
         case ACTIONS.SORT:
-            let colName = action.payload.id
-            let sortDirection = state.sortDirection
-            if (state.pageable) {
-                state.jsonCopy.sort(compareValues(colName, sortDirection));
-                state.json = paginate(state.jsonCopy || [], state.pageSize, state.pageNo - 1)
-            } else {
-                state.json.sort(compareValues(colName, sortDirection));
+        const sortable =state.options.sortable ||  false
+
+            if (!sortable) {
+                return { ...state }
+            }else{
+                let colName = action.payload.id
+                let sortDirection = state.sortDirection
+                if (state.pageable) {
+                    state.jsonCopy.sort(compareValues(colName, sortDirection));
+                    state.json = paginate(state.jsonCopy || [], state.pageSize, state.pageNo - 1)
+                } else {
+                    state.json.sort(compareValues(colName, sortDirection));
+                }
+                state.sortDirection === 'asc' ? state.sortDirection = 'desc' : state.sortDirection = 'asc'
+                return { ...state }
+
             }
-            state.sortDirection === 'asc' ? state.sortDirection = 'desc' : state.sortDirection = 'asc'
-            return { ...state }
 
         default:
             return state
