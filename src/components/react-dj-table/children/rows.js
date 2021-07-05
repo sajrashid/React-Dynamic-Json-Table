@@ -16,9 +16,8 @@ const Rows =  ({ state, dispatch,rowClick }) => {
             if (rowId.toString() === e.currentTarget.id.toString())
             selectedRow=row
         });
-
-        dispatch({ type: ACTIONS.SELECTEDROW, payload: { row: selectedRow }})
         rowClick(selectedRow)
+        dispatch({ type: ACTIONS.SELECTEDROW, payload: { row: selectedRow }})
     }
 
     const createRows = () => {

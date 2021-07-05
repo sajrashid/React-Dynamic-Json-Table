@@ -1,6 +1,6 @@
 {
   "name": "react-dj-table",
-  "version": "0.9.18",
+  "version": "0.9.20",
   "description": "React Dynamic Resposive Json HTML Table",
   "main": "index.js",
   "scripts": {

@@ -69,10 +69,10 @@ const Table = (props) => {
     const styles = options.tableCss || ''
     const cssClasses = ` ${styles}`
     const pagerCss = options.pagerCss || ''
-    const rowClick = (e) => {
+    const rowClick = (row) => {
         if (options.selectable !== false) {
             if (props.rowClick) {
-                props.rowClick(state.selectedRow)
+                props.rowClick(row)
             }
         }
     }

@@ -36,9 +36,6 @@ export const TableReducer = (state, action) => {
             state.pageable = action.payload.pageable
             action.payload.pageable ? state.json = paginate(state.json || [], state.pageSize, 0) : state.totalPages = (Math.ceil(state.json.length / state.pageSize))
             return { ...state }
-        case ACTIONS.SEARCHINPUTCHANGE:
-            state.searchString = action.payload.search
-            return { ...state }
         case ACTIONS.ITEMSPERPAGE:
             state.pageSize = action.payload.itemsPerPage
             state.totalPages = Math.ceil(state.jsonCopy.length / state.pageSize)
