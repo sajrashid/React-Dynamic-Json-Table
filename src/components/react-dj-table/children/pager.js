@@ -29,7 +29,12 @@ function Pager({ state, dispatch }) {
 
     const createShowOptions=()=>{
         const showOptions = []
-        if (state.jsonCopy.length < 10) showOptions.push(<option value={state.json.length}>Show {state.json.length}</option>)
+        if(state.pageSizeCopy <10 || state.jsonCopy.length < 10 ){
+            //use whichever is smaller either the pageszie or the arrat length
+            var size=null
+            state.pageSizeCopy < state.jsonCopy.length ? size=state.jsonCopy.length: size=state.pageSizeCopy
+            showOptions.push(<option value={size}>Show {size}</option>)
+        }
         if (state.jsonCopy.length > 9)  showOptions.push(<option value={10}>Show {10}</option>)
         if (state.jsonCopy.length > 19)  showOptions.push(<option value={20}>Show {20}</option>)
         if (state.jsonCopy.length > 29)  showOptions.push(<option value={30}>Show {30}</option>)
