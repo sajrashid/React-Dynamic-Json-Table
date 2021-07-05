@@ -60,7 +60,7 @@ const Table = (props) => {
 
     const initialState = {
         json: json, jsonCopy: props.json, options: options, pageable: pageable, selectedRow: {}, selectedRowCss: selectedRowCss,
-        sortDirection: sortDirection, pagerInput: pagerInput, pageSize: pageSize, totalPages: totalPages,
+        pagerHistory:[],sortDirection: sortDirection, pagerInput: pagerInput, pageSize: pageSize, totalPages: totalPages,
         pageNo: pageNo, pagerIcons: pagerIcons, searchString: ''
     }
 

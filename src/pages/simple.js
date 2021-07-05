@@ -3,12 +3,28 @@ import './simple.css'
 import Banner from './components/banner'
 import React from "react"
 import SyntaxHighlighter from 'react-syntax-highlighter'
-import Table from 'react-dj-table'
+import Table from '../components/react-dj-table/index'
 import cars from '../data.json'
 import { docco } from 'react-syntax-highlighter/dist/esm/styles/hljs'
 
+//import Table from 'react-dj-table'
+
+
+
+
+
 export default function Simple() {
-    const data = [{ 'num': 0, 'Name': 'abc', 'IsReady': true }, { 'num': 1, 'Name': 'XYZ', 'IsReady': false }, { 'num': 3, 'Name': 'Cat', 'IsReady': true }]
+    const data = [
+        { 'num': 0, 'Name': 'abc', 'IsReady': true }, 
+       { 'num': 1, 'Name': 'XYZ', 'IsReady': false },
+       { 'num': 2, 'Name': 'XYZ', 'IsReady': false },
+       { 'num': 3, 'Name': 'XYZ', 'IsReady': false },
+       { 'num': 4, 'Name': 'XYZ', 'IsReady': false },
+       { 'num': 5, 'Name': 'XYZ', 'IsReady': false },
+       { 'num': 6, 'Name': 'XYZ', 'IsReady': false },
+       { 'num': 7, 'Name': 'XYZ', 'IsReady': false },
+    
+    ]
     const options = {
         tableCss: 'table-fixed cursor-pointer w-full',
         searchInputCss: 'searchInputCss',
@@ -44,30 +60,10 @@ export default function Simple() {
 
             <div id="simple" className="w-full h-full p-2">
 
-
-                <div className="w-full p-4">
-                    <h2 className="w-full p-4 mb-2 text-xl bg-green-200">Add CSS</h2>
-                    <div id="addcss" className="w-full bg-green-100">
-                        <SyntaxHighlighter language="javascript" style={docco}>
-                            {codeSimpleOptions}
-                        </SyntaxHighlighter>
-                        <div className="w-full p-4 mt-2 mb-2 bg-yellow-100 ">
-                            <h3 className=""> Result</h3>
-
-                        </div>
-                        <div className="w-full p-4 mb-4 bg-white" >
-                            <Table json={cars} options={options} />
-                        </div>
-                    </div>
-                </div>
                 <h2 className="w-full p-4 mt-4 mb-2 text-xl bg-green-200">Hide Colums, remove checkboxes</h2>
                 <div id="hide" className="w-full text-left bg-green-100">
-                    <SyntaxHighlighter language="javascript" style={docco}>
-                        {codeSimpleOptions}
-                    </SyntaxHighlighter>
                     <div className="w-full p-4 mt-2 mb-2 bg-yellow-100 ">
                         <h3 className=""> Result</h3>
-
                     </div>
                     <div className="w-full p-4 mb-4 bg-white" >
                         <Table json={data} options={options} />

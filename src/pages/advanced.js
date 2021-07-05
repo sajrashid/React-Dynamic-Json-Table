@@ -1,10 +1,14 @@
 import React from "react"
 import SyntaxHighlighter from 'react-syntax-highlighter'
-import Table from 'react-dj-table'
+import Table from '../components/react-dj-table/index'
 import { docco } from 'react-syntax-highlighter/dist/esm/styles/hljs'
 import employees from '../Employees.json'
 
-//import Table from '../components/react-dj-table/index'
+// import Table from 'react-dj-table'
+
+
+
+
 
 
 

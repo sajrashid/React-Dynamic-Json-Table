@@ -40,7 +40,6 @@ export const TableReducer = (state, action) => {
             state.pageSize = action.payload.itemsPerPage
             state.totalPages = Math.ceil(state.jsonCopy.length / state.pageSize)
             state.pageNo = 1
-            state.pagerInput = 1
             action.payload.itemsPerPage ? state.json = paginate(state.jsonCopy || [], state.pageSize, 0) : state.totalPages = (Math.ceil(state.json.length / state.pageSize))
             return { ...state }
         case ACTIONS.SEARCH:
@@ -54,10 +53,10 @@ export const TableReducer = (state, action) => {
             else {
                 result = state.jsonCopy
             }
-            state.searchFilter = searchString
+            state.searchString = searchString
+            
             if (state.pageable) {
                 state.pageNo = 1
-                state.pagerInput = 1
                 state.json = (paginate(result, state.pageSize, 0))
                 state.totalPages = Math.ceil(result.length / state.pageSize)
 
@@ -75,25 +74,21 @@ export const TableReducer = (state, action) => {
 
         case ACTIONS.FIRST:
             state.pageNo = 1
-            state.pagerInput = 1
             state.json = (paginate(state.jsonCopy, state.pageSize, 0))
             return { ...state }
 
         case ACTIONS.LAST:
             state.json = (paginate(state.jsonCopy, state.pageSize, state.totalPages - 1))
             state.pageNo = state.totalPages
-            state.pagerInput = state.totalPages
             return { ...state }
 
         case ACTIONS.NEXT:
             state.pageNo = state.pageNo >= state.totalPages ? state.pageNo : state.pageNo + 1
-            state.pagerInput = state.pageNo
             state.json = (paginate(state.jsonCopy, state.pageSize, state.pageNo - 1))
             return { ...state }
 
         case ACTIONS.PREVIOUS:
             state.pageNo = state.pageNo < 2 ? state.pageNo : state.pageNo - 1
-            state.pagerInput = state.pageNo
             state.json = (paginate(state.jsonCopy, state.pageSize, state.pageNo - 1))
             return { ...state }
 
