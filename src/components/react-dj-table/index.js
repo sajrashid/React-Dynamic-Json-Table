@@ -1,7 +1,5 @@
-import React, { useEffect, useReducer } from 'react'
-
-import { ACTIONS } from './reducers/actions'
-import Filters from './children/filters'
+import React, {useReducer } from 'react'
+import GlobalSearch from './children/globalsearch'
 import Pager from './children/pager'
 import PropTypes from "prop-types"
 import Rows from './children/rows'
@@ -46,8 +44,7 @@ const Table = (props) => {
     const totalPages = (Math.ceil(json.length / pageSize))
     const pageable = options.pageable || false
     const searchable = options.searchable || false
-
-
+    const footer = options.footer || false
     // todo move into hook
     const paginate = (array, page_size, page_number) => {
         return array.slice(page_number * page_size, (page_number + 1) * page_size);
@@ -60,7 +57,7 @@ const Table = (props) => {
 
     const initialState = {
         json: json, jsonCopy: props.json, options: options, pageable: pageable, selectedRow: {}, selectedRowCss: selectedRowCss,
-        pagerHistory:[],sortDirection: sortDirection, pagerInput: pagerInput, pageSize: pageSize,pageSizeCopy: pageSize, totalPages: totalPages,
+        sortDirection: sortDirection, pagerInput: pagerInput, pageSize: pageSize, pageSizeCopy: pageSize, totalPages: totalPages,
         pageNo: pageNo, pagerIcons: pagerIcons, searchString: ''
     }
 
@@ -77,38 +74,38 @@ const Table = (props) => {
         }
     }
     return (
+        <React.Fragment>
 
 
-        <table className={cssClasses}>
-            <thead>
-                {
-                    searchable &&
-                    <tr><td colSpan={colspan} className={searchInputCss}>
-                        <Filters state={state} dispatch={dispatch} />
-                    </td>
+            <table className={cssClasses}>
+                <thead>
+                    {
+                        searchable &&
+                        <tr>
+                            <td colSpan={colspan} className={searchInputCss}>
+                                <GlobalSearch state={state} dispatch={dispatch} />
+                            </td>
+                        </tr>
+                    }
+
+                    <tr ><Thead className={cssClasses} state={state} dispatch={dispatch}></Thead></tr>
+                </thead>
+                <tbody>
+                    <Rows className={cssClasses} rowClick={rowClick} state={state} dispatch={dispatch} />
+                </tbody>
+                {footer && <tfoot>
+                    <tr>
                     </tr>
-                }
-                <tr ><Thead className={cssClasses} state={state} dispatch={dispatch}></Thead></tr>
-            </thead>
-            <tbody>
-
-
-                <Rows className={cssClasses} rowClick={rowClick} state={state} dispatch={dispatch} />
-            </tbody>
-            <tfoot>
-                <tr>{
-                    pageable &&
-                    <td colSpan={colspan} >
-                        <div className={pagerCss} >
-                            <Pager state={state} dispatch={dispatch} />
-                        </div>
-                    </td>}
-                </tr>
-            </tfoot>
-        </table>
-
-
-
+                </tfoot>}
+            </table>
+            {
+                pageable &&
+                <div colSpan={colspan} >
+                    <div className={pagerCss} >
+                        <Pager state={state} dispatch={dispatch} />
+                    </div>
+                </div>}
+        </React.Fragment>
     )
 }
 Table.propTypes = {

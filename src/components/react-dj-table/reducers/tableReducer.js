@@ -44,11 +44,12 @@ export const TableReducer = (state, action) => {
             return { ...state }
         case ACTIONS.SEARCH:
             var result = null
-            var searchString = action.payload.search
+            var searchString = action.payload.search.searchString
+            var columns= action.payload.search.columns
             //state.searchString = searchString
             // fuzzy search
             if (searchString.length > 0) {
-                result = fuzzySearchMutipleWords(state.jsonCopy,Object.keys(state.jsonCopy[0]),searchString)
+                result = fuzzySearchMutipleWords(state.jsonCopy,columns,searchString)
             }
             else {
                 result = state.jsonCopy

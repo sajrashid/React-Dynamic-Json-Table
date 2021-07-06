@@ -37,6 +37,7 @@ export default function Advanced() {
         theadCss: 'bg-blue-500 text-gray-200 px-8 py-4',
         sortable: true,
         searchable: true,
+        filterCols: [{email:'123'}],
         selectedRowCss: "selectedRow",
         labelCols: [{ gender: 'Gender' }],
         // eslint-disable-next-line no-template-curly-in-string
