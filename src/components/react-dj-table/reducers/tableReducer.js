@@ -13,22 +13,22 @@ export const TableReducer = (state, action) => {
         rows, // array of data [{a: "a", b: "b"}, {a: "c", b: "d"}]
         keys, // keys to search ["a", "b"]
         filterValue// potentially multi-word search string "two words"
-      ) {
+    ) {
         if (!filterValue || !filterValue.length) {
-          return rows
+            return rows
         }
-      
+
         const terms = filterValue.split(' ')
         if (!terms) {
-          return rows
+            return rows
         }
-      
+
         // reduceRight will mean sorting is done by score for the _first_ entered word.
         return terms.reduceRight(
-          (results, term) => matchSorter(results, term, {keys}),
-          rows,
+            (results, term) => matchSorter(results, term, { keys }),
+            rows,
         )
-      }
+    }
 
     switch (action.type) {
 
@@ -45,17 +45,17 @@ export const TableReducer = (state, action) => {
         case ACTIONS.SEARCH:
             var result = null
             var searchString = action.payload.search.searchString
-            var columns= action.payload.search.columns
+            var columns = action.payload.search.columns
             //state.searchString = searchString
             // fuzzy search
             if (searchString.length > 0) {
-                result = fuzzySearchMutipleWords(state.jsonCopy,columns,searchString)
+                result = fuzzySearchMutipleWords(state.jsonCopy, columns, searchString)
             }
             else {
                 result = state.jsonCopy
             }
             state.searchString = searchString
-            
+
             if (state.pageable) {
                 state.pageNo = 1
                 state.json = (paginate(result, state.pageSize, 0))
@@ -98,11 +98,11 @@ export const TableReducer = (state, action) => {
             return { ...state }
 
         case ACTIONS.SORT:
-        const sortable =state.options.sortable ||  false
+            const sortable = state.options.sortable || false
 
             if (!sortable) {
                 return { ...state }
-            }else{
+            } else {
                 let colName = action.payload.id
                 let sortDirection = state.sortDirection
                 if (state.pageable) {

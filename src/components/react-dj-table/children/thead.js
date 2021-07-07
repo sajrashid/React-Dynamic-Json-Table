@@ -28,9 +28,6 @@ const Thead = ({ state, dispatch }) => {
             if(isIcon) return <th className={cssClasses} id={key} key={key} onClick={(e) => dispatch({ type: ACTIONS.SORT, payload: { id: e.currentTarget.id } })} dangerouslySetInnerHTML={createMarkupLiteral(key, isIcon[key], key )}></th> 
 
             return <th className={cssClasses} id={key} key={key} onClick={(e) => dispatch({ type: ACTIONS.SORT, payload: { id: e.currentTarget.id } })} >{key}</th>
-            
-                //Return a Label Column and exit 
-                
         })
     }
 

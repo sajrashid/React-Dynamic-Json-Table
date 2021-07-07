@@ -5,7 +5,7 @@ import PropTypes from "prop-types"
 import Rows from './children/rows'
 import { TableReducer } from '../react-dj-table/reducers/tableReducer'
 import Thead from './children/thead'
-
+import {createMarkup} from '../react-dj-table/utils/utils'
 /**
  * Component for displaying json data in a HTML Table.
  *
@@ -44,7 +44,11 @@ const Table = (props) => {
     const totalPages = (Math.ceil(json.length / pageSize))
     const pageable = options.pageable || false
     const searchable = options.searchable || false
-    const footer = options.footer || false
+    let footer =false
+    if (options.footer) footer=true
+    const footerHtml= options.footer || ''
+    const hiddenCols = options.hiddenCols|| []
+    const hiddenColsCount=hiddenCols.length 
     // todo move into hook
     const paginate = (array, page_size, page_number) => {
         return array.slice(page_number * page_size, (page_number + 1) * page_size);
@@ -82,7 +86,7 @@ const Table = (props) => {
                     {
                         searchable &&
                         <tr>
-                            <td colSpan={colspan} className={searchInputCss}>
+                            <td colSpan={colspan - hiddenColsCount} className={searchInputCss}>
                                 <GlobalSearch state={state} dispatch={dispatch} />
                             </td>
                         </tr>
@@ -93,14 +97,17 @@ const Table = (props) => {
                 <tbody>
                     <Rows className={cssClasses} rowClick={rowClick} state={state} dispatch={dispatch} />
                 </tbody>
-                {footer && <tfoot>
+                {footer && 
+                <tfoot>
                     <tr>
+                    <td colSpan={colspan - hiddenColsCount} dangerouslySetInnerHTML= {createMarkup(footerHtml)} >
+                     </td>
                     </tr>
                 </tfoot>}
             </table>
             {
                 pageable &&
-                <div colSpan={colspan} >
+                <div colSpan={colspan - hiddenColsCount} >
                     <div className={pagerCss} >
                         <Pager state={state} dispatch={dispatch} />
                     </div>

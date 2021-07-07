@@ -4,26 +4,7 @@ import Table from '../components/react-dj-table/index'
 import { docco } from 'react-syntax-highlighter/dist/esm/styles/hljs'
 import employees from '../Employees.json'
 
-// import Table from 'react-dj-table'
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+//import Table from 'react-dj-table'
 
 export default function Advanced() {
     const codeSimple = "const data=[\n {'num':0,'Name':'abc','IsReady':true},\n {'num':1,'Name':'XYZ','IsReady':false},\n {'num':3,'Name':'Cat','IsReady':true}\n ]\n \n <SuperTable json={data} /> "
@@ -37,9 +18,10 @@ export default function Advanced() {
         theadCss: 'bg-blue-500 text-gray-200 px-8 py-4',
         sortable: true,
         searchable: true,
-        filterCols: [{email:'123'}],
+        hiddenCols: ["last_name"],
         selectedRowCss: "selectedRow",
         labelCols: [{ gender: 'Gender' }],
+        footer:"<div class'myfooter'>footer</div>",
         // eslint-disable-next-line no-template-curly-in-string
         dateCols: [{ RetiredDate: 'en-GB' }],
         dateOptions: { weekday: 'short', year: 'numeric', month: 'short', day: 'numeric' },
