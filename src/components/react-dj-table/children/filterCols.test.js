@@ -11,11 +11,13 @@ const state = {
 
 const table = document.createElement("table");
 const tbody = document.createElement("tbody");
+const tr=document.createElement("tr");
 document.body.appendChild(table);
+table.appendChild(tbody)
 
-test("renders Thead", async () => {
+test("renders Filters", async () => {
   const { container } = render(<Filters state={state} />, {
-    container: table.appendChild(tbody),
+    container: tbody.appendChild(tr),
   });
 
   expect(pretty(container.innerHTML)).toMatchInlineSnapshot(`

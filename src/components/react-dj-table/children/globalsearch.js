@@ -13,9 +13,9 @@ function GlobalSearch({ state, dispatch }) {
         // }
     }
     return (
-        <span>
+        <div>
             <input placeholder={placeholder} onChange={searchFilterChange} type='text' value={state.searchString}></input>
-        </span>
+        </div>
     )
 
 
