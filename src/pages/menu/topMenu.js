@@ -1,6 +1,7 @@
-import React from 'react';
 import './topMenu.css';
+
 import { NavLink } from 'react-router-dom'
+import React from 'react';
 
 const TopMenu = props => {
 
@@ -16,12 +17,6 @@ const TopMenu = props => {
                 <NavLink to='/examples' >
                     <i aria-hidden="true" className="lab icon" ></i>
                     Examples
-                </NavLink>
-            </div>
-            <div className="item">
-                <NavLink to='/simple' >
-                    <i aria-hidden="true" className="lab icon" ></i>
-                    Simple
                 </NavLink>
             </div>
             <div className="item">

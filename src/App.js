@@ -1,11 +1,13 @@
-import React from "react";
 import './App.css';
-import {BrowserRouter,  Switch, Route } from 'react-router-dom'
-import Home from './pages/home'
-import Examples from './pages/examples'
-import TopMenu from './pages/menu/topMenu'
-import Simple from "./pages/simple";
+
+import {BrowserRouter, Route, Switch} from 'react-router-dom'
+
 import Advanced from "./pages/advanced";
+import Examples from './pages/examples'
+import Home from './pages/home'
+import React from "react";
+import TopMenu from './pages/menu/topMenu'
+
 function App() {
   return (
     <div className="h-full App">
@@ -17,9 +19,7 @@ function App() {
         <Switch>
           <Route exact path='/' component={Home} />
           <Route path='/examples' component={Examples} />
-          <Route path='/simple' component={Simple} />
           <Route path='/advanced' component={Advanced} />
-       
         </Switch>
         </BrowserRouter>
       

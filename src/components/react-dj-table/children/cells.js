@@ -64,7 +64,6 @@ Cells.propTypes = {
     /**
      * JSON object array json
      */
-     state: PropTypes.object.isRequired,
     /**
      * Table options
      */

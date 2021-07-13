@@ -4,7 +4,7 @@ import Table from '../components/react-dj-table/index'
 import { docco } from 'react-syntax-highlighter/dist/esm/styles/hljs'
 import employees from '../Employees.json'
 
-//import Table from 'react-dj-table'
+// import Table from 'react-dj-table'
 
 export default function Advanced() {
     const codeSimple = "const data=[\n {'num':0,'Name':'abc','IsReady':true},\n {'num':1,'Name':'XYZ','IsReady':false},\n {'num':3,'Name':'Cat','IsReady':true}\n ]\n \n <SuperTable json={data} /> "
@@ -13,7 +13,7 @@ export default function Advanced() {
         tableCss: 'table-fixed cursor-pointer w-full',
         searchInputCss: 'searchInputCss',
         cellCss: 'break-words  border p-4 ',
-        pagerCss: 'pager',
+        pagerCss: 'flex space-x-4  bg-blue-500 text-gray-200',
         pageable: true,
         theadCss: 'bg-blue-500 text-gray-200 px-8 py-4',
         sortable: true,
