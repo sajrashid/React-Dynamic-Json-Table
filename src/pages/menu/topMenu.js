@@ -14,12 +14,6 @@ const TopMenu = props => {
                 </NavLink>
             </div>
             <div className="item">
-                <NavLink to='/examples' >
-                    <i aria-hidden="true" className="lab icon" ></i>
-                    Examples
-                </NavLink>
-            </div>
-            <div className="item">
                 <NavLink to='/advanced' >
                     <i aria-hidden="true" className="lab icon" ></i>
                     Advanced

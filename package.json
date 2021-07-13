@@ -7,7 +7,6 @@
     "@testing-library/jest-dom": "^5.14.1",
     "@testing-library/react": "^11.2.7",
     "@testing-library/user-event": "^12.1.10",
-    "better-docs": "^2.3.2",
     "dompurify": "^2.2.9",
     "history": "^5.0.0",
     "lodash": "^4.17.21",
@@ -20,7 +19,6 @@
     "react-router-dom": "^5.2.0",
     "react-scripts": "^4.0.3",
     "react-select": "^4.3.1",
-    "react-syntax-highlighter": "^15.4.3",
     "use-debounce": "^7.0.0"
   },
   "scripts": {

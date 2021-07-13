@@ -49,26 +49,13 @@ const Home = props => {
     // id as string row as selectedRow object
   }
 
-  // useEffect(() => {
-  //   async function fetchAPI() {
-  //       const url = 'https://jsonplaceholder.typicode.com/posts'
-  //       const response = await fetch(url)
-  //       const json = await response.json()
-  //       updateJson(json)
-  //   }
-  //   fetchAPI()
-  // }, [])
 
   if (!json) {
     return <div className="lds-facebook"><div></div><div></div><div></div></div>
   }
   return (
-    <div className="w-full h-full">
+    <div className="flex justify-center w-full h-full mt-4">
       <Table options={options}  json={data} rowClick={rowClick} />
-
-      <div>
-       <input type="text" value={name} onChange={e => setName(e.target.value)} />
-    </div>
     </div>
   
   )
