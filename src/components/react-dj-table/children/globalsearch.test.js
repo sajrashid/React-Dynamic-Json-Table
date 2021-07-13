@@ -26,6 +26,6 @@ test("renders Pager", async () => {
   });
 
   expect(pretty(container.innerHTML)).toMatchInlineSnapshot(
-    `"<span><input placeholder=\\"Search...\\" type=\\"text\\" value=\\"\\"></span>"`
+    `"<span><input placeholder=\\" search 11 records\\" type=\\"text\\" value=\\"\\"></span>"`
   ); /* ... gets filled automatically by jest ... */
 });
