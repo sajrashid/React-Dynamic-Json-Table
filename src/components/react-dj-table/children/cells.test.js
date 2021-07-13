@@ -7,7 +7,6 @@ const row = {
   id: 0,
   name: "Cells Test",
   isbool: true,
-  date: new Date().toLocaleDateString(),
   isBool2: false,
 };
 
@@ -26,7 +25,6 @@ test("renders cells", async () => {
     "<td class=\\" \\">0</td>
     <td class=\\" \\">Cells Test</td>
     <td class=\\" \\"> <input readonly=\\"\\" type=\\"checkbox\\" checked=\\"\\"></td>
-    <td class=\\" \\">13/07/2021</td>
     <td class=\\" \\"> <input readonly=\\"\\" type=\\"checkbox\\"></td>"
   `); /* ... gets filled automatically by jest ... */
 });
