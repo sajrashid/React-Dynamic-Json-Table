@@ -10,12 +10,15 @@ const state = {
 };
 
 const table = document.createElement("table");
-const tbody = document.createElement("tbody");
+const thead = document.createElement("thead");
+const trow = document.createElement("tr");
+
 document.body.appendChild(table);
+table.appendChild(thead);
 
 test("renders Thead", async () => {
   const { container } = render(<Thead state={state} />, {
-    container: table.appendChild(tbody),
+    container:thead.appendChild(trow),
   });
 
   expect(pretty(container.innerHTML)).toMatchInlineSnapshot(`

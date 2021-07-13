@@ -16,13 +16,12 @@ const state = {
   options: {},
 };
 
-const table = document.createElement("table");
-const tbody = document.createElement("tbody");
-document.body.appendChild(table);
+const div = document.createElement("div");
+document.body.appendChild(div);
 
 test("renders Pager", async () => {
   const { container } = render(<Pager state={state} />, {
-    container: table.appendChild(tbody),
+    container:div,
   });
 
   expect(pretty(container.innerHTML)).toMatchInlineSnapshot(`
