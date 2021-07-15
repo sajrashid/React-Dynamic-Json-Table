@@ -18,7 +18,7 @@ const data = ... //some json array
 
 Tailwind, Sematic UI, Bootstrap examples
 
-[LiveDemo, Docs, Sandboxes](https://bit.ly/3dviDbL)
+[LiveDemo, Docs, Sandboxes](https://react-dj-table.netlify.app/)
 
 ![Tests](https://github.com/github/docs/actions/workflows/test.yml/badge.svg)
 
