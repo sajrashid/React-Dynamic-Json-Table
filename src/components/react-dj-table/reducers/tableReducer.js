@@ -95,28 +95,28 @@ export const TableReducer = (state, action) => {
 
         case ACTIONS.SELECTEDROW:
             state.selectedRow = action.payload.row
-            state.selectedRowCopy=JSON.parse(JSON.stringify(action.payload.row))
-           
+            state.selectedRowCopy = JSON.parse(JSON.stringify(action.payload.row))
+            state.editing = true
             return { ...state }
         case ACTIONS.UPDATEROW:
-             var item= action.payload.item
-             var value= action.payload.value
-             state.selectedRow[item]=value
-             return { ...state }
-             case ACTIONS.REJECTCHANGES:
-             var a = [state.selectedRow,action.payload.row]
-             state.selectedRow= Object.assign(...a)
-           //  state.selectedRow=action.payload.row
-             state.selectedRow={}
-             state.selectedRowCopy={}
-             return { ...state }
-          case ACTIONS.COMMITROW:
-              state.selectedRowCopy=state.selectedRow 
-              return { ...state }   
+            var item = action.payload.item
+            var value = action.payload.value
+            state.selectedRow[item] = value
+            return { ...state }
+        case ACTIONS.REJECTCHANGES:
+            var a = [state.selectedRow, state.selectedRowCopy]
+            state.selectedRow = Object.assign(...a)
+            //  state.selectedRow=action.payload.row
+            state.selectedRow = {}
+            state.selectedRowCopy = {}
+            return { ...state }
+        case ACTIONS.COMMITROW:
+            state.selectedRowCopy = state.selectedRow
+            return { ...state }
         case ACTIONS.UPDATECHECKBOX:
-             var checkbox= action.payload.item
-             var checked= action.payload.checked
-             state.selectedRow[checkbox]=checked
+            var checkbox = action.payload.item
+            var checked = action.payload.checked
+            state.selectedRow[checkbox] = checked
             return { ...state }
         case ACTIONS.SORT:
             const sortable = state.options.sortable || false
@@ -136,7 +136,18 @@ export const TableReducer = (state, action) => {
                 return { ...state }
 
             }
-
+        case ACTIONS.CANCEL:
+            console.log("cancel")
+            state.selectedRow = {}
+            state.selectedRowCopy = {}
+            return { ...state }
+        case ACTIONS.CREATE:
+            state.creating = true
+            return { ...state }
+        case ACTIONS.UPDATE:
+            state.creating = false
+            state.userAction = 'UPDATE'
+            return { ...state }
         default:
             return state
 

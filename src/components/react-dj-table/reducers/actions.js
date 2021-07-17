@@ -14,6 +14,12 @@ export const ACTIONS={
     ITEMSPERPAGE:'itemsPerPage',
     SEARCHINPUTCHANGE:'SerachInputChange',
     SEARCH:'search',
+    CREATE:'create',
+    UPDATE:'update',
+    DELETE:'delete',
+    CANCEL:'cancel',
+    NOACTION:'NOACTION',
+    SETUPDATEACTION:'setupdateaction'
 }
 
 

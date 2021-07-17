@@ -1,35 +1,13 @@
-import React, {useReducer} from 'react'
+import React, { useReducer } from 'react'
 
+import Crud from './children/crud'
 import GlobalSearch from './children/globalsearch'
 import Pager from './children/pager'
 import PropTypes from "prop-types"
 import Rows from './children/rows'
 import { TableReducer } from '../react-dj-table/reducers/tableReducer'
 import Thead from './children/thead'
-import {createMarkup} from '../react-dj-table/utils/utils'
-
-/**
- * Component for displaying json data in a HTML Table.
- *
- * @component
- * @example
- * 
- * const json= [{
-    id:1,
-    name: "Yoda Master",
-    age: 30
-  }]
- * const options = {
-    tableCss: 'table-fixed cursor-pointer w-full',
-    cellStyles: 'break-words  border p-4 ',
-    pageable: true,
-    selectable: true,
-    customCols: [{ 'Avatar': '<div style="min-height:6em"><img  decoding="async" src=${Avatar}></img></div' }] //adding min height reduces loading flash as image cells are not resized vertically
-}
- * return (
- *   <Table json={json} options={options} />
- * )
- */
+import { createMarkup } from '../react-dj-table/utils/utils'
 
 const Table = (props) => {
     // setup initial state
@@ -46,12 +24,12 @@ const Table = (props) => {
     const totalPages = (Math.ceil(json.length / pageSize))
     const pageable = options.pageable || false
     const searchable = options.searchable || false
-    const editable=options.editable|| false
-    let footer =false
-    if (options.footer) footer=true
-    const footerHtml= options.footer || ''
-    const hiddenCols = options.hiddenCols|| []
-    const hiddenColsCount=hiddenCols.length 
+    const editable = options.editable || false
+    let footer = false
+    if (options.footer) footer = true
+    const footerHtml = options.footer || ''
+    const hiddenCols = options.hiddenCols || []
+    const hiddenColsCount = hiddenCols.length
     // todo move into hook
     const paginate = (array, page_size, page_number) => {
         return array.slice(page_number * page_size, (page_number + 1) * page_size);
@@ -63,27 +41,26 @@ const Table = (props) => {
 
 
     const initialState = {
-        json: json, jsonCopy: props.json, options: options, pageable: pageable, selectedRow: {},selectedRowCopy: {}, selectedRowCss: selectedRowCss,
+        json: json, jsonCopy: props.json, options: options, pageable: pageable, selectedRow: {}, selectedRowCopy: {}, selectedRowCss: selectedRowCss,
         sortDirection: sortDirection, pagerInput: pagerInput, pageSize: pageSize, pageSizeCopy: pageSize, totalPages: totalPages,
-        pageNo: pageNo, pagerIcons: pagerIcons, searchString: ''
+        userAction:'NOACTION',creating: false, editing: false, pageNo: pageNo, pagerIcons: pagerIcons, searchString: ''
     }
 
-    const [state, dispatch] = useReducer(TableReducer, initialState)
-
+   const [state, dispatch] = useReducer(TableReducer, initialState)
     const styles = options.tableCss || ''
     const cssClasses = ` ${styles}`
     const pagerCss = options.pagerCss || ''
-    const rowClick = (row) => {
-        if (options.selectable !== false) {
-            if (props.rowClick) {
-                props.rowClick(row)
-            }
+    const rowClick = (row, rowUnchanged,action) => {
+
+    if (options.selectable !== false) {
+        if (props.rowClick) {
+            props.rowClick(row, rowUnchanged,action, dispatch)
         }
+      }
     }
+
     return (
         <React.Fragment>
-
-
             <table className={cssClasses}>
                 <thead>
                     {
@@ -100,13 +77,13 @@ const Table = (props) => {
                 <tbody>
                     <Rows className={cssClasses} rowClick={rowClick} state={state} dispatch={dispatch} />
                 </tbody>
-                {footer && 
-                <tfoot>
-                    <tr>
-                    <td colSpan={colspan - hiddenColsCount} dangerouslySetInnerHTML= {createMarkup(footerHtml)} >
-                     </td>
-                    </tr>
-                </tfoot>}
+                {footer &&
+                    <tfoot>
+                        <tr>
+                            <td colSpan={colspan - hiddenColsCount} dangerouslySetInnerHTML={createMarkup(footerHtml)} >
+                            </td>
+                        </tr>
+                    </tfoot>}
             </table>
             {
                 pageable &&
@@ -115,15 +92,10 @@ const Table = (props) => {
                         <Pager state={state} dispatch={dispatch} />
                     </div>
                 </div>}
-                {
+            {
                 editable &&
-                <div className="crudDiv"> 
-                    <button >Update</button>
-                    <button >Cencel</button>
-                    <button>Create</button>
-                    <button>Delete</button>
-                </div>
-                }
+                <Crud state={state} dispatch={dispatch} />
+            }
         </React.Fragment>
     )
 }
@@ -149,3 +121,5 @@ Table.defaultProps = {
     }
 }
 export default React.memo(Table)
+
+

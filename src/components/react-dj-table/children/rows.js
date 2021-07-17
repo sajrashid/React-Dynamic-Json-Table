@@ -10,22 +10,20 @@ const Rows = ({ state, dispatch, rowClick }) => {
     const idColIdx = options.idCol ? Object.keys(state.json[0]).indexOf(options.idCol) : 0
     const isEditable = options.editable || false
 
-
-
     function handleRowClick(e) {
 
         if (!e.currentTarget.classList.contains('selected')) {
-
             // navigated to new row test if state is same or reset
              if(JSON.stringify(state.selectedRow)===JSON.stringify(state.selectedRowCopy)){
-             console.log("same")       
              }else{
-                console.log("not same")   
-                // undo changes
-                dispatch({ type: ACTIONS.REJECTCHANGES, payload:{row:state.selectedRowCopy }})
+                // Send both rows to tables row click
+                // let the use decide if the want to cancel
+                rowClick(state.selectedRow,state.selectedRowCopy,state.userAction )
+                // reset the use action
+                state.userAction=ACTIONS.NOACTION
+
                 return
              }
-
 
             let selectedRow = {}
             state.json.forEach(row => {
