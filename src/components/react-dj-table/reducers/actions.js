@@ -1,6 +1,10 @@
 export const ACTIONS={
     INITIALSTATE:'initialState',
     SELECTEDROW:'selectedRow',
+    UPDATEROW:'updateRow',
+    REJECTCHANGES:'rejectChanges',
+    COMMITROW:'commitRow',
+    UPDATECHECKBOX:'updateCheckBox',
     SORT:'sort',
     FIRST:'first',
     LAST:'last',

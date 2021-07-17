@@ -95,8 +95,29 @@ export const TableReducer = (state, action) => {
 
         case ACTIONS.SELECTEDROW:
             state.selectedRow = action.payload.row
+            state.selectedRowCopy=JSON.parse(JSON.stringify(action.payload.row))
+           
             return { ...state }
-
+        case ACTIONS.UPDATEROW:
+             var item= action.payload.item
+             var value= action.payload.value
+             state.selectedRow[item]=value
+             return { ...state }
+             case ACTIONS.REJECTCHANGES:
+             var a = [state.selectedRow,action.payload.row]
+             state.selectedRow= Object.assign(...a)
+           //  state.selectedRow=action.payload.row
+             state.selectedRow={}
+             state.selectedRowCopy={}
+             return { ...state }
+          case ACTIONS.COMMITROW:
+              state.selectedRowCopy=state.selectedRow 
+              return { ...state }   
+        case ACTIONS.UPDATECHECKBOX:
+             var checkbox= action.payload.item
+             var checked= action.payload.checked
+             state.selectedRow[checkbox]=checked
+            return { ...state }
         case ACTIONS.SORT:
             const sortable = state.options.sortable || false
 

@@ -14,6 +14,7 @@ export default function Advanced() {
         pageSize:5,
         theadCss: 'bg-blue-500 text-gray-200 px-8 py-4',
         sortable: true,
+        editable:true,
         searchable: true,
         hiddenCols: ["last_name"],
         selectedRowCss: "selectedRow",

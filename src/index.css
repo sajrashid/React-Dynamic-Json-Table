@@ -173,3 +173,52 @@ button[disabled] {
   box-shadow: 0.02em 0 0.02em 0 rgba(26, 9, 9, 0.719);
 }
 
+
+.editInputText>input[type="text"] {
+  width:100%;
+}
+.crudDiv {
+  float: right;
+  width:40%;
+  height: 3em;
+  border-radius: 0.3em;
+  box-shadow: 0.02em 0 0.02em 0 rgba(26, 9, 9, 0.719);
+
+}
+.crudDiv button {
+  position: relative;
+  padding: 0rem 0.8rem 0.2rem 0.8rem;
+  margin: 0 0.3rem 0 0.6rem;
+  border-radius: 0.3rem;
+  border: none;
+  color: #333;
+  box-shadow: 1px 3px 3px 0 #e2e2e2;
+}
+
+
+.crudDiv button:hover {
+ opacity: 0.7;
+}
+.crudDiv button:focus {
+  outline: none;
+}
+.crudDiv :nth-child(1) {
+  background-color: teal;
+  color:whitesmoke;
+}
+
+.crudDiv :nth-child(2) {
+  background-color: steelblue;
+  color:whitesmoke;
+}
+.crudDiv :nth-child(3) {
+  background-color: navy;
+  color:whitesmoke;
+}
+.crudDiv :nth-child(4) {
+  background-color: red;
+  color:whitesmoke;
+}
+.selected{
+  background-color: orange;
+}

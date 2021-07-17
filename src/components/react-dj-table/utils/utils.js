@@ -22,7 +22,9 @@ export function createMarkup(html) {
   return { __html: clean }
 }
 
-
+// export function ab(a,b) {
+//   return a +b;
+// }
 
 export function  compareValues(key, order = "asc") {
     return function innerSort(a, b) {

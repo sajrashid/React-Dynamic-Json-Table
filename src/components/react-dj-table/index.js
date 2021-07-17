@@ -1,4 +1,5 @@
-import React, {useReducer } from 'react'
+import React, {useReducer} from 'react'
+
 import GlobalSearch from './children/globalsearch'
 import Pager from './children/pager'
 import PropTypes from "prop-types"
@@ -6,6 +7,7 @@ import Rows from './children/rows'
 import { TableReducer } from '../react-dj-table/reducers/tableReducer'
 import Thead from './children/thead'
 import {createMarkup} from '../react-dj-table/utils/utils'
+
 /**
  * Component for displaying json data in a HTML Table.
  *
@@ -44,6 +46,7 @@ const Table = (props) => {
     const totalPages = (Math.ceil(json.length / pageSize))
     const pageable = options.pageable || false
     const searchable = options.searchable || false
+    const editable=options.editable|| false
     let footer =false
     if (options.footer) footer=true
     const footerHtml= options.footer || ''
@@ -60,7 +63,7 @@ const Table = (props) => {
 
 
     const initialState = {
-        json: json, jsonCopy: props.json, options: options, pageable: pageable, selectedRow: {}, selectedRowCss: selectedRowCss,
+        json: json, jsonCopy: props.json, options: options, pageable: pageable, selectedRow: {},selectedRowCopy: {}, selectedRowCss: selectedRowCss,
         sortDirection: sortDirection, pagerInput: pagerInput, pageSize: pageSize, pageSizeCopy: pageSize, totalPages: totalPages,
         pageNo: pageNo, pagerIcons: pagerIcons, searchString: ''
     }
@@ -112,6 +115,15 @@ const Table = (props) => {
                         <Pager state={state} dispatch={dispatch} />
                     </div>
                 </div>}
+                {
+                editable &&
+                <div className="crudDiv"> 
+                    <button >Update</button>
+                    <button >Cencel</button>
+                    <button>Create</button>
+                    <button>Delete</button>
+                </div>
+                }
         </React.Fragment>
     )
 }
