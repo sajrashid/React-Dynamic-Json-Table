@@ -31,6 +31,7 @@ const Cells=({ state,dispatch, row, editable})=>{
 
 
     const onChange = (e) => {
+        
         var item = e.currentTarget.name.toString(); 
       if(e.currentTarget.type==='checkbox'){
         const { checked } = e.target
@@ -57,6 +58,11 @@ const Cells=({ state,dispatch, row, editable})=>{
                 if(isDateCol) return  <td className={editcssClasses} key={key}> <input type="text"  name={key}  onChange={onChange}  value={row[key].toString()}></input> </td>
                 return <td className={editcssClasses} key={key}> <input name={key}  type="text" onChange={onChange} value={row[key].toString()}></input> </td>
             }
+            // null test
+
+            if(row[key]==null) return null 
+
+            // 
             // we need to test to determine the types
             // pref in some sort of performant order
             // testing for hidden colums first as we can just step out

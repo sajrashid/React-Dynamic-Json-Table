@@ -11,43 +11,56 @@ const Rows = ({ state, dispatch, rowClick }) => {
     const isEditable = options.editable || false
 
     function handleRowClick(e) {
-
-        if (!e.currentTarget.classList.contains('selected')) {
-            // navigated to new row test if state is same or reset
-             if(JSON.stringify(state.selectedRow)===JSON.stringify(state.selectedRowCopy)){
-             }else{
-                // Send both rows to tables row click
-                // let the use decide if the want to cancel
-                rowClick(state.selectedRow,state.selectedRowCopy,state.userAction )
-                // reset the use action
-                state.userAction=ACTIONS.NOACTION
-
+        let selectedRow = {}
+        state.json.forEach(row => {
+            const rowId = row[Object.keys(row)[idColIdx]]
+            if (rowId.toString() === e.currentTarget.id.toString())
+                selectedRow = row
+        });
+        console.log(e.currentTarget)
+        const isRowSelected = e.currentTarget.classList.contains('selected')
+      
+        if (!isRowSelected) {
+            // selected row dows not contain selected class
+            // it is not the currently selected row (if any)
+            // do nothing yet
+            // if this is the first select then we should  be in here
+            // the previous row should not exist or should be zapped by cancel
+            // or any button actions like put/post/deleted
+            // so lets test if the previosuly selectedRow exits
+            if (state.selectedRowCopy === null) {
+                dispatch({ type: ACTIONS.SELECTEDROW, payload: { row: selectedRow } })
+                rowClick(selectedRow, null, "SELECT")
+                dispatch({ type: ACTIONS.CREATESELECTEDROWCOPY, payload: { row: selectedRow } })
                 return
-             }
+            } else {
+                if (JSON.stringify(state.selectedRow) !== (JSON.stringify(state.selectedRowCopy) || state.selectedRowCopy !== {})) {
+                    // oops previous row exist 
+                    // check if data in selectedRow has changed
+                    rowClick(selectedRow, state.selectedRowCopy, "VALIDATE")
+                    console.log(JSON.stringify(selectedRow) + ":" + JSON.stringify(state.selectedRowCopy))
+                } else {
+                 
+                        dispatch({ type: ACTIONS.SELECTEDROW, payload: { row: selectedRow } })
+                        rowClick(selectedRow, null, "SELECT")
+                        dispatch({ type: ACTIONS.CREATESELECTEDROWCOPY, payload: { row: selectedRow } })
+                    
+                }
+            }
+        } 
 
-            let selectedRow = {}
-            state.json.forEach(row => {
-                const rowId = row[Object.keys(row)[idColIdx]]
-                if (rowId.toString() === e.currentTarget.id.toString())
-                    selectedRow = row
-            });
-            rowClick(selectedRow)
-            dispatch({ type: ACTIONS.SELECTEDROW, payload: { row: selectedRow } })
-        }
-        else {
-            console.log("else")
-        }
     }
+
 
     const createRows = () => {
         return state.json.map((row, index) => {
             const rowId = row[Object.keys(row)[idColIdx]] // eslint-disable-next-line
             if (state.selectedRow === row && isEditable === true) {
-                return <tr key={index} className={state.selectedRow === row ? `${cssClasses}` : ""} id={rowId} onClick={handleRowClick} >
+                return <tr  key={index} className={state.selectedRow === row ? `${cssClasses}` : ""} id={rowId} onClick={handleRowClick} >
                     <Cells dispatch={dispatch} state={state} row={row} editable={true} />
                 </tr>
             } else {
-                return <tr key={index} className={state.selectedRow === row ? `${cssClasses}` : ""} id={rowId} onClick={handleRowClick} >
+                return <tr   key={index} className={state.selectedRow === row ? `${cssClasses}` : ""} id={rowId} onClick={handleRowClick} >
                     <Cells dispatch={dispatch} state={state} row={row} editable={false} />
                 </tr>
             }
