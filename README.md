@@ -27,6 +27,7 @@ Auto column mapping, Configurable options such as identity columns
 * Icon columns (SVG or Font)
 * Images (cells), custom HTML/CSS
 * Auto Sanitises uses (DOM Purify)
+* and lot's [more](https://react-dj-table.netlify.app/)
 
 ### CSS Agnostic, Doc's and Examples
 Tailwind, Syamtic UI React, Bootstrap examples
@@ -67,6 +68,7 @@ Want to hack the reducer functions, no problem you got access to dispatch, did w
 ### Feature Requests
 See Github discussions.
 
+[Site](https://react-dj-table.netlify.app/), Code-Sand-Box examples.
 
 ![Tests](https://github.com/github/docs/actions/workflows/test.yml/badge.svg)
 
