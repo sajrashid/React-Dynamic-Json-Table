@@ -13,7 +13,7 @@ tags:
 # React Dynamic JSON Table
 There a many tables out there, some require lot's of boiler plate code, with changes across the stack if anything is modified, others a just too basic.
 
-This a fully dynamic table, that's also relatively feature rich, easy to configure, supports pagination, sorting and filtering out of the box, that actually tries to handle data intelligently
+This a fully Editable dynamic table, that's also relatively feature rich, easy to configure, supports pagination, sorting and filtering out of the box, that actually tries to handle data intelligently
 
 It's no slouch either, tested with 10K, 100K, 1M rows if you really want to exercise your CPU.
 
@@ -21,6 +21,7 @@ It's no slouch either, tested with 10K, 100K, 1M rows if you really want to exer
 Auto column mapping, Configurable options such as identity columns
 
 ### Features
+* CRUD
 * ID columns
 * Label Columns
 * Hidden Columns
