@@ -45,7 +45,7 @@ yarn add react-dj-table
 ```
 >Add Import
  ```js
-Import Table from 'react-dj-tabel'
+Import Table from 'react-dj-table'
 ```
 >Supply Data
  ```js
