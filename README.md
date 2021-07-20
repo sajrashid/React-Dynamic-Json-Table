@@ -56,15 +56,14 @@ const data = ... //some json array
 <Table json={data}/>
 ```
 ### Paging
-Pretty standard built in pager.. or roll your own, yup you can get access to the tables state
+Pretty standard built in pager.. or roll your own
 
 ### Editing
 Fully CRUD - smart(ish) edit built it, validate and revert user changes before you commit them to your data store
 Intuitive buttons, create a record , change the data, watch as it guides the user.
 
 ### Hackable
-Want to hack the reducer functions, no problem you got access to dispatch, did we mention state ? now you have both, see no control freakery here it's your table after all.
-
+You got access to the reducers dispatch functions, state TBD (next patch release)
 ### Feature Requests
 See Github discussions.
 
