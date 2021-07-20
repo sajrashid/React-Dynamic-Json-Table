@@ -186,6 +186,7 @@ button[disabled] {
 
 }
 .crudDiv button {
+  text-transform:capitalize;
   position: relative;
   padding: 0rem 0.8rem 0.2rem 0.8rem;
   margin: 0 0.3rem 0 0.6rem;
@@ -199,6 +200,7 @@ button[disabled] {
 .crudDiv button:hover {
  opacity: 0.7;
 }
+
 
 .crudDiv button:disabled,
 button[disabled] { 

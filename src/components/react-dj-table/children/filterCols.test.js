@@ -11,9 +11,9 @@ const state = {
 
 const table = document.createElement("table");
 const tbody = document.createElement("tbody");
-const tr=document.createElement("tr");
+const tr = document.createElement("tr");
 document.body.appendChild(table);
-table.appendChild(tbody)
+table.appendChild(tbody);
 
 test("renders Filters", async () => {
   const { container } = render(<Filters state={state} />, {
@@ -22,7 +22,6 @@ test("renders Filters", async () => {
 
   expect(pretty(container.innerHTML)).toMatchInlineSnapshot(`
     "<td></td>
-    <td></td>
     <td></td>
     <td></td>
     <td></td>

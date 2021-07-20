@@ -22,7 +22,6 @@ test("renders cells", async () => {
       <td class=\\" \\">Vantage</td>
       <td class=\\" \\">2009</td>
       <td class=\\" \\">$7774.28</td>
-      <td class=\\" \\">12L1pv8cTRbJmod74bGLRJAKuMZgRfJftN</td>
       <td class=\\" \\">jcb</td>
       <td class=\\" \\">2019-01-26T14:00:49Z</td>
     </tr>
@@ -33,7 +32,6 @@ test("renders cells", async () => {
       <td class=\\" \\">62</td>
       <td class=\\" \\">2007</td>
       <td class=\\" \\">$9729.34</td>
-      <td class=\\" \\">1Gw7LGTY7F9zM2fZpXMzwPYp88hE312VVb</td>
       <td class=\\" \\">diners-club-carte-blanche</td>
       <td class=\\" \\">2019-01-26T14:00:49Z</td>
     </tr>
@@ -44,7 +42,6 @@ test("renders cells", async () => {
       <td class=\\" \\">Caravan</td>
       <td class=\\" \\">2005</td>
       <td class=\\" \\">$1218.90</td>
-      <td class=\\" \\">16wkwFKDTAio4ured8DE8Y17LQE6bn34Tj</td>
       <td class=\\" \\">maestro</td>
       <td class=\\" \\">2019-01-26T14:00:49Z</td>
     </tr>
@@ -55,7 +52,6 @@ test("renders cells", async () => {
       <td class=\\" \\">Titan</td>
       <td class=\\" \\">2004</td>
       <td class=\\" \\">$1075.62</td>
-      <td class=\\" \\">15c6trHzTAudLzELePBp9SyLgTBXEet6jg</td>
       <td class=\\" \\">visa</td>
       <td class=\\" \\">2019-01-26T14:00:49Z</td>
     </tr>
@@ -66,7 +62,6 @@ test("renders cells", async () => {
       <td class=\\" \\">Defender</td>
       <td class=\\" \\">1997</td>
       <td class=\\" \\">$5430.04</td>
-      <td class=\\" \\">19XVTHE19HBk3iiJp4VGiyhHrhHDTwtp4Z</td>
       <td class=\\" \\">visa-electron</td>
       <td class=\\" \\">2019-01-26T14:00:49Z</td>
     </tr>
@@ -77,7 +72,6 @@ test("renders cells", async () => {
       <td class=\\" \\">Thunderbird</td>
       <td class=\\" \\">1986</td>
       <td class=\\" \\">$4588.51</td>
-      <td class=\\" \\">1DxThWuEXNzxWxYx1R7hs7uXExFxqPvPZd</td>
       <td class=\\" \\">diners-club-carte-blanche</td>
       <td class=\\" \\">2019-01-26T14:00:49Z</td>
     </tr>
@@ -88,7 +82,6 @@ test("renders cells", async () => {
       <td class=\\" \\">Yukon</td>
       <td class=\\" \\">2003</td>
       <td class=\\" \\">$4278.83</td>
-      <td class=\\" \\">1KFiuAzfwe3cVajyQXX7hvHuRHUpKL1MuM</td>
       <td class=\\" \\">jcb</td>
       <td class=\\" \\">2019-01-26T14:00:49Z</td>
     </tr>
@@ -99,7 +92,6 @@ test("renders cells", async () => {
       <td class=\\" \\">Prius c</td>
       <td class=\\" \\">2012</td>
       <td class=\\" \\">$5038.96</td>
-      <td class=\\" \\">1B3y3VR95tUxhFsEm6hZJ9X91pchbRyDGR</td>
       <td class=\\" \\">jcb</td>
       <td class=\\" \\">2019-01-26T14:00:49Z</td>
     </tr>
@@ -110,7 +102,6 @@ test("renders cells", async () => {
       <td class=\\" \\">Express 2500</td>
       <td class=\\" \\">2010</td>
       <td class=\\" \\">$4776.16</td>
-      <td class=\\" \\">19B1QM54QqZJQfDkC1TDLKPbU1kfUprm2Z</td>
       <td class=\\" \\">china-unionpay</td>
       <td class=\\" \\">2019-01-26T14:00:49Z</td>
     </tr>
@@ -121,7 +112,6 @@ test("renders cells", async () => {
       <td class=\\" \\">Cougar</td>
       <td class=\\" \\">1969</td>
       <td class=\\" \\">$8667.00</td>
-      <td class=\\" \\">1kcgRoxfT9TL2XjHg7qTcZhX3NX5kkF8N</td>
       <td class=\\" \\">jcb</td>
       <td class=\\" \\">2019-01-26T14:00:49Z</td>
     </tr>
@@ -132,7 +122,6 @@ test("renders cells", async () => {
       <td class=\\" \\">Regency</td>
       <td class=\\" \\">1997</td>
       <td class=\\" \\">$4045.67</td>
-      <td class=\\" \\">19KzEUpSdDhcpXnRSVb1hcC4X2v6tC7HxV</td>
       <td class=\\" \\">americanexpress</td>
       <td class=\\" \\">2019-01-26T14:00:49Z</td>
     </tr>"

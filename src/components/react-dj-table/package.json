@@ -1,6 +1,6 @@
 {
   "name": "react-dj-table",
-  "version": "1.0.2",
+  "version": "1.1.0",
   "description": "React Dynamic Resposive Json HTML Table",
   "main": "index.js",
   "scripts": {
@@ -13,6 +13,9 @@
     "responsive",
     "dynamic",
     "json",
+    "editable",
+    "pageable",
+    "pagination",
     "table"
   ],
   "license": "MIT",

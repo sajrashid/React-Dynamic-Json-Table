@@ -1,4 +1,5 @@
 import { ACTIONS } from './actions'
+import _ from 'lodash'
 import { compareValues } from '../utils/utils'
 import { matchSorter } from 'match-sorter'
 
@@ -93,22 +94,48 @@ export const TableReducer = (state, action) => {
             state.json = (paginate(state.jsonCopy, state.pageSize, state.pageNo - 1))
             return { ...state }
 
+        case ACTIONS.CREATESELECTEDROWCOPY:
+            state.selectedRowCopy = JSON.parse(JSON.stringify(state.selectedRow))
+            return { ...state }
         case ACTIONS.SELECTEDROW:
             state.selectedRow = action.payload.row
-            state.selectedRowCopy = JSON.parse(JSON.stringify(action.payload.row))
-            state.editing = true
+            state.crudBtns.btnCancel=false
+            state.crudBtns.btnCreate=true
+            state.crudBtns.btnDelete=false
+
             return { ...state }
         case ACTIONS.UPDATEROW:
             var item = action.payload.item
             var value = action.payload.value
+            state.dataChanged=true
             state.selectedRow[item] = value
+            if(state.editing){
+                state.crudBtns.btnUpdate=false
+            }
+            if(state.inserting){
+                state.crudBtns.btnInsert=false
+            }
+            state.crudBtns.btnDelete=true
             return { ...state }
+     
         case ACTIONS.REJECTCHANGES:
+            state.dataChanged=false
+            if(state.inserting){
+                // delete the row
+                state.json.splice(state.pageSize,1);
+            }
             var a = [state.selectedRow, state.selectedRowCopy]
             state.selectedRow = Object.assign(...a)
-            //  state.selectedRow=action.payload.row
             state.selectedRow = {}
             state.selectedRowCopy = {}
+            state.creating = false
+            state.editing = true
+            state.inserting=false
+            state.crudBtns.btnCreate=false
+            state.crudBtns.btnInsert=true
+            state.crudBtns.btnCancel=true
+            state.crudBtns.btnUpdate=true
+            state.userAction = 'REJECT'
             return { ...state }
         case ACTIONS.COMMITROW:
             state.selectedRowCopy = state.selectedRow
@@ -116,7 +143,15 @@ export const TableReducer = (state, action) => {
         case ACTIONS.UPDATECHECKBOX:
             var checkbox = action.payload.item
             var checked = action.payload.checked
+            state.dataChanged=true
             state.selectedRow[checkbox] = checked
+            if(state.editing){
+                state.crudBtns.btnUpdate=false
+            } 
+            if(state.inserting){
+                state.crudBtns.btnInsert=false
+            }
+            state.crudBtns.btnDelete=true
             return { ...state }
         case ACTIONS.SORT:
             const sortable = state.options.sortable || false
@@ -137,17 +172,99 @@ export const TableReducer = (state, action) => {
 
             }
         case ACTIONS.CANCEL:
-            console.log("cancel")
+            state.dataChanged=false
+            var b = [state.selectedRow, state.selectedRowCopy]
+            state.selectedRow = Object.assign(...b)
+            state.editing = true
+            if(state.inserting){
+                // delete the row
+                state.json.splice(state.pageSize,1);
+            }
+            state.inserting=false
+            state.editing=true
             state.selectedRow = {}
             state.selectedRowCopy = {}
+            state.dataChanged=false
+            state.crudBtns.btnCancel=true
+            state.crudBtns.btnUpdate=true
+            state.crudBtns.btnInsert=true
+            state.crudBtns.btnCreate=false
+            state.crudBtns.btnDelete=true
+
+            state.userAction = 'CANCEL'
             return { ...state }
         case ACTIONS.CREATE:
-            state.creating = true
+            state.inserting=true
+            state.editing=false
+            state.crudBtns.btnCancel=false
+            state.userAction = 'CREATE'
+             const clone = JSON.parse(JSON.stringify(state.json[0]));
+             const dateColArr = state.options.dateCols  || {}
+          // const isCheckBox = typeof row[key] === "boolean"
+            let skip=false
+             Object.keys(clone).forEach(key => {
+                const isDateCol = _.find(dateColArr, key)
+                if(isDateCol)  skip=true // dont set to blank string re-use exisitng date
+                if( typeof clone[key] === "boolean"){
+                    //reset value
+                    clone[key] =false
+                    skip=true
+                } 
+                if( typeof clone[key] === "number") {
+                    clone[key] =0
+                    skip=true}
+                if(!skip)   clone[key]='';
+                skip=false
+              })
+              state.json.splice(state.pageSize, 0, clone);
+              state.jsonCopy.splice(state.pageSize, 0, clone);
+              state.selectedRow=clone
+              state.selectedRowCopy={}
+
+            return { ...state }
+        case ACTIONS.DELETE:
+            state.editing = true
+            state.userAction = 'DELETE'
+            return { ...state }
+        case ACTIONS.INSERT:
+            state.editing = true
+            state.inserting=false
+            state.userAction = 'INSERT'
             return { ...state }
         case ACTIONS.UPDATE:
             state.creating = false
             state.userAction = 'UPDATE'
+            state.editing = true
             return { ...state }
+       case ACTIONS.CONFIRMUPDATE:
+                state.crudBtns.btnCancel=true
+                state.crudBtns.btnUpdate=true
+                state.crudBtns.btnCreate=false
+                state.selectedRow = {}
+                state.selectedRowCopy = null
+                state.creating = false
+                state.editing = true
+                state.userAction = "CONFIRMUPDATE"   
+         return { ...state }
+       case ACTIONS.CONFIRMDELETE:
+            state.jsonCopy.includes(state.selectedRow) && state.jsonCopy.splice(state.jsonCopy.indexOf(state.selectedRow), 1)
+            state.selectedRow = {}
+            state.selectedRowCopy = {}
+            state.crudBtns.btnCancel=true
+            state.crudBtns.btnDelete=true
+            state.crudBtns.btnCreate=false
+            state.userAction = 'DELETE'
+            state.json = (paginate(state.jsonCopy, state.pageSize, state.pageNo - 1))
+            return { ...state }
+        case ACTIONS.CONFIRMINSERT:
+            state.selectedRow = {}
+            state.selectedRowCopy = {}
+            state.crudBtns.btnCancel=true
+            state.crudBtns.btnInsert=true
+            state.userAction = 'CONFIRMINSERT'
+             return { ...state }
+         case ACTIONS.RETURNSTATE:
+             return state
         default:
             return state
 

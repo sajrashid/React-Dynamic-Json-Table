@@ -6,7 +6,6 @@
       "Model": "Vantage",
       "Year": 2009,
       "Cost": "$7774.28",
-      "BitCoin Address": "12L1pv8cTRbJmod74bGLRJAKuMZgRfJftN",
       "CreditCards": "jcb",
       "PurchaseDate": "2019-01-26T14:00:49Z"
     },
@@ -17,7 +16,6 @@
       "Model": "62",
       "Year": 2007,
       "Cost": "$9729.34",
-      "BitCoin Address": "1Gw7LGTY7F9zM2fZpXMzwPYp88hE312VVb",
       "CreditCards": "diners-club-carte-blanche",
       "PurchaseDate": "2019-01-26T14:00:49Z"
     },
@@ -28,7 +26,6 @@
       "Model": "Caravan",
       "Year": 2005,
       "Cost": "$1218.90",
-      "BitCoin Address": "16wkwFKDTAio4ured8DE8Y17LQE6bn34Tj",
       "CreditCards": "maestro",
       "PurchaseDate": "2019-01-26T14:00:49Z"
     },
@@ -39,7 +36,6 @@
       "Model": "Titan",
       "Year": 2004,
       "Cost": "$1075.62",
-      "BitCoin Address": "15c6trHzTAudLzELePBp9SyLgTBXEet6jg",
       "CreditCards": "visa",
       "PurchaseDate": "2019-01-26T14:00:49Z"
     },
@@ -50,7 +46,6 @@
       "Model": "Defender",
       "Year": 1997,
       "Cost": "$5430.04",
-      "BitCoin Address": "19XVTHE19HBk3iiJp4VGiyhHrhHDTwtp4Z",
       "CreditCards": "visa-electron",
       "PurchaseDate": "2019-01-26T14:00:49Z"
     },
@@ -61,7 +56,6 @@
       "Model": "Thunderbird",
       "Year": 1986,
       "Cost": "$4588.51",
-      "BitCoin Address": "1DxThWuEXNzxWxYx1R7hs7uXExFxqPvPZd",
       "CreditCards": "diners-club-carte-blanche",
       "PurchaseDate": "2019-01-26T14:00:49Z"
     },
@@ -72,7 +66,6 @@
       "Model": "Yukon",
       "Year": 2003,
       "Cost": "$4278.83",
-      "BitCoin Address": "1KFiuAzfwe3cVajyQXX7hvHuRHUpKL1MuM",
       "CreditCards": "jcb",
       "PurchaseDate": "2019-01-26T14:00:49Z"
     },
@@ -83,7 +76,6 @@
       "Model": "Prius c",
       "Year": 2012,
       "Cost": "$5038.96",
-      "BitCoin Address": "1B3y3VR95tUxhFsEm6hZJ9X91pchbRyDGR",
       "CreditCards": "jcb",
       "PurchaseDate": "2019-01-26T14:00:49Z"
     },
@@ -94,7 +86,6 @@
       "Model": "Express 2500",
       "Year": 2010,
       "Cost": "$4776.16",
-      "BitCoin Address": "19B1QM54QqZJQfDkC1TDLKPbU1kfUprm2Z",
       "CreditCards": "china-unionpay",
       "PurchaseDate": "2019-01-26T14:00:49Z"
     },
@@ -105,7 +96,6 @@
       "Model": "Cougar",
       "Year": 1969,
       "Cost": "$8667.00",
-      "BitCoin Address": "1kcgRoxfT9TL2XjHg7qTcZhX3NX5kkF8N",
       "CreditCards": "jcb",
       "PurchaseDate": "2019-01-26T14:00:49Z"
     },
@@ -116,7 +106,6 @@
       "Model": "Regency",
       "Year": 1997,
       "Cost": "$4045.67",
-      "BitCoin Address": "19KzEUpSdDhcpXnRSVb1hcC4X2v6tC7HxV",
       "CreditCards": "americanexpress",
       "PurchaseDate": "2019-01-26T14:00:49Z"
     }

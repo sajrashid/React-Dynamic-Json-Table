@@ -1,6 +1,8 @@
 # React Dynamic JSON Table
 
-### Responsive css agnostic table
+## Editable, Sortable, Pageable
+
+### Responsive CSS agnostic table
 
  ```js
 yarn add react-dj-table
@@ -16,5 +18,15 @@ const data = ... //some json array
 
 Tailwind - Sematic UI - BootStrap examples
 
-[LiveDemo, Docs, Sandboxes](https://bit.ly/3dviDbL)
+[Demo's, Docs, Sandboxes](https://react-dj-table.netlify.app/)
+
+* Edit / Editable
+* Pagination / Pageable
+* Icon's
+* SVG's
+* Images
+* Custom HTML / CSS
+* Smart Editor
+* Hackable, access to state and reducer functions
+
 

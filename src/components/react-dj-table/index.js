@@ -38,12 +38,13 @@ const Table = (props) => {
     if (pageable) {
         json = paginate(json || [], pageSize, 0)
     }
-
+    
+    const crudBtns= {btnCancel:true, btnUpdate:true, btnCreate:false, btnInsert:true, btnDelete:true }
 
     const initialState = {
-        json: json, jsonCopy: props.json, options: options, pageable: pageable, selectedRow: {}, selectedRowCopy: {}, selectedRowCss: selectedRowCss,
+        json: json, jsonCopy: props.json, options: options, pageable: pageable, selectedRow: {}, selectedRowCopy: null, selectedRowCss: selectedRowCss,
         sortDirection: sortDirection, pagerInput: pagerInput, pageSize: pageSize, pageSizeCopy: pageSize, totalPages: totalPages,
-        userAction:'NOACTION',creating: false, editing: false, pageNo: pageNo, pagerIcons: pagerIcons, searchString: ''
+        crudBtns:crudBtns , dataChanged:false, inserting: false,  userAction:'NOACTION',creating: false, editing: true, pageNo: pageNo, pagerIcons: pagerIcons, searchString: ''
     }
 
    const [state, dispatch] = useReducer(TableReducer, initialState)
@@ -94,7 +95,7 @@ const Table = (props) => {
                 </div>}
             {
                 editable &&
-                <Crud state={state} dispatch={dispatch} />
+                <Crud state={state} dispatch={dispatch} rowClick={rowClick} />
             }
         </React.Fragment>
     )
@@ -120,6 +121,6 @@ Table.defaultProps = {
         selectable: false,
     }
 }
-export default React.memo(Table)
+export default Table
 
 

@@ -18,7 +18,7 @@ table.appendChild(thead);
 
 test("renders Thead", async () => {
   const { container } = render(<Thead state={state} />, {
-    container:thead.appendChild(trow),
+    container: thead.appendChild(trow),
   });
 
   expect(pretty(container.innerHTML)).toMatchInlineSnapshot(`
@@ -28,7 +28,6 @@ test("renders Thead", async () => {
     <th class=\\" \\" id=\\"Model\\">Model</th>
     <th class=\\" \\" id=\\"Year\\">Year</th>
     <th class=\\" \\" id=\\"Cost\\">Cost</th>
-    <th class=\\" \\" id=\\"BitCoin Address\\">BitCoin Address</th>
     <th class=\\" \\" id=\\"CreditCards\\">CreditCards</th>
     <th class=\\" \\" id=\\"PurchaseDate\\">PurchaseDate</th>"
   `); /* ... gets filled automatically by jest ... */

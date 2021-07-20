@@ -17,13 +17,12 @@ const Rows = ({ state, dispatch, rowClick }) => {
             if (rowId.toString() === e.currentTarget.id.toString())
                 selectedRow = row
         });
-        console.log(e.currentTarget)
+  
         const isRowSelected = e.currentTarget.classList.contains('selected')
       
         if (!isRowSelected) {
             // selected row dows not contain selected class
             // it is not the currently selected row (if any)
-            // do nothing yet
             // if this is the first select then we should  be in here
             // the previous row should not exist or should be zapped by cancel
             // or any button actions like put/post/deleted

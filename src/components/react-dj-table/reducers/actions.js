@@ -1,6 +1,10 @@
 export const ACTIONS={
     INITIALSTATE:'initialState',
     SELECTEDROW:'selectedRow',
+    CREATESELECTEDROWCOPY:'CreateSelectedRowCopy',
+    CONFIRMDELETE:'confirmdelete',
+    CONFIRMINSERT:'confirminsert',
+    CONFIRMUPDATE:'confirmupdate',
     UPDATEROW:'updateRow',
     REJECTCHANGES:'rejectChanges',
     COMMITROW:'commitRow',
@@ -17,9 +21,11 @@ export const ACTIONS={
     CREATE:'create',
     UPDATE:'update',
     DELETE:'delete',
+    INSERT:'insert',
     CANCEL:'cancel',
     NOACTION:'NOACTION',
-    SETUPDATEACTION:'setupdateaction'
+    SETUPDATEACTION:'setupdateaction',
+    RETURNSTATE:'returnstate',
 }
 
 
