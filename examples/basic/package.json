@@ -2,6 +2,7 @@
     "name": "full-example-sematic-ui-editable-pageable-searchable",
     "version": "1.0.0",
     "description": "fairly complete example, with paging ,editing, sorting, filtering etc ",
+    "main":"index.js",
     "dependencies": {
       "react": "17.0.2",
       "react-dj-table": "1.1.1",
