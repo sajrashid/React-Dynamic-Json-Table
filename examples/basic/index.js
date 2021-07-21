@@ -1,8 +1,3 @@
-import "semantic-ui-css/semantic.min.css";
-import "./pager.css";
-import "./editor.css";
-import "./footer.css";
-import "./search.css";
 import "./index.css";
 
 import React from "react";
@@ -12,10 +7,6 @@ import bots from "./data.json";
 
 // get icons here https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.4.1/components/icon.min.css
 function App() {
-  
-
-
-
 
 
   return (
