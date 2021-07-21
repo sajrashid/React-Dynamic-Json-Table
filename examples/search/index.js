@@ -1,5 +1,4 @@
 import "semantic-ui-css/semantic.min.css";
-import "./pager.css";
 import "./editor.css";
 import "./footer.css";
 import "./search.css";
