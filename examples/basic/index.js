@@ -18,8 +18,29 @@ function App() {
           Yarn add
           <span className="firstspan">react-dj-table</span>
         </span>
+        <ul>
+          <li>
+            <a
+              target="_blank"
+              rel="noreferrer"
+              href="https://react-dj-table.netlify.app/"
+            >
+              <i className="book icon" />
+              Docs
+            </a>
+          </li>
+          <li>
+            <a
+              target="_blank"
+              rel="noreferrer"
+              href="https://github.com/sajrashid/React-Dynamic-Json-Table"
+            >
+              <i className="github icon" />
+              Source
+            </a>
+          </li>
+        </ul>
       </div>
-   
       <Table json={bots}   />
       <div className="robohash">
         <small> Robots lovingly preovided by</small>
