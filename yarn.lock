@@ -11268,10 +11268,10 @@ react-dev-utils@^11.0.3:
     strip-ansi "6.0.0"
     text-table "0.2.0"
 
-react-dj-table@^1.0.2:
-  version "1.0.2"
-  resolved "https://registry.yarnpkg.com/react-dj-table/-/react-dj-table-1.0.2.tgz#4d302e78773c581b50c0c6fef178cf3427e362a0"
-  integrity sha512-WU4XyGwL0hlwWroaGyLx/lVWke7D1EhkBTycoN6ix1d8bP/cPF4THOwc8Kw8BdeYbRJbwW4qXMamoQo2ADYSgg==
+react-dj-table@^1.1.0:
+  version "1.1.0"
+  resolved "https://registry.yarnpkg.com/react-dj-table/-/react-dj-table-1.1.0.tgz#a142339faf33056ce7f806822466d3668ddb68ee"
+  integrity sha512-E64s6Vl20kEHXtJqdyqak2CnBKm482UOHw6BRa660BffB6mREMkbnAaQfbi+d3W/K2gdTrXxtjeL2NrGmiN5fQ==
   dependencies:
     canvas "^2.8.0"
     core-js "^3.15.1"

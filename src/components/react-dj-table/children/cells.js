@@ -26,9 +26,9 @@ const Cells=({ state,dispatch, row, editable})=>{
     const hiddenColArr = options.hiddenCols  || []
     const dateColArr = options.dateCols  || {}
     const dateOptions = options.dateOptions || {}
-  
+    const readOnly = options.readOnly  || []
     const columns = Object.keys(row)
-
+    console.log(readOnly)
 
     const onChange = (e) => {
         
@@ -50,9 +50,12 @@ const Cells=({ state,dispatch, row, editable})=>{
             const isCustom = _.find(customColArr, key)
             const isDateCol = _.find(dateColArr, key)
             const locale= isDateCol ? dateColArr[key] :''
+
             if(editable){
                 const editcssClasses = `editInputText ${styles}`
+                 const isReadOnly = _.includes(readOnly, key)
                 if(isHidden) return null 
+                if (isReadOnly) return <td className={editcssClasses} key={key}> <input name={key} readonly disabled  type="text"  value={row[key].toString()}></input> </td>
                 if(isCheckBox && options.checkBox !== false) return <td  type="checkbox" className={cssClasses} key={key}> <input name={key} onChange={onChange}  type='checkbox' checked={row[key]}></input></td>  
                 if(isCustom )  return <td className={editcssClasses} key={key}><input type="text" name={key}  onChange={onChange} value={row[key].toString()}></input>  </td> 
                 if(isDateCol) return  <td className={editcssClasses} key={key}> <input type="text"  name={key}  onChange={onChange}  value={row[key].toString()}></input> </td>

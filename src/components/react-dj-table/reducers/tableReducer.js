@@ -200,10 +200,13 @@ export const TableReducer = (state, action) => {
             state.userAction = 'CREATE'
              const clone = JSON.parse(JSON.stringify(state.json[0]));
              const dateColArr = state.options.dateCols  || {}
+            
+             
           // const isCheckBox = typeof row[key] === "boolean"
             let skip=false
              Object.keys(clone).forEach(key => {
                 const isDateCol = _.find(dateColArr, key)
+              
                 if(isDateCol)  skip=true // dont set to blank string re-use exisitng date
                 if( typeof clone[key] === "boolean"){
                     //reset value

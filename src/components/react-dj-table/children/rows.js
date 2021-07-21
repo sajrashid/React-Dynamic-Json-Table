@@ -6,7 +6,7 @@ const Rows = ({ state, dispatch, rowClick }) => {
     const options = state.options || {}
     const styles = options.rowCss || ''
     const selectedRowCss = options.selectedRowCss || ''
-    const cssClasses = `selected ${styles}`
+    const cssClasses = `selected ${selectedRowCss} ${styles}`
     const idColIdx = options.idCol ? Object.keys(state.json[0]).indexOf(options.idCol) : 0
     const isEditable = options.editable || false
 

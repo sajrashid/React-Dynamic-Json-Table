@@ -22,6 +22,7 @@ export default function Advanced() {
         sortable: true,
         editable: true,
         searchable: true,
+        readOnly:['Avatar'],
         hiddenCols: ["last_name"],
         selectedRowCss: "selectedRow",
         labelCols: [{ gender: 'Gender' }],
