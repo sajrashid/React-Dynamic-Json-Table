@@ -39,8 +39,8 @@ export const TableReducer = (state, action) => {
             return { ...state }
         case ACTIONS.UPDATEPROPS:
              state.json = action.payload.updatedProps.json
-             state.options.pageable ? state.json = paginate(state.json || [], state.pageSize, 0) : state.totalPages = (Math.ceil(state.json.length / state.pageSize))
-             state.jsonCopy = state.json
+             state.jsonCopy =action.payload.updatedProps.json
+             state.options.pageable ? state.json = paginate(state.json || [], state.options.pageSize || 10, 0) : state.totalPages = (Math.ceil(state.json.length / state.options.pageSize || 10))
              return { ...state }
         case ACTIONS.ITEMSPERPAGE:
             state.pageSize = action.payload.itemsPerPage

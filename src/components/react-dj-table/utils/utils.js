@@ -1,4 +1,3 @@
-import DOMPurify from 'isomorphic-dompurify'
 import _ from 'lodash'
 
 function templateLiteral(template, context = {}) {
@@ -12,14 +11,12 @@ export function createMarkupLiteral(key, str, replaceValue) {
   const result = templateLiteral(str, {
       [key]: replaceValue
   });
-  var clean = DOMPurify.sanitize(result);
-  return { __html: clean }
+  return { __html: result }
 }
 
 
 export function createMarkup(html) {
-  var clean = DOMPurify.sanitize(html);
-  return { __html: clean }
+  return { __html: html }
 }
 
 // export function ab(a,b) {

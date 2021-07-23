@@ -1,6 +1,6 @@
 {
   "name": "react-dj-table",
-  "version": "1.1.2",
+  "version": "1.1.5",
   "description": "React Dynamic Resposive Json HTML Table",
   "main": "index.js",
   "scripts": {
@@ -40,8 +40,6 @@
   },
   "dependencies": {
     "core-js": "^3.15.1",
-    "canvas": "^2.8.0",
-    "isomorphic-dompurify": "^0.14.0",
     "lodash": "^4.17.21",
     "match-sorter": "^6.3.0",
     "prop-types": "^15.7.2"
