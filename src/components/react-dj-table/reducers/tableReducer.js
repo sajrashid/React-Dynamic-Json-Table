@@ -184,6 +184,7 @@ export const TableReducer = (state, action) => {
             if(state.inserting){
                 // delete the row
                 state.json.splice(state.pageSize,1);
+                state.jsonCopy.splice(state.pageSize,1);
             }
             state.inserting=false
             state.editing=true
@@ -267,12 +268,9 @@ export const TableReducer = (state, action) => {
         case ACTIONS.CONFIRMINSERT:
             const idColIdx = state.options.idCol ? Object.keys(state.json[0]).indexOf(state.options.idCol) : 0
             const idColName = [Object.keys(state.json[0])[idColIdx]]
-            console.log(idColName)
             if(action!==undefined && action.payload !==undefined){
                 if(action.payload.id!==undefined)  state.selectedRow[idColName]=action.payload.id
             }
-            console.log(state.selectedRow[idColIdx])
-          
             state.selectedRowCopy = {}
             state.crudBtns.btnCancel=true
             state.crudBtns.btnInsert=true
