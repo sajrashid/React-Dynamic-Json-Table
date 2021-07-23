@@ -1,10 +1,10 @@
 import { ACTIONS } from "../components/react-dj-table/reducers/actions"
 import React from "react"
-import Table from '../components/react-dj-table/index'
+ import Table from '../components/react-dj-table/index'
 import cars from "../data.json"
 import employees from '../Employees.json'
+//import Table from 'react-dj-table'
 
-// import Table from 'react-dj-table'
 let mydispatch = null
 let currentDataSet='cars'
 
@@ -33,7 +33,7 @@ export default function Advanced() {
         customCols: [{ Avatar: '<div style="min-height:3em"><img  style="width:60px; height:60px"  decoding="async" src=${Avatar}></img></div' }] //adding min height reduces loading flash as image cells are not resized vertically
     }
 
-    const [json, setJson] = React.useState(cars)
+    const [json, setJson] = React.useState(employees)
 
 
     const [userMessage, setUserMessage] = React.useState('')

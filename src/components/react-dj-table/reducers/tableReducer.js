@@ -266,11 +266,13 @@ export const TableReducer = (state, action) => {
             return { ...state }
         case ACTIONS.CONFIRMINSERT:
             const idColIdx = state.options.idCol ? Object.keys(state.json[0]).indexOf(state.options.idCol) : 0
-            console.log(idColIdx)
+            const idColName = [Object.keys(state.json[0])[idColIdx]]
+            console.log(idColName)
             if(action!==undefined && action.payload !==undefined){
-                if(action.payload.id!==undefined)  state.selectedRow[idColIdx]=action.payload.id
+                if(action.payload.id!==undefined)  state.selectedRow[idColName]=action.payload.id
             }
             console.log(state.selectedRow[idColIdx])
+          
             state.selectedRowCopy = {}
             state.crudBtns.btnCancel=true
             state.crudBtns.btnInsert=true
