@@ -1,5 +1,5 @@
-import Rows from "./rows";
-import data from "../../../data.json";
+import Rows from "../components/react-dj-table/children/rows";
+import data from "../data.json";
 import pretty from "pretty";
 import { render } from "@testing-library/react";
 

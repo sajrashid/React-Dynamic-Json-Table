@@ -1,13 +1,14 @@
 import React, { useReducer } from 'react'
 
+import { ACTIONS } from './reducers/actions'
 import Crud from './children/crud'
 import GlobalSearch from './children/globalsearch'
 import Pager from './children/pager'
 import PropTypes from "prop-types"
 import Rows from './children/rows'
-import { TableReducer } from '../react-dj-table/reducers/tableReducer'
+import { TableReducer } from './reducers/tableReducer'
 import Thead from './children/thead'
-import { createMarkup } from '../react-dj-table/utils/utils'
+import { createMarkup } from './utils/utils'
 
 const Table = (props) => {
     // setup initial state
@@ -38,16 +39,21 @@ const Table = (props) => {
     if (pageable) {
         json = paginate(json || [], pageSize, 0)
     }
-    
     const crudBtns= {btnCancel:true, btnUpdate:true, btnCreate:false, btnInsert:true, btnDelete:true }
 
     const initialState = {
         json: json, jsonCopy: props.json, options: options, pageable: pageable, selectedRow: {}, selectedRowCopy: null, selectedRowCss: selectedRowCss,
         sortDirection: sortDirection, pagerInput: pagerInput, pageSize: pageSize, pageSizeCopy: pageSize, totalPages: totalPages,
-        crudBtns:crudBtns , dataChanged:false, inserting: false,  userAction:'NOACTION',creating: false, editing: true, pageNo: pageNo, pagerIcons: pagerIcons, searchString: ''
+        colspan: colspan, insertId: null, crudBtns:crudBtns , dataChanged:false, inserting: false,  userAction:'NOACTION',creating: false, editing: true, pageNo: pageNo, pagerIcons: pagerIcons, searchString: ''
     }
+    const [state, dispatch] = useReducer(TableReducer, initialState)
+  
+    React.useEffect(() => {
+        console.log("props:", props)
+        dispatch({type: ACTIONS.UPDATEPROPS, payload: { updatedProps: props }})
+    },[props])
 
-   const [state, dispatch] = useReducer(TableReducer, initialState)
+
     const styles = options.tableCss || ''
     const cssClasses = ` ${styles}`
     const pagerCss = options.pagerCss || ''

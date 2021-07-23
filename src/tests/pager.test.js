@@ -1,5 +1,5 @@
-import Pager from "./pager";
-import data from "../../../data.json";
+import Pager from "../components/react-dj-table/children/pager";
+import data from "../data.json";
 import pretty from "pretty";
 import { render } from "@testing-library/react";
 

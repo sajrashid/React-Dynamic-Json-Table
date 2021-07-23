@@ -1,5 +1,5 @@
-import Thead from "./thead";
-import data from "../../../data.json";
+import Thead from "../components/react-dj-table/children/thead";
+import data from "../data.json";
 import pretty from "pretty";
 import { render } from "@testing-library/react";
 

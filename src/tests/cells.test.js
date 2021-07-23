@@ -1,4 +1,4 @@
-import Cells from "./cells";
+import Cells from "../components/react-dj-table/children/cells";
 import pretty from "pretty";
 import { render } from "@testing-library/react";
 

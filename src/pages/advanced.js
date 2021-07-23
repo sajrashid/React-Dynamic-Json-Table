@@ -1,14 +1,12 @@
 import { ACTIONS } from "../components/react-dj-table/reducers/actions"
 import React from "react"
 import Table from '../components/react-dj-table/index'
+import cars from "../data.json"
 import employees from '../Employees.json'
-
-//import cars from "../data.json"
-
 
 // import Table from 'react-dj-table'
 let mydispatch = null
-
+let currentDataSet='cars'
 
 export default function Advanced() {
     const options = {
@@ -23,10 +21,9 @@ export default function Advanced() {
         editable: true,
         searchable: true,
         readOnly:['Avatar'],
-        hiddenCols: ["last_name"],
         selectedRowCss: "selectedRow",
         labelCols: [{ gender: 'Gender' }],
-        footer: "<div class'myfooter'>footer</div>",
+        footer: "<div class'myfooter'></div>",
         // eslint-disable-next-line no-template-curly-in-string
         dateCols: [{ RetiredDate: 'en-GB' }],
         dateOptions: { weekday: 'short', year: 'numeric', month: 'short', day: 'numeric' },
@@ -35,6 +32,10 @@ export default function Advanced() {
         // eslint-disable-next-line no-template-curly-in-string
         customCols: [{ Avatar: '<div style="min-height:3em"><img  style="width:60px; height:60px"  decoding="async" src=${Avatar}></img></div' }] //adding min height reduces loading flash as image cells are not resized vertically
     }
+
+    const [json, setJson] = React.useState(cars)
+
+
     const [userMessage, setUserMessage] = React.useState('')
 
 
@@ -86,7 +87,8 @@ export default function Advanced() {
             // insert DB, once confirmed  from DB confirm
             // incase of failure call rejectchanges
             // no need to refresh your data
-            dispatch({ type: ACTIONS.CONFIRMINSERT})  
+            dispatch({ type: ACTIONS.CONFIRMINSERT, payload: { id: 29 } })
+            
         }
     }
 
@@ -105,6 +107,16 @@ export default function Advanced() {
             setMsgClassName('msgDiv')
             mydispatch({ type: ACTIONS.REJECTCHANGES })
         }
+        if(btnName==="switchData"){
+            console.log("Toggle Data")
+            if(currentDataSet==='cars'){
+                currentDataSet='employees'
+                setJson(employees)
+            }else{
+                currentDataSet='cars'
+                setJson(cars)
+            }
+        }
 
     }
     return (
@@ -121,8 +133,8 @@ export default function Advanced() {
 
 
                         </div>
-                      
-                        <Table json={employees} rowClick={handleRowClick} options={options} />
+                        <button className="switchBtn" name="switchData" onClick={btnClickHandler}>switch data</button>
+                        <Table json={json} rowClick={handleRowClick} options={options} />
                     </div>
                 </div>
             </div>

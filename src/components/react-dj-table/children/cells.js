@@ -28,8 +28,6 @@ const Cells=({ state,dispatch, row, editable})=>{
     const dateOptions = options.dateOptions || {}
     const readOnly = options.readOnly  || []
     const columns = Object.keys(row)
-    console.log(readOnly)
-
     const onChange = (e) => {
         
         var item = e.currentTarget.name.toString(); 
@@ -55,7 +53,7 @@ const Cells=({ state,dispatch, row, editable})=>{
                 const editcssClasses = `editInputText ${styles}`
                  const isReadOnly = _.includes(readOnly, key)
                 if(isHidden) return null 
-                if (isReadOnly) return <td className={editcssClasses} key={key}> <input name={key} readonly disabled  type="text"  value={row[key].toString()}></input> </td>
+                if (isReadOnly) return <td className={editcssClasses} key={key}> <input name={key} readOnly disabled  type="text"  value={row[key].toString()}></input> </td>
                 if(isCheckBox && options.checkBox !== false) return <td  type="checkbox" className={cssClasses} key={key}> <input name={key} onChange={onChange}  type='checkbox' checked={row[key]}></input></td>  
                 if(isCustom )  return <td className={editcssClasses} key={key}><input type="text" name={key}  onChange={onChange} value={row[key].toString()}></input>  </td> 
                 if(isDateCol) return  <td className={editcssClasses} key={key}> <input type="text"  name={key}  onChange={onChange}  value={row[key].toString()}></input> </td>

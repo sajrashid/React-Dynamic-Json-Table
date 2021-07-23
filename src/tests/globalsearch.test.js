@@ -1,5 +1,5 @@
-import GlobalSearch from "./globalsearch";
-import data from "../../../data.json";
+import GlobalSearch from "../components/react-dj-table/children/globalsearch";
+import data from "../data.json";
 import pretty from "pretty";
 import { render } from "@testing-library/react";
 

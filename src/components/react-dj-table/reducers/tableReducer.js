@@ -37,6 +37,11 @@ export const TableReducer = (state, action) => {
             state.pageable = action.payload.pageable
             action.payload.pageable ? state.json = paginate(state.json || [], state.pageSize, 0) : state.totalPages = (Math.ceil(state.json.length / state.pageSize))
             return { ...state }
+        case ACTIONS.UPDATEPROPS:
+             state.json = action.payload.updatedProps.json
+             state.options.pageable ? state.json = paginate(state.json || [], state.pageSize, 0) : state.totalPages = (Math.ceil(state.json.length / state.pageSize))
+             state.jsonCopy = state.json
+             return { ...state }
         case ACTIONS.ITEMSPERPAGE:
             state.pageSize = action.payload.itemsPerPage
             state.totalPages = Math.ceil(state.jsonCopy.length / state.pageSize)
@@ -260,10 +265,16 @@ export const TableReducer = (state, action) => {
             state.json = (paginate(state.jsonCopy, state.pageSize, state.pageNo - 1))
             return { ...state }
         case ACTIONS.CONFIRMINSERT:
-            state.selectedRow = {}
+            const idColIdx = state.options.idCol ? Object.keys(state.json[0]).indexOf(state.options.idCol) : 0
+            console.log(idColIdx)
+            if(action!==undefined && action.payload !==undefined){
+                if(action.payload.id!==undefined)  state.selectedRow[idColIdx]=action.payload.id
+            }
+            console.log(state.selectedRow[idColIdx])
             state.selectedRowCopy = {}
             state.crudBtns.btnCancel=true
             state.crudBtns.btnInsert=true
+            state.selectedRow = {}
             state.userAction = 'CONFIRMINSERT'
              return { ...state }
          case ACTIONS.RETURNSTATE:

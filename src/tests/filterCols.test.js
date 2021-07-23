@@ -1,5 +1,5 @@
-import Filters from "./filterCols";
-import data from "../../../data.json";
+import Filters from "../components/react-dj-table/children/filterCols";
+import data from "../data.json";
 import pretty from "pretty";
 import { render } from "@testing-library/react";
 
