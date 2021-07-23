@@ -27,7 +27,6 @@ Auto column mapping, Configurable options such as identity columns
 * Hidden Columns
 * Icon columns (SVG or Font)
 * Images (cells), custom HTML/CSS
-* Auto Sanitises uses (DOM Purify)
 * and lot's [more](https://react-dj-table.netlify.app/)
 
 ### CSS Agnostic, Doc's and Examples
