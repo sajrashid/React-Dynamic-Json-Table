@@ -1,9 +1,8 @@
 import { ACTIONS } from "../components/react-dj-table/reducers/actions"
 import React from "react"
- import Table from '../components/react-dj-table/index'
+import Table from '../components/react-dj-table/index'
 import cars from "../data.json"
 import employees from '../Employees.json'
-//import Table from 'react-dj-table'
 
 let mydispatch = null
 let currentDataSet='cars'
@@ -30,7 +29,7 @@ export default function Advanced() {
         iconCols: [{ email: '<i class="envelope icon"></i>Email' },
         { Avatar: '<i class="id badge icon"></i>Avatar' }],
         // eslint-disable-next-line no-template-curly-in-string
-        customCols: [{ Avatar: '<div style="min-height:3em"><img  style="width:60px; height:60px"  decoding="async" src=${Avatar}></img></div' }] //adding min height reduces loading flash as image cells are not resized vertically
+        customCols: [{ Avatar: `<div style="min-height:3em"><img  style="width:60px; height:60px"  decoding="async" src=${Avatar}></img></div` }] //adding min height reduces loading flash as image cells are not resized vertically
     }
 
     const [json, setJson] = React.useState(employees)
