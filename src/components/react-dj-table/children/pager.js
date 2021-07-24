@@ -49,8 +49,6 @@ function Pager({ state, dispatch }) {
 
 
         // make show options object
-      
-
         return arr.map((key, index) => {
             const html = state.pagerIcons[key]
             var disabled = false
