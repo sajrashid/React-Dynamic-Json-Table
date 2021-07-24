@@ -1,12 +1,3 @@
-@font-face {
-  font-family: 'Oxygen-Regular';
-  src: url('./fonts/Oxygen-Regular.ttf') format('truetype');
-  font-display: swap;
-}
-
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
 
 html {
   scroll-behavior: smooth;
@@ -20,7 +11,7 @@ html,body,#root,.App{
 body {
   position: absolute;
   margin: 0;
-  font-family: 'Oxygen-Regular','Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
