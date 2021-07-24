@@ -45,7 +45,7 @@ function Pager({ state, dispatch }) {
     }
 
     const createPager = () => {
-        let arr = Object.keys(state.pagerIcons)
+        const arr = Object.keys(state.pagerIcons)
 
 
         // make show options object
