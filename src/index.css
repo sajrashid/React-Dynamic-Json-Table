@@ -21,7 +21,7 @@ html,body,#root,.App{
 body {
   position: absolute;
   margin: 0;
-  font-family: 'Oxygen-Regular', 'Segoe UI';
+  font-family: 'Oxygen-Regular','Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
@@ -58,16 +58,14 @@ nav {
 custom options, that can make config difficult
 for the sake of simplicity the pager is buit using standard css  */
 /* move the pager left or right by chaging float left/right */
-.pager {
-  float: left;
-  margin: 0 auto;
-  box-shadow: 1px 3px 3px 0 #e2e2e2;
-}
+
 .pager > * {
   float: left;
   margin: 0 auto;
 }
 .pager {
+  float: left;
+  margin: 0 auto;
   line-height: 1.8rem;
   padding: 0.4rem;
   min-height: 2.4em;
@@ -107,10 +105,9 @@ for the sake of simplicity the pager is buit using standard css  */
   border-radius: 0.3em;
   font-size: 0.8em;
   padding-left: 0.5em;
-  padding: em 0.4em 0.3em 0em;
+  padding: 0 0.4em 0.3em 0;
   padding-right: 0.5em;
   background-color: rgb(44, 44, 44);
-  top: 1e;
   top: 1.4em;
   line-height: 1.4em;
   color: #eee;
@@ -244,6 +241,13 @@ input:disabled {
   width:100%;
   height:3em;
 display: none;
+background-color:rgba(66, 66, 66, 0.9);
+top:15%;
+text-align: center;
+margin-left:4%;
+height: 60%;
+width:92%;
+border-radius: 0.3em;
 }
 .msgDiv button {
   position: relative;
@@ -273,16 +277,7 @@ display: none;
   top:0;
   border-radius: 0.3em;
 }
-.msgDiv {
-  display: none;
-  background-color:rgba(66, 66, 66, 0.9);
-  top:15%;
-  text-align: center;
-  margin-left:4%;
-  height: 60%;
-  width:92%;
-  border-radius: 0.3em;
-}
+
 .msgDivShow{
   display: block;
 }
