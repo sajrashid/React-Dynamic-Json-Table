@@ -62,7 +62,7 @@ function Pager({ state, dispatch }) {
             }
 
             if (key === 'previous') {
-                state.pageNo < 2 ? disabled = true : disabled = false
+                disabled = state.pageNo < 2 ? true : false
                 return <button  data-content={key} disabled={disabled} key={index} id={key} onClick={handlePagingClick} dangerouslySetInnerHTML={createMarkup(html)}></button>
 
             }
