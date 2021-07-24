@@ -54,7 +54,7 @@ function Pager({ state, dispatch }) {
             var disabled = false
 
             if (key === 'first') {
-                state.pageNo < 2 ? disabled = true : disabled = false
+                disabled = state.pageNo < 2 ? true : false
                 return <React.Fragment key={index}>
                     <button  data-content={key} disabled={disabled} key={index} id={key} onClick={handlePagingClick} dangerouslySetInnerHTML={createMarkup(html)}></button>
 
