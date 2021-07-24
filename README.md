@@ -69,6 +69,8 @@ See Github discussions.
 
 [Site](https://react-dj-table.netlify.app/), Code-Sand-Box examples.
 
+[![Quality Gate Status](https://sonarcloud.io/api/project_badges/measure?project=sajrashid_React-Dynamic-Json-Table&metric=alert_status)](https://sonarcloud.io/dashboard?id=sajrashid_React-Dynamic-Json-Table)
+
 ![Tests](https://github.com/github/docs/actions/workflows/test.yml/badge.svg)
 
 [![NPM](https://nodei.co/npm/react-dj-table.png?compact=true)](https://nodei.co/npm/react-dj-table/)
