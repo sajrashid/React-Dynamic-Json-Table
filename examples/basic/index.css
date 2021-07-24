@@ -63,12 +63,17 @@
     color: #333;
   }
   .msgDiv {
-    top: 3em;
     left: 0;
-    width: 100%;
-    height: 3em;
     display: none;
-  }
+    background-color: rgba(66, 66, 66, 0.9);
+    top: 15%;
+    text-align: center;
+    margin-left: 4%;
+    height: 60%;
+    width: 92%;
+    border-radius: 0.3em;
+    }
+
   .msgDiv button {
     position: relative;
     padding: 0rem 0.8rem 0.2rem 0.8rem;
@@ -97,16 +102,7 @@
     top: 0;
     border-radius: 0.3em;
   }
-  .msgDiv {
-    display: none;
-    background-color: rgba(66, 66, 66, 0.9);
-    top: 15%;
-    text-align: center;
-    margin-left: 4%;
-    height: 60%;
-    width: 92%;
-    border-radius: 0.3em;
-  }
+
   .msgDivShow {
     display: block;
   }
