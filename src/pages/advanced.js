@@ -42,7 +42,7 @@ export default function Advanced() {
 
     const handleRowClick = (row, oldRowData, action, dispatch) => {
         mydispatch = dispatch
-        
+
         if (action === 'SELECT') {
             console.log(action,row)
          // informational
