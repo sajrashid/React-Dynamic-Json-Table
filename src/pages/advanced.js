@@ -29,7 +29,7 @@ export default function Advanced() {
         iconCols: [{ email: '<i class="envelope icon"></i>Email' },
         { Avatar: '<i class="id badge icon"></i>Avatar' }],
         // eslint-disable-next-line no-template-curly-in-string
-        customCols: [{ Avatar: `<div style="min-height:3em"><img  style="width:60px; height:60px"  decoding="async" src=${Avatar}></img></div` }] //adding min height reduces loading flash as image cells are not resized vertically
+        customCols: [{ Avatar: '<div style="min-height:3em"><img  style="width:60px; height:60px"  decoding="async" src=${Avatar}></img></div' }] //adding min height reduces loading flash as image cells are not resized vertically
     }
 
     const [json, setJson] = React.useState(employees)

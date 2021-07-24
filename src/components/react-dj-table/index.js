@@ -27,7 +27,9 @@ const Table = (props) => {
     const searchable = options.searchable || false
     const editable = options.editable || false
     let footer = false
-    if (options.footer) footer = true
+    if (options.footer) {
+        footer = true
+    }
     const footerHtml = options.footer || ''
     const hiddenCols = options.hiddenCols || []
     const hiddenColsCount = hiddenCols.length
