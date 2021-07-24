@@ -1,3 +1,13 @@
+@font-face {
+  font-family: 'Oxygen-Regular';
+  src: url('./fonts/Oxygen-Regular.ttf') format('truetype');
+  font-display: swap;
+}
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
 html {
   scroll-behavior: smooth;
   background-color: rgb(131, 131, 131)
@@ -93,9 +103,7 @@ for the sake of simplicity the pager is buit using standard css  */
   opacity: 0.5;
   border-radius: 0.3em;
   font-size: 0.8em;
-  padding-left: 0.5em;
   padding: 0 0.4em 0.3em 0;
-  padding-right: 0.5em;
   background-color: rgb(44, 44, 44);
   top: 1.4em;
   line-height: 1.4em;
@@ -225,10 +233,7 @@ input:disabled {
   }
   
 .msgDiv{
-  top:3em;
   left:0;
-  width:100%;
-  height:3em;
 display: none;
 background-color:rgba(66, 66, 66, 0.9);
 top:15%;
