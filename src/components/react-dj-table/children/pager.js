@@ -80,7 +80,7 @@ function Pager({ state, dispatch }) {
                     <button data-content={key} disabled={disabled} id={key} onClick={handlePagingClick} dangerouslySetInnerHTML={createMarkup(html)}></button>
                     <div key={key+index}>Go to page<input  data-content='page no' onFocus={handleFocus} onChange={pagingInputChange} value={state.pagerInput} type="number" /></div>
                    
-                    <div key={key+index+"last"} className="numberOfPages">
+                    <div key={`${key}${index}last`} className="numberOfPages">
                         {state.pageNo}&nbsp;of&nbsp;{state.totalPages}&nbsp;pages
                     </div>
                     <div key={key+"last"}>
