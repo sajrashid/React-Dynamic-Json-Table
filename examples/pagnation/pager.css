@@ -51,10 +51,9 @@ for the sake of simplicity the pager is buit using standard css  */
     border-radius: 0.3em;
     font-size: 0.8em;
     padding-left: 0.5em;
-    padding: em 0.4em 0.3em 0em;
+    padding: 0 0.4em 0.3em 0;
     padding-right: 0.5em;
     background-color: rgb(44, 44, 44);
-    top: 1e;
     top: 1.4em;
     line-height: 1.4em;
     color: #eee;

@@ -4,10 +4,6 @@
   font-display: swap;
 }
 
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
-
 html {
   scroll-behavior: smooth;
   background-color: rgb(131, 131, 131)
