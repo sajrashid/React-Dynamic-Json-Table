@@ -49,7 +49,7 @@ const Table = (props) => {
         colspan: colspan, insertId: null, crudBtns:crudBtns , dataChanged:false, inserting: false,  userAction:'NOACTION',creating: false, editing: true, pageNo: pageNo, pagerIcons: pagerIcons, searchString: ''
     }
     const [state, dispatch] = useReducer(TableReducer, initialState)
-  
+
     React.useEffect(() => {
         console.log("props:", props)
         dispatch({type: ACTIONS.UPDATEPROPS, payload: { updatedProps: props }})
