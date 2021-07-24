@@ -28,8 +28,7 @@
     margin-right: 1em;
     color: #333;
     background-color: lime;
-    font-family: "Courier New", Courier, monospace;
-    font: 1.2em bold;
+    font: bold 1.2em "Courier New", Courier, monospace;
     position: relative;
     left: 1em;
     padding: 0.1em 0.3em 0.1em 0.3em;
@@ -38,14 +37,12 @@
   }
   
   .title .secondspan {
-    padding-left: 4em;
     border-left: 4px solid green;
     margin-right: 1em;
     color: #fff;
     background-color: #333;
-    font-family: "Courier New", Courier, monospace;
-    font: 1.3em bold;
-    padding: 0.6em;
+    font:bold 1.3em "Courier New", Courier, monospace;
+    padding: 0.6em 0.6em 0.6em 4em;;
     border-radius: 0.2em;
     box-shadow: 1px 2px 3px #333;
   }
