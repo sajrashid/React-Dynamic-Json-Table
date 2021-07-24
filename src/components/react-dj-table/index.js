@@ -27,13 +27,15 @@ const Table = (props) => {
     const searchable = options.searchable || false
     const editable = options.editable || false
     let footer = false
-    if (options.footer) footer = true
+    if (options.footer) {
+        footer = true
+    }
     const footerHtml = options.footer || ''
     const hiddenCols = options.hiddenCols || []
     const hiddenColsCount = hiddenCols.length
     // todo move into hook
-    const paginate = (array, page_size, page_number) => {
-        return array.slice(page_number * page_size, (page_number + 1) * page_size);
+    const paginate = (array, pageSize, pageNumber) => {
+        return array.slice(pageNumber * pageSize, (pageNumber + 1) * pageSize);
     }
 
     if (pageable) {
@@ -47,7 +49,7 @@ const Table = (props) => {
         colspan: colspan, insertId: null, crudBtns:crudBtns , dataChanged:false, inserting: false,  userAction:'NOACTION',creating: false, editing: true, pageNo: pageNo, pagerIcons: pagerIcons, searchString: ''
     }
     const [state, dispatch] = useReducer(TableReducer, initialState)
-  
+
     React.useEffect(() => {
         console.log("props:", props)
         dispatch({type: ACTIONS.UPDATEPROPS, payload: { updatedProps: props }})

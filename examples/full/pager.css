@@ -6,12 +6,6 @@ for the sake of simplicity the pager is buit using standard css  */
     float: left;
     margin: 0 auto;
     box-shadow: 1px 3px 3px 0 #e2e2e2;
-  }
-  .pager > * {
-    float: left;
-    margin: 0 auto;
-  }
-  .pager {
     line-height: 1.8rem;
     padding: 0.4rem;
     min-height: 2.4em;
@@ -19,6 +13,13 @@ for the sake of simplicity the pager is buit using standard css  */
     /* width: 100%; */
     color: #333;
     box-shadow: 1px 3px 3px 0 #dfd3d3;
+  }
+  .pager > * {
+    float: left;
+    margin: 0 auto;
+  }
+  .pager {
+    
   }
   
   .pager input {

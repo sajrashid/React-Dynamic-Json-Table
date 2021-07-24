@@ -45,18 +45,16 @@ function Pager({ state, dispatch }) {
     }
 
     const createPager = () => {
-        let arr = Object.keys(state.pagerIcons)
+        const arr = Object.keys(state.pagerIcons)
 
 
         // make show options object
-      
-
         return arr.map((key, index) => {
             const html = state.pagerIcons[key]
             var disabled = false
 
             if (key === 'first') {
-                state.pageNo < 2 ? disabled = true : disabled = false
+                disabled = state.pageNo < 2 ? true : false
                 return <React.Fragment key={index}>
                     <button  data-content={key} disabled={disabled} key={index} id={key} onClick={handlePagingClick} dangerouslySetInnerHTML={createMarkup(html)}></button>
 
@@ -64,7 +62,7 @@ function Pager({ state, dispatch }) {
             }
 
             if (key === 'previous') {
-                state.pageNo < 2 ? disabled = true : disabled = false
+                disabled = state.pageNo < 2 ? true : false
                 return <button  data-content={key} disabled={disabled} key={index} id={key} onClick={handlePagingClick} dangerouslySetInnerHTML={createMarkup(html)}></button>
 
             }
@@ -82,7 +80,7 @@ function Pager({ state, dispatch }) {
                     <button data-content={key} disabled={disabled} id={key} onClick={handlePagingClick} dangerouslySetInnerHTML={createMarkup(html)}></button>
                     <div key={key+index}>Go to page<input  data-content='page no' onFocus={handleFocus} onChange={pagingInputChange} value={state.pagerInput} type="number" /></div>
                    
-                    <div key={key+index+"last"} className="numberOfPages">
+                    <div key={`${key}${index}last`} className="numberOfPages">
                         {state.pageNo}&nbsp;of&nbsp;{state.totalPages}&nbsp;pages
                     </div>
                     <div key={key+"last"}>

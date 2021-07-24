@@ -34,18 +34,11 @@ function App() {
           '<div> <img style="height:3em" decoding="async" src=${Avatar}></img></div'
       }
     ],
-   
-   
   };
-
 
   const handleClick = (row) => {
-  
       console.log(row);
-      
   };
-
-
 
   return (
     <div className="App">

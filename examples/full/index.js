@@ -36,7 +36,7 @@ function App() {
     customCols: [
       {
         Avatar:
-          '<div> <img style="height:3em" decoding="async" src=${Avatar}></img></div'
+          `<div> <img style="height:3em" decoding="async" src=${Avatar}></img></div`
       }
     ],
     iconCols: [{ email: '<i class="envelope icon"/><i>Email' }],
