@@ -47,12 +47,12 @@ export default function Advanced() {
             console.log(action,row)
          // informational
          // returns row
-        
+    
         }
         if (action === 'VALIDATE') {
             console.log("VALIDATE")
             // old data what do you want to do
-            // user has not clicked the update button 
+            // user has not clicked the update button
             // and they have attempted to move to a different row
             // warn user they will loose the changes and to accept or reject
             setUserMessage('Warning: you have not saved your changes, click OK to go back, then click update to save your changes! Click Undo to undo your changes.')
@@ -61,8 +61,8 @@ export default function Advanced() {
         }
         if (action === "UPDATE") {
             console.log(action,row,oldRowData)
-            // put or post data to DB or confirm changes, with the user 
-            dispatch({ type: ACTIONS.CONFIRMUPDATE})  
+            // put or post data to DB or confirm changes, with the user
+            dispatch({ type: ACTIONS.CONFIRMUPDATE})
              // save to DB
              // incase of failure call rejectchanges
         }
@@ -73,13 +73,13 @@ export default function Advanced() {
             console.log(action)
             // no confirm is needed as it's a temp UI change
             // action will be triggered next is insert unless users decides to cancel
-           
+
         }
         if (action === "DELETE"){
             console.log(action)
             // delete from DB, once confirmed delete from table JSON
             // no need to refresh your data
-            dispatch({ type: ACTIONS.CONFIRMDELETE})  
+            dispatch({ type: ACTIONS.CONFIRMDELETE})
         }
         if (action === "INSERT"){
             console.log(action,row)
@@ -87,17 +87,13 @@ export default function Advanced() {
             // incase of failure call rejectchanges
             // no need to refresh your data
             dispatch({ type: ACTIONS.CONFIRMINSERT, payload: { id: 29 } })
-            
         }
     }
-
-  
-
 
     const btnClickHandler = (e) => {
         const btnName = e.currentTarget.name
         if (btnName === "ok") {
-            //  dispath nothing 
+            //  dispath nothing
             setMsgClassName('msgDiv')
         }
         if (btnName === "undo") {
