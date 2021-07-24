@@ -1,7 +1,10 @@
 import { ACTIONS } from './actions'
-import _ from 'lodash'
 import { compareValues } from '../utils/utils'
 import { matchSorter } from 'match-sorter'
+
+//import _ from 'lodash'
+
+
 
 export const TableReducer = (state, action) => {
 
@@ -211,8 +214,8 @@ export const TableReducer = (state, action) => {
           // const isCheckBox = typeof row[key] === "boolean"
             let skip=false
              Object.keys(clone).forEach(key => {
-                const isDateCol = _.find(dateColArr, key)
-              
+               // const isDateCol = _.find(dateColArr, key)
+                const isDateCol   =  dateColArr.find(function (o) { return o.hasOwnProperty(key) })
                 if(isDateCol)  skip=true // dont set to blank string re-use exisitng date
                 if( typeof clone[key] === "boolean"){
                     //reset value

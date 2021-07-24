@@ -1,8 +1,11 @@
-import _ from 'lodash'
+
 
 function templateLiteral(template, context = {}) {
   return template.replace(/\$\{\s*(.+?)\s*\}/g, (match, p1) => {
-      const value = _.get(context, p1, '')
+      //const value = _.get(context, p1, '')
+
+      const value = context?.p?.[1] ?? ''
+
       return value === null ? '' : value
   });
 }

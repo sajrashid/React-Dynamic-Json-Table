@@ -1,8 +1,10 @@
 import { ACTIONS } from '../reducers/actions'
 import PropTypes from "prop-types"
 import React from "react"
-import _ from 'lodash'
 import {createMarkupLiteral} from '../utils/utils'
+
+//import _ from 'lodash'
+
 
 /**
  * Component for displaying cells in the Table.
@@ -43,15 +45,24 @@ const Cells=({ state,dispatch, row, editable})=>{
 
     const createCells = (row) => {
         return columns.map((key) => {
-            const isHidden = _.includes(hiddenColArr, key)
-            const isCheckBox = typeof row[key] === "boolean"
-            const isCustom = _.find(customColArr, key)
-            const isDateCol = _.find(dateColArr, key)
+           // const isHidden = _.includes(hiddenColArr, key)
+
+             const isHidden = hiddenColArr.find(e => e === key) ? true: false;
+
+              const isCheckBox = typeof row[key] === "boolean"
+
+          //  const isCustom =  customColArr.map((obj) =>{ return Object.keys(obj).find(e => e === "id") ? obj: null })
+             const isCustom   =  customColArr.find(function (o) { return o.hasOwnProperty(key) })
+              //   const isCustom = _.find(customColArr, key)
+              const isDateCol =dateColArr.find(function (o) { return o.hasOwnProperty(key) })
+              //  const isDateCol = _.find(dateColArr, key)
             const locale= isDateCol ? dateColArr[key] :''
 
             if(editable){
                 const editcssClasses = `editInputText ${styles}`
-                 const isReadOnly = _.includes(readOnly, key)
+                // const isReadOnly = _.includes(readOnly, key)
+                 const isReadOnly = readOnly.find(e => e === key) ? true: false;
+
                 if(isHidden) return null 
                 if (isReadOnly) return <td className={editcssClasses} key={key}> <input name={key} readOnly disabled  type="text"  value={row[key].toString()}></input> </td>
                 if(isCheckBox && options.checkBox !== false) return <td  type="checkbox" className={cssClasses} key={key}> <input name={key} onChange={onChange}  type='checkbox' checked={row[key]}></input></td>  
