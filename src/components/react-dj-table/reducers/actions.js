@@ -28,6 +28,3 @@ export const ACTIONS={
     SETUPDATEACTION:'setupdateaction',
     RETURNSTATE:'returnstate',
 }
-
-
-    
