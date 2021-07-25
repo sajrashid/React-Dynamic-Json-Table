@@ -167,8 +167,6 @@ button[disabled] {
   box-shadow: 0.02em 0 0.02em 0 rgba(26, 9, 9, 0.719);
 }
 
-
-
 .editInputText>input[type="text"] {
   width:100%;
 }
