@@ -1,15 +1,3 @@
----
-Title: README.md
-Description: Introduction
-Date: 2021-07-20T00:00:00+00:00
-Tags:
-  - React
-  - JSON
-  - Table
-  - Dynamic
-  - Editable
-  - Hackable
----
 
 |       Tests      | Code Coverage | Sonar Cloud | NPM Status | Doc's Site |
 |:----------------:|---------------|:-----------:|------------|------------|
