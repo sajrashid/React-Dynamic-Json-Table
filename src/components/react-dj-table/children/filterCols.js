@@ -15,7 +15,7 @@ const FilterCols= ({ state, dispatch }) => {
 
         return columns.map((key) => {
             const isFilterCol = customFilterColArr.find(e => e === key) ? true: false;
-            
+
             if (isFilterCol) {
              return <td key={key}>
                         <input id={"f" + key} onChange={searchFilterCh} placeholder="Search..." type='text' value={state.filterColArr[0][key]}></input>

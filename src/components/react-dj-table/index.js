@@ -34,8 +34,8 @@ const Table = (props) => {
     const hiddenCols = options.hiddenCols || []
     const hiddenColsCount = hiddenCols.length
     // todo move into hook
-    const paginate = (array, pageSize, pageNumber) => {
-        return array.slice(pageNumber * pageSize, (pageNumber + 1) * pageSize);
+    const paginate = (array, pageSizeLoc, pageNumber) => {
+        return array.slice(pageNumber * pageSizeLoc, (pageNumber + 1) * pageSizeLoc);
     }
 
     if (pageable) {

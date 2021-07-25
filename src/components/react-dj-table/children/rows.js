@@ -14,12 +14,13 @@ const Rows = ({ state, dispatch, rowClick }) => {
         let selectedRow = {}
         state.json.forEach(row => {
             const rowId = row[Object.keys(row)[idColIdx]]
-            if (rowId.toString() === e.currentTarget.id.toString())
+            if (rowId.toString() === e.currentTarget.id.toString()) {
                 selectedRow = row
+            }
         });
   
         const isRowSelected = e.currentTarget.classList.contains('selected')
-      
+
         if (!isRowSelected) {
             // selected row dows not contain selected class
             // it is not the currently selected row (if any)
@@ -34,19 +35,18 @@ const Rows = ({ state, dispatch, rowClick }) => {
                 return
             } else {
                 if (JSON.stringify(state.selectedRow) !== (JSON.stringify(state.selectedRowCopy) || state.selectedRowCopy !== {})) {
-                    // oops previous row exist 
+                    // oops previous row exist
                     // check if data in selectedRow has changed
                     rowClick(selectedRow, state.selectedRowCopy, "VALIDATE")
-                    console.log(JSON.stringify(selectedRow) + ":" + JSON.stringify(state.selectedRowCopy))
                 } else {
-                 
+
                         dispatch({ type: ACTIONS.SELECTEDROW, payload: { row: selectedRow } })
                         rowClick(selectedRow, null, "SELECT")
                         dispatch({ type: ACTIONS.CREATESELECTEDROWCOPY, payload: { row: selectedRow } })
-                    
+
                 }
             }
-        } 
+        }
 
     }
 
@@ -70,5 +70,3 @@ const Rows = ({ state, dispatch, rowClick }) => {
     return (createRows())
 }
 export default Rows
-
-
