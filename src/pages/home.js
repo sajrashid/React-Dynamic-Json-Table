@@ -3,11 +3,10 @@ import './home.css'
 import React, { useState } from "react";
 
 import Table from 'react-dj-table'
-import useLocalStorage from '../components/hooks/useLocalStorage'
 
 const Home = props => {
- const data=[
-  { 'ID': 1, 'Name': 'React', 'Desc': 'Shadow Dom', 'Testing': false, },
+  const data = [
+    { 'ID': 1, 'Name': 'React', 'Desc': 'Shadow Dom', 'Testing': false, },
     { 'ID': 2, 'Name': 'Ember', 'Desc': 'Shadow Dom ???', 'Testing': true, },
     { 'ID': 3, 'Name': 'Knockout', 'Desc': '2 way databinding', 'Testing': false, },
     { 'ID': 4, 'Name': 'AngularJS', 'Desc': 'mvc ???', 'Testing': false, },
@@ -19,12 +18,12 @@ const Home = props => {
     { 'ID': 10, 'Name': 'BackBone', 'Desc': 'Lorun ipsum', 'Testing': true, },
     { 'ID': 11, 'Name': 'Mithril', 'Desc': 'Shadow Dom', 'Testing': false, },
     { 'ID': 12, 'Name': 'BackBone', 'Desc': 'Lorun ipsum', 'Testing': true, }
- ]
+  ]
 
   // Table options not required for defaults
   const options = {
     idCol: 'id', // Not Required- If the first col is an identity column
-    tableCss:'table-fixed w-fulll',
+    tableCss: 'table-fixed w-fulll',
     editable: true, //
     hiddenCols: ['id'], //Hide any column
     filters: true,
@@ -39,12 +38,11 @@ const Home = props => {
 
     // NB SelectedRow backgroundColor can be set from SuperTable styles default ALice-Blue
   }
-  const [name, setName] = useLocalStorage('name', () => '')
 
-  
+
   let [json] = useState([])
 
-  const rowClick = ( row) => {
+  const rowClick = (row) => {
     console.log(row)
     // id as string row as selectedRow object
   }
@@ -55,9 +53,9 @@ const Home = props => {
   }
   return (
     <div className="flex justify-center w-full h-full mt-4">
-      <Table options={options}  json={data} rowClick={rowClick} />
+      <Table options={options} json={data} rowClick={rowClick} />
     </div>
-  
+
   )
 }
 

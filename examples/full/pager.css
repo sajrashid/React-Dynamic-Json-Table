@@ -1,4 +1,4 @@
-/* styling the pager would again require passing lots of classes and 
+/* styling the pager would again require passing lots of classes and
 custom options, that can make config difficult
 for the sake of simplicity the pager is buit using standard css  */
 /* move the pager left or right by chaging float left/right */
@@ -17,10 +17,7 @@ for the sake of simplicity the pager is buit using standard css  */
     float: left;
     margin: 0 auto;
   }
-  .pager {
-    
-  }
-  
+
   .pager input {
     border: 1px solid #666;
     margin: 0 0.4rem 0 0.4rem;
@@ -58,16 +55,16 @@ for the sake of simplicity the pager is buit using standard css  */
     content: attr(data-content);
     z-index: 100;
   }
-  
+
   .pager button:hover {
     background-color: #e6ffff;
   }
   .tablecss .pager button:focus {
     outline: none;
   }
-  
+
   /* targets number of pages without classname numberOfPages */
-  
+
   .pager :nth-child(4) {
     margin-right: 1em;
   }
@@ -106,11 +103,10 @@ for the sake of simplicity the pager is buit using standard css  */
     outline: none !important;
     border: solid 1px #d3d3d3;
   }
-  
+
   .pager button:disabled,
   button[disabled] {
     background-color: #cccccc;
     color: #666666;
     box-shadow: 0.02em 0 0.02em 0 rgba(26, 9, 9, 0.719);
   }
-  
