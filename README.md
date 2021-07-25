@@ -65,7 +65,7 @@ Intuitive buttons, create a record , change the data, watch as it guides the use
 ### Hackable
 You got access to the reducers dispatch functions, state TBD (next patch release)
 ### Feature Requests
-See Github discussions.
+See Github discussions
 
 [Site](https://react-dj-table.netlify.app/), Code-Sand-Box examples.
 
@@ -76,3 +76,23 @@ See Github discussions.
 [![NPM](https://nodei.co/npm/react-dj-table.png?compact=true)](https://nodei.co/npm/react-dj-table/)
 
 [![Netlify Status](https://api.netlify.com/api/v1/badges/ad1de4da-ad86-4c8f-a533-732539d451a7/deploy-status)](https://app.netlify.com/sites/react-dj-table/deploys)
+
+## Contributors ✨
+
+Thanks goes to these wonderful people ([emoji key](https://allcontributors.org/docs/en/emoji-key)):
+
+<!-- ALL-CONTRIBUTORS-LIST:START - Do not remove or modify this section -->
+<!-- prettier-ignore-start -->
+<!-- markdownlint-disable -->
+<table>
+  <tr>
+    <td align="center"><a href="https://github.com/khalidmunir"><img src="https://avatars.githubusercontent.com/u/16494491?v=4?s=80" width="80px;" alt=""/><br /><sub><b>khalidmunir</b></sub></a><br /><a href="https://github.com/SajRashid/React-Dynamic-Json-Table/commits?author=khalidmunir" title="Code">💻</a></td>
+  </tr>
+</table>
+
+<!-- markdownlint-restore -->
+<!-- prettier-ignore-end -->
+
+<!-- ALL-CONTRIBUTORS-LIST:END -->
+
+This project follows the [all-contributors](https://github.com/all-contributors/all-contributors) specification. Contributions of any kind welcome!

@@ -53,7 +53,7 @@ nav {
 }
 
 
-/* styling the pager would again require passing lots of classes and 
+/* styling the pager would again require passing lots of classes and
 custom options, that can make config difficult
 for the sake of simplicity the pager is buit using standard css  */
 /* move the pager left or right by chaging float left/right */
@@ -194,7 +194,7 @@ button[disabled] {
 
 
 .crudDiv button:disabled,
-button[disabled] { 
+button[disabled] {
   background-color: #cccccc;
   color: #666666;
   box-shadow: 0.02em 0 0.02em 0 rgba(26, 9, 9, 0.719);
@@ -227,7 +227,7 @@ input:disabled {
   background-color: #cccccc;
     color: #666666;
   }
-  
+
 .msgDiv{
   left:0;
 display: none;
@@ -278,10 +278,10 @@ border-radius: 0.3em;
   margin-left: 30%;
   width: 40%;
   background-color: rgba(75, 75, 75, 0.7);
-  color:#eee; 
+  color:#eee;
   padding: 1em;
   position: relative;
-  top:5em; 
+  top:5em;
   border: 2px solid #333;
 }
 .msgDiv .msgBtnDiv {
