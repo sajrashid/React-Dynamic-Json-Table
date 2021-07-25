@@ -1,5 +1,6 @@
+import { matchSorter } from 'match-sorter'
 
- const get = (obj, path, defaultValue = undefined) => {
+const get = (obj, path, defaultValue = undefined) => {
     const travel = regexp =>
       String.prototype.split
         .call(path, regexp)
@@ -46,4 +47,25 @@ export function  compareValues(key, order = "asc") {
       }
       return order === "desc" ? comparison * -1 : comparison;
     };
+}
+
+export function fuzzySearchMutipleWords(
+  rows, // array of data [{a: "a", b: "b"}, {a: "c", b: "d"}]
+  keys, // keys to search ["a", "b"]
+  filterValue// potentially multi-word search string "two words"
+) {
+  if (!filterValue || !filterValue.length) {
+      return rows
+  }
+
+  const terms = filterValue.split(' ')
+  if (!terms) {
+      return rows
+  }
+
+  // reduceRight will mean sorting is done by score for the _first_ entered word.
+  return terms.reduceRight(
+      (results, term) => matchSorter(results, term, { keys }),
+      rows,
+  )
 }
