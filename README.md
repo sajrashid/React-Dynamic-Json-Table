@@ -64,7 +64,7 @@ You got access to the reducers dispatch functions, state TBD (next patch release
 ### Feature Requests
 See Github discussions
 
-[Site](https://react-dj-table.netlify.app/), Code-Sand-Box examples.
+[Demo](https://react-dj-table.netlify.app/), Code-Sand-Box examples.
 
 
 
