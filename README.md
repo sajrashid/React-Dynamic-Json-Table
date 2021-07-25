@@ -65,7 +65,7 @@ Intuitive buttons, create a record , change the data, watch as it guides the use
 ### Hackable
 You got access to the reducers dispatch functions, state TBD (next patch release)
 ### Feature Requests
-See Github discussions.
+See Github discussions
 
 [Site](https://react-dj-table.netlify.app/), Code-Sand-Box examples.
 
