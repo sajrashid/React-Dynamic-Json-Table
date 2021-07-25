@@ -46,9 +46,9 @@ const Cells = ({ state, dispatch, row, editable }) => {
 
             const isCheckBox = typeof row[key] === "boolean"
 
-            const isCustom = customColArr.find( (o) => { return o.hasOwnProperty(key) })
+            const isCustom = customColArr.find((o) => o.hasOwnProperty(key))
 
-            const isDate = dateColArr.find( (b) => { return b.hasOwnProperty(key) })
+            const isDate = dateColArr.find((b) => b.hasOwnProperty(key))
 
             const locale = isDate ? dateColArr[key] : ''
             if (editable) {
@@ -63,33 +63,33 @@ const Cells = ({ state, dispatch, row, editable }) => {
                     return <td className={editcssClasses} key={key}> <input name={key} readOnly disabled type="text" value={row[key].toString()}></input> </td>
                 }
 
-                if (isCheckBox && options.checkBox !== false) { 
+                if (isCheckBox && options.checkBox !== false) {
                     return <td type="checkbox" className={cssClasses} key={key}> <input name={key} onChange={onChange} type='checkbox' checked={row[key]}></input></td>
                 }
 
-                if (isCustom) { 
+                if (isCustom) {
                     return <td className={editcssClasses} key={key}><input type="text" name={key} onChange={onChange} value={row[key].toString()}></input>  </td>
                 }
 
                 if (isDate) {
                     return <td className={editcssClasses} key={key}> <input type="text" name={key} onChange={onChange} value={row[key].toString()}></input> </td>
                 }
-                
+
                 return <td className={editcssClasses} key={key}> <input name={key} type="text" onChange={onChange} value={row[key].toString()}></input> </td>
             }
-            if (row[key] == null) { 
+            if (row[key] == null) {
                 return null
             }
             // we need to test to determine the types
             // pref in some sort of performant order
             // testing for hidden colums first as we can just step out
             // if we match hidden
-            if (isHidden) { 
+            if (isHidden) {
                 return null
             }
 
             // next test a bool type as it's quick and we can eliminate as effeciently as possible
-            if (isCheckBox && options.checkBox !== false) { 
+            if (isCheckBox && options.checkBox !== false) {
                 return <td className={cssClasses} key={key}> <input readOnly type='checkbox' checked={row[key]}></input></td>
             }
 
@@ -97,7 +97,7 @@ const Cells = ({ state, dispatch, row, editable }) => {
 
             // the markup is sanitised and returned before being inserted into the dom
 
-            if (isCustom) { 
+            if (isCustom) {
                 return <td className={cssClasses} key={key} dangerouslySetInnerHTML={createMarkupLiteral(key, isCustom[key], row[key])}></td>
             }
 
@@ -105,9 +105,11 @@ const Cells = ({ state, dispatch, row, editable }) => {
             // then go with the user options
             // get the locale is specified from options.dateOptions
 
-          if (isDate) return <td className={cssClasses} key={key}>{new Date(row[key]).toLocaleDateString(locale, dateOptions)}</td>
+            if (isDate) {
+                return <td className={cssClasses} key={key}>{new Date(row[key]).toLocaleDateString(locale, dateOptions)}</td>
+            }
 
-            //default return string 
+            //default return string
 
             return <td className={cssClasses} key={key}>{row[key].toString()}</td>
 
