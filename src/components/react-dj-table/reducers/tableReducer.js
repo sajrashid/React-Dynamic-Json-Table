@@ -1,55 +1,33 @@
 import { ACTIONS } from './actions'
-import { compareValues } from '../utils/utils'
-import { matchSorter } from 'match-sorter'
-
-//import _ from 'lodash'
-
-
+import { compareValues, fuzzySearchMutipleWords } from '../utils/utils'
 
 export const TableReducer = (state, action) => {
 
     //set up pagination
-    const paginate = (array, page_size, page_number) => {
-        return array.slice(page_number * page_size, (page_number + 1) * page_size);
-    }
-    // https://github.com/kentcdodds/match-sorter
-    function fuzzySearchMutipleWords(
-        rows, // array of data [{a: "a", b: "b"}, {a: "c", b: "d"}]
-        keys, // keys to search ["a", "b"]
-        filterValue// potentially multi-word search string "two words"
-    ) {
-        if (!filterValue || !filterValue.length) {
-            return rows
-        }
-
-        const terms = filterValue.split(' ')
-        if (!terms) {
-            return rows
-        }
-
-        // reduceRight will mean sorting is done by score for the _first_ entered word.
-        return terms.reduceRight(
-            (results, term) => matchSorter(results, term, { keys }),
-            rows,
-        )
+    const paginate = (array, pageSize, pageNumber) => {
+        return array.slice(pageNumber * pageSize, (pageNumber + 1) * pageSize);
     }
 
     switch (action.type) {
 
-        case ACTIONS.INITIALSTATE:
-            state.pageable = action.payload.pageable
-            action.payload.pageable ? state.json = paginate(state.json || [], state.pageSize, 0) : state.totalPages = (Math.ceil(state.json.length / state.pageSize))
-            return { ...state }
         case ACTIONS.UPDATEPROPS:
              state.json = action.payload.updatedProps.json
              state.jsonCopy =action.payload.updatedProps.json
-             state.options.pageable ? state.json = paginate(state.json || [], state.options.pageSize || 10, 0) : state.totalPages = (Math.ceil(state.json.length / state.options.pageSize || 10))
+             if (state.options.pageable) {
+                 state.json = paginate(state.json || [], state.options.pageSize || 10, 0)
+              } else {
+                  state.totalPages = (Math.ceil(state.json.length / state.options.pageSize || 10))
+              }
              return { ...state }
         case ACTIONS.ITEMSPERPAGE:
             state.pageSize = action.payload.itemsPerPage
             state.totalPages = Math.ceil(state.jsonCopy.length / state.pageSize)
             state.pageNo = 1
-            action.payload.itemsPerPage ? state.json = paginate(state.jsonCopy || [], state.pageSize, 0) : state.totalPages = (Math.ceil(state.json.length / state.pageSize))
+            if (action.payload.itemsPerPage) {
+                state.json = paginate(state.jsonCopy || [], state.pageSize, 0)
+             } else {
+                 state.totalPages = (Math.ceil(state.json.length / state.pageSize))
+             }
             return { ...state }
         case ACTIONS.SEARCH:
             var result = null
@@ -125,7 +103,7 @@ export const TableReducer = (state, action) => {
             }
             state.crudBtns.btnDelete=true
             return { ...state }
-     
+
         case ACTIONS.REJECTCHANGES:
             state.dataChanged=false
             if(state.inserting){
@@ -155,7 +133,7 @@ export const TableReducer = (state, action) => {
             state.selectedRow[checkbox] = checked
             if(state.editing){
                 state.crudBtns.btnUpdate=false
-            } 
+            }
             if(state.inserting){
                 state.crudBtns.btnInsert=false
             }
@@ -167,15 +145,15 @@ export const TableReducer = (state, action) => {
             if (!sortable) {
                 return { ...state }
             } else {
-                let colName = action.payload.id
-                let sortDirection = state.sortDirection
+                const colName = action.payload.id
+                const sortDirection = state.sortDirection
                 if (state.pageable) {
                     state.jsonCopy.sort(compareValues(colName, sortDirection));
                     state.json = paginate(state.jsonCopy || [], state.pageSize, state.pageNo - 1)
                 } else {
                     state.json.sort(compareValues(colName, sortDirection));
                 }
-                state.sortDirection === 'asc' ? state.sortDirection = 'desc' : state.sortDirection = 'asc'
+                state.sortDirection = state.sortDirection === 'asc' ? 'desc' : 'asc'
                 return { ...state }
 
             }
@@ -209,23 +187,28 @@ export const TableReducer = (state, action) => {
             state.userAction = 'CREATE'
              const clone = JSON.parse(JSON.stringify(state.json[0]));
              const dateColArr = state.options.dateCols  || {}
-            
-             
-          // const isCheckBox = typeof row[key] === "boolean"
-            let skip=false
+
+             let skip=false
              Object.keys(clone).forEach(key => {
-               // const isDateCol = _.find(dateColArr, key)
-                const isDateCol   =  dateColArr.find(function (o) { return o.hasOwnProperty(key) })
-                if(isDateCol)  skip=true // dont set to blank string re-use exisitng date
+                const isDateCol   =  dateColArr.find((o) => o.hasOwnProperty(key))
+                if(isDateCol) {
+                    skip=true // dont set to blank string re-use exisitng date
+                }
+
                 if( typeof clone[key] === "boolean"){
                     //reset value
                     clone[key] =false
                     skip=true
-                } 
+                }
+
                 if( typeof clone[key] === "number") {
                     clone[key] =0
-                    skip=true}
-                if(!skip)   clone[key]='';
+                    skip=true
+                }
+
+                if(!skip) {
+                    clone[key]=''
+                }
                 skip=false
               })
               state.json.splice(state.pageSize, 0, clone);
@@ -256,7 +239,7 @@ export const TableReducer = (state, action) => {
                 state.selectedRowCopy = null
                 state.creating = false
                 state.editing = true
-                state.userAction = "CONFIRMUPDATE"   
+                state.userAction = "CONFIRMUPDATE"
          return { ...state }
        case ACTIONS.CONFIRMDELETE:
             state.jsonCopy.includes(state.selectedRow) && state.jsonCopy.splice(state.jsonCopy.indexOf(state.selectedRow), 1)
@@ -272,7 +255,9 @@ export const TableReducer = (state, action) => {
             const idColIdx = state.options.idCol ? Object.keys(state.json[0]).indexOf(state.options.idCol) : 0
             const idColName = [Object.keys(state.json[0])[idColIdx]]
             if(action!==undefined && action.payload !==undefined){
-                if(action.payload.id!==undefined)  state.selectedRow[idColName]=action.payload.id
+                if(action.payload.id!==undefined) {
+                    state.selectedRow[idColName]=action.payload.id
+                }
             }
             state.selectedRowCopy = {}
             state.crudBtns.btnCancel=true
