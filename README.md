@@ -1,17 +1,14 @@
----
-Title: README.md
-Description: Introduction
-Date: 2021-07-20T00:00:00+00:00
-Tags:
-  - React
-  - JSON
-  - Table
-  - Dynamic
-  - Editable
-  - Hackable
----
+
+|       Tests      | Code Coverage | Sonar Cloud | NPM Status | Doc's Site |
+|:----------------:|---------------|:-----------:|------------|------------|
+| ![Tests](https://github.com/github/docs/actions/workflows/test.yml/badge.svg) |  ToAddLink    | [![Quality Gate Status](https://sonarcloud.io/api/project_badges/measure?project=sajrashid_React-Dynamic-Json-Table&metric=alert_status)](https://sonarcloud.io/dashboard?id=sajrashid_React-Dynamic-Json-Table) | [![NPM](https://nodei.co/npm/react-dj-table.png?compact=true)](https://nodei.co/npm/react-dj-table/)       | [![Netlify Status](https://api.netlify.com/api/v1/badges/ad1de4da-ad86-4c8f-a533-732539d451a7/deploy-status)](https://app.netlify.com/sites/react-dj-table/deploys)    |
+
+* [🪄 Demo Site](https://react-dj-table.netlify.app/)
+* [🖥️ Sand Box](https://codesandbox.io/s/full-example-sematic-ui-editable-pageable-sortable-ylvfg)
+* [📝 Code Quality Report](https://sonarcloud.io/summary/new_code?id=sajrashid_React-Dynamic-Json-Table)
+
 # React Dynamic JSON Table
-There a many tables out there, some require lot's of boiler plate code, with changes across the stack if anything is modified, others a just too basic.
+Some tables require lot's of boiler plate code, with changes across the stack if anything is modified, others a just too basic.
 
 This a fully Editable dynamic table, that's also relatively feature rich, easy to configure, supports pagination, sorting and filtering out of the box, that actually tries to handle data intelligently
 
@@ -69,13 +66,13 @@ See Github discussions
 
 [Site](https://react-dj-table.netlify.app/), Code-Sand-Box examples.
 
-[![Quality Gate Status](https://sonarcloud.io/api/project_badges/measure?project=sajrashid_React-Dynamic-Json-Table&metric=alert_status)](https://sonarcloud.io/dashboard?id=sajrashid_React-Dynamic-Json-Table)
 
-![Tests](https://github.com/github/docs/actions/workflows/test.yml/badge.svg)
 
-[![NPM](https://nodei.co/npm/react-dj-table.png?compact=true)](https://nodei.co/npm/react-dj-table/)
 
-[![Netlify Status](https://api.netlify.com/api/v1/badges/ad1de4da-ad86-4c8f-a533-732539d451a7/deploy-status)](https://app.netlify.com/sites/react-dj-table/deploys)
+
+
+
+
 
 ## Contributors ✨
 
