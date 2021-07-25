@@ -2,9 +2,9 @@ import { ACTIONS } from '../reducers/actions';
 import React from "react";
 
 function Crud({ state, dispatch,rowClick }) {
-    
+
     const HandleButtonClick= e =>{
-            let buttonName = e.currentTarget.name.toString().toUpperCase()
+            const buttonName = e.currentTarget.name.toString().toUpperCase()
             switch (buttonName) {
               case "UPDATE":
               dispatch({ type: ACTIONS.UPDATE })
@@ -29,28 +29,18 @@ function Crud({ state, dispatch,rowClick }) {
               default:
              break;
           }
-            
-       
     }
-
     const createCrud = () => {
-
-        return <div className="crudDiv"> 
+        return <div className="crudDiv">
                     <button   name='cancel'  disabled={state.crudBtns.btnCancel} onClick={HandleButtonClick}>cancel</button>
-
                     <button  name='update' disabled={ state.crudBtns.btnUpdate }  onClick={HandleButtonClick}>update</button>
                 {state.editing&&
                     <button name="create"  disabled={ state.crudBtns.btnCreate  } onClick={HandleButtonClick}>create</button>
-
                 }
                 {state.inserting&&
                     <button name="insert"  disabled={state.crudBtns.btnInsert } onClick={HandleButtonClick}>insert</button>
-
-                } 
-                   
-            
+                }
                     <button name='delete' disabled={ state.crudBtns.btnDelete} onClick={HandleButtonClick}>delete</button>
-            
              </div>
     }
 
