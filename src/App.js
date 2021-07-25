@@ -10,7 +10,7 @@ import TopMenu from './pages/menu/topMenu'
 function App() {
   return (
     <div className="h-full App">
-      
+
       <BrowserRouter>
       <header className="App-header">
       <TopMenu  />
@@ -20,7 +20,7 @@ function App() {
           <Route path='/advanced' component={Advanced} />
         </Switch>
         </BrowserRouter>
-      
+
     </div>
   );
 }
