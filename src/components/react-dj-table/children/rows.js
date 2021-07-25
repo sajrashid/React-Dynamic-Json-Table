@@ -51,7 +51,7 @@ const Rows = ({ state, dispatch, rowClick }) => {
     }
 
 
-    const createRows = () => {
+    const createRows = (row) => {
         return state.json.map((row, index) => {
             const rowId = row[Object.keys(row)[idColIdx]] // eslint-disable-next-line
             if (state.selectedRow === row && isEditable === true) {

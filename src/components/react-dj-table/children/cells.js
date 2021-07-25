@@ -39,7 +39,7 @@ const Cells = ({ state, dispatch, row, editable }) => {
         }
     }
 
-    const createCells = () => {
+    const createCells = (row) => {
         return columns.map((key) => {
 
             const isHidden = hiddenColArr.find(e => e === key) ? true : false;
