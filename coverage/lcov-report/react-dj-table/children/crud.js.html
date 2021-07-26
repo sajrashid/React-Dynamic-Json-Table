@@ -23,30 +23,30 @@
         <div class='clearfix'>
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">0% </span>
+                <span class="strong">68.18% </span>
                 <span class="quiet">Statements</span>
-                <span class='fraction'>0/22</span>
+                <span class='fraction'>15/22</span>
             </div>
         
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">0% </span>
+                <span class="strong">70% </span>
                 <span class="quiet">Branches</span>
-                <span class='fraction'>0/10</span>
+                <span class='fraction'>7/10</span>
             </div>
         
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">0% </span>
+                <span class="strong">100% </span>
                 <span class="quiet">Functions</span>
-                <span class='fraction'>0/3</span>
+                <span class='fraction'>3/3</span>
             </div>
         
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">0% </span>
+                <span class="strong">68.18% </span>
                 <span class="quiet">Lines</span>
-                <span class='fraction'>0/22</span>
+                <span class='fraction'>15/22</span>
             </div>
         
             
@@ -55,7 +55,7 @@
             Press <em>n</em> or <em>j</em> to go to the next uncovered block, <em>b</em>, <em>p</em> or <em>k</em> for the previous block.
         </p>
     </div>
-    <div class='status-line low'></div>
+    <div class='status-line medium'></div>
     <pre><table class="coverage">
 <tr><td class="line-count quiet"><a name='L1'></a><a href='#L1'>1</a>
 <a name='L2'></a><a href='#L2'>2</a>
@@ -115,9 +115,21 @@
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-yes">14x</span>
+<span class="cline-any cline-yes">4x</span>
+<span class="cline-any cline-yes">4x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">2x</span>
+<span class="cline-any cline-yes">2x</span>
+<span class="cline-any cline-yes">2x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
@@ -128,22 +140,10 @@
 <span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-yes">14x</span>
+<span class="cline-any cline-yes">14x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -156,7 +156,7 @@
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-yes">14x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -166,37 +166,37 @@
 <span class="cline-any cline-neutral">&nbsp;</span></td><td class="text"><pre class="prettyprint lang-js">import { ACTIONS } from '../reducers/actions';
 import React from "react";
 &nbsp;
-function <span class="fstat-no" title="function not covered" >Crud(</span>{ state, dispatch,rowClick }) {
+function Crud({ state, dispatch,rowClick }) {
 &nbsp;
-    const HandleButtonClick= <span class="cstat-no" title="statement not covered" ><span class="fstat-no" title="function not covered" >e </span>=&gt;{</span>
-            const buttonName = <span class="cstat-no" title="statement not covered" >e.currentTarget.name.toString().toUpperCase()</span>
-<span class="cstat-no" title="statement not covered" >            switch (buttonName) {</span>
+    const HandleButtonClick= e =&gt;{
+            const buttonName = e.currentTarget.name.toString().toUpperCase()
+            switch (buttonName) {
               case "UPDATE":
-<span class="cstat-no" title="statement not covered" >              dispatch({ type: ACTIONS.UPDATE })</span>
-<span class="cstat-no" title="statement not covered" >              rowClick(state.selectedRow,state.selectedRowCopy,buttonName, dispatch )</span>
-<span class="cstat-no" title="statement not covered" >              break;</span>
+              dispatch({ type: ACTIONS.UPDATE })
+              rowClick(state.selectedRow,state.selectedRowCopy,buttonName, dispatch )
+              break;
               case "CANCEL":
-<span class="cstat-no" title="statement not covered" >              dispatch({ type: ACTIONS.CANCEL })</span>
-<span class="cstat-no" title="statement not covered" >              rowClick(state.selectedRow,state.selectedRowCopy,buttonName, dispatch )</span>
-<span class="cstat-no" title="statement not covered" >              break;</span>
+              dispatch({ type: ACTIONS.CANCEL })
+              rowClick(state.selectedRow,state.selectedRowCopy,buttonName, dispatch )
+              break;
               case "CREATE":
-<span class="cstat-no" title="statement not covered" >              dispatch({ type: ACTIONS.CREATE })</span>
-<span class="cstat-no" title="statement not covered" >              rowClick(state.selectedRow,state.selectedRowCopy,buttonName, dispatch )</span>
-<span class="cstat-no" title="statement not covered" >              break;</span>
-              case "DELETE":
+              dispatch({ type: ACTIONS.CREATE })
+              rowClick(state.selectedRow,state.selectedRowCopy,buttonName, dispatch )
+              break;
+<span class="branch-3 cbranch-no" title="branch not covered" >              case "DELETE":</span>
 <span class="cstat-no" title="statement not covered" >              dispatch({ type: ACTIONS.DELETE})</span>
 <span class="cstat-no" title="statement not covered" >              rowClick(state.selectedRow,state.selectedRowCopy,buttonName, dispatch )</span>
 <span class="cstat-no" title="statement not covered" >             break;</span>
-             case "INSERT":
+<span class="branch-4 cbranch-no" title="branch not covered" >             case "INSERT":</span>
 <span class="cstat-no" title="statement not covered" >                dispatch({ type: ACTIONS.INSERT})</span>
 <span class="cstat-no" title="statement not covered" >                rowClick(state.selectedRow,null,buttonName, dispatch )</span>
 <span class="cstat-no" title="statement not covered" >             break;</span>
-              default:
+<span class="branch-5 cbranch-no" title="branch not covered" >              default:</span>
 <span class="cstat-no" title="statement not covered" >             break;</span>
           }
     }
-    const createCrud = <span class="cstat-no" title="statement not covered" ><span class="fstat-no" title="function not covered" >()</span> =&gt; {</span>
-<span class="cstat-no" title="statement not covered" >        return &lt;div className="crudDiv"&gt;</span>
+    const createCrud = () =&gt; {
+        return &lt;div className="crudDiv"&gt;
                     &lt;button   name='cancel'  disabled={state.crudBtns.btnCancel} onClick={HandleButtonClick}&gt;cancel&lt;/button&gt;
                     &lt;button  name='update' disabled={ state.crudBtns.btnUpdate }  onClick={HandleButtonClick}&gt;update&lt;/button&gt;
                 {state.editing&amp;&amp;
@@ -209,7 +209,7 @@ function <span class="fstat-no" title="function not covered" >Crud(</span>{ stat
              &lt;/div&gt;
     }
 &nbsp;
-<span class="cstat-no" title="statement not covered" >    return (</span>
+    return (
         createCrud()
     )
 &nbsp;
@@ -223,7 +223,7 @@ export default Crud
             <div class='footer quiet pad2 space-top1 center small'>
                 Code coverage generated by
                 <a href="https://istanbul.js.org/" target="_blank">istanbul</a>
-                at Mon Jul 26 2021 08:21:28 GMT+0100 (British Summer Time)
+                at Mon Jul 26 2021 12:16:27 GMT+0100 (British Summer Time)
             </div>
         </div>
         <script src="../../prettify.js"></script>

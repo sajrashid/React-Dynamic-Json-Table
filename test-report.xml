@@ -1,29 +1,41 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <testExecutions version="1">
-  <file path="C:\Users\Me\source\React-Dynamic-Json-Table\src\tests\utils.test.js">
-    <testCase name="createMarkup" duration="5"/>
-    <testCase name="createMarkupLiteral" duration="1"/>
-    <testCase name="compareValues" duration="2"/>
-  </file>
-  <file path="C:\Users\Me\source\React-Dynamic-Json-Table\src\tests\filterCols.test.js">
-    <testCase name="renders Filters" duration="52"/>
-  </file>
-  <file path="C:\Users\Me\source\React-Dynamic-Json-Table\src\tests\thead.test.js">
-    <testCase name="renders Thead" duration="60"/>
-  </file>
-  <file path="C:\Users\Me\source\React-Dynamic-Json-Table\src\tests\pager.test.js">
-    <testCase name="renders Pager" duration="77"/>
+  <file path="C:\Users\Me\source\React-Dynamic-Json-Table\src\tests\globalsearch.test.js">
+    <testCase name="renders global search" duration="60"/>
   </file>
   <file path="C:\Users\Me\source\React-Dynamic-Json-Table\src\tests\cells.test.js">
-    <testCase name="renders cells" duration="59"/>
-  </file>
-  <file path="C:\Users\Me\source\React-Dynamic-Json-Table\src\tests\globalsearch.test.js">
-    <testCase name="renders global search" duration="64"/>
+    <testCase name="renders cells" duration="99"/>
   </file>
   <file path="C:\Users\Me\source\React-Dynamic-Json-Table\src\tests\rows.test.js">
-    <testCase name="renders cells" duration="117"/>
+    <testCase name="renders cells" duration="157"/>
+  </file>
+  <file path="C:\Users\Me\source\React-Dynamic-Json-Table\src\tests\filterCols.test.js">
+    <testCase name="renders Filters" duration="58"/>
   </file>
   <file path="C:\Users\Me\source\React-Dynamic-Json-Table\src\tests\index.test.js">
-    <testCase name="renders Pager" duration="189"/>
+    <testCase name="renders Pager" duration="280"/>
+  </file>
+  <file path="C:\Users\Me\source\React-Dynamic-Json-Table\src\tests\cancelCreate.test.js">
+    <testCase name="shows create button after create button is clicked" duration="402"/>
+  </file>
+  <file path="C:\Users\Me\source\React-Dynamic-Json-Table\src\tests\thead.test.js">
+    <testCase name="renders Thead" duration="97"/>
+  </file>
+  <file path="C:\Users\Me\source\React-Dynamic-Json-Table\src\tests\pager.test.js">
+    <testCase name="renders Pager" duration="111"/>
+  </file>
+  <file path="C:\Users\Me\source\React-Dynamic-Json-Table\src\tests\cancelUpdate.test.js">
+    <testCase name="shows create button after update button is clicked" duration="327"/>
+  </file>
+  <file path="C:\Users\Me\source\React-Dynamic-Json-Table\src\tests\Update.test.js">
+    <testCase name="shows if row value has been updated" duration="365"/>
+  </file>
+  <file path="C:\Users\Me\source\React-Dynamic-Json-Table\src\tests\createRow.test.js">
+    <testCase name="shows success message after confirm button is clicked" duration="366"/>
+  </file>
+  <file path="C:\Users\Me\source\React-Dynamic-Json-Table\src\tests\utils.test.js">
+    <testCase name="createMarkup" duration="2"/>
+    <testCase name="createMarkupLiteral" duration="1"/>
+    <testCase name="compareValues" duration="1"/>
   </file>
 </testExecutions>
