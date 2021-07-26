@@ -17,9 +17,6 @@ jobs:
         run: sh ./build.sh
       - name: Pushes to another repository
         id: push_directory
-        uses: sajrashid/React-Dynamic-Json-Table@main
-        env:
-          API_TOKEN_GITHUB: ${{ secrets.API_TOKEN_GITHUB }}
         with:
           source-directory: "coverage"
           destination-github-username: "sajrashid"
