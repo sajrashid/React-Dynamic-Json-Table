@@ -20,6 +20,14 @@
     "semantic-release": "^17.4.4",
     "use-debounce": "^7.0.0"
   },
+  "jest": {
+    "collectCoverageFrom": [
+      "src/components/react-dj-table/*.js",
+      "src/components/react-dj-table/children/*.js",
+      "src/components/react-dj-table/reducers/*.js",
+      "src/components/react-dj-table/utils/*.js"
+    ]
+  },
   "scripts": {
     "start": "craco start",
     "build": "craco build",
