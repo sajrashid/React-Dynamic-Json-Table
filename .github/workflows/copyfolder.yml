@@ -9,7 +9,6 @@ on:
 jobs:
   build:
     runs-on: ubuntu-latest
-    container: pandoc/latex
     steps:
       - uses: actions/checkout@v2
       - name: Install mustache (to update the date)
@@ -26,6 +25,8 @@ jobs:
           destination-github-username: "sajrashid"
           destination-repository-name: "docsSite"
           user-email: sajid.rashid@live.co.uk
+          user_name: "sajrashid"
+          commit_message: "copy latest code coverage folder"
           target-branch: master
       - name: Test get variable exported by push-to-another-repository
         run: echo $DESTINATION_CLONED_DIRECTORY
