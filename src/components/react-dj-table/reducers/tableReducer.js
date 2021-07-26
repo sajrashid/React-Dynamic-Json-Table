@@ -1,5 +1,6 @@
-import { ACTIONS } from './actions'
 import { compareValues, fuzzySearchMutipleWords } from '../utils/utils'
+
+import { ACTIONS } from './actions'
 
 export const TableReducer = (state, action) => {
 
@@ -8,28 +9,52 @@ export const TableReducer = (state, action) => {
         return array.slice(pageNumber * pageSize, (pageNumber + 1) * pageSize);
     }
 
+    const resetRows = () => {
+        if (state.inserting) {
+            console.log(state.json.length)
+            state.json.splice(state.pageSize, 1)
+            console.log(state.jsonCopy.length)
+            state.jsonCopy.splice(state.pageSize, 1)
+            console.log(state.jsonCopy.length)
+            console.log(state.json.length)
+        }
+        var a = [state.selectedRow, state.selectedRowCopy]
+        state.selectedRow = Object.assign(...a)
+        state.selectedRow = {}
+        state.selectedRowCopy = {}
+        state.creating = false
+        state.editing = true
+        state.inserting = false
+        state.crudBtns.btnCancel = true
+        state.crudBtns.btnDelete = true
+        state.crudBtns.btnCreate = false
+    }
+
     switch (action.type) {
 
         case ACTIONS.UPDATEPROPS:
-             state.json = action.payload.updatedProps.json
-             state.jsonCopy =action.payload.updatedProps.json
-             if (state.options.pageable) {
-                 state.json = paginate(state.json || [], state.options.pageSize || 10, 0)
-              } else {
-                  state.totalPages = (Math.ceil(state.json.length / state.options.pageSize || 10))
-              }
-             return { ...state }
+            resetRows()
+            state.json = action.payload.updatedProps.json
+            state.jsonCopy = action.payload.updatedProps.json
+            if (state.options.pageable) {
+                state.json = paginate(state.json || [], state.options.pageSize || 10, 0)
+            } else {
+                state.totalPages = (Math.ceil(state.json.length / state.options.pageSize || 10))
+            }
+            return { ...state }
         case ACTIONS.ITEMSPERPAGE:
+            resetRows()
             state.pageSize = action.payload.itemsPerPage
             state.totalPages = Math.ceil(state.jsonCopy.length / state.pageSize)
             state.pageNo = 1
             if (action.payload.itemsPerPage) {
                 state.json = paginate(state.jsonCopy || [], state.pageSize, 0)
-             } else {
-                 state.totalPages = (Math.ceil(state.json.length / state.pageSize))
-             }
+            } else {
+                state.totalPages = (Math.ceil(state.json.length / state.pageSize))
+            }
             return { ...state }
         case ACTIONS.SEARCH:
+            resetRows()
             var result = null
             var searchString = action.payload.search.searchString
             var columns = action.payload.search.columns
@@ -54,6 +79,7 @@ export const TableReducer = (state, action) => {
             }
             return { ...state }
         case ACTIONS.GOTOPAGE:
+            resetRows()
             const gotoPage = action.payload.gotoPage
             state.pageNo = gotoPage
             state.pagerInput = gotoPage
@@ -61,21 +87,25 @@ export const TableReducer = (state, action) => {
             return { ...state }
 
         case ACTIONS.FIRST:
+            resetRows()
             state.pageNo = 1
             state.json = (paginate(state.jsonCopy, state.pageSize, 0))
             return { ...state }
 
         case ACTIONS.LAST:
+            resetRows()
             state.json = (paginate(state.jsonCopy, state.pageSize, state.totalPages - 1))
             state.pageNo = state.totalPages
             return { ...state }
 
         case ACTIONS.NEXT:
+            resetRows()
             state.pageNo = state.pageNo >= state.totalPages ? state.pageNo : state.pageNo + 1
             state.json = (paginate(state.jsonCopy, state.pageSize, state.pageNo - 1))
             return { ...state }
 
         case ACTIONS.PREVIOUS:
+            resetRows()
             state.pageNo = state.pageNo < 2 ? state.pageNo : state.pageNo - 1
             state.json = (paginate(state.jsonCopy, state.pageSize, state.pageNo - 1))
             return { ...state }
@@ -85,42 +115,32 @@ export const TableReducer = (state, action) => {
             return { ...state }
         case ACTIONS.SELECTEDROW:
             state.selectedRow = action.payload.row
-            state.crudBtns.btnCancel=false
-            state.crudBtns.btnCreate=true
-            state.crudBtns.btnDelete=false
+            state.crudBtns.btnCancel = false
+            state.crudBtns.btnCreate = true
+            state.crudBtns.btnDelete = false
 
             return { ...state }
         case ACTIONS.UPDATEROW:
             var item = action.payload.item
             var value = action.payload.value
-            state.dataChanged=true
+            state.dataChanged = true
             state.selectedRow[item] = value
-            if(state.editing){
-                state.crudBtns.btnUpdate=false
+            if (state.editing) {
+                state.crudBtns.btnUpdate = false
             }
-            if(state.inserting){
-                state.crudBtns.btnInsert=false
+            if (state.inserting) {
+                state.crudBtns.btnInsert = false
             }
-            state.crudBtns.btnDelete=true
+            state.crudBtns.btnDelete = true
             return { ...state }
 
         case ACTIONS.REJECTCHANGES:
-            state.dataChanged=false
-            if(state.inserting){
-                // delete the row
-                state.json.splice(state.pageSize,1);
-            }
-            var a = [state.selectedRow, state.selectedRowCopy]
-            state.selectedRow = Object.assign(...a)
-            state.selectedRow = {}
-            state.selectedRowCopy = {}
-            state.creating = false
-            state.editing = true
-            state.inserting=false
-            state.crudBtns.btnCreate=false
-            state.crudBtns.btnInsert=true
-            state.crudBtns.btnCancel=true
-            state.crudBtns.btnUpdate=true
+            state.dataChanged = false
+            resetRows()
+            state.crudBtns.btnCreate = false
+            state.crudBtns.btnInsert = true
+            state.crudBtns.btnCancel = true
+            state.crudBtns.btnUpdate = true
             state.userAction = 'REJECT'
             return { ...state }
         case ACTIONS.COMMITROW:
@@ -129,17 +149,18 @@ export const TableReducer = (state, action) => {
         case ACTIONS.UPDATECHECKBOX:
             var checkbox = action.payload.item
             var checked = action.payload.checked
-            state.dataChanged=true
+            state.dataChanged = true
             state.selectedRow[checkbox] = checked
-            if(state.editing){
-                state.crudBtns.btnUpdate=false
+            if (state.editing) {
+                state.crudBtns.btnUpdate = false
             }
-            if(state.inserting){
-                state.crudBtns.btnInsert=false
+            if (state.inserting) {
+                state.crudBtns.btnInsert = false
             }
-            state.crudBtns.btnDelete=true
+            state.crudBtns.btnDelete = true
             return { ...state }
         case ACTIONS.SORT:
+            resetRows()
             const sortable = state.options.sortable || false
 
             if (!sortable) {
@@ -158,63 +179,63 @@ export const TableReducer = (state, action) => {
 
             }
         case ACTIONS.CANCEL:
-            state.dataChanged=false
+            state.dataChanged = false
             var b = [state.selectedRow, state.selectedRowCopy]
             state.selectedRow = Object.assign(...b)
             state.editing = true
-            if(state.inserting){
+            if (state.inserting) {
                 // delete the row
-                state.json.splice(state.pageSize,1);
-                state.jsonCopy.splice(state.pageSize,1);
+                state.json.splice(state.pageSize, 1);
+                state.jsonCopy.splice(state.pageSize, 1);
             }
-            state.inserting=false
-            state.editing=true
+            state.inserting = false
+            state.editing = true
             state.selectedRow = {}
             state.selectedRowCopy = {}
-            state.dataChanged=false
-            state.crudBtns.btnCancel=true
-            state.crudBtns.btnUpdate=true
-            state.crudBtns.btnInsert=true
-            state.crudBtns.btnCreate=false
-            state.crudBtns.btnDelete=true
+            state.dataChanged = false
+            state.crudBtns.btnCancel = true
+            state.crudBtns.btnUpdate = true
+            state.crudBtns.btnInsert = true
+            state.crudBtns.btnCreate = false
+            state.crudBtns.btnDelete = true
 
             state.userAction = 'CANCEL'
             return { ...state }
         case ACTIONS.CREATE:
-            state.inserting=true
-            state.editing=false
-            state.crudBtns.btnCancel=false
+            state.inserting = true
+            state.editing = false
+            state.crudBtns.btnCancel = false
             state.userAction = 'CREATE'
-             const clone = JSON.parse(JSON.stringify(state.json[0]));
-             const dateColArr = state.options.dateCols  || {}
+            const clone = JSON.parse(JSON.stringify(state.json[0]));
+            const dateColArr = state.options.dateCols || {}
 
-             let skip=false
-             Object.keys(clone).forEach(key => {
-                const isDateCol   =  dateColArr.find((o) => o.hasOwnProperty(key))
-                if(isDateCol) {
-                    skip=true // dont set to blank string re-use exisitng date
+            let skip = false
+            Object.keys(clone).forEach(key => {
+                const isDateCol = dateColArr.find((o) => o.hasOwnProperty(key))
+                if (isDateCol) {
+                    skip = true // dont set to blank string re-use exisitng date
                 }
 
-                if( typeof clone[key] === "boolean"){
+                if (typeof clone[key] === "boolean") {
                     //reset value
-                    clone[key] =false
-                    skip=true
+                    clone[key] = false
+                    skip = true
                 }
 
-                if( typeof clone[key] === "number") {
-                    clone[key] =0
-                    skip=true
+                if (typeof clone[key] === "number") {
+                    clone[key] = 0
+                    skip = true
                 }
 
-                if(!skip) {
-                    clone[key]=''
+                if (!skip) {
+                    clone[key] = ''
                 }
-                skip=false
-              })
-              state.json.splice(state.pageSize, 0, clone);
-              state.jsonCopy.splice(state.pageSize, 0, clone);
-              state.selectedRow=clone
-              state.selectedRowCopy={}
+                skip = false
+            })
+            state.json.splice(state.pageSize, 0, clone);
+            state.jsonCopy.splice(state.pageSize, 0, clone);
+            state.selectedRow = clone
+            state.selectedRowCopy = {}
 
             return { ...state }
         case ACTIONS.DELETE:
@@ -223,7 +244,7 @@ export const TableReducer = (state, action) => {
             return { ...state }
         case ACTIONS.INSERT:
             state.editing = true
-            state.inserting=false
+            state.inserting = false
             state.userAction = 'INSERT'
             return { ...state }
         case ACTIONS.UPDATE:
@@ -231,42 +252,42 @@ export const TableReducer = (state, action) => {
             state.userAction = 'UPDATE'
             state.editing = true
             return { ...state }
-       case ACTIONS.CONFIRMUPDATE:
-                state.crudBtns.btnCancel=true
-                state.crudBtns.btnUpdate=true
-                state.crudBtns.btnCreate=false
-                state.selectedRow = {}
-                state.selectedRowCopy = null
-                state.creating = false
-                state.editing = true
-                state.userAction = "CONFIRMUPDATE"
-         return { ...state }
-       case ACTIONS.CONFIRMDELETE:
+        case ACTIONS.CONFIRMUPDATE:
+            state.crudBtns.btnCancel = true
+            state.crudBtns.btnUpdate = true
+            state.crudBtns.btnCreate = false
+            state.selectedRow = {}
+            state.selectedRowCopy = null
+            state.creating = false
+            state.editing = true
+            state.userAction = "CONFIRMUPDATE"
+            return { ...state }
+        case ACTIONS.CONFIRMDELETE:
             state.jsonCopy.includes(state.selectedRow) && state.jsonCopy.splice(state.jsonCopy.indexOf(state.selectedRow), 1)
             state.selectedRow = {}
             state.selectedRowCopy = {}
-            state.crudBtns.btnCancel=true
-            state.crudBtns.btnDelete=true
-            state.crudBtns.btnCreate=false
+            state.crudBtns.btnCancel = true
+            state.crudBtns.btnDelete = true
+            state.crudBtns.btnCreate = false
             state.userAction = 'DELETE'
             state.json = (paginate(state.jsonCopy, state.pageSize, state.pageNo - 1))
             return { ...state }
         case ACTIONS.CONFIRMINSERT:
             const idColIdx = state.options.idCol ? Object.keys(state.json[0]).indexOf(state.options.idCol) : 0
             const idColName = [Object.keys(state.json[0])[idColIdx]]
-            if(action!==undefined && action.payload !==undefined){
-                if(action.payload.id!==undefined) {
-                    state.selectedRow[idColName]=action.payload.id
+            if (action !== undefined && action.payload !== undefined) {
+                if (action.payload.id !== undefined) {
+                    state.selectedRow[idColName] = action.payload.id
                 }
             }
             state.selectedRowCopy = {}
-            state.crudBtns.btnCancel=true
-            state.crudBtns.btnInsert=true
+            state.crudBtns.btnCancel = true
+            state.crudBtns.btnInsert = true
             state.selectedRow = {}
             state.userAction = 'CONFIRMINSERT'
-             return { ...state }
-         case ACTIONS.RETURNSTATE:
-             return state
+            return { ...state }
+        case ACTIONS.RETURNSTATE:
+            return state
         default:
             return state
 

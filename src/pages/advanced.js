@@ -5,7 +5,7 @@ import cars from "../data.json"
 import employees from '../Employees.json'
 
 let mydispatch = null
-let currentDataSet='cars'
+let currentDataSet = 'employees'
 
 export default function Advanced() {
     const options = {
@@ -19,7 +19,7 @@ export default function Advanced() {
         sortable: true,
         editable: true,
         searchable: true,
-        readOnly:['Avatar'],
+        readOnly: ['Avatar'],
         selectedRowCss: "selectedRow",
         labelCols: [{ gender: 'Gender' }],
         footer: "<div class'myfooter'></div>",
@@ -44,10 +44,10 @@ export default function Advanced() {
         mydispatch = dispatch
 
         if (action === 'SELECT') {
-            console.log(action,row)
-         // informational
-         // returns row
-    
+            console.log(action, row)
+            // informational
+            // returns row
+
         }
         if (action === 'VALIDATE') {
             console.log("VALIDATE")
@@ -60,29 +60,29 @@ export default function Advanced() {
             //dispatch({ type: ACTIONS.REJECTCHANGES})
         }
         if (action === "UPDATE") {
-            console.log(action,row,oldRowData)
+            console.log(action, row, oldRowData)
             // put or post data to DB or confirm changes, with the user
-            dispatch({ type: ACTIONS.CONFIRMUPDATE})
-             // save to DB
-             // incase of failure call rejectchanges
+            dispatch({ type: ACTIONS.CONFIRMUPDATE })
+            // save to DB
+            // incase of failure call rejectchanges
         }
 
-        if (action === "CREATE"){
-            // informational 
+        if (action === "CREATE") {
+            // informational
             // user has clicked create
             console.log(action)
             // no confirm is needed as it's a temp UI change
             // action will be triggered next is insert unless users decides to cancel
 
         }
-        if (action === "DELETE"){
+        if (action === "DELETE") {
             console.log(action)
             // delete from DB, once confirmed delete from table JSON
             // no need to refresh your data
-            dispatch({ type: ACTIONS.CONFIRMDELETE})
+            dispatch({ type: ACTIONS.CONFIRMDELETE })
         }
-        if (action === "INSERT"){
-            console.log(action,row)
+        if (action === "INSERT") {
+            console.log(action, row)
             // insert DB, once confirmed  from DB confirm
             // incase of failure call rejectchanges
             // no need to refresh your data
@@ -102,13 +102,13 @@ export default function Advanced() {
             setMsgClassName('msgDiv')
             mydispatch({ type: ACTIONS.REJECTCHANGES })
         }
-        if(btnName==="switchData"){
+        if (btnName === "switchData") {
             console.log("Toggle Data")
-            if(currentDataSet==='cars'){
-                currentDataSet='employees'
+            if (currentDataSet === 'cars') {
+                currentDataSet = 'employees'
                 setJson(employees)
-            }else{
-                currentDataSet='cars'
+            } else {
+                currentDataSet = 'cars'
                 setJson(cars)
             }
         }
@@ -125,8 +125,6 @@ export default function Advanced() {
                                 <button name="ok" onClick={btnClickHandler}>OK</button>
                                 <button name="undo" onClick={btnClickHandler}>Undo</button>
                             </div>
-
-
                         </div>
                         <button className="switchBtn" name="switchData" onClick={btnClickHandler}>switch data</button>
                         <Table json={json} rowClick={handleRowClick} options={options} />
@@ -134,5 +132,5 @@ export default function Advanced() {
                 </div>
             </div>
         </div>
-        )
+    )
 }

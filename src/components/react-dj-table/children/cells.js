@@ -51,6 +51,8 @@ const Cells = ({ state, dispatch, row, editable }) => {
             const isDate = dateColArr.find((b) => b.hasOwnProperty(key))
 
             const locale = isDate ? dateColArr[key] : ''
+
+            // edit mode
             if (editable) {
                 const editcssClasses = `editInputText ${styles}`
                 const isReadOnly = readOnly.find(e => e === key) ? true : false;
@@ -77,6 +79,9 @@ const Cells = ({ state, dispatch, row, editable }) => {
 
                 return <td className={editcssClasses} key={key}> <input name={key} type="text" onChange={onChange} value={row[key].toString()}></input> </td>
             }
+            // end edit mode
+
+
             if (row[key] == null) {
                 return null
             }
