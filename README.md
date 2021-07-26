@@ -66,14 +66,6 @@ See Github discussions
 
 [Demo](https://react-dj-table.netlify.app/), Code-Sand-Box examples.
 
-
-
-
-
-
-
-
-
 ## Contributors ✨
 
 Thanks goes to these wonderful people ([emoji key](https://allcontributors.org/docs/en/emoji-key)):
