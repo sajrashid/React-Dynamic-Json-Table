@@ -1,24 +1,24 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <testExecutions version="1">
   <file path="C:\Users\Me\source\React-Dynamic-Json-Table\src\tests\filterCols.test.js">
-    <testCase name="renders Filters" duration="39"/>
+    <testCase name="renders Filters" duration="47"/>
+  </file>
+  <file path="C:\Users\Me\source\React-Dynamic-Json-Table\src\tests\globalsearch.test.js">
+    <testCase name="renders global search" duration="48"/>
+  </file>
+  <file path="C:\Users\Me\source\React-Dynamic-Json-Table\src\tests\thead.test.js">
+    <testCase name="renders Thead" duration="53"/>
+  </file>
+  <file path="C:\Users\Me\source\React-Dynamic-Json-Table\src\tests\pager.test.js">
+    <testCase name="renders Pager" duration="88"/>
   </file>
   <file path="C:\Users\Me\source\React-Dynamic-Json-Table\src\tests\cells.test.js">
     <testCase name="renders cells" duration="60"/>
   </file>
-  <file path="C:\Users\Me\source\React-Dynamic-Json-Table\src\tests\globalsearch.test.js">
-    <testCase name="renders global search" duration="46"/>
-  </file>
   <file path="C:\Users\Me\source\React-Dynamic-Json-Table\src\tests\rows.test.js">
-    <testCase name="renders cells" duration="120"/>
-  </file>
-  <file path="C:\Users\Me\source\React-Dynamic-Json-Table\src\tests\thead.test.js">
-    <testCase name="renders Thead" duration="62"/>
-  </file>
-  <file path="C:\Users\Me\source\React-Dynamic-Json-Table\src\tests\pager.test.js">
-    <testCase name="renders Pager" duration="86"/>
+    <testCase name="renders cells" duration="104"/>
   </file>
   <file path="C:\Users\Me\source\React-Dynamic-Json-Table\src\tests\index.test.js">
-    <testCase name="renders Pager" duration="169"/>
+    <testCase name="renders Pager" duration="133"/>
   </file>
 </testExecutions>

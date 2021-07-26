@@ -34,6 +34,7 @@
     "isomorphic-dompurify": "^0.14.0",
     "lodash": "^4.17.21",
     "match-sorter": "^6.3.0",
-    "prop-types": "15.7.2"
+    "prop-types": "15.7.2",
+    "rollup": "^2.54.0"
   }
 }
