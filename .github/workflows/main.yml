@@ -1,23 +1,43 @@
-name: CI
-
+name: CopyFolder
+       
 on:
   push:
-    branches: [main]
-  pull_request:
-    branches: [main]
+    branches: [master]
 
 jobs:
   build:
+    name: create-package
     runs-on: ubuntu-latest
+
+    strategy:
+      matrix:
+        node-version: [14]
+
     steps:
       - uses: actions/checkout@v2
-      - name: creates output
+      - uses: actions/setup-node@v2
+        name: Use Node.js 14
         with:
-          source-directory: "coverage"
-          destination-github-username: "sajrashid"
-          destination-repository-name: "docsSite"
+          node-version: ${{ matrix.node-version }}
+      - run: npm ci
+
+      - run: npm run build --if-present
+        env:
+          CI: false
+      - run: ls
+      - name: Copy to another repo
+        uses: andstor/copycat-action@v3
+        with:
+          personal_token: ${{ secrets.API_TOKEN_GITHUB }}
+          src_path: coverage
+          dst_path: /.
+          dst_owner: sajrashid
+          dst_repo_name: docsSite
+          dst_branch: master
           user-email: sajid.rashid@live.co.uk
           user_name: "sajrashid"
           commit_message: "copy latest code coverage folder"
           target-branch: master
     
+       
+       
