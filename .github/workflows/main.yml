@@ -28,4 +28,4 @@ jobs:
           user_name: "sajrashid"
           commit_message: "copy latest code coverage folder"
           target-branch: master
-      - name: Test get variable exported by push-to-an
+    
