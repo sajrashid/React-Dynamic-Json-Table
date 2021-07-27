@@ -7,6 +7,7 @@ import data from "../data.json";
 const options = {
     editable: true,
     pageable: true,
+    pageSize: 5,
     dateCols: [{ PurchaseDate: 'en-GB' }]
 }
 
@@ -18,7 +19,7 @@ it('pager next button click goes to next page', () => {
 
     fireEvent.click(getByText('»'))
 
-    expect(getByText(/2 of 2 pages/i)).toBeInTheDocument()
+    expect(getByText(/2 of 3 pages/i)).toBeInTheDocument()
 })
 
 it('pager last button click goes to last page', () => {
@@ -28,7 +29,7 @@ it('pager last button click goes to last page', () => {
 
     fireEvent.click(getByText('›'))
     // this test needs reworking we need more data to goto page 3
-    expect(getByText(/2 of 2 pages/i)).toBeInTheDocument()
+    expect(getByText(/3 of 3 pages/i)).toBeInTheDocument()
 })
 
 
@@ -39,7 +40,7 @@ it('pager firt button click goes back to first  page', () => {
 
     fireEvent.click(getByText('›'))
     fireEvent.click(getByText('‹'))
-    expect(getByText(/1 of 2 pages/i)).toBeInTheDocument()
+    expect(getByText(/1 of 3 pages/i)).toBeInTheDocument()
 })
 
 
@@ -50,7 +51,7 @@ it('pager previous button click goes back to first  page', () => {
 
     fireEvent.click(getByText('›'))
     fireEvent.click(getByText('«'))
-    expect(getByText(/1 of 2 pages/i)).toBeInTheDocument()
+    expect(getByText(/2 of 3 pages/i)).toBeInTheDocument()
 })
 
 // test goto page
@@ -71,10 +72,10 @@ const setup = () => {
 it('shows if page no has changed after goto page no changed', () => {
     const { input, getByText } = setup()
     fireEvent.change(input, { target: { value: '2' } })
-    expect(getByText(/2 of 2 pages/i)).toBeInTheDocument()
+    expect(getByText(/2 of 3 pages/i)).toBeInTheDocument()
 })
 
-// test dropdown show
+// //test dropdown show
 // it('shows if items  change after show drop down list changed', () => {
 //     const { getByText } = setup()
 //     const { getByTestId, getAllByTestId } = render(<Table json={data} options={options} />)
