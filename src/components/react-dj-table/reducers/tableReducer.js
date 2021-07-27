@@ -1,4 +1,4 @@
-import { compareValues, fuzzySearchMutipleWords } from '../utils/utils'
+import { compareValues, createInsertRow, fuzzySearchMutipleWords } from '../utils/utils'
 
 import { ACTIONS } from './actions'
 
@@ -11,12 +11,8 @@ export const TableReducer = (state, action) => {
 
     const resetRows = () => {
         if (state.inserting) {
-            console.log(state.json.length)
             state.json.splice(state.pageSize, 1)
-            console.log(state.jsonCopy.length)
             state.jsonCopy.splice(state.pageSize, 1)
-            console.log(state.jsonCopy.length)
-            console.log(state.json.length)
         }
         var a = [state.selectedRow, state.selectedRowCopy]
         state.selectedRow = Object.assign(...a)
@@ -36,16 +32,15 @@ export const TableReducer = (state, action) => {
             resetRows()
             state.json = action.payload.updatedProps.json
             state.jsonCopy = action.payload.updatedProps.json
+            state.options = action.payload.updatedProps.options || []
+            state.totalPages = (Math.ceil(state.json.length / state.options.pageSize || 10))
             if (state.options.pageable) {
                 state.json = paginate(state.json || [], state.options.pageSize || 10, 0)
-            } else {
-                state.totalPages = (Math.ceil(state.json.length / state.options.pageSize || 10))
             }
             return { ...state }
         case ACTIONS.ITEMSPERPAGE:
             resetRows()
-            state.pageSize = action.payload.itemsPerPage
-            state.totalPages = Math.ceil(state.jsonCopy.length / state.pageSize)
+            state.totalPages = Math.ceil(state.jsonCopy.length / action.payload.itemsPerPage)
             state.pageNo = 1
             if (action.payload.itemsPerPage) {
                 state.json = paginate(state.jsonCopy || [], state.pageSize, 0)
@@ -56,17 +51,13 @@ export const TableReducer = (state, action) => {
         case ACTIONS.SEARCH:
             resetRows()
             var result = null
-            var searchString = action.payload.search.searchString
-            var columns = action.payload.search.columns
-            //state.searchString = searchString
-            // fuzzy search
-            if (searchString.length > 0) {
-                result = fuzzySearchMutipleWords(state.jsonCopy, columns, searchString)
+            if (action.payload.search.searchString.length > 0) {
+                result = fuzzySearchMutipleWords(state.jsonCopy, action.payload.search.columns, action.payload.search.searchString)
             }
             else {
                 result = state.jsonCopy
             }
-            state.searchString = searchString
+            state.searchString = action.payload.search.searchString
 
             if (state.pageable) {
                 state.pageNo = 1
@@ -80,10 +71,9 @@ export const TableReducer = (state, action) => {
             return { ...state }
         case ACTIONS.GOTOPAGE:
             resetRows()
-            const gotoPage = action.payload.gotoPage
-            state.pageNo = gotoPage
-            state.pagerInput = gotoPage
-            state.json = (paginate(state.jsonCopy, state.pageSize, gotoPage - 1))
+            state.pageNo = action.payload.gotoPage
+            state.pagerInput = action.payload.gotoPage
+            state.json = (paginate(state.jsonCopy, state.pageSize, action.payload.gotoPage - 1))
             return { ...state }
 
         case ACTIONS.FIRST:
@@ -113,13 +103,14 @@ export const TableReducer = (state, action) => {
         case ACTIONS.CREATESELECTEDROWCOPY:
             state.selectedRowCopy = JSON.parse(JSON.stringify(state.selectedRow))
             return { ...state }
+
         case ACTIONS.SELECTEDROW:
             state.selectedRow = action.payload.row
             state.crudBtns.btnCancel = false
             state.crudBtns.btnCreate = true
             state.crudBtns.btnDelete = false
-
             return { ...state }
+
         case ACTIONS.UPDATEROW:
             var item = action.payload.item
             var value = action.payload.value
@@ -208,33 +199,10 @@ export const TableReducer = (state, action) => {
             state.userAction = 'CREATE'
             const clone = JSON.parse(JSON.stringify(state.json[0]));
             const dateColArr = state.options.dateCols || {}
-
-            let skip = false
-            Object.keys(clone).forEach(key => {
-                const isDateCol = dateColArr.find((o) => o.hasOwnProperty(key))
-                if (isDateCol) {
-                    skip = true // dont set to blank string re-use exisitng date
-                }
-
-                if (typeof clone[key] === "boolean") {
-                    //reset value
-                    clone[key] = false
-                    skip = true
-                }
-
-                if (typeof clone[key] === "number") {
-                    clone[key] = 0
-                    skip = true
-                }
-
-                if (!skip) {
-                    clone[key] = ''
-                }
-                skip = false
-            })
-            state.json.splice(state.pageSize, 0, clone);
-            state.jsonCopy.splice(state.pageSize, 0, clone);
-            state.selectedRow = clone
+            const cloned = createInsertRow(clone, dateColArr)
+            state.json.splice(state.pageSize, 0, cloned);
+            state.jsonCopy.splice(state.pageSize, 0, cloned);
+            state.selectedRow = cloned
             state.selectedRowCopy = {}
 
             return { ...state }

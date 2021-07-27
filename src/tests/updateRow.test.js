@@ -29,6 +29,5 @@ it('shows if row value has been updated', () => {
     const { input, getByText } = setup()
     fireEvent.change(input, { target: { value: 'abc' } })
     fireEvent.click(getByText('update'))
-    console.log(input.value)
     expect(input.value).toBe('abc')
 })
