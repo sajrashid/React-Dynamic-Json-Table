@@ -1,4 +1,4 @@
-import { fireEvent, render } from '@testing-library/react'
+import { fireEvent, render, screen } from '@testing-library/react'
 
 import React from 'react'
 import Table from "../components/react-dj-table/index";
@@ -11,12 +11,12 @@ const options = {
 }
 
 
-it('shows success message after confirm button is clicked', () => {
+it('shows if row value has been updated', () => {
     const { getByText } = render(<Table json={data} options={options} />)
-
     expect(getByText(/CreditCards/i)).toBeInTheDocument()
+    fireEvent.click(getByText(/Vantage/i))
+    fireEvent.click(getByText('delete'))
+    const VantageText = screen.queryByText('Vantage')
+    expect(VantageText).toBeNull() // it doesn't exist
 
-    fireEvent.click(getByText('create'))
-    fireEvent.click(getByText('9'))
-    expect(getByText('insert')).toBeInTheDocument()
 })

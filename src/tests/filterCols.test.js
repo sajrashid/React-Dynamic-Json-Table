@@ -15,7 +15,7 @@ const tr = document.createElement("tr");
 document.body.appendChild(table);
 table.appendChild(tbody);
 
-test("renders Filters", async () => {
+test("renders no Filters", async () => {
   const { container } = render(<Filters state={state} />, {
     container: tbody.appendChild(tr),
   });

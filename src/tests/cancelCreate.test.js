@@ -9,8 +9,6 @@ const options = {
     pageable: true,
     dateCols: [{ PurchaseDate: 'en-GB' }]
 }
-const div = document.createElement("DIV");
-document.body.appendChild(div);
 
 it('shows create button after create button is clicked', () => {
     const { getByText } = render(<Table json={data} options={options} />)
