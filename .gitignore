@@ -19,8 +19,8 @@ pids
 lib-cov
 
 # Coverage directory
-# coverage
-# *.lcov
+coverage
+*.lcov
 
 # nyc test coverage
 .nyc_output

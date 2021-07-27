@@ -1,51 +1,51 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <testExecutions version="1">
-  <file path="C:\Users\Me\source\React-Dynamic-Json-Table\src\tests\thead.test.js">
-    <testCase name="renders Thead" duration="64"/>
-  </file>
   <file path="C:\Users\Me\source\React-Dynamic-Json-Table\src\tests\globalsearch.test.js">
-    <testCase name="renders global search" duration="76"/>
-  </file>
-  <file path="C:\Users\Me\source\React-Dynamic-Json-Table\src\tests\rows.test.js">
-    <testCase name="renders cells" duration="155"/>
-  </file>
-  <file path="C:\Users\Me\source\React-Dynamic-Json-Table\src\tests\cells.test.js">
-    <testCase name="renders cells" duration="105"/>
-  </file>
-  <file path="C:\Users\Me\source\React-Dynamic-Json-Table\src\tests\utils.test.js">
-    <testCase name="createMarkup" duration="3"/>
-    <testCase name="createMarkupLiteral" duration="1"/>
-    <testCase name="compareValues" duration="1"/>
+    <testCase name="renders global search" duration="46"/>
   </file>
   <file path="C:\Users\Me\source\React-Dynamic-Json-Table\src\tests\filterCols.test.js">
-    <testCase name="renders no Filters" duration="19"/>
+    <testCase name="renders no Filters" duration="61"/>
   </file>
-  <file path="C:\Users\Me\source\React-Dynamic-Json-Table\src\tests\createRow.test.js">
-    <testCase name="shows success message after confirm button is clicked" duration="326"/>
+  <file path="C:\Users\Me\source\React-Dynamic-Json-Table\src\tests\cells.test.js">
+    <testCase name="renders cells" duration="108"/>
   </file>
-  <file path="C:\Users\Me\source\React-Dynamic-Json-Table\src\tests\cancelUpdate.test.js">
-    <testCase name="shows create button after update button is clicked" duration="282"/>
-  </file>
-  <file path="C:\Users\Me\source\React-Dynamic-Json-Table\src\tests\cancelCreate.test.js">
-    <testCase name="shows create button after create button is clicked" duration="369"/>
-  </file>
-  <file path="C:\Users\Me\source\React-Dynamic-Json-Table\src\tests\updateRow.test.js">
-    <testCase name="shows if row value has been updated" duration="365"/>
+  <file path="C:\Users\Me\source\React-Dynamic-Json-Table\src\tests\rows.test.js">
+    <testCase name="renders cells" duration="228"/>
   </file>
   <file path="C:\Users\Me\source\React-Dynamic-Json-Table\src\tests\index.test.js">
-    <testCase name="renders Pager" duration="222"/>
+    <testCase name="renders Pager" duration="292"/>
+  </file>
+  <file path="C:\Users\Me\source\React-Dynamic-Json-Table\src\tests\updateRow.test.js">
+    <testCase name="shows if row value has been updated" duration="448"/>
+  </file>
+  <file path="C:\Users\Me\source\React-Dynamic-Json-Table\src\tests\cancelUpdate.test.js">
+    <testCase name="shows create button after update button is clicked" duration="463"/>
+  </file>
+  <file path="C:\Users\Me\source\React-Dynamic-Json-Table\src\tests\createRow.test.js">
+    <testCase name="shows success message after confirm button is clicked" duration="580"/>
+  </file>
+  <file path="C:\Users\Me\source\React-Dynamic-Json-Table\src\tests\cancelCreate.test.js">
+    <testCase name="shows create button after create button is clicked" duration="620"/>
   </file>
   <file path="C:\Users\Me\source\React-Dynamic-Json-Table\src\tests\deleteRow.test.js">
-    <testCase name="shows if row value has been updated" duration="393"/>
+    <testCase name="shows if row value has been updated" duration="571"/>
   </file>
-  <file path="C:\Users\Me\source\React-Dynamic-Json-Table\src\tests\pagerButtons.test.js">
-    <testCase name="pager next button click goes to next page" duration="296"/>
-    <testCase name="pager last button click goes to last page" duration="117"/>
-    <testCase name="pager firt button click goes back to first  page" duration="201"/>
-    <testCase name="pager previous button click goes back to first  page" duration="198"/>
-    <testCase name="shows if page no has changed after goto page no changed" duration="83"/>
+  <file path="C:\Users\Me\source\React-Dynamic-Json-Table\src\tests\thead.test.js">
+    <testCase name="renders Thead" duration="20"/>
   </file>
   <file path="C:\Users\Me\source\React-Dynamic-Json-Table\src\tests\pager.test.js">
-    <testCase name="renders Pager" duration="39"/>
+    <testCase name="renders Pager" duration="32"/>
+  </file>
+  <file path="C:\Users\Me\source\React-Dynamic-Json-Table\src\tests\utils.test.js">
+    <testCase name="createMarkup" duration="1"/>
+    <testCase name="createMarkupLiteral" duration="0"/>
+    <testCase name="compareValues" duration="2"/>
+  </file>
+  <file path="C:\Users\Me\source\React-Dynamic-Json-Table\src\tests\pagerButtons.test.js">
+    <testCase name="pager next button click goes to next page" duration="447"/>
+    <testCase name="pager last button click goes to last page" duration="156"/>
+    <testCase name="pager firt button click goes back to first  page" duration="164"/>
+    <testCase name="pager previous button click goes back to first  page" duration="103"/>
+    <testCase name="shows if page no has changed after goto page no changed" duration="79"/>
   </file>
 </testExecutions>
