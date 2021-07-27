@@ -40,7 +40,8 @@ export const TableReducer = (state, action) => {
             return { ...state }
         case ACTIONS.ITEMSPERPAGE:
             resetRows()
-            state.totalPages = Math.ceil(state.jsonCopy.length / action.payload.itemsPerPage)
+            state.pageSize = action.payload.itemsPerPage
+            state.totalPages = Math.ceil(state.jsonCopy.length / state.pageSize)
             state.pageNo = 1
             if (action.payload.itemsPerPage) {
                 state.json = paginate(state.jsonCopy || [], state.pageSize, 0)
