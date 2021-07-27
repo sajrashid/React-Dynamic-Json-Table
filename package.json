@@ -21,7 +21,7 @@
     "use-debounce": "^7.0.0"
   },
   "jest": {
-    "modulePathIgnorePatterns": [
+    "coveragePathIgnorePatterns": [
       "examples/basic/*.json",
       "examples/full/*.json"
     ],
