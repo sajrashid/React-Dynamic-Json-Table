@@ -21,6 +21,10 @@
     "use-debounce": "^7.0.0"
   },
   "jest": {
+    "modulePathIgnorePatterns": [
+      "examples/basic/*.json",
+      "examples/full/*.json"
+    ],
     "collectCoverageFrom": [
       "src/components/react-dj-table/*.js",
       "src/components/react-dj-table/children/*.js",
