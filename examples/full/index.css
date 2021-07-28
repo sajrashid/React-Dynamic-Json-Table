@@ -72,7 +72,7 @@ for the sake of simplicity the pager is buit using standard css  */
 
 .pager input {
   border: 1px solid #666;
-  margin: 0 0.4rem 0 0.4rem;
+  margin: 0 0.4rem;
   color: #666;
   border-radius: 0.3rem;
 }
@@ -87,7 +87,7 @@ for the sake of simplicity the pager is buit using standard css  */
 .pager button {
   position: relative;
   font-size: 1.5em;
-  padding: 0rem 0.8rem 0.2rem 0.8rem;
+  padding: 0 0.8rem 0.2rem;
   margin: 0 0.3rem 0 0.6rem;
   border-radius: 0.3rem;
   border: none;
@@ -179,7 +179,7 @@ button[disabled] {
 .crudDiv button {
   text-transform:capitalize;
   position: relative;
-  padding: 0rem 0.8rem 0.2rem 0.8rem;
+  padding: 0 0.8rem 0.2rem;
   margin: 0 0.3rem 0 0.6rem;
   border-radius: 0.3rem;
   border: none;
@@ -241,7 +241,7 @@ border-radius: 0.3em;
 }
 .msgDiv button {
   position: relative;
-  padding: 0rem 0.8rem 0.2rem 0.8rem;
+  padding: 0 0.8rem 0.2rem;
   margin: 0 0.3rem 0 0.6rem;
   border-radius: 0.3rem;
   border: none;
