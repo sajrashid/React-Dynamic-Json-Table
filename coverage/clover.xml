@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<coverage generated="1627511740788" clover="3.2.0">
-  <project timestamp="1627511740789" name="All files">
+<coverage generated="1627512184258" clover="3.2.0">
+  <project timestamp="1627512184258" name="All files">
     <metrics statements="472" coveredstatements="330" conditionals="316" coveredconditionals="190" methods="61" coveredmethods="41" elements="849" coveredelements="561" complexity="0" loc="472" ncloc="472" packages="4" files="11" classes="11"/>
     <package name="react-dj-table">
       <metrics statements="41" coveredstatements="39" conditionals="44" coveredconditionals="36" methods="4" coveredmethods="4"/>

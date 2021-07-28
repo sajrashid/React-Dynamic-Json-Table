@@ -36,7 +36,7 @@
     "start": "craco start",
     "build": "craco build",
     "test": "craco test",
-    "coverage": "craco test --coverage --watchAll=false",
+    "coverage": "craco test --coverage --watchAll=false --testResultsProcessor jest-sonar-reporter",
     "docs": "jsdoc -c jsdoc.conf.json",
     "contributors:add": "all-contributors add",
     "contributors:generate": "all-contributors generate",
