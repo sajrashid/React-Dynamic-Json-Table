@@ -2,6 +2,7 @@ import React, { useReducer } from 'react'
 
 import { ACTIONS } from './reducers/actions'
 import Crud from './children/crud'
+import FilterCols from '../react-dj-table/children/filterCols'
 import GlobalSearch from './children/globalsearch'
 import Pager from './children/pager'
 import PropTypes from "prop-types"
@@ -41,31 +42,38 @@ const Table = (props) => {
     if (pageable) {
         json = paginate(json || [], pageSize, 0)
     }
-    const crudBtns= {btnCancel:true, btnUpdate:true, btnCreate:false, btnInsert:true, btnDelete:true }
+    const crudBtns = { btnCancel: true, btnUpdate: true, btnCreate: false, btnInsert: true, btnDelete: true }
+
+    const colums = Object.keys(props.json[0])
+
+    const filterColobj = {}
+
+    colums.forEach(propname => {
+        filterColobj[propname] = ''
+    })
 
     const initialState = {
         json: json, jsonCopy: props.json, options: options, pageable: pageable, selectedRow: {}, selectedRowCopy: null, selectedRowCss: selectedRowCss,
         sortDirection: sortDirection, pagerInput: pagerInput, pageSize: pageSize, pageSizeCopy: pageSize, totalPages: totalPages,
-        colspan: colspan, insertId: null, crudBtns:crudBtns , dataChanged:false, inserting: false,  userAction:'NOACTION',creating: false, editing: true, pageNo: pageNo, pagerIcons: pagerIcons, searchString: ''
+        filterColobj: filterColobj, colspan: colspan, insertId: null, crudBtns: crudBtns, dataChanged: false, inserting: false, userAction: 'NOACTION', creating: false, editing: true, pageNo: pageNo, pagerIcons: pagerIcons, searchString: ''
     }
     const [state, dispatch] = useReducer(TableReducer, initialState)
 
     React.useEffect(() => {
-        console.log("props:", props)
-        dispatch({type: ACTIONS.UPDATEPROPS, payload: { updatedProps: props }})
-    },[props])
+        dispatch({ type: ACTIONS.UPDATEPROPS, payload: { updatedProps: props } })
+    }, [props])
 
 
     const styles = options.tableCss || ''
     const cssClasses = ` ${styles}`
     const pagerCss = options.pagerCss || ''
-    const rowClick = (row, rowUnchanged,action) => {
+    const rowClick = (row, rowUnchanged, action) => {
 
-    if (options.selectable !== false) {
-        if (props.rowClick) {
-            props.rowClick(row, rowUnchanged,action, dispatch)
+        if (options.selectable !== false) {
+            if (props.rowClick) {
+                props.rowClick(row, rowUnchanged, action, dispatch)
+            }
         }
-      }
     }
 
     return (
@@ -80,7 +88,7 @@ const Table = (props) => {
                             </td>
                         </tr>
                     }
-
+                    <tr> <FilterCols state={state} dispatch={dispatch} /></tr>
                     <tr ><Thead className={cssClasses} state={state} dispatch={dispatch}></Thead></tr>
                 </thead>
                 <tbody>

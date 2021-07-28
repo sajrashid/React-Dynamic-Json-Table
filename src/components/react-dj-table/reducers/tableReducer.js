@@ -53,12 +53,15 @@ export const TableReducer = (state, action) => {
             resetRows()
             var result = null
             if (action.payload.search.searchString.length > 0) {
-                result = fuzzySearchMutipleWords(state.jsonCopy, action.payload.search.columns, action.payload.search.searchString)
+                result = fuzzySearchMutipleWords(state.jsonCopy, action.payload.search.columns, action.payload.search.searchString, action.payload.search.searchString)
             }
             else {
                 result = state.jsonCopy
             }
-            state.searchString = action.payload.search.searchString
+            if (action.payload.search.searchFilters) {
+                state.searchString = action.payload.search.searchString
+
+            }
 
             if (state.pageable) {
                 state.pageNo = 1

@@ -19,6 +19,7 @@ export default function Advanced() {
         sortable: true,
         editable: true,
         searchable: true,
+        filterColsCss: 'filterCols',
         readOnly: ['Avatar'],
         selectedRowCss: "selectedRow",
         labelCols: [{ gender: 'Gender' }],
