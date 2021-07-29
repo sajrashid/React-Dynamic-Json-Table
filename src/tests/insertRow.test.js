@@ -1,6 +1,5 @@
 import { fireEvent, render } from '@testing-library/react'
 
-import ACTIONS from '../components/react-dj-table/reducers/actions'
 import Table from "../components/react-dj-table/index";
 import data from "../data.json"
 
