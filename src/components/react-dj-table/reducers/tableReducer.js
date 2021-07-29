@@ -1,13 +1,8 @@
-import { compareValues, createInsertRow, fuzzySearchMutipleWords } from '../utils/utils'
+import { compareValues, createInsertRow, fuzzySearchMutipleWords, paginate } from '../utils/utils'
 
 import { ACTIONS } from './actions'
 
 export const TableReducer = (state, action) => {
-
-    //set up pagination
-    const paginate = (array, pageSize, pageNumber) => {
-        return array.slice(pageNumber * pageSize, (pageNumber + 1) * pageSize);
-    }
 
     const resetRows = () => {
         if (state.inserting) {

@@ -1,4 +1,5 @@
 import React, { useReducer } from 'react'
+import { createMarkup, paginate } from './utils/utils'
 
 import { ACTIONS } from './reducers/actions'
 import Crud from './children/crud'
@@ -8,7 +9,6 @@ import PropTypes from "prop-types"
 import Rows from './children/rows'
 import { TableReducer } from './reducers/tableReducer'
 import Thead from './children/thead'
-import { createMarkup } from './utils/utils'
 
 const Table = (props) => {
     // setup initial state
@@ -33,39 +33,35 @@ const Table = (props) => {
     const footerHtml = options.footer || ''
     const hiddenCols = options.hiddenCols || []
     const hiddenColsCount = hiddenCols.length
-    // todo move into hook
-    const paginate = (array, pageSizeLoc, pageNumber) => {
-        return array.slice(pageNumber * pageSizeLoc, (pageNumber + 1) * pageSizeLoc);
-    }
 
     if (pageable) {
         json = paginate(json || [], pageSize, 0)
     }
-    const crudBtns= {btnCancel:true, btnUpdate:true, btnCreate:false, btnInsert:true, btnDelete:true }
+    const crudBtns = { btnCancel: true, btnUpdate: true, btnCreate: false, btnInsert: true, btnDelete: true }
 
     const initialState = {
         json: json, jsonCopy: props.json, options: options, pageable: pageable, selectedRow: {}, selectedRowCopy: null, selectedRowCss: selectedRowCss,
         sortDirection: sortDirection, pagerInput: pagerInput, pageSize: pageSize, pageSizeCopy: pageSize, totalPages: totalPages,
-        colspan: colspan, insertId: null, crudBtns:crudBtns , dataChanged:false, inserting: false,  userAction:'NOACTION',creating: false, editing: true, pageNo: pageNo, pagerIcons: pagerIcons, searchString: ''
+        colspan: colspan, insertId: null, crudBtns: crudBtns, dataChanged: false, inserting: false, userAction: 'NOACTION', creating: false, editing: true, pageNo: pageNo, pagerIcons: pagerIcons, searchString: ''
     }
     const [state, dispatch] = useReducer(TableReducer, initialState)
 
     React.useEffect(() => {
         console.log("props:", props)
-        dispatch({type: ACTIONS.UPDATEPROPS, payload: { updatedProps: props }})
-    },[props])
+        dispatch({ type: ACTIONS.UPDATEPROPS, payload: { updatedProps: props } })
+    }, [props])
 
 
     const styles = options.tableCss || ''
     const cssClasses = ` ${styles}`
     const pagerCss = options.pagerCss || ''
-    const rowClick = (row, rowUnchanged,action) => {
+    const rowClick = (row, rowUnchanged, action) => {
 
-    if (options.selectable !== false) {
-        if (props.rowClick) {
-            props.rowClick(row, rowUnchanged,action, dispatch)
+        if (options.selectable !== false) {
+            if (props.rowClick) {
+                props.rowClick(row, rowUnchanged, action, dispatch)
+            }
         }
-      }
     }
 
     return (

@@ -95,3 +95,7 @@ export function fuzzySearchMutipleWords(
     rows,
   )
 }
+
+export const paginate = (array, pageSizeLoc, pageNumber) => {
+  return array.slice(pageNumber * pageSizeLoc, (pageNumber + 1) * pageSizeLoc);
+}
