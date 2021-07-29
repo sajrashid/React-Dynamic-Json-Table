@@ -32,8 +32,6 @@ test("renders global search", async () => {
   ); /* ... gets filled automatically by jest ... */
 });
 
-
-
 const setup = () => {
   const { getByText } = render(<Table json={data} options={options} />)
   const input = screen.getByDisplayValue("")
@@ -43,10 +41,14 @@ const setup = () => {
   };
 };
 
-it("shows if page no has changed after goto page no changed", () => {
+it("shows if page no has changed after search changed", () => {
   const { input, getByText } = setup();
-  console.log(input)
   fireEvent.change(input, { target: { value: "Vantage" } });
-  expect(getByText(/CreditCards/i)).toBeInTheDocument()
   expect(getByText(/1 of 1 pages/i)).toBeInTheDocument();
+  fireEvent.change(input, { target: { value: "" } });
+  expect(getByText(/1 of 2 pages/i)).toBeInTheDocument();
+
 });
+
+
+
