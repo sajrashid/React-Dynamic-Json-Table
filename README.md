@@ -8,7 +8,7 @@
 * [📝 Code Quality Report](https://sonarcloud.io/summary/new_code?id=sajrashid_React-Dynamic-Json-Table)
 * [📋 Changelog](./CHANGELOG.md)
 * [✨ Contributing](./contributing.md)
-*
+
 # React Dynamic JSON Table
 Some tables require lot's of boiler plate code, with changes across the stack if anything is modified, others a just too basic.
 
