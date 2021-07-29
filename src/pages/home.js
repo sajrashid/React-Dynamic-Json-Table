@@ -24,7 +24,6 @@ const Home = props => {
   const options = {
     idCol: 'id', // Not Required- If the first col is an identity column
     tableCss: 'table-fixed w-fulll',
-    editable: true, //
     hiddenCols: ['id'], //Hide any column
     filters: true,
     searchInputCss: 'searchInputCss',
@@ -35,7 +34,6 @@ const Home = props => {
     styles: "table-fixed w-full",
     cellStyles: "border px-8 py-4 ",
     theadStyles: "bg-blue-100 border  px-8 py-4",
-
     // NB SelectedRow backgroundColor can be set from SuperTable styles default ALice-Blue
   }
 

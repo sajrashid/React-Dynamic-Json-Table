@@ -10,7 +10,7 @@ const options = {
     dateCols: [{ PurchaseDate: 'en-GB' }]
 }
 const rowClick = (row, oldrow, action, dispatch) => {
-    dispatch({ type: "CONFIRMDELETE" })
+    dispatch({ type: "ACTIONS.CONFIRMDELETE" })
 }
 
 

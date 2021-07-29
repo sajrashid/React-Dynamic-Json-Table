@@ -10,7 +10,8 @@ const options = {
     dateCols: [{ PurchaseDate: 'en-GB' }]
 }
 const rowClick = (row, oldrow, action, dispatch) => {
-    dispatch({ type: "CONFIRMUPDATE" });
+
+    //dispatch({ type: 'confirmupdate' });
 }
 
 const setup = () => {
