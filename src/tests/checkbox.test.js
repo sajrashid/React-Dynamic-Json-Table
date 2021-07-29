@@ -17,12 +17,9 @@ it('checkbox change test', () => {
     expect(getByText(/CreditCards/i)).toBeInTheDocument()
     fireEvent.click(getByText('Vantage'))
     const checkbox = screen.getByTestId('cbox')
-    console.log(checkbox.innerHTML)
     const isChecked = checkbox.checked
-
     fireEvent.click(checkbox);
     fireEvent.click(checkbox, { target: { checked: true } })
-    console.log(checkbox.innerHTML)
     expect(checkbox.checked).toEqual(!isChecked)
 
 })
