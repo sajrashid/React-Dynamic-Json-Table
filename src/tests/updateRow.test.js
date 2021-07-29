@@ -19,6 +19,7 @@ const setup = () => {
     fireEvent.click(getByText('Vantage'))
     const input = screen.getByDisplayValue("Vantage")
 
+
     return {
         input,
         getByText,
