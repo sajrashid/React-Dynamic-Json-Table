@@ -11,7 +11,7 @@ function GlobalSearch({ state, dispatch }) {
     }
     return (
         <div>
-            <input placeholder={placeholder} onChange={searchFilterChange} type='text' value={state.searchString}></input>
+            <input name="globalSearch" placeholder={placeholder} onChange={searchFilterChange} type='text' value={state.searchString}></input>
         </div>
     )
 

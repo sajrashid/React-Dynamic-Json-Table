@@ -1,54 +1,75 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <testExecutions version="1">
-  <file path="C:\Users\Me\source\React-Dynamic-Json-Table\src\tests\filterCols.test.js">
-    <testCase name="renders no Filters" duration="55"/>
-  </file>
-  <file path="C:\Users\Me\source\React-Dynamic-Json-Table\src\tests\crud.test.js">
-    <testCase name="renders Thead" duration="93"/>
-  </file>
-  <file path="C:\Users\Me\source\React-Dynamic-Json-Table\src\tests\globalsearch.test.js">
-    <testCase name="renders global search" duration="76"/>
-  </file>
-  <file path="C:\Users\Me\source\React-Dynamic-Json-Table\src\tests\rows.test.js">
-    <testCase name="renders cells" duration="140"/>
-  </file>
-  <file path="C:\Users\Me\source\React-Dynamic-Json-Table\src\tests\cells.test.js">
-    <testCase name="renders cells" duration="106"/>
+  <file path="C:\Users\Me\source\React-Dynamic-Json-Table\src\tests\utils.test.js">
+    <testCase name="createMarkup" duration="4"/>
+    <testCase name="createMarkupLiteral" duration="1"/>
+    <testCase name="compareValues" duration="1"/>
   </file>
   <file path="C:\Users\Me\source\React-Dynamic-Json-Table\src\tests\pager.test.js">
-    <testCase name="renders Pager" duration="121"/>
+    <testCase name="renders Pager" duration="122"/>
   </file>
-  <file path="C:\Users\Me\source\React-Dynamic-Json-Table\src\tests\thead.test.js">
-    <testCase name="renders Thead" duration="49"/>
+  <file path="C:\Users\Me\source\React-Dynamic-Json-Table\src\tests\rows.test.js">
+    <testCase name="renders cells" duration="156"/>
   </file>
-  <file path="C:\Users\Me\source\React-Dynamic-Json-Table\src\tests\utils.test.js">
-    <testCase name="createMarkup" duration="2"/>
-    <testCase name="createMarkupLiteral" duration="1"/>
-    <testCase name="compareValues" duration="2"/>
-  </file>
-  <file path="C:\Users\Me\source\React-Dynamic-Json-Table\src\tests\cancelCreate.test.js">
-    <testCase name="shows create button after create button is clicked" duration="338"/>
-  </file>
-  <file path="C:\Users\Me\source\React-Dynamic-Json-Table\src\tests\updateRow.test.js">
-    <testCase name="shows if row value has been updated" duration="510"/>
-  </file>
-  <file path="C:\Users\Me\source\React-Dynamic-Json-Table\src\tests\createRow.test.js">
-    <testCase name="shows success message after confirm button is clicked" duration="459"/>
-  </file>
-  <file path="C:\Users\Me\source\React-Dynamic-Json-Table\src\tests\pagerButtons.test.js">
-    <testCase name="pager next button click goes to next page" duration="344"/>
-    <testCase name="pager last button click goes to last page" duration="101"/>
-    <testCase name="pager firt button click goes back to first  page" duration="166"/>
-    <testCase name="pager previous button click goes back to first  page" duration="119"/>
-    <testCase name="shows if page no has changed after goto page no changed" duration="102"/>
-  </file>
-  <file path="C:\Users\Me\source\React-Dynamic-Json-Table\src\tests\index.test.js">
-    <testCase name="renders Pager" duration="220"/>
+  <file path="C:\Users\Me\source\React-Dynamic-Json-Table\src\tests\cells.test.js">
+    <testCase name="renders cells" duration="92"/>
   </file>
   <file path="C:\Users\Me\source\React-Dynamic-Json-Table\src\tests\cancelUpdate.test.js">
-    <testCase name="shows create button after update button is clicked" duration="378"/>
+    <testCase name="shows create button after update button is clicked" duration="342"/>
   </file>
   <file path="C:\Users\Me\source\React-Dynamic-Json-Table\src\tests\deleteRow.test.js">
-    <testCase name="shows if row value has been updated" duration="525"/>
+    <testCase name="shows if row value has been updated" duration="468"/>
+  </file>
+  <file path="C:\Users\Me\source\React-Dynamic-Json-Table\src\tests\updateRow.test.js">
+    <testCase name="shows if row value has been updated" duration="466"/>
+  </file>
+  <file path="C:\Users\Me\source\React-Dynamic-Json-Table\src\tests\createRow.test.js">
+    <testCase name="shows success message after confirm button is clicked" duration="434"/>
+  </file>
+  <file path="C:\Users\Me\source\React-Dynamic-Json-Table\src\tests\index.test.js">
+    <testCase name="renders Pager" duration="276"/>
+  </file>
+  <file path="C:\Users\Me\source\React-Dynamic-Json-Table\src\tests\pagerButtons.test.js">
+    <testCase name="pager next button click goes to next page" duration="287"/>
+    <testCase name="pager last button click goes to last page" duration="129"/>
+    <testCase name="pager firt button click goes back to first  page" duration="139"/>
+    <testCase name="pager previous button click goes back to first  page" duration="189"/>
+    <testCase name="shows if page no has changed after goto page no changed" duration="128"/>
+  </file>
+  <file path="C:\Users\Me\source\React-Dynamic-Json-Table\src\tests\globalsearch.test.js">
+    <testCase name="renders global search" duration="89"/>
+    <testCase name="shows if page no has changed after goto page no changed" duration="412">
+      <failure message="Error: Unable to fire a &quot;change&quot; event - please provide a DOM element."><![CDATA[Error: Unable to fire a "change" event - please provide a DOM element.
+    at createEvent (C:\Users\Me\source\React-Dynamic-Json-Table\node_modules\@testing-library\dom\dist\events.js:34:11)
+    at Function.createEvent.<computed> [as change] (C:\Users\Me\source\React-Dynamic-Json-Table\node_modules\@testing-library\dom\dist\events.js:120:38)
+    at Function.fireEvent.<computed> [as change] (C:\Users\Me\source\React-Dynamic-Json-Table\node_modules\@testing-library\dom\dist\events.js:125:68)
+    at Function.change (C:\Users\Me\source\React-Dynamic-Json-Table\node_modules\@testing-library\react\dist\fire-event.js:18:52)
+    at Object.<anonymous> (C:\Users\Me\source\React-Dynamic-Json-Table\src\tests\globalsearch.test.js:53:13)
+    at Promise.then.completed (C:\Users\Me\source\React-Dynamic-Json-Table\node_modules\jest-circus\build\utils.js:276:28)
+    at new Promise (<anonymous>)
+    at callAsyncCircusFn (C:\Users\Me\source\React-Dynamic-Json-Table\node_modules\jest-circus\build\utils.js:216:10)
+    at _callCircusTest (C:\Users\Me\source\React-Dynamic-Json-Table\node_modules\jest-circus\build\run.js:212:40)
+    at processTicksAndRejections (internal/process/task_queues.js:93:5)
+    at _runTest (C:\Users\Me\source\React-Dynamic-Json-Table\node_modules\jest-circus\build\run.js:149:3)
+    at _runTestsForDescribeBlock (C:\Users\Me\source\React-Dynamic-Json-Table\node_modules\jest-circus\build\run.js:63:9)
+    at run (C:\Users\Me\source\React-Dynamic-Json-Table\node_modules\jest-circus\build\run.js:25:3)
+    at runAndTransformResultsToJestFormat (C:\Users\Me\source\React-Dynamic-Json-Table\node_modules\jest-circus\build\legacy-code-todo-rewrite\jestAdapterInit.js:176:21)
+    at jestAdapter (C:\Users\Me\source\React-Dynamic-Json-Table\node_modules\jest-circus\build\legacy-code-todo-rewrite\jestAdapter.js:109:19)
+    at runTestInternal (C:\Users\Me\source\React-Dynamic-Json-Table\node_modules\jest-runner\build\runTest.js:380:16)
+    at runTest (C:\Users\Me\source\React-Dynamic-Json-Table\node_modules\jest-runner\build\runTest.js:472:34)
+    at Object.worker (C:\Users\Me\source\React-Dynamic-Json-Table\node_modules\jest-runner\build\testWorker.js:133:12)]]></failure>
+    </testCase>
+  </file>
+  <file path="C:\Users\Me\source\React-Dynamic-Json-Table\src\tests\thead.test.js">
+    <testCase name="renders Thead" duration="78"/>
+  </file>
+  <file path="C:\Users\Me\source\React-Dynamic-Json-Table\src\tests\crud.test.js">
+    <testCase name="renders Thead" duration="15"/>
+  </file>
+  <file path="C:\Users\Me\source\React-Dynamic-Json-Table\src\tests\filterCols.test.js">
+    <testCase name="renders no Filters" duration="14"/>
+  </file>
+  <file path="C:\Users\Me\source\React-Dynamic-Json-Table\src\tests\cancelCreate.test.js">
+    <testCase name="shows create button after create button is clicked" duration="229"/>
   </file>
 </testExecutions>

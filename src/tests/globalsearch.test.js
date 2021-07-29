@@ -1,12 +1,22 @@
+import { fireEvent, render, screen } from '@testing-library/react'
+
 import GlobalSearch from "../components/react-dj-table/children/globalsearch";
+import React from 'react'
+import Table from "../components/react-dj-table/index";
 import data from "../data.json";
 import pretty from "pretty";
-import { render } from "@testing-library/react";
+
+const options = {
+  editable: true,
+  pageable: true,
+  searchable: true,
+  dateCols: [{ PurchaseDate: "en-GB" }],
+};
 
 const state = {
   json: data,
   jsonCopy: data,
-  options: {},
+  options: options,
 };
 
 const div = document.createElement("div");
@@ -18,6 +28,25 @@ test("renders global search", async () => {
   });
 
   expect(pretty(container.innerHTML)).toMatchInlineSnapshot(
-    `"<div><input placeholder=\\" search 11 records\\" type=\\"text\\" value=\\"\\"></div>"`
+    `"<div><input name=\\"globalSearch\\" placeholder=\\" search 11 records\\" type=\\"text\\" value=\\"\\"></div>"`
   ); /* ... gets filled automatically by jest ... */
+});
+
+
+
+const setup = () => {
+  const { getByText } = render(<Table json={data} options={options} />)
+  const input = screen.getByDisplayValue("")
+  return {
+    input,
+    getByText,
+  };
+};
+
+it("shows if page no has changed after goto page no changed", () => {
+  const { input, getByText } = setup();
+  console.log(input)
+  fireEvent.change(input, { target: { value: "Vantage" } });
+  expect(getByText(/CreditCards/i)).toBeInTheDocument()
+  expect(getByText(/1 of 1 pages/i)).toBeInTheDocument();
 });
