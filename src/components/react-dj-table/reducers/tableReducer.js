@@ -130,9 +130,6 @@ export const TableReducer = (state, action) => {
             state.crudBtns.btnUpdate = true
             state.userAction = 'REJECT'
             return { ...state }
-        case ACTIONS.COMMITROW:
-            state.selectedRowCopy = state.selectedRow
-            return { ...state }
         case ACTIONS.UPDATECHECKBOX:
             var checkbox = action.payload.item
             var checked = action.payload.checked

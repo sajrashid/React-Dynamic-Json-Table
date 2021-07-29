@@ -9,11 +9,13 @@ const options = {
     pageable: true,
     dateCols: [{ PurchaseDate: 'en-GB' }]
 }
-
+const rowClick = (row, oldrow, action, dispatch) => {
+    dispatch({ type: "CONFIRMUPDATE" });
+}
 
 const setup = () => {
 
-    const { getByText } = render(<Table json={data} options={options} />)
+    const { getByText } = render(<Table rowClick={rowClick} json={data} options={options} />)
 
     expect(getByText(/CreditCards/i)).toBeInTheDocument()
     fireEvent.click(getByText('Vantage'))

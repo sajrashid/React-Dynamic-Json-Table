@@ -5,15 +5,42 @@ import { render } from "@testing-library/react";
 
 const div = document.createElement("DIV");
 document.body.appendChild(div);
-
+const options = {
+  iconCols: [{ name: '<i class="envelope icon"></i>Email' }],
+  labelCols: [{ name: "NAME" }],
+  hiddelCols: ["id"],
+  dateCols: [{ RetiredDate: "en-GB" }],
+  pageable: true,
+  searchable: true,
+  sortable: true,
+  dateOptions: {
+    weekday: "short",
+    year: "numeric",
+    month: "short",
+    day: "numeric",
+  },
+  // eslint-disable-next-line no-template-curly-in-string
+  customCols: [
+    {
+      Avatar:
+        // eslint-disable-next-line no-template-curly-in-string
+        '<div style="min-height:3em"><img  style="width:60px; height:60px"  decoding="async" src=${Avatar}></img></div',
+    },
+  ], //adding min height reduces loading flash as image cells are not resized vertically
+};
 test("renders Pager", async () => {
-  const { container } = render(<Table json={data} />, {
+  const { container } = render(<Table json={data} options={options} />, {
     container: div,
   });
 
   expect(pretty(container.innerHTML)).toMatchInlineSnapshot(`
     "<table class=\\" \\">
       <thead>
+        <tr>
+          <td colspan=\\"8\\" class=\\"\\">
+            <div><input name=\\"globalSearch\\" placeholder=\\" search 11 records\\" type=\\"text\\" value=\\"\\"></div>
+          </td>
+        </tr>
         <tr>
           <th class=\\" \\" id=\\"id\\">id</th>
           <th class=\\" \\" id=\\"sold\\">sold</th>
@@ -126,17 +153,16 @@ test("renders Pager", async () => {
           <td class=\\" \\">jcb</td>
           <td class=\\" \\">2019-01-26T14:00:49Z</td>
         </tr>
-        <tr class=\\"\\" id=\\"11\\">
-          <td class=\\" \\">11</td>
-          <td class=\\" \\"> <input readonly=\\"\\" type=\\"checkbox\\"></td>
-          <td class=\\" \\">Oldsmobile</td>
-          <td class=\\" \\">Regency</td>
-          <td class=\\" \\">1997</td>
-          <td class=\\" \\">$4045.67</td>
-          <td class=\\" \\">americanexpress</td>
-          <td class=\\" \\">2019-01-26T14:00:49Z</td>
-        </tr>
       </tbody>
-    </table>"
+    </table>
+    <div colspan=\\"8\\">
+      <div class=\\"\\"><button data-content=\\"first\\" disabled=\\"\\" id=\\"first\\">‹</button><button data-content=\\"previous\\" disabled=\\"\\" id=\\"previous\\">«</button><button data-content=\\"next\\" id=\\"next\\">»</button><button data-content=\\"last\\" id=\\"last\\">›</button>
+        <div>Go to page<input data-content=\\"page no\\" type=\\"number\\" value=\\"1\\"></div>
+        <div class=\\"numberOfPages\\">1&nbsp;of&nbsp;10&nbsp;pages</div>
+        <div><select data-content=\\"items per page\\" type=\\"number\\" max=\\"10000\\">
+            <option value=\\"10\\">Show 10</option>
+          </select></div>
+      </div>
+    </div>"
   `); /* ... gets filled automatically by jest ... */
 });

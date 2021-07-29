@@ -66,7 +66,7 @@ const Cells = ({ state, dispatch, row, editable }) => {
                 }
 
                 if (isCheckBox && options.checkBox !== false) {
-                    return <td type="checkbox" className={cssClasses} key={key}> <input name={key} onChange={onChange} type='checkbox' checked={row[key]}></input></td>
+                    return <td type="checkbox" data-testid="cbox" className={cssClasses} key={key}> <input name={key} onChange={onChange} type='checkbox' checked={row[key]}></input></td>
                 }
 
                 if (isCustom) {
