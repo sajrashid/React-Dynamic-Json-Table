@@ -60,6 +60,7 @@ Pretty standard built in pager.. or roll your own
 ### Editing
 Fully CRUD - smart(ish) edit built it, validate and revert user changes before you commit them to your data store
 Intuitive buttons, create a record , change the data, watch as it guides the user.
+Adding Calendar
 
 ### Hackable
 You got access to the reducers dispatch functions, state TBD (next patch release)
