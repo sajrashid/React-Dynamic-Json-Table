@@ -5,7 +5,7 @@ import cars from "../data.json"
 import employees from '../Employees.json'
 
 let mydispatch = null
-let currentDataSet = 'employees'
+let currentDataSet = employees
 
 export default function Advanced() {
     const options = {
@@ -19,20 +19,24 @@ export default function Advanced() {
         sortable: true,
         editable: true,
         searchable: true,
+        filterColsCss: 'filterCols',
         readOnly: ['Avatar'],
         selectedRowCss: "selectedRow",
         labelCols: [{ gender: 'Gender' }],
+        // filterCols: [{ Avatar: { type: 'text' }, id: { type: 'range', min: 1, max: 11 }, IsRetired: { type: 'checkbox' } }],
+        // filterCols: [{ FirstName: { type: 'text' }, last_name: { type: 'text' }, IsRetired: { type: 'checkbox' } }],
+
         footer: "<div class'myfooter'></div>",
         // eslint-disable-next-line no-template-curly-in-string
-        dateCols: [{ RetiredDate: 'en-GB' }],
-        dateOptions: { weekday: 'short', year: 'numeric', month: 'short', day: 'numeric' },
+        // dateCols: [{ RetiredDate: 'en-GB' }],
+        // dateOptions: { weekday: 'short', year: 'numeric', month: 'short', day: 'numeric' },
         iconCols: [{ email: '<i class="envelope icon"></i>Email' },
         { Avatar: '<i class="id badge icon"></i>Avatar' }],
         // eslint-disable-next-line no-template-curly-in-string
         customCols: [{ Avatar: '<div style="min-height:3em"><img  style="width:60px; height:60px"  decoding="async" src=${Avatar}></img></div' }] //adding min height reduces loading flash as image cells are not resized vertically
     }
 
-    const [json, setJson] = React.useState(employees)
+    const [json, setJson] = React.useState(currentDataSet)
 
 
     const [userMessage, setUserMessage] = React.useState('')

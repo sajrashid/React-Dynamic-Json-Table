@@ -191,7 +191,7 @@ export const TableReducer = (state, action) => {
             state.crudBtns.btnCancel = false
             state.userAction = 'CREATE'
             const clone = JSON.parse(JSON.stringify(state.json[0]));
-            const dateColArr = state.options.dateCols || {}
+            const dateColArr = state.options.dateCols || []
             const cloned = createInsertRow(clone, dateColArr)
             state.json.splice(state.pageSize, 0, cloned);
             state.jsonCopy.splice(state.pageSize, 0, cloned);
