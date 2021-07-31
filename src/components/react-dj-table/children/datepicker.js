@@ -31,8 +31,8 @@ const DatePicker = ({ state, dispatch }) => {
         console.log('year',year)
         console.log('month',month1)
 
-        year = 2021
-        month1 = 'May'
+        // year = 2021
+        // month1 = 'May'
 
         // days array holds all the days to be populated in the grid
         var dates = [];
@@ -84,24 +84,31 @@ const DatePicker = ({ state, dispatch }) => {
     }
 
     function makeCells () {
-        console.log("datesForGrid",datesForGrid(year, months))
-        const dateArray = datesForGrid(year, months)
 
-        
+        console.log("datesForGrid",datesForGrid(new Date().getFullYear(), new Date().getMonth()))
+        const dateArray = datesForGrid(new Date().getFullYear(), new Date().getMonth())
+        const trArray = []
+        console.log('%c dateArray','color: green', dateArray)
+
+        var a = new Date()
+        var today = a.getDate()   
+
+        console.log('today',today)
+             
 
         var i=0;
-        for(i=0;i<=42;i=i+7) {
+        for(i=0;i<=41; i=i+7) {
+            console.log('dateArray',dateArray[i].date)
                     
-                    <tr>
-                        <td>{dateArray[i].date}</td>
-                        <td>{dateArray[i+1].date}</td>
-                        <td>{dateArray[i+2].date}</td>
-                        <td>{dateArray[i+3].date}</td>
-                        <td>{dateArray[i+4].date}</td>
-                        <td>{dateArray[i+5].date}</td>
-                        <td>{dateArray[i+6].date}</td>
-
-                    </tr>
+                    trArray.push(<tr>
+                        <td className={dateArray[i].date === today ? ' today' : '' }>{dateArray[i].date}</td>
+                        <td className={dateArray[i+1].date === today ? ' today' : '' }>{dateArray[i+1].date}</td>
+                        <td className={dateArray[i+2].date === today ? ' today' : '' }>{dateArray[i+2].date}</td>
+                        <td className={dateArray[i+3].date === today ? ' today' : '' }>{dateArray[i+3].date}</td>
+                        <td className={dateArray[i+4].date === today ? ' today' : '' }>{dateArray[i+4].date}</td>
+                        <td className={dateArray[i+5].date === today ? ' today' : '' }>{dateArray[i+5].date}</td>
+                        <td className={dateArray[i+6].date === today ? ' today' : '' }>{dateArray[i+6].date}</td>
+                        </tr> )
                     
 
         }
@@ -109,7 +116,7 @@ const DatePicker = ({ state, dispatch }) => {
 
         
        
-
+        return trArray
         // for(let i=0;i<7;i++) {
         //     datesForGrid(year, months).map((date, index) => {
         //     return <td>{date}</td>
