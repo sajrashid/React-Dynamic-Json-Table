@@ -28,8 +28,8 @@ export default function Advanced() {
 
         footer: "<div class'myfooter'></div>",
         // eslint-disable-next-line no-template-curly-in-string
-        // dateCols: [{ RetiredDate: 'en-GB' }],
-        // dateOptions: { weekday: 'short', year: 'numeric', month: 'short', day: 'numeric' },
+        dateCols: [{ RetiredDate: 'en-GB' },{ PurchaseDate: 'en-GB' }],
+        dateOptions: { weekday: 'short', year: 'numeric', month: 'short', day: 'numeric' },
         iconCols: [{ email: '<i class="envelope icon"></i>Email' },
         { Avatar: '<i class="id badge icon"></i>Avatar' }],
         // eslint-disable-next-line no-template-curly-in-string
