@@ -308,5 +308,17 @@ border-radius: 0.3em;
 }
 
 .today {
-  background-color: blue;
+  background-color: blue !important;
+  color: white;
+}
+
+.current {
+  background-color: lightskyblue;
+}
+
+.prev {
+  background-color: lightgray;
+}
+.next {
+  background-color: lightgray;
 }

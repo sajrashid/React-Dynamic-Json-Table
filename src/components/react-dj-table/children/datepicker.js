@@ -28,8 +28,8 @@ const DatePicker = ({ state, dispatch }) => {
 
         // The following function builds an array of objects with dates to be displayed in the grid
     function datesForGrid (year, month1) {
-        console.log('year',year)
-        console.log('month',month1)
+        console.log('%c year', 'colour: purple' ,year)
+        console.log('%c month', 'colour: purple' ,month1)
 
         // year = 2021
         // month1 = 'May'
@@ -101,13 +101,13 @@ const DatePicker = ({ state, dispatch }) => {
             console.log('dateArray',dateArray[i].date)
                     
                     trArray.push(<tr>
-                        <td className={dateArray[i].date === today ? ' today' : '' }>{dateArray[i].date}</td>
-                        <td className={dateArray[i+1].date === today ? ' today' : '' }>{dateArray[i+1].date}</td>
-                        <td className={dateArray[i+2].date === today ? ' today' : '' }>{dateArray[i+2].date}</td>
-                        <td className={dateArray[i+3].date === today ? ' today' : '' }>{dateArray[i+3].date}</td>
-                        <td className={dateArray[i+4].date === today ? ' today' : '' }>{dateArray[i+4].date}</td>
-                        <td className={dateArray[i+5].date === today ? ' today' : '' }>{dateArray[i+5].date}</td>
-                        <td className={dateArray[i+6].date === today ? ' today' : '' }>{dateArray[i+6].date}</td>
+                        <td className={dateArray[i+0].todayClass ? 'today ' + dateArray[i+0].monthClass : dateArray[i+0].monthClass }>{dateArray[i+0].date}</td>
+                        <td className={dateArray[i+1].todayClass ? 'today ' + dateArray[i+1].monthClass : dateArray[i+1].monthClass }>{dateArray[i+1].date}</td>
+                        <td className={dateArray[i+2].todayClass ? 'today ' + dateArray[i+2].monthClass : dateArray[i+2].monthClass }>{dateArray[i+2].date}</td>
+                        <td className={dateArray[i+3].todayClass ? 'today ' + dateArray[i+3].monthClass : dateArray[i+3].monthClass }>{dateArray[i+3].date}</td>
+                        <td className={dateArray[i+4].todayClass ? 'today ' + dateArray[i+4].monthClass : dateArray[i+4].monthClass }>{dateArray[i+4].date}</td>
+                        <td className={dateArray[i+5].todayClass ? 'today ' + dateArray[i+5].monthClass : dateArray[i+5].monthClass }>{dateArray[i+5].date}</td>
+                        <td className={dateArray[i+6].todayClass ? 'today ' + dateArray[i+6].monthClass : dateArray[i+6].monthClass }>{dateArray[i+6].date}</td>
                         </tr> )
                     
 
