@@ -2,6 +2,8 @@ import { ACTIONS } from '../reducers/actions'
 import PropTypes from "prop-types"
 import React from "react"
 import { createMarkupLiteral } from '../utils/utils'
+import DatePicker from './datepicker'
+
 
 /**
  * Component for displaying cells in the Table.
@@ -26,8 +28,15 @@ const Cells = ({ state, dispatch, row, editable }) => {
     const dateOptions = options.dateOptions || {}
     const readOnly = options.readOnly || []
     const columns = Object.keys(row)
-    const onChange = (e) => {
 
+    const onClickDate = (e) => {
+        console.log('%c selectedDate1', 'color:red', e.currentTarget.value)
+        console.log("e.currentTarget.name", e.currentTarget.name)
+
+        dispatch({ type: ACTIONS.UPDATESELECTEDDATE, payload: { selectedDate: e.currentTarget.value, currentClickedPropertyName: e.currentTarget.name } })
+    }
+
+    const onChange = (e) => {
         var item = e.currentTarget.name.toString();
         if (e.currentTarget.type === 'checkbox') {
             const { checked } = e.target
@@ -74,7 +83,8 @@ const Cells = ({ state, dispatch, row, editable }) => {
                 }
 
                 if (isDate) {
-                    return <td className={editcssClasses} key={key}> <input type="text" name={key} onChange={onChange} value={row[key].toString()}></input> </td>
+                    
+                    return <td className={editcssClasses} key={key}> <input type="text" name={key} onChange={onChange} onClick={onClickDate} value={row[key].toString()}></input><DatePicker dispatch={dispatch} state={state}/> </td>
                 }
 
                 return <td className={editcssClasses} key={key}> <input name={key} type="text" onChange={onChange} value={row[key].toString()}></input> </td>

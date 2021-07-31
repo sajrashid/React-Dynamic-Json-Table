@@ -249,6 +249,16 @@ export const TableReducer = (state, action) => {
             return { ...state }
         case ACTIONS.RETURNSTATE:
             return state
+        case ACTIONS.UPDATESELECTEDDATE:
+            state.selectedDate = action.payload.selectedDate
+
+
+            
+            // state.selectedRow[action.payload.currentClickedPropertyName] = "fred"
+            // state.selectedRowCopy[action.payload.currentClickedPropertyName] = "fred"
+
+            console.log("%c IN STATE ", 'background:yellow', state)
+            return { ...state }
         default:
             return state
 

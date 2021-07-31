@@ -1,5 +1,6 @@
 export const ACTIONS = {
     UPDATEPROPS: 'updateprops',
+    UPDATESELECTEDDATE: 'updateSelectedDate',
     SELECTEDROW: 'selectedRow',
     CREATESELECTEDROWCOPY: 'CreateSelectedRowCopy',
     CONFIRMDELETE: 'confirmdelete',
