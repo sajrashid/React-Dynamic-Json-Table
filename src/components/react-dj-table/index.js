@@ -12,9 +12,28 @@ import Thead from './children/thead'
 
 const Table = (props) => {
     // setup initial state
+    if (props.json === undefined || props.json === null) {
+        throw new Error("props.json is null or undefined");
+    }
+    if (!Array.isArray(props.json)) {
+        throw new Error("JSON must be an array type []");
+    }
+    if (props.json.length < 1) {
+        throw new Error("Json Data length is 0");
+    }
+
+
+
     const options = props.options || {}
     let json = props.json || []
-    const colspan = Object.keys(json[0]).length
+
+
+
+
+    let columns = json.length > 0 ? Object.keys(json[0]) : []
+
+    let colspan = json.length > 0 ? Object.keys(columns).length : 0
+
     const selectedRowCss = options.selectedRowCss || ''
     const sortDirection = 'asc'
     const searchInputCss = options.searchInputCss || ''
@@ -42,12 +61,10 @@ const Table = (props) => {
     const initialState = {
         json: json, jsonCopy: props.json, options: options, pageable: pageable, selectedRow: {}, selectedRowCopy: null, selectedRowCss: selectedRowCss,
         sortDirection: sortDirection, pagerInput: pagerInput, pageSize: pageSize, pageSizeCopy: pageSize, totalPages: totalPages,
-        colspan: colspan, insertId: null, crudBtns: crudBtns, dataChanged: false, inserting: false, userAction: 'NOACTION', creating: false, editing: true, pageNo: pageNo, pagerIcons: pagerIcons, searchString: ''
+        columns: columns, colspan: colspan, insertId: null, crudBtns: crudBtns, dataChanged: false, inserting: false, userAction: 'NOACTION', creating: false, editing: true, pageNo: pageNo, pagerIcons: pagerIcons, searchString: ''
     }
     const [state, dispatch] = useReducer(TableReducer, initialState)
-
     React.useEffect(() => {
-        console.log("props:", props)
         dispatch({ type: ACTIONS.UPDATEPROPS, payload: { updatedProps: props } })
     }, [props])
 
@@ -80,9 +97,14 @@ const Table = (props) => {
                     <tr ><Thead className={cssClasses} state={state} dispatch={dispatch}></Thead></tr>
                 </thead>
                 <tbody>
-                    <Rows className={cssClasses} rowClick={rowClick} state={state} dispatch={dispatch} />
+
+                    {json.length < 1 ? <tr><td></td></tr> :
+                        <Rows className={cssClasses} rowClick={rowClick} state={state} dispatch={dispatch} />
+
+                    }
                 </tbody>
-                {footer &&
+                {
+                    footer &&
                     <tfoot>
                         <tr>
                             <td colSpan={colspan - hiddenColsCount} dangerouslySetInnerHTML={createMarkup(footerHtml)} >
@@ -117,7 +139,7 @@ Table.propTypes = {
 
 Table.defaultProps = {
 
-    json: [],
+    json: [{}],
     options: {
         tableCss: '',
         cellStyles: '',
