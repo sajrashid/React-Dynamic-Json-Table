@@ -3,8 +3,6 @@ import data from "../data.json";
 import pretty from "pretty";
 import { render } from "@testing-library/react";
 
-const div = document.createElement("DIV");
-document.body.appendChild(div);
 const options = {
   iconCols: [{ name: '<i class="envelope icon"></i>Email' }],
   labelCols: [{ name: "NAME" }],
@@ -28,6 +26,9 @@ const options = {
     },
   ], //adding min height reduces loading flash as image cells are not resized vertically
 };
+
+const div = document.createElement("DIV");
+document.body.appendChild(div);
 test("renders Pager", async () => {
   const { container } = render(<Table json={data} options={options} />, {
     container: div,
