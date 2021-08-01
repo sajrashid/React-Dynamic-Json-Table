@@ -3,9 +3,10 @@ import React from "react"
 import Table from '../components/react-dj-table/index'
 import cars from "../data.json"
 import employees from '../Employees.json'
+import products from '../'
 
 let mydispatch = null
-let currentDataSet = employees
+let currentDataSet = products
 
 export default function Advanced() {
     const options = {
