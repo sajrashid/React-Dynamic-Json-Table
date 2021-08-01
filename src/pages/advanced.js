@@ -3,7 +3,7 @@ import React from "react"
 import Table from '../components/react-dj-table/index'
 import cars from "../data.json"
 import employees from '../Employees.json'
-import products from '../'
+import products from '../Products.json'
 
 let mydispatch = null
 let currentDataSet = products
@@ -18,18 +18,18 @@ export default function Advanced() {
         pageSize: 5,
         theadCss: 'bg-blue-500 text-gray-200 px-8 py-4',
         sortable: true,
-        editable: true,
+        editable: false,
         searchable: true,
         filterColsCss: 'filterCols',
-        readOnly: ['Avatar'],
+        readOnly: ['id'],
         selectedRowCss: "selectedRow",
         labelCols: [{ gender: 'Gender' }],
         // filterCols: [{ Avatar: { type: 'text' }, id: { type: 'range', min: 1, max: 11 }, IsRetired: { type: 'checkbox' } }],
-        filterCols: [{ FirstName: { type: 'text' }, last_name: { type: 'text' }, IsRetired: { type: 'checkbox' } }],
+        filterCols: [{ Product: { type: 'text' }, Price: { type: 'dualRange', min: 1, max: 1000 }, last_name: { type: 'text' }, InStock: { type: 'checkbox' } }],
 
         footer: "<div class'myfooter'></div>",
         // eslint-disable-next-line no-template-curly-in-string
-        dateCols: [{ RetiredDate: 'en-GB' }],
+        dateCols: [{ DateScanned: 'en-GB' }],
         dateOptions: { weekday: 'short', year: 'numeric', month: 'short', day: 'numeric' },
         iconCols: [{ email: '<i class="envelope icon"></i>Email' },
         { Avatar: '<i class="id badge icon"></i>Avatar' }],

@@ -114,7 +114,18 @@ export const TableReducer = (state, action) => {
             state.crudBtns.btnCreate = true
             state.crudBtns.btnDelete = false
             return { ...state }
+        case ACTIONS.DUALSLIDERCHANGE:
+            //  console.log(state.filterColobj[action.payload.name].min)
+            //  console.log(state.filterColobj[action.payload.name].min)
+            if (action.payload.type === 'min') {
+                state.filterColobj[action.payload.name].min = action.payload.value
 
+            } else {
+                state.filterColobj[action.payload.name].max = action.payload.value
+
+            }
+            // filter between 2 rnage values and return state
+            return { ...state }
         case ACTIONS.UPDATEROW:
             var item = action.payload.item
             var value = action.payload.value

@@ -49,8 +49,29 @@ const Table = (props) => {
     const filterColobj = {}
 
     colums.forEach(propname => {
-        filterColobj[propname] = ''
+        filterColobj[propname] = {}
     })
+    const filterColArr = options.filterCols || []
+
+    filterColArr.map((obj) => {
+        var keys = Object.keys(obj)
+        keys.forEach(objName => {
+            if (obj[objName].hasOwnProperty('type')) {
+                if (obj[objName].type === 'dualRange') {
+                    // set addtional state options
+                    filterColobj[objName]['min'] = obj[objName].min
+                }
+            }
+
+        })
+        return obj
+    })
+
+
+    if (filterColArr.type === 'dualRange') {
+        // set addtional state options
+    }
+
 
     const initialState = {
         json: json, jsonCopy: props.json, options: options, pageable: pageable, selectedRow: {}, selectedRowCopy: null, selectedRowCss: selectedRowCss,
