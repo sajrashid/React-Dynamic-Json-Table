@@ -2,24 +2,23 @@
 
 ## Getting started <!-- omit in toc -->
 
-Before you begin:
-- This site is powered by Node.js. Check to see if you're on the [version of node we support](contributing/development.md).
+Quick Start:
+- Check out the [existing issues](https://github.com/sajrashid/React-Dynamic-Json-Table/issues) for your type of issue.
+- This repository is a React JS component
+- If this is your first commit please fork the repository, see below for details.
+- Make your code changes
+- Create a *Pull Request* ensure you target the *development* branch (development even with the main branch) 
+- Sonar will scan your code for issues
+- You can view the issues on Sonar cloud in the *Pull Request* link
+- Your code will also be scanned by codacy & codefactor and are viewable in the PR
+- [Sonar Cloud](https://sonarcloud.io/summary/new_code?id=sajrashid_React-Dynamic-Json-Table) Your issues will not be visible here until they are merged
 - Have you read the [code of conduct](CODE_OF_CONDUCT.md)?
-- Check out the [existing issues](https://github.com/sajrashid/React-Dynamic-Json-Table/issues) & see if we [accept contributions](#types-of-contributions-memo) for your type of issue.
-
-### Use the 'make a contribution' button
-
-<img src="./assets/images/contribution_cta.png" width="400">
-
-Navigating a new codebase can be challenging, so we're making that a little easier. As you're using docs.github.com, you may come across an article that you want to make an update to. You can click on the **make a contribution** button right on that article, which will take you to the file in this repo where you'll make your changes.
-
-Before you make your changes, check to see if an [issue exists](https://github.com/sajrashid/React-Dynamic-Json-Table/issues) already for the change you want to make.
 
 ### Don't see your issue? Open one
 
 If you spot something new, open an issue using a [template](https://github.com/sajrashid/React-Dynamic-Json-Table/issues/new/choose). We'll use the issue to have a conversation about the problem you want to fix.
 
-**Note:** We cannot accept contributions to the [REST API reference documentation](https://docs.github.com/en/rest/reference). If you spot an inaccuracy in the REST API reference documentation, open an issue in the [github/rest-api-description](https://github.com/github/rest-api-description/issues/new?template=schema-inaccuracy.md) repository.
+**Note:** Your code needs to target at least 80% code coverage before we merge into the main branch, don't worry if your struggling to achieve 80%, just drop some comments in your PR and we'll help
 
 ### Ready to make a change? Fork the repo
 
@@ -42,7 +41,7 @@ Make your changes to the file(s) you'd like to update. Here are some tips and tr
   - Are you contributing to markdown? We use [GitHub Markdown](contributing/content-markup-reference.md).
 
 ### Open a pull request
-When you're done making changes and you'd like to propose them for review, use the [pull request template](#pull-request-template) to open your PR (pull request).
+When you're done making changes and you'd like to propose them for review, use the [pull request template](#pull-request-template) to open your PR (pull request), please target the *development branch*
 
 ### Submit your PR & get it reviewed
 - Once you submit your PR, others from the Docs community will review it with you. The first thing you're going to want to do is a [self review](#self-review).
@@ -52,7 +51,7 @@ When you're done making changes and you'd like to propose them for review, use t
 ### Your PR is merged!
 Congratulations! The whole GitHub community thanks you. :sparkles:
 
-Once your PR is merged, you will be proudly listed as a contributor in the [contributor chart](https://github.com/github/docs/graphs/contributors).
+Once your PR is merged, you will be proudly listed as a contributor in the [contributor chart](https://github.com/sajrashid/React-Dynamic-Json-Table/graphs/contributors).
 
 ### Keep contributing as you use GitHub Docs
 
@@ -60,58 +59,7 @@ Now that you're a part of the GitHub Docs community, you can keep participating 
 
 **Learn more about contributing:**
 
-- [Types of contributions :memo:](#types-of-contributions-memo)
-  - [:mega: Discussions](#mega-discussions)
-  - [:beetle: Issues](#beetle-issues)
-  - [:hammer_and_wrench: Pull requests](#hammer_and_wrench-pull-requests)
-  - [:question: Support](#question-support)
-  - [:earth_asia: Translations](#earth_asia-translations)
-  - [:balance_scale: Site Policy](#balance_scale-site-policy)
-- [Starting with an issue](#starting-with-an-issue)
-  - [Labels](#labels)
-- [Opening a pull request](#opening-a-pull-request)
-- [Working in the github/docs repository](#working-in-the-githubdocs-repository)
-- [Reviewing](#reviewing)
-  - [Self review](#self-review)
-  - [Pull request template](#pull-request-template)
-  - [Suggested changes](#suggested-changes)
-- [Windows](#windows)
-
-## Types of contributions :memo:
-You can contribute to the GitHub Docs content and site in several ways. This repo is a place to discuss and collaborate on docs.github.com! Our small, but mighty :muscle: docs team is maintaining this repo, to preserve our bandwidth, off topic conversations will be closed.
-
-### :mega: Discussions
-Discussions are where we have conversations.
-
 If you'd like help troubleshooting a docs PR you're working on, have a great new idea, or want to share something amazing you've learned in our docs, join us in [discussions](https://github.com/github/docs/discussions).
-
-### :beetle: Issues
-[Issues](https://docs.github.com/en/github/managing-your-work-on-github/about-issues) are used to track tasks that contributors can help with. If an issue has a triage label, we haven't reviewed it yet and you shouldn't begin work on it.
-
-If you've found something in the content or the website that should be updated, search open issues to see if someone else has reported the same thing. If it's something new, open an issue using a [template](https://github.com/github/docs/issues/new/choose). We'll use the issue to have a conversation about the problem you want to fix.
-
-### :hammer_and_wrench: Pull requests
-A [pull request](https://docs.github.com/en/github/collaborating-with-issues-and-pull-requests/about-pull-requests) is a way to suggest changes in our repository.
-
-When we merge those changes, they should be deployed to the live site within 24 hours. :earth_africa: To learn more about opening a pull request in this repo, see [Opening a pull request](#opening-a-pull-request) below.
-
-We cannot accept contributions to the [REST API reference documentation](https://docs.github.com/en/rest/reference). If you spot an inaccuracy in the REST API reference documentation, open an issue in the [github/rest-api-description](https://github.com/github/rest-api-description/issues/new?template=schema-inaccuracy.md) repository.
-
-### :question: Support
-We are a small team working hard to keep up with the documentation demands of a continuously changing product. Unfortunately, we just can't help with support questions in this repository. If you are experiencing a problem with GitHub, unrelated to our documentation, please [contact GitHub Support directly](https://support.github.com/contact). Any issues, discussions, or pull requests opened here requesting support will be given information about how to contact GitHub Support, then closed and locked.
-
-If you're having trouble with your GitHub account, contact [Support](https://support.github.com/contact).
-
-### :earth_asia: Translations
-
-This website is internationalized and available in multiple languages. The source content in this repository is written in English. We integrate with an external localization platform called [Crowdin](https://crowdin.com) and work with professional translators to localize the English content.
-
-**We do not currently accept contributions for translated content**, but we hope to in the future.
-
-### :balance_scale: Site Policy
-GitHub's site policies are published on docs.github.com, too!
-
-If you find a typo in the site policy section, you can open a pull request to fix it. For anything else, see [the CONTRIBUTING guide in the site-policy repo](https://github.com/github/site-policy/blob/main/CONTRIBUTING.md).
 
 ## Starting with an issue
 You can browse existing issues to find something that needs help!
@@ -174,11 +122,4 @@ We may ask for changes to be made before a PR can be merged, either using [sugge
 
 As you update your PR and apply changes, mark each conversation as [resolved](https://docs.github.com/en/github/collaborating-with-issues-and-pull-requests/commenting-on-a-pull-request#resolving-conversations).
 
-## Windows
 
-This site can be developed on Windows, however a few potential gotchas need to be kept in mind:
-
-1. Regular Expressions: Windows uses `\r\n` for line endings, while Unix based systems use `\n`. Therefore when working on Regular Expressions, use `\r?\n` instead of `\n` in order to support both environments. The Node.js [`os.EOL`](https://nodejs.org/api/os.html#os_os_eol) property can be used to get an OS-specific end-of-line marker.
-1. Paths: Windows systems use `\` for the path separator, which would be returned by `path.join` and others. You could use `path.posix`, `path.posix.join` etc and the [slash](https://ghub.io/slash) module, if you need forward slashes - like for constructing URLs - or ensure your code works with either.
-1. Bash: Not every Windows developer has a terminal that fully supports Bash, so it's generally preferred to write [scripts](/script) in JavaScript instead of Bash.
-{"mode":"full","isActive":false}
