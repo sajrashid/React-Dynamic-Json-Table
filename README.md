@@ -8,6 +8,7 @@
 * 👀 [Demo Site](https://react-dj-table.netlify.app/)
 * 🖥️ [Sand Box](https://codesandbox.io/s/full-example-sematic-ui-editable-pageable-sortable-ylvfg)
 * 📝 [Code Quality Report](https://sonarcloud.io/summary/new_code?id=sajrashid_React-Dynamic-Json-Table)
+*  > note the sonar report is not showing the correct coverage value, use *Yarn Coverage* to generate a local report
 * 📋 [Changelog](./CHANGELOG.md)
 * ✨ [Contributing](./contributing.md)
 
