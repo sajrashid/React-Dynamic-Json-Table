@@ -4,18 +4,10 @@
 | ----------------------------------------------------------------------------- | ------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | ![Tests](https://github.com/github/docs/actions/workflows/test.yml/badge.svg) | 76.4%         | [![CodeFactor](https://www.codefactor.io/repository/github/sajrashid/react-dynamic-json-table/badge)](https://www.codefactor.io/repository/github/sajrashid/react-dynamic-json-table) | [![Maintainability Rating](https://sonarcloud.io/api/project_badges/measure?project=sajrashid_React-Dynamic-Json-Table&metric=sqale_rating)](https://sonarcloud.io/dashboard?id=sajrashid_React-Dynamic-Json-Table) | [![NPM](https://nodei.co/npm/react-dj-table.png?compact=true)](https://nodei.co/npm/react-dj-table/) | [![Netlify Status](https://api.netlify.com/api/v1/badges/ad1de4da-ad86-4c8f-a533-732539d451a7/deploy-status)](https://app.netlify.com/sites/react-dj-table/deploys) |
 
-
-- First item
-- Second item
-- Third item
-    - Indented item
-    - Indented item
-- Fourth item
-
 * 👀 [Demo Site](https://react-dj-table.netlify.app/)
 * 🖥️ [Sand Box](https://codesandbox.io/s/full-example-sematic-ui-editable-pageable-sortable-ylvfg)
 * 📝 [Code Quality Report](https://sonarcloud.io/summary/new_code?id=sajrashid_React-Dynamic-Json-Table)
-   - >note the sonar report is not showing the correct coverage value, use *Yarn Coverage* to generate a local report
+   - >The sonar report is not showing the correct coverage value, use *Yarn Coverage* to generate a local report
 * 📋 [Changelog](./CHANGELOG.md)
 * ✨ [Contributing](./contributing.md)
 
@@ -94,7 +86,7 @@ You got access to the reducers dispatch functions, state TBD (next patch release
 
 See Github discussions
 
-[Demo](https://react-dj-table.netlify.app/), Code-Sand-Box examples.
+[Demo](https://react-dj-table.netlify.app/) + Code-Sand-Box examples.
 
 ## Contributors ✨
 
