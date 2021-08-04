@@ -14,13 +14,13 @@ const FilterCols = ({ state, dispatch }) => {
 
     const onDualSliderChange = (e) => {
         let name = e.currentTarget.name
+        console.log(name)
         if (name.includes("Min")) {
             name = name.replace('Min', '')
             dispatch({ type: ACTIONS.DUALSLIDERCHANGE, payload: { name: name, value: e.currentTarget.value, type: 'min' } })
         } else {
             name = name.replace('Max', '')
             dispatch({ type: ACTIONS.DUALSLIDERCHANGE, payload: { name: name, value: e.currentTarget.value, type: 'max' } })
-
         }
     };
 
@@ -55,18 +55,13 @@ const FilterCols = ({ state, dispatch }) => {
                 }
                 if (filterCol[key].type === 'dualRange') {
 
-                    const minforMax = filterCol[key].min / 2;
-                    const maxforMin = filterCol[key].max / 2;
-
                     return <td key={key}>
-                        <label className="minlabel" for="minRange">
+                        <label className="minlabel" htmlFor="minRange">
                             {state.filterColobj[key].min}
                         </label>
                         <input
-                            name={key + "Min"}
+                            name={key + 'Min'}
                             type="range"
-                            min={filterCol[key].min}
-                            max={maxforMin}
                             onChange={onDualSliderChange}
                             value={state.filterColobj[key].min}
                         />
@@ -74,12 +69,12 @@ const FilterCols = ({ state, dispatch }) => {
                         <input
                             name={key + "Max"}
                             type="range"
-                            min={maxforMin}
-                            max={filterCol[key].max}
+                            min='0'
+                            max='1000'
                             onChange={onDualSliderChange}
                             value={state.filterColobj[key].max}
                         />
-                        <label className="maxLabel" for="maxRange">
+                        <label className="maxLabel" htmlFor="maxRange">
                             {state.filterColobj[key].max}
                         </label>
                     </td>

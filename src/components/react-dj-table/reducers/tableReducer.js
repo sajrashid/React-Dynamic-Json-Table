@@ -1,4 +1,4 @@
-import { compareValues, createInsertRow, fuzzySearchMutipleWords } from '../utils/utils'
+import { compareValues, createInsertRow, filterFunc, fuzzySearchMutipleWords } from '../utils/utils'
 
 import { ACTIONS } from './actions'
 
@@ -58,10 +58,8 @@ export const TableReducer = (state, action) => {
             else {
                 result = state.jsonCopy
             }
-            if (action.payload.search.searchFilters) {
-                state.searchString = action.payload.search.searchString
 
-            }
+            state.searchString = action.payload.search.searchString
 
             if (state.pageable) {
                 state.pageNo = 1
@@ -115,14 +113,29 @@ export const TableReducer = (state, action) => {
             state.crudBtns.btnDelete = false
             return { ...state }
         case ACTIONS.DUALSLIDERCHANGE:
-            //  console.log(state.filterColobj[action.payload.name].min)
-            //  console.log(state.filterColobj[action.payload.name].min)
             if (action.payload.type === 'min') {
+
                 state.filterColobj[action.payload.name].min = action.payload.value
 
             } else {
                 state.filterColobj[action.payload.name].max = action.payload.value
 
+            }
+
+            let j = filterFunc(
+                state.jsonCopy,
+                state.filterColobj[action.payload.name].min,
+                state.filterColobj[action.payload.name].max,
+                action.payload.name
+            );
+            if (state.pageable) {
+                state.pageNo = 1
+                state.json = (paginate(j, state.pageSize, 0))
+                state.totalPages = Math.ceil(j.length / state.pageSize)
+
+            } else {
+                state.json = result
+                state.totalPages = 1
             }
             // filter between 2 rnage values and return state
             return { ...state }

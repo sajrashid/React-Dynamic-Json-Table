@@ -60,6 +60,17 @@ const Table = (props) => {
                 if (obj[objName].type === 'dualRange') {
                     // set addtional state options
                     filterColobj[objName]['min'] = obj[objName].min
+                    filterColobj[objName]['max'] = obj[objName].max
+
+                }
+
+                if (obj[objName].type === 'text') {
+                    // set addtional state options
+                    console.log(filterColobj)
+                    console.log(obj)
+                    console.log(obj[objName])
+                    //filterColobj[obj]['searchString'] = obj[objName].min
+
                 }
             }
 
@@ -109,7 +120,7 @@ const Table = (props) => {
                             </td>
                         </tr>
                     }
-                    <tr> <FilterCols state={state} dispatch={dispatch} /></tr>
+                    <tr><FilterCols state={state} dispatch={dispatch} /></tr>
                     <tr ><Thead className={cssClasses} state={state} dispatch={dispatch}></Thead></tr>
                 </thead>
                 <tbody>

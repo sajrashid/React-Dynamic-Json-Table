@@ -94,4 +94,20 @@ export function fuzzySearchMutipleWords(
     (results, term) => matchSorter(results, term, { keys }),
     rows,
   )
+
+
 }
+
+export const filterFunc = (jsonCopy, min, max, col) => {
+  var newJson = [];
+  let mn = parseInt(min)
+  let mx = parseInt(max)
+  console.log(mn, mx)
+  for (let index = 0; index < jsonCopy.length; index++) {
+    if (jsonCopy[index][col] > mn && jsonCopy[index][col] < mx) {
+      newJson.push(jsonCopy[index]);
+    }
+  }
+  console.log(newJson.length)
+  return newJson
+};

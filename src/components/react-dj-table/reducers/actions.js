@@ -27,5 +27,7 @@ export const ACTIONS = {
     NOACTION: 'NOACTION',
     SETUPDATEACTION: 'setupdateaction',
     DUALSLIDERCHANGE: 'dualSligerChange',
-    RETURNSTATE: 'returnstate',
+    UPDATEA: "updateA",
+    UPDATEB: "updateB",
+    RETURNSTATE: "returnstate"
 }
