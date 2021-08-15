@@ -66,10 +66,20 @@ const Table = (props) => {
 
                 if (obj[objName].type === 'text') {
                     // set addtional state options
-                    console.log(filterColobj)
-                    console.log(obj)
-                    console.log(obj[objName])
-                    //filterColobj[obj]['searchString'] = obj[objName].min
+                    //obj[objName]['value'] = "yo"
+                    // console.log(objName)
+                    filterColobj[objName]['value'] = ''
+                    // filterColobj[obj] = {}
+                    // console.log(filterColobj)
+                    // filterColobj[obj][objName] = {}
+                    // console.log(filterColobj)
+
+                    // filterColobj[obj][objName]['value'] = ''
+                    //   console.log(filterColobj)
+                    //   filterColobj[obj][objName]['y'] = "n"
+                    // filterColobj[obj][objName]['y'] = {}
+                    //    filterColobj[objName]['searchString'] = ''
+                    // filterColobj[obj]['searchString'] = obj[objName].min
 
                 }
             }
@@ -87,7 +97,7 @@ const Table = (props) => {
     const initialState = {
         json: json, jsonCopy: props.json, options: options, pageable: pageable, selectedRow: {}, selectedRowCopy: null, selectedRowCss: selectedRowCss,
         sortDirection: sortDirection, pagerInput: pagerInput, pageSize: pageSize, pageSizeCopy: pageSize, totalPages: totalPages,
-        filterColobj: filterColobj, colspan: colspan, insertId: null, crudBtns: crudBtns, dataChanged: false, inserting: false, userAction: 'NOACTION', creating: false, editing: true, pageNo: pageNo, pagerIcons: pagerIcons, searchString: ''
+        jsonFiltered: json, filtered: false, filterColobj: filterColobj, colspan: colspan, insertId: null, crudBtns: crudBtns, dataChanged: false, inserting: false, userAction: 'NOACTION', creating: false, editing: true, pageNo: pageNo, pagerIcons: pagerIcons, searchString: ''
     }
     const [state, dispatch] = useReducer(TableReducer, initialState)
 

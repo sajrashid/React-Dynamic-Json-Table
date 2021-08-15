@@ -49,6 +49,32 @@ export const TableReducer = (state, action) => {
                 state.totalPages = (Math.ceil(state.json.length / state.pageSize))
             }
             return { ...state }
+        case ACTIONS.TEXTSEARCHCOL:
+            resetRows()
+            var result = null
+            let temp2Json = null
+            temp2Json = state.filtered ? state.jsonFiltered : state.jsonCopy
+
+
+            if (action.payload.search.searchString.length > 0) {
+                result = fuzzySearchMutipleWords(temp2Json, action.payload.search.columns, action.payload.search.searchString, action.payload.search.searchString)
+            }
+            else {
+                result = state.jsonCopy
+            }
+
+            state.filterColobj[[action.payload.search.columns][0]].value = action.payload.search.searchString
+
+            if (state.pageable) {
+                state.pageNo = 1
+                state.json = (paginate(result, state.pageSize, 0))
+                state.totalPages = Math.ceil(result.length / state.pageSize)
+
+            } else {
+                state.json = result
+                state.totalPages = 1
+            }
+            return { ...state }
         case ACTIONS.SEARCH:
             resetRows()
             var result = null
@@ -57,6 +83,7 @@ export const TableReducer = (state, action) => {
             }
             else {
                 result = state.jsonCopy
+                state.filtered = false
             }
 
             state.searchString = action.payload.search.searchString
@@ -70,6 +97,7 @@ export const TableReducer = (state, action) => {
                 state.json = result
                 state.totalPages = 1
             }
+            state.filtered = true
             return { ...state }
         case ACTIONS.GOTOPAGE:
             resetRows()
@@ -121,9 +149,12 @@ export const TableReducer = (state, action) => {
                 state.filterColobj[action.payload.name].max = action.payload.value
 
             }
+            let tempJson = null
+            tempJson = state.filtered ? state.jsonFiltered : state.jsonCopy
+
 
             let j = filterFunc(
-                state.jsonCopy,
+                tempJson,
                 state.filterColobj[action.payload.name].min,
                 state.filterColobj[action.payload.name].max,
                 action.payload.name
@@ -136,6 +167,11 @@ export const TableReducer = (state, action) => {
             } else {
                 state.json = result
                 state.totalPages = 1
+            }
+            if (state.filterColobj[action.payload.name].min <= 0 && state.filterColobj[action.payload.name].max >= 1000) {
+                state.filtered = false
+            } else {
+                state.filtered = true
             }
             // filter between 2 rnage values and return state
             return { ...state }

@@ -29,5 +29,6 @@ export const ACTIONS = {
     DUALSLIDERCHANGE: 'dualSligerChange',
     UPDATEA: "updateA",
     UPDATEB: "updateB",
+    TEXTSEARCHCOL: 'textSearchCol',
     RETURNSTATE: "returnstate"
 }

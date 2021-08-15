@@ -25,7 +25,7 @@ export default function Advanced() {
         selectedRowCss: "selectedRow",
         labelCols: [{ gender: 'Gender' }],
         // filterCols: [{ Avatar: { type: 'text' }, id: { type: 'range', min: 1, max: 11 }, IsRetired: { type: 'checkbox' } }],
-        filterCols: [{ Product: { type: 'text' }, Price: { type: 'dualRange', min: 1, max: 1000 }, last_name: { type: 'text' }, InStock: { type: 'checkbox' } }],
+        filterCols: [{ Product: { type: 'text' }, Price: { type: 'dualRange', min: 1, max: 1000 }, InStock: { type: 'checkbox' } }],
 
         footer: "<div class'myfooter'></div>",
         // eslint-disable-next-line no-template-curly-in-string

@@ -11,6 +11,9 @@ const FilterCols = ({ state, dispatch }) => {
         dispatch({ type: ACTIONS.SEARCH, payload: { search: { searchString: e.currentTarget.value, columns: [e.currentTarget.name] }, searchFilters: true } })
     }
 
+    const textSearchChange = (e) => {
+        dispatch({ type: ACTIONS.TEXTSEARCHCOL, payload: { search: { searchString: e.currentTarget.value, columns: [e.currentTarget.name] } } })
+    }
 
     const onDualSliderChange = (e) => {
         let name = e.currentTarget.name
@@ -35,7 +38,7 @@ const FilterCols = ({ state, dispatch }) => {
             if (filterCol) {
                 if (filterCol[key].type === 'text') {
                     return <td key={key}>
-                        <input className={cssClasses} name={key} id={"f" + key} onChange={searchFilterCh} placeholder={placeholder} type='text' value={cols[key]}></input>
+                        <input className={cssClasses} name={key} id={"f" + key} onChange={textSearchChange} placeholder={placeholder} type='text' value={filterCol[key].value}></input>
                     </td>
                 }
                 if (filterCol[key].type === 'number') {
