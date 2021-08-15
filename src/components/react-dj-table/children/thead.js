@@ -2,8 +2,10 @@ import { createMarkup, createMarkupLiteral } from '../utils/utils'
 
 import { ACTIONS } from '../reducers/actions'
 import React from "react"
+import { TableContext } from "../index";
 
-const Thead = ({ state, dispatch }) => {
+const Thead = () => {
+    const [state, dispatch] = React.useContext(TableContext);
     const options = state.options
     const hiddenColArr = options.hiddenCols || []
     const columns = Object.keys(state.jsonCopy[0]) || {}

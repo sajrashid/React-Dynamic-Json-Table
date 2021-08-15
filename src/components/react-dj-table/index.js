@@ -1,4 +1,4 @@
-import React, { useReducer } from 'react'
+import React, { createContext, useReducer } from 'react'
 
 import { ACTIONS } from './reducers/actions'
 import Crud from './children/crud'
@@ -11,7 +11,10 @@ import { TableReducer } from './reducers/tableReducer'
 import Thead from './children/thead'
 import { createMarkup } from './utils/utils'
 
+export const TableContext = createContext();
+
 const Table = (props) => {
+    // Create a provider for components to consume and subscribe to changes
     // setup initial state
     const options = props.options || {}
     let json = props.json || []
@@ -120,41 +123,44 @@ const Table = (props) => {
 
     return (
         <React.Fragment>
-            <table className={cssClasses}>
-                <thead>
-                    {
-                        searchable &&
-                        <tr>
-                            <td colSpan={colspan - hiddenColsCount} className={searchInputCss}>
-                                <GlobalSearch state={state} dispatch={dispatch} />
-                            </td>
-                        </tr>
-                    }
-                    <tr><FilterCols state={state} dispatch={dispatch} /></tr>
-                    <tr ><Thead className={cssClasses} state={state} dispatch={dispatch}></Thead></tr>
-                </thead>
-                <tbody>
-                    <Rows className={cssClasses} rowClick={rowClick} state={state} dispatch={dispatch} />
-                </tbody>
-                {footer &&
-                    <tfoot>
-                        <tr>
-                            <td colSpan={colspan - hiddenColsCount} dangerouslySetInnerHTML={createMarkup(footerHtml)} >
-                            </td>
-                        </tr>
-                    </tfoot>}
-            </table>
-            {
-                pageable &&
-                <div colSpan={colspan - hiddenColsCount} >
-                    <div className={pagerCss} >
-                        <Pager state={state} dispatch={dispatch} />
-                    </div>
-                </div>}
-            {
-                editable &&
-                <Crud state={state} dispatch={dispatch} rowClick={rowClick} />
-            }
+            <TableContext.Provider value={[state, dispatch]}>
+                <table className={cssClasses}>
+                    <thead>
+                        {
+                            searchable &&
+                            <tr>
+                                <td colSpan={colspan - hiddenColsCount} className={searchInputCss}>
+                                    <GlobalSearch />
+                                </td>
+                            </tr>
+                        }
+                        <tr><FilterCols /></tr>
+                        <tr ><Thead className={cssClasses} ></Thead></tr>
+                    </thead>
+                    <tbody>
+                        <Rows className={cssClasses} rowClick={rowClick} state={state} dispatch={dispatch} />
+                    </tbody>
+                    {footer &&
+                        <tfoot>
+                            <tr>
+                                <td colSpan={colspan - hiddenColsCount} dangerouslySetInnerHTML={createMarkup(footerHtml)} >
+                                </td>
+                            </tr>
+                        </tfoot>}
+                </table>
+                {
+                    pageable &&
+                    <div colSpan={colspan - hiddenColsCount} >
+                        <div className={pagerCss} >
+                            <Pager />
+                        </div>
+                    </div>}
+                {
+                    editable &&
+                    <Crud rowClick={rowClick} />
+                }
+            </TableContext.Provider>
+
         </React.Fragment>
     )
 }

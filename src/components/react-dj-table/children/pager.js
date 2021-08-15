@@ -1,8 +1,10 @@
 import { ACTIONS } from '../reducers/actions';
 import React from "react";
+import { TableContext } from "../index";
 import { createMarkup } from '../utils/utils'
 
-function Pager({ state, dispatch }) {
+function Pager() {
+    const [state, dispatch] = React.useContext(TableContext);
     const handleFocus = (e) => e.target.select();
 
     function handlePagingClick(e) {
@@ -27,11 +29,11 @@ function Pager({ state, dispatch }) {
         }
     }
 
-    const createShowOptions=()=>{
+    const createShowOptions = () => {
         const showOptions = []
-        if(state.pageSizeCopy <10 || state.jsonCopy.length < 10 ){
+        if (state.pageSizeCopy < 10 || state.jsonCopy.length < 10) {
             //use whichever is smaller either the pageszie or the arrat length
-            var size=null
+            var size = null
             size = state.pageSizeCopy < state.jsonCopy.length ? state.pageSizeCopy : state.jsonCopy.length
             showOptions.push(<option key="5" value={size}>Show {size}</option>)
         }
@@ -70,14 +72,14 @@ function Pager({ state, dispatch }) {
             if (key === 'first') {
                 disabled = state.pageNo < 2 ? true : false
                 return <React.Fragment key={index}>
-                    <button  data-content={key} disabled={disabled} key={index} id={key} onClick={handlePagingClick} dangerouslySetInnerHTML={createMarkup(html)}></button>
+                    <button data-content={key} disabled={disabled} key={index} id={key} onClick={handlePagingClick} dangerouslySetInnerHTML={createMarkup(html)}></button>
 
                 </React.Fragment>
             }
 
             if (key === 'previous') {
                 disabled = state.pageNo < 2 ? true : false
-                return <button  data-content={key} disabled={disabled} key={index} id={key} onClick={handlePagingClick} dangerouslySetInnerHTML={createMarkup(html)}></button>
+                return <button data-content={key} disabled={disabled} key={index} id={key} onClick={handlePagingClick} dangerouslySetInnerHTML={createMarkup(html)}></button>
 
             }
 
@@ -92,12 +94,12 @@ function Pager({ state, dispatch }) {
                 disabled = state.pageNo === state.totalPages ? true : false
                 return <React.Fragment key={index}>
                     <button data-content={key} disabled={disabled} id={key} onClick={handlePagingClick} dangerouslySetInnerHTML={createMarkup(html)}></button>
-                    <div key={key+index}>Go to page<input  data-content='page no' onFocus={handleFocus} onChange={pagingInputChange} value={state.pagerInput} type="number" /></div>
+                    <div key={key + index}>Go to page<input data-content='page no' onFocus={handleFocus} onChange={pagingInputChange} value={state.pagerInput} type="number" /></div>
 
                     <div key={`${key}${index}last`} className="numberOfPages">
                         {state.pageNo}&nbsp;of&nbsp;{state.totalPages}&nbsp;pages
                     </div>
-                    <div key={key+"last"}>
+                    <div key={key + "last"}>
                         <select data-content='items per page' onChange={itemsPerPageInputChange} type="number" max="10000" value={state.pageSize} >
                             {createShowOptions()}
                         </select >

@@ -1,8 +1,10 @@
 import { ACTIONS } from '../reducers/actions'
 import Cells from './cells'
 import React from "react"
+import { TableContext } from "../index";
 
-const Rows = ({ state, dispatch, rowClick }) => {
+const Rows = ({ rowClick }) => {
+    const [state, dispatch] = React.useContext(TableContext);
     const options = state.options || {}
     const styles = options.rowCss || ''
     const selectedRowCss = options.selectedRowCss || ''
@@ -18,7 +20,7 @@ const Rows = ({ state, dispatch, rowClick }) => {
                 selectedRow = row
             }
         });
-  
+
         const isRowSelected = e.currentTarget.classList.contains('selected')
 
         if (!isRowSelected) {
@@ -40,9 +42,9 @@ const Rows = ({ state, dispatch, rowClick }) => {
                     rowClick(selectedRow, state.selectedRowCopy, "VALIDATE")
                 } else {
 
-                        dispatch({ type: ACTIONS.SELECTEDROW, payload: { row: selectedRow } })
-                        rowClick(selectedRow, null, "SELECT")
-                        dispatch({ type: ACTIONS.CREATESELECTEDROWCOPY, payload: { row: selectedRow } })
+                    dispatch({ type: ACTIONS.SELECTEDROW, payload: { row: selectedRow } })
+                    rowClick(selectedRow, null, "SELECT")
+                    dispatch({ type: ACTIONS.CREATESELECTEDROWCOPY, payload: { row: selectedRow } })
 
                 }
             }
@@ -55,11 +57,11 @@ const Rows = ({ state, dispatch, rowClick }) => {
         return state.json.map((row, index) => {
             const rowId = row[Object.keys(row)[idColIdx]] // eslint-disable-next-line
             if (state.selectedRow === row && isEditable === true) {
-                return <tr  key={index} className={state.selectedRow === row ? `${cssClasses}` : ""} id={rowId} onClick={handleRowClick} >
+                return <tr key={index} className={state.selectedRow === row ? `${cssClasses}` : ""} id={rowId} onClick={handleRowClick} >
                     <Cells dispatch={dispatch} state={state} row={row} editable={true} />
                 </tr>
             } else {
-                return <tr   key={index} className={state.selectedRow === row ? `${cssClasses}` : ""} id={rowId} onClick={handleRowClick} >
+                return <tr key={index} className={state.selectedRow === row ? `${cssClasses}` : ""} id={rowId} onClick={handleRowClick} >
                     <Cells dispatch={dispatch} state={state} row={row} editable={false} />
                 </tr>
             }

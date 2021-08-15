@@ -1,8 +1,9 @@
 import { ACTIONS } from "../reducers/actions"
 import React from "react"
+import { TableContext } from "../index";
 
-function GlobalSearch({ state, dispatch }) {
-
+function GlobalSearch() {
+    const [state, dispatch] = React.useContext(TableContext);
     const placeholder = ` search ${state.jsonCopy.length} records`
 
     const searchFilterChange = (e) => {

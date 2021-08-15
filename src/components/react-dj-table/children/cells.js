@@ -1,6 +1,7 @@
 import { ACTIONS } from '../reducers/actions'
 import PropTypes from "prop-types"
 import React from "react"
+import { TableContext } from "../index";
 import { createMarkupLiteral } from '../utils/utils'
 
 /**
@@ -16,7 +17,8 @@ import { createMarkupLiteral } from '../utils/utils'
  *   <Cells />
  * )
  */
-const Cells = ({ state, dispatch, row, editable }) => {
+const Cells = ({ row, editable }) => {
+    const [state, dispatch] = React.useContext(TableContext);
     const options = state.options
     const styles = options.cellCss || ''
     const cssClasses = ` ${styles}`

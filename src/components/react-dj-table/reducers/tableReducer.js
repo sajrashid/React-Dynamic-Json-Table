@@ -62,7 +62,7 @@ export const TableReducer = (state, action) => {
             else {
                 result = state.jsonCopy
             }
-
+            state.jsonFiltered = result
             state.filterColobj[[action.payload.search.columns][0]].value = action.payload.search.searchString
 
             if (state.pageable) {

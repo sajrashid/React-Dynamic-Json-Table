@@ -1,7 +1,9 @@
 import { ACTIONS } from "../reducers/actions"
 import React from "react"
+import { TableContext } from "../index";
 
-const FilterCols = ({ state, dispatch }) => {
+const FilterCols = () => {
+    const [state, dispatch] = React.useContext(TableContext);
     const options = state.options
     const customFilterColArr = options.filterCols || []
     const columns = state.filterColobj
